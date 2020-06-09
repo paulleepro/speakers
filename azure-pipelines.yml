@@ -1,0 +1,117 @@
+variables: 
+  - group: 'directus'
+  - name: content-api-url
+    value: https://speakers.edigital.dev/api
+
+trigger:
+- master
+
+#schedules:
+#- cron: "*/15 * * * *"
+#  displayName: Fifteen minute content build
+#  branches:
+#    include:
+#    - master 
+#  always: true  
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+stages:
+  - stage: StagingDeploy  
+    displayName: "Deploy To Staging"
+    jobs:
+      - job: Build
+        steps:
+          - task: NodeTool@0
+            displayName: 'Install Node.js'
+            inputs:
+              versionSpec: '10.x'
+          - script: |
+              yarn
+              if [ $? -ne 0 ]; then
+                  exit 1
+              fi
+            displayName: 'yarn install'          
+          - script: |   
+              yarn build
+              if [ $? -ne 0 ]; then
+                  exit 1
+              fi  
+            displayName: 'Build deployable package'            
+          - publish: $(Build.Repository.LocalPath)/build
+            artifact: StagingWebApp
+      - deployment: StagingDeploy
+        displayName: "Deploy"
+        pool: 
+          vmImage: 'ubuntu-latest'
+        environment: 'speakers-edigital-dev'
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+              - download: current
+                artifact: StagingWebApp
+              - task: S3Upload@1
+                displayName: 'Upload yarn build output to S3 bucket'
+                inputs:
+                  awsCredentials: 'CDP AWS Subscription'
+                  regionName: 'us-east-2'
+                  bucketName: 'endvr-stg-speakers'
+                  sourceFolder: '$(Pipeline.Workspace)/StagingWebApp'
+                  globExpressions: '**'                              
+                  filesAcl: 'public-read'
+  
+  - stage: ProductionDeploy  
+    displayName: "Deploy To Production"
+    dependsOn:
+      - StagingDeploy
+    jobs:
+      - job: Build
+        steps:
+          - task: NodeTool@0
+            displayName: 'Install Node.js'
+            inputs:
+              versionSpec: '10.x'
+          - script: |
+              yarn
+              if [ $? -ne 0 ]; then
+                  exit 1
+              fi
+            displayName: 'yarn install'          
+          - script: |   
+              yarn build
+              if [ $? -ne 0 ]; then
+                  exit 1
+              fi  
+            displayName: 'Build deployable package'                    
+          - publish: $(Build.Repository.LocalPath)/build
+            artifact: ProductionWebApp
+      - deployment: ProductionDeploy
+        displayName: "Deploy"
+        pool: 
+          vmImage: 'ubuntu-latest'
+        environment: 'speakers-prod'
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+              - download: current
+                artifact: ProductionWebApp
+              - task: S3Upload@1
+                displayName: 'Upload yarn build output to S3 bucket'
+                inputs:
+                  awsCredentials: 'CDP AWS Subscription'
+                  regionName: 'us-west-2'
+                  bucketName: 'endeavor-speakers'
+                  sourceFolder: '$(Pipeline.Workspace)/ProductionWebApp'
+                  globExpressions: '**'          
+                  filesAcl: 'public-read'
+              # - task: AWSCLI@1
+              #   displayName: 'Invalidate CDN caching of index.html'
+              #   inputs:
+              #     awsCredentials: 'CDP AWS Subscription'
+              #     regionName: 'us-west-2'
+              #     awsCommand: 'cloudfront'
+              #     awsSubCommand: 'create-invalidation'   
+              #     awsArguments: '--distribution-id ESRTY546EVO4C --paths "/index.html"'

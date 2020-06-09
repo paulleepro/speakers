@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { Box, Text, BoxProps } from "react-basic-blocks";
-import { StatusCritical } from "grommet-icons";
+import ErrorOutlineIcon from "@material-ui/icons/ErrorOutline";
 
 type Props = BoxProps & {
   icon?: JSX.Element;
@@ -11,11 +11,11 @@ type Props = BoxProps & {
 const ErrorNotice: FC<Props> = ({
   icon,
   message = "Something went wrong",
-  color = "black",
+  color = "white",
   ...props
 }) => (
   <Box padding="40px" alignItems="center" justifyContent="center" {...props}>
-    {icon ? icon : <StatusCritical size="large" color={color} />}
+    {icon ? icon : <ErrorOutlineIcon fontSize="large" style={{ color }} />}
     <Text fontSize="medium" margin="20px 0" color={color}>
       {message}
     </Text>

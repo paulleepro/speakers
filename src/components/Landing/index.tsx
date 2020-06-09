@@ -1,20 +1,27 @@
-import React, { FC, useState } from "react";
-import { Box, Text } from "react-basic-blocks";
-import Tabs from "components/Tabs";
-
-const tabValues = ["Tab 1", "Tab 2"];
+import React, { FC } from "react";
+import HeroMedium from "./HeroMedium";
+import { LandingWrapper } from "./styles";
+import { Visible } from "react-grid-system";
+import Explore from "./Explore";
+import CustomizeEvent from "./CustomizeEvent";
+import HowItWorks from "./HowItWorks";
+import StarPower from "components/StarPower";
+import HeroSmall from "./HeroSmall";
 
 const Landing: FC = () => {
-  const [activeTab, setActiveTab] = useState<string>(tabValues[0]);
   return (
-    <Box margin="0 20px">
-      <Tabs
-        activeTab={activeTab}
-        setActiveTab={setActiveTab}
-        values={tabValues}
-      />
-      <Text fontSize="32px">Dashboard</Text>
-    </Box>
+    <LandingWrapper>
+      <Visible md lg>
+        <HeroMedium />
+      </Visible>
+      <Visible xs sm>
+        <HeroSmall />
+      </Visible>
+      <Explore />
+      <CustomizeEvent />
+      <HowItWorks />
+      <StarPower />
+    </LandingWrapper>
   );
 };
 

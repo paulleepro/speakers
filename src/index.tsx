@@ -3,34 +3,20 @@ import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import GlobalStyles from "styles/global-styles";
 import App from "App";
+import { ScreenClassProvider } from "react-grid-system";
+import { setConfiguration } from "react-grid-system";
 
-// import makeApolloClient from "graphql/utils/make-apollo-client";
-// import { ApolloProvider } from "@apollo/react-apollo";
-// const client = makeApolloClient({
-//   http: {
-//     uri: process.env.REACT_APP_GRAPHQL_ENDPOINT as string,
-//     credentials: "include"
-//   },
-//   ws: {
-//     uri: process.env.REACT_APP_GRAPHQL_ENDPOINT_WS as string,
-//     config: { reconnect: true }
-//   }
-// });
-
-// ReactDOM.render(
-//   <ApolloProvider client={client}>
-//       <Router>
-//         <GlobalStyles />
-//         <App />
-//       </Router>
-//   </ApolloProvider>,
-//   document.getElementById("root")
-// );
+setConfiguration({
+  gutterWidth: 24,
+  breakpoints: [767, 1023, 1439, 1600, 2000],
+});
 
 ReactDOM.render(
   <Router>
     <GlobalStyles />
-    <App />
+    <ScreenClassProvider>
+      <App />
+    </ScreenClassProvider>
   </Router>,
   document.getElementById("root")
 );

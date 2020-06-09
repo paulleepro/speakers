@@ -4,8 +4,12 @@ import { Box } from "react-basic-blocks";
 import { Route, Switch } from "react-router";
 import AppHeader from "components/AppHeader";
 import Landing from "components/Landing";
-import Assets from "components/Assets";
 import Footer from "components/Footer";
+import HowItWorks from "components/HowItWorks";
+import Explore from "components/Explore";
+import Talent from "components/Talent";
+import TalentBooking from "components/TalentBooking";
+import Confirmation from "components/Confirmation";
 
 const Wrapper = styled.div`
   display: flex;
@@ -19,7 +23,6 @@ const Wrapper = styled.div`
     flex-direction: column;
     flex: 1;
     width: 100%;
-    max-width: 1440px;
   }
 `;
 
@@ -29,7 +32,15 @@ const App = (): ReactElement => (
       <AppHeader />
       <div className="max-width-container">
         <Switch>
-          <Route path="/assets" component={Assets} exact />
+          <Route
+            path="/talent/:slug/confirmation"
+            component={Confirmation}
+            exact
+          />
+          <Route path="/talent/:slug/booking" component={TalentBooking} exact />
+          <Route path="/talent/:slug" component={Talent} exact />
+          <Route path="/explore" component={Explore} exact />
+          <Route path="/how-it-works" component={HowItWorks} exact />
           <Route path="/" component={Landing} exact />
 
           <Route render={() => <Box padding="20px">Not found</Box>} />

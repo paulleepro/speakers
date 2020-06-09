@@ -23,7 +23,9 @@ const GlobalStyle = createGlobalStyle`
 		padding: 0;
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
-		font-family: 'Nunito Sans', serif;
+		font-family: acumin-pro;
+		background-color: #000;
+		color: #FFFFFF;
 	}
 	
 	#root {
@@ -35,6 +37,11 @@ const GlobalStyle = createGlobalStyle`
 	h1,h2,h3,h4,h5,h6 {
 		margin-top: 0;
 	}
+
+	a {
+		text-decoration: none;
+	}
+}
 `;
 
 export default GlobalStyle;

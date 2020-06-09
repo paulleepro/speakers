@@ -1,5 +1,7 @@
 import React, { FC } from "react";
-import { Box, Text } from "react-basic-blocks";
+import { Box } from "react-basic-blocks";
+import styled from "styled-components";
+import colors from "styles/colors";
 
 interface ITabProps {
   label: string;
@@ -7,37 +9,56 @@ interface ITabProps {
   onClick: () => void;
 }
 
+const StyledContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  max-width: 100%;
+  overflow-x: scroll;
+  div + div {
+    margin-left: 30px;
+  }
+`;
+
+const StyledText = styled.span`
+  font-size: 24px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: 0.3px;
+  margin-bottom: 5px;
+  padding: 0 5px;
+  white-space: nowrap;
+`;
+
 const Tab: FC<ITabProps> = ({ label, active, onClick }) => (
   <Box
-    margin="medium"
-    borderBottom={active ? "2px solid red" : undefined}
+    borderBottom={active ? `2px solid ${colors.primaryPurple}` : undefined}
     onClick={onClick}
     cursor="pointer"
   >
-    <Text fontSize="18px" fontWeight={200} margin="0 0 10px 0">
-      {label}
-    </Text>
+    <StyledText>{label}</StyledText>
   </Box>
 );
 
 interface TabProps {
-  activeTab: string;
-  setActiveTab: React.Dispatch<React.SetStateAction<string>>;
+  activeTab: number;
+  setActiveTab: React.Dispatch<React.SetStateAction<number>>;
   values: string[];
 }
 
 const Tabs: FC<TabProps> = ({ activeTab, setActiveTab, values }) => {
   return (
-    <Box flexDirection="row" justifyContent="space-around">
-      {values.map((tabValue) => (
+    <StyledContainer>
+      {values.map((tabValue, i) => (
         <Tab
           key={`tab_${tabValue}`}
           label={tabValue}
-          active={activeTab === tabValue}
-          onClick={() => setActiveTab(tabValue)}
+          active={activeTab === i}
+          onClick={() => setActiveTab(i)}
         />
       ))}
-    </Box>
+    </StyledContainer>
   );
 };
 
