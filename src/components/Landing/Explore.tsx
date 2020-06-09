@@ -80,8 +80,8 @@ const Explore: FC = () => {
     return <ErrorNotice />;
   }
 
-  // @ts-ignore
   const currentTalent = data.data.filter((x) =>
+    // @ts-ignore
     tabValues[tabs[activeTab]]?.includes(x.slug)
   );
 
