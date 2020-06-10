@@ -45,10 +45,7 @@ const OurEvents: FC = () => {
               justifyContent="center"
               border="1px solid #2a2a2a"
             >
-              <StyledImage
-                src="https://townsquare.media/site/942/files/2020/04/GettyImages-1203242170.jpg?w=980&q=75"
-                borderRadius="12px"
-              />
+              <StyledImage src="/images/kevin.png" borderRadius="12px" />
             </Box>
           </Col>
         </Row>
