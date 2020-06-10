@@ -12,14 +12,24 @@ const optionsSchema = yup
     event_state: yup.string(),
     event_city: yup.string(),
     budget_currency: yup.string().required(),
-    budget_min_cents: yup.number().required("Min Budget is required"),
-    budget_max_cents: yup.number().required("Max Budget is required"),
+    budget_min_cents: yup
+      .number()
+      .typeError("Budget Min must be a number")
+      .required("Min Budget is required"),
+    budget_max_cents: yup
+      .number()
+      .typeError("Budget Max must be a number")
+      .required("Max Budget is required"),
     event_theme: yup.string().required("Theme is required"),
+    notes: yup.string(),
   })
   .required();
 
 export const validationSchema = yup.object().shape({
   talent_id: yup.string().required(),
   options: optionsSchema,
-  notes: yup.string(),
+  user_id: yup
+    .string()
+    .email("Invalid email address")
+    .required("Your email is required"),
 });

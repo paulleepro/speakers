@@ -2,29 +2,17 @@ import React, { FC } from "react";
 import { HeaderText, DescriptionText } from "styles/components";
 import { Container, Row, Col, Visible } from "react-grid-system";
 import { Box } from "react-basic-blocks";
-import { fetchSingle } from "fetch-hooks-react";
-import { IListResult, ITalent } from "types";
-import Loader from "components/Loader";
-import { config } from "config";
-import ErrorNotice from "components/ErrorNotice";
 import SpeakerCard from "components/SpeakerCard";
 import SwipeableCards from "components/shared/SwipeableCards";
+import { ITalent, IListResult } from "types";
+import { config } from "config";
 
 interface IProps {
   categoryName: string;
+  data: IListResult<ITalent>;
 }
 
-const CategoryPreview: FC<IProps> = ({ categoryName }) => {
-  const { data, error, isLoading } = fetchSingle<IListResult<ITalent>>(
-    `${config.speakersTalentUrl}/v1/talents?limit=4&where=types.name:like:${categoryName}`
-  );
-
-  if (isLoading) {
-    return <Loader />;
-  } else if (error || !data) {
-    return <ErrorNotice />;
-  }
-
+const CategoryPreview: FC<IProps> = ({ categoryName, data }) => {
   return (
     <div>
       <Container fluid>
@@ -44,7 +32,12 @@ const CategoryPreview: FC<IProps> = ({ categoryName }) => {
         <Row>
           <Visible md lg sm>
             {data.data.map((x, i) => (
-              <Col offset={{ lg: i === 0 ? 1 : 0 }} xs={3} lg={2.5}>
+              <Col
+                offset={{ lg: i === 0 ? 1 : 0 }}
+                xs={3}
+                lg={2.5}
+                key={`speaker-${categoryName.replace(/ /g, "-")}-${i}`}
+              >
                 <SpeakerCard
                   slug={x.slug}
                   imageUrl={`${config.imageProxyUrl}${x.media.images[0]?.url}`}

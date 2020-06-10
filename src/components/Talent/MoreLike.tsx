@@ -1,13 +1,33 @@
 import React, { FC } from "react";
+import { Link } from "react-router-dom";
+import { fetchSingle } from "fetch-hooks-react";
+import Loader from "components/Loader";
 import { Container, Row, Col } from "react-grid-system";
 import { HeaderText, Button } from "styles/components";
 import { Box } from "react-basic-blocks";
+import { config } from "config";
+import { IListResult, ITalent } from "types";
+import SpeakerCard from "components/SpeakerCard";
 
 interface IProps {
   name: string;
+  types: string[];
 }
 
-const MoreLike: FC<IProps> = ({ name }) => {
+const MoreLike: FC<IProps> = ({ name, types }) => {
+  const typesQuery = types
+    .map((x) => `&whereSome=types.name:exact:${x}`)
+    .join("");
+
+  const { data, error, isLoading } = fetchSingle<IListResult<ITalent>>(
+    `${config.speakersTalentUrl}/v1/talents?limit=4&fields=id,name,slug,media,types,titles${typesQuery}`
+  );
+
+  if (isLoading) {
+    return <Loader />;
+  } else if (error || !data) {
+    return null;
+  }
   return (
     <Container fluid>
       <Row>
@@ -18,23 +38,29 @@ const MoreLike: FC<IProps> = ({ name }) => {
         </Col>
       </Row>
       <Row>
-        <Col offset={{ lg: 1 }} xs={6} md={3} lg={2.5}>
-          <div></div>
-        </Col>
-        <Col xs={6} md={3} lg={2.5}>
-          <div></div>
-        </Col>
-        <Col xs={6} md={3} lg={2.5}>
-          <div></div>
-        </Col>
-        <Col xs={6} md={3} lg={2.5}>
-          <div></div>
-        </Col>
+        {data.data.map((x, i) => (
+          <Col
+            key={`more-like-${i}`}
+            offset={{ lg: i === 0 ? 1 : 0 }}
+            xs={6}
+            md={3}
+            lg={2.5}
+          >
+            <SpeakerCard
+              slug={x.slug}
+              name={x.name}
+              imageUrl={x.media.images[0]?.url}
+              description={x.titles[0]}
+            />
+          </Col>
+        ))}
       </Row>
       <Row>
         <Col>
           <Box alignItems="center">
-            <Button margin="40px 0">Explore All</Button>
+            <Link to="/explore">
+              <Button margin="40px 0">Explore All</Button>
+            </Link>
           </Box>
         </Col>
       </Row>

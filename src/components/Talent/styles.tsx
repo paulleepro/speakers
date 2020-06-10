@@ -15,3 +15,13 @@ export const AccordionTextBox = styled.div<{ height: string }>`
   ${(props) => (props.height !== "auto" ? "margin-top: 10px;" : "")};
   overflow: hidden;
 `;
+
+export const BookTalentWrapper = styled.div`
+  border-top: solid 1px ${colors.purpleLiner};
+  border-bottom: solid 1px ${colors.purpleLiner};
+  background-image: linear-gradient(
+    to bottom,
+    #000000 30%,
+    rgba(34, 30, 41, 0.5)
+  );
+`;

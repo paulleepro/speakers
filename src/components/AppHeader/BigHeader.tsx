@@ -21,7 +21,9 @@ const BigHeader: FC = () => {
       </Box>
 
       <Box flexDirection="row" alignItems="center">
-        <SearchIcon style={{ color: colors.lightGrey }} />
+        <Link to="/explore">
+          <SearchIcon style={{ color: colors.lightGrey }} />
+        </Link>
         <Link to="/how-it-works">
           <LinkText>How it Works</LinkText>
         </Link>

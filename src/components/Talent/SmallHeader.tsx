@@ -14,6 +14,7 @@ import { ITalent } from "types";
 import { Box } from "react-basic-blocks";
 import { Link } from "react-router-dom";
 import { config } from "config";
+import { getHighlight } from "./MediumHeader";
 
 interface IProps {
   talent: ITalent;
@@ -41,12 +42,12 @@ const SmallHeader: FC<IProps> = ({ talent }) => {
               height={417}
             />
             <Link to={`/talent/${slug}/booking`}>
-              <Button margin="40px 0 0 0">Book Today</Button>
+              <Button margin="40px 0 0 0" width="100%">
+                Book Today
+              </Button>
             </Link>
             <DescriptionText>
-              {ReactHtmlParser(
-                highlights.split("</p>")[0]?.trim().replace(/<p>/g, "")
-              )}
+              {ReactHtmlParser(getHighlight(highlights))}
             </DescriptionText>
             <Box margin="40px 0">
               <AvailableFor />

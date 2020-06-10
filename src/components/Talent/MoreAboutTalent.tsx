@@ -54,7 +54,7 @@ const MoreAboutTalent: FC<IProps> = ({ name, reviews }) => {
             <StyledUl color={colors.white}>
               {reviews.map((x, i) => (
                 <li key={`review-${i}`}>
-                  <DescriptionText color={colors.white}>
+                  <DescriptionText color={colors.white} noCenterAlign>
                     {x.attribution}
                   </DescriptionText>
                 </li>

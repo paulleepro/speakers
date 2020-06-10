@@ -49,9 +49,11 @@ const Bio: FC<IProps> = ({ highlights, details }) => {
     <Container fluid>
       <Row>
         <Col offset={{ lg: 1 }} md={12} lg={10}>
-          <Box margin="80px 0 30px">
-            <HeaderText>Full Biography</HeaderText>
-          </Box>
+          <div id="highlights">
+            <Box margin="80px 0 30px">
+              <HeaderText>Full Biography</HeaderText>
+            </Box>
+          </div>
         </Col>
         <Col offset={{ lg: 1 }} md={12} lg={10}>
           <AccordionItem

@@ -8,7 +8,10 @@ export const SectionWrapper = styled(Box)`
   width: 100%;
 `;
 
-export const VirtualText = styled.span<{ margin?: string }>`
+export const VirtualText = styled.span<{
+  margin?: string;
+  noCenterAlign?: boolean;
+}>`
   font-size: 18px;
   font-weight: bold;
   font-stretch: normal;
@@ -16,9 +19,55 @@ export const VirtualText = styled.span<{ margin?: string }>`
   line-height: 1.78;
   letter-spacing: 2px;
   padding-left: 13px;
-  border-left: 4px solid ${colors.primaryPurple};
   display: block;
   margin: ${(props) => props.margin || "0px"};
+
+  ::before {
+    width: 0;
+    height: 0;
+    border-right: 3px solid ${colors.primaryPurple};
+    border-top: 8px solid ${colors.primaryPurple};
+    border-bottom: 6px solid ${colors.primaryPurple};
+    content: "";
+    font-size: 0px;
+    vertical-align: middle;
+    margin-right: 10px;
+  }
+
+  @media (max-width: 1024px) {
+    text-align: ${(props) => (props.noCenterAlign ? "left" : "center")};
+  }
+`;
+
+export const ArrowLeftText = styled.span<{
+  margin?: string;
+  noCenterAlign?: boolean;
+}>`
+  font-size: 18px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.78;
+  letter-spacing: 2px;
+  padding-left: 0px;
+  display: block;
+  margin: ${(props) => props.margin || "0px"};
+
+  ::before {
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid ${colors.primaryPurple};
+    content: "";
+    font-size: 0px;
+    vertical-align: middle;
+    margin-right: 10px;
+  }
+
+  @media (max-width: 1024px) {
+    text-align: ${(props) => (props.noCenterAlign ? "left" : "center")};
+  }
 `;
 
 export const BigText = styled.span<{ margin?: string; color?: string }>`
@@ -91,11 +140,15 @@ export const HeaderText = styled.span<{ noCenterAlign?: boolean }>`
   }
 `;
 
-export const Divider = styled.div<{ width: string }>`
+export const Divider = styled.div<{ width: string; noCenterAlign?: boolean }>`
   background-color: ${colors.primaryPurple};
   height: 2px;
   width: ${(props) => props.width};
   margin: 30px 0;
+
+  @media (max-width: 1024px) {
+    align-self: ${(props) => (props.noCenterAlign ? "flex-start" : "center")};
+  }
 `;
 
 export const StyledImage = styled.img<{ borderRadius?: string }>`
@@ -107,9 +160,9 @@ export const StyledImage = styled.img<{ borderRadius?: string }>`
     props.borderRadius ? `border-radius: ${props.borderRadius};` : ""}
 `;
 
-export const Button = styled.button<{ margin?: string }>`
+export const Button = styled.button<{ margin?: string; width?: string }>`
   ${(props) => (props.margin ? `margin: ${props.margin};` : "")}
-  width: fit-content;
+  ${(props) => (props.width ? `width: ${props.width};` : "")}
   cursor: pointer;
   border-radius: 12px;
   background-color: ${colors.primaryPurple};
@@ -125,6 +178,10 @@ export const Button = styled.button<{ margin?: string }>`
   color: white;
   border: none;
   outline: none;
+
+  &:disabled{
+    background-color: ${colors.darkPurpleFill};
+  }
 `;
 
 export const StyledRow = styled(Row)<RowProps & { margin: string }>`

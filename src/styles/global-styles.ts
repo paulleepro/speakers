@@ -41,6 +41,11 @@ const GlobalStyle = createGlobalStyle`
 	a {
 		text-decoration: none;
 	}
+
+	fieldset {
+		outline: none;
+		border: none;
+	}
 }
 `;
 

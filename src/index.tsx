@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import GlobalStyles from "styles/global-styles";
 import App from "App";
+import ScrollToTop from "components/ScrollTop";
 import { ScreenClassProvider } from "react-grid-system";
 import { setConfiguration } from "react-grid-system";
 
@@ -14,6 +15,7 @@ setConfiguration({
 ReactDOM.render(
   <Router>
     <GlobalStyles />
+    <ScrollToTop />
     <ScreenClassProvider>
       <App />
     </ScreenClassProvider>

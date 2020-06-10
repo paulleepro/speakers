@@ -1,10 +1,12 @@
 import { config } from "config";
+import qs from "qs";
 
 export const onSubmit = (
   data: any,
   slug: string,
   setFormErrored: (val: boolean) => void,
-  push: (val: string) => void
+  push: (val: string) => void,
+  setSubmitting: (val: boolean) => void
 ) => {
   const options = {
     ...data.options,
@@ -12,6 +14,7 @@ export const onSubmit = (
     budget_min_cents: data.options.budget_min_cents * 100,
   };
   data = { ...data, options };
+  setSubmitting(true);
   fetch(`${config.speakersBookingUrl}/v1/booking-inquiry`, {
     method: "POST",
     body: JSON.stringify(data),
@@ -19,10 +22,13 @@ export const onSubmit = (
   })
     .then((res) => {
       if (res.ok) {
-        push(`/speaker/${slug}/confirmation`);
+        push(`/talent/${slug}/confirmation?${qs.stringify(data)}`);
       } else {
         setFormErrored(true);
       }
     })
-    .catch(() => setFormErrored(true));
+    .catch(() => {
+      setFormErrored(true);
+      setSubmitting(false);
+    });
 };

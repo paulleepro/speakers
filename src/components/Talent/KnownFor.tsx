@@ -16,7 +16,9 @@ const KnownFor: FC<IProps> = ({ bulletPoints }) => {
       <StyledUl>
         {bulletPoints.map((x, i) => (
           <li key={`bullet-point-${i}`}>
-            <DescriptionText color={colors.midGrey}>{x}</DescriptionText>
+            <DescriptionText color={colors.midGrey} noCenterAlign>
+              {x}
+            </DescriptionText>
           </li>
         ))}
       </StyledUl>

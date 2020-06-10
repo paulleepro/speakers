@@ -1,14 +1,17 @@
 import React, { FC, useState, useEffect, useRef } from "react";
-import { VirtualText, BigText } from "styles/components";
+import { VirtualText, BigText, ArrowLeftText } from "styles/components";
 import { Container, Row, Col } from "react-grid-system";
 import Tabs from "components/Tabs";
 import { scroller } from "react-scroll";
+import { Box } from "react-basic-blocks";
 
 interface IProps {
   tabs: string[];
+  hasSearchResults: boolean;
+  goBack: () => void;
 }
 
-const Title: FC<IProps> = ({ tabs }) => {
+const Title: FC<IProps> = ({ tabs, hasSearchResults, goBack }) => {
   const isFirstRun = useRef(true);
   const [activeTab, setActiveTab] = useState<number>(0);
   useEffect(() => {
@@ -24,6 +27,7 @@ const Title: FC<IProps> = ({ tabs }) => {
       smooth: true,
       offset: 0,
     });
+    // eslint-disable-next-line
   }, [activeTab]);
 
   return (
@@ -31,7 +35,13 @@ const Title: FC<IProps> = ({ tabs }) => {
       <Container fluid>
         <Row>
           <Col offset={{ lg: 1 }} md={12} lg={10}>
-            <VirtualText>Virtual Speakers</VirtualText>
+            {hasSearchResults ? (
+              <Box cursor="pointer" onClick={goBack}>
+                <ArrowLeftText>Go Back</ArrowLeftText>
+              </Box>
+            ) : (
+              <VirtualText>Virtual Speakers</VirtualText>
+            )}
             <BigText>Explore</BigText>
 
             <Tabs

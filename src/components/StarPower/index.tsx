@@ -25,7 +25,6 @@ const StarPower: FC = () => {
             </Box>
           </Col>
         </Row>
-        <Row />
       </Container>
     </Wrapper>
   );

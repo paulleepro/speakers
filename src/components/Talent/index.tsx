@@ -36,7 +36,7 @@ const Talent: FC = () => {
       <Bio highlights={data.bio_highlights} details={data.bio_details} />
       <MoreAboutTalent name={data.name} reviews={data.reviews} />
       <BookTalent name={data.name} slug={data.slug} />
-      <MoreLike name={data.name} />
+      <MoreLike name={data.name} types={data.types.map((x) => x.name)} />
     </div>
   );
 };

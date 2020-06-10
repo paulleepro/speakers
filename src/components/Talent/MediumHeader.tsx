@@ -14,10 +14,21 @@ import { Box } from "react-basic-blocks";
 import { ITalent } from "types";
 import { Link } from "react-router-dom";
 import { config } from "config";
+import colors from "styles/colors";
 
 interface IProps {
   talent: ITalent;
 }
+
+export const getHighlight = (str: string) => {
+  const res = str
+    .split("</p>")[0]
+    ?.trim()
+    .replace(/<p>/g, "")
+    .match(/.{1,350}(\s|$)/g);
+  const unescaped = res === null ? "" : res[0].slice(0, -1);
+  return `${unescaped}<span>… </span><a href="#highlights" style="color: ${colors.primaryPurple}">Read More</a>`;
+};
 
 const MediumHeader: FC<IProps> = ({ talent }) => {
   const {
@@ -39,7 +50,9 @@ const MediumHeader: FC<IProps> = ({ talent }) => {
               height={417}
             />
             <Link to={`/talent/${slug}/booking`}>
-              <Button margin="40px 0 0 0">Book Today</Button>
+              <Button margin="30px 0" width="100%">
+                Book Today
+              </Button>
             </Link>
           </Col>
           <Col offset={{ md: 1 }} lg={6} md={7}>
@@ -47,13 +60,7 @@ const MediumHeader: FC<IProps> = ({ talent }) => {
               <VirtualText>Featured</VirtualText>
               <BigText>{name}</BigText>
               <DescriptionText>
-                {ReactHtmlParser(
-                  highlights
-                    .split("</p>")[0]
-                    ?.trim()
-                    .replace(/<p>/g, "")
-                    .slice(0, 350)
-                )}
+                {ReactHtmlParser(getHighlight(highlights))}
               </DescriptionText>
             </Box>
           </Col>
