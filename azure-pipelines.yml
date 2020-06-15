@@ -107,11 +107,11 @@ stages:
                   sourceFolder: '$(Pipeline.Workspace)/ProductionWebApp'
                   globExpressions: '**'          
                   filesAcl: 'public-read'
-              # - task: AWSCLI@1
-              #   displayName: 'Invalidate CDN caching of index.html'
-              #   inputs:
-              #     awsCredentials: 'CDP AWS Subscription'
-              #     regionName: 'us-west-2'
-              #     awsCommand: 'cloudfront'
-              #     awsSubCommand: 'create-invalidation'   
-              #     awsArguments: '--distribution-id ESRTY546EVO4C --paths "/index.html"'
+              - task: AWSCLI@1
+                displayName: 'Invalidate CDN caching of index.html'
+                inputs:
+                  awsCredentials: 'CDP AWS Subscription'
+                  regionName: 'us-west-2'
+                  awsCommand: 'cloudfront'
+                  awsSubCommand: 'create-invalidation'   
+                  awsArguments: '--distribution-id ELPJK0DT806PY --paths "/index.html"'
