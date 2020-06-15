@@ -8,15 +8,9 @@
 
 # TODO
 
-## OVERALL
-- BG details
 
-
-## DATA
-- LANDING
-- EXPLORE
-
-
-## LANDING
-- HERO MOBILE
-- CUSTOMIZE SECTION SWIPE
+- Talent Video
+- Tab swipe
+- auth
+- cleanup category page "See All" link
+- Image Crossfade

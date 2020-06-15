@@ -4,12 +4,13 @@ import { BrowserRouter as Router } from "react-router-dom";
 import GlobalStyles from "styles/global-styles";
 import App from "App";
 import ScrollToTop from "components/ScrollTop";
-import { ScreenClassProvider } from "react-grid-system";
-import { setConfiguration } from "react-grid-system";
+import { ScreenClassProvider, setConfiguration } from "react-grid-system";
 
 setConfiguration({
   gutterWidth: 24,
   breakpoints: [767, 1023, 1439, 1600, 2000],
+  // @ts-ignore
+  maxScreenClass: "lg",
 });
 
 ReactDOM.render(

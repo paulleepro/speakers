@@ -1,27 +1,36 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import { Wrapper, MenuContainer } from "./styles";
 import { Link } from "react-router-dom";
 import MenuIcon from "@material-ui/icons/Menu";
 import colors from "styles/colors";
+import Sidebar from "components/Sidebar";
+import { IType } from "types";
 
-const SmallHeader: FC = () => {
-  const backgroundColor = colors.black;
+interface IProps {
+  types?: IType[];
+}
+
+const SmallHeader: FC<IProps> = ({ types }) => {
+  const [showSidebar, setShowSidebar] = useState<boolean>(false);
   return (
-    <Wrapper
-      flexDirection="row"
-      className="app-header"
-      justifyContent="center"
-      alignItems="center"
-      backgroundColor={backgroundColor}
-    >
-      <Link to="/">
-        <img src="/logo.png" width="139" height="22" alt="logo" />
-      </Link>
+    <>
+      <Sidebar show={showSidebar} setShow={setShowSidebar} types={types} />
+      <Wrapper
+        flexDirection="row"
+        className="app-header"
+        justifyContent="center"
+        alignItems="center"
+        backgroundColor={colors.black}
+      >
+        <Link to="/">
+          <img src="/logo.png" height="40" alt="logo" />
+        </Link>
 
-      <MenuContainer>
-        <MenuIcon style={{ color: colors.lightGrey }} />
-      </MenuContainer>
-    </Wrapper>
+        <MenuContainer onClick={() => setShowSidebar(true)}>
+          <MenuIcon style={{ color: colors.lightGrey }} />
+        </MenuContainer>
+      </Wrapper>
+    </>
   );
 };
 

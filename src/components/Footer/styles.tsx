@@ -1,23 +1,37 @@
 import styled from "styled-components";
-import { Box } from "react-basic-blocks";
 import { Link } from "react-router-dom";
+import colors from "styles/colors";
 
 export const FooterLink = styled(Link)`
-  font-weight: bold;
-  font-size: 14px;
+  font-weight: normal;
+  font-size: 16px;
   color: white;
   cursor: pointer;
   text-decoration: none;
+  margin-bottom: 24px;
+  letter-spacing: 0.2px;
+  display: block;
 `;
 
-export const LinkWrapper = styled(Box)`
-  margin: 0 30px;
-  a + a {
-    margin-left: 40px;
+export const InfoText = styled.span`
+  text-align: center;
+  font-weight: normal;
+  font-size: 16px;
+  color: ${colors.midGrey};
+  cursor: pointer;
+  text-decoration: none;
+  letter-spacing: 0.2px;
+
+  a {
+    color: ${colors.midGrey};
   }
 `;
 
-export const FooterWrapper = styled(Box)`
-  height: 150px;
-  background-color: #1d1d1d;
+export const ImageWrapper = styled.div`
+  display: flex;
+
+  @media (max-width: 1023px) {
+    justify-content: center;
+    margin: 20px 0;
+  }
 `;

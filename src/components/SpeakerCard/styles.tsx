@@ -33,4 +33,6 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 20px;
+  background-color: ${colors.purpleLiner};
+  border-radius: 20px;
 `;

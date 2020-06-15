@@ -2,9 +2,8 @@ import React, { FC } from "react";
 import { Box } from "react-basic-blocks";
 import { SpeakerName, SpeakerDesc, Wrapper } from "./styles";
 import colors from "styles/colors";
-import { StyledImage } from "styles/components";
 import { Link } from "react-router-dom";
-import PersonIcon from "@material-ui/icons/Person";
+import StyledImage from "components/StyledImage";
 
 interface IProps {
   name: string;
@@ -17,19 +16,13 @@ const SpeakerCard: FC<IProps> = ({ name, imageUrl, slug, description }) => {
   return (
     <Link to={`/talent/${slug}`}>
       <Wrapper>
-        {imageUrl ? (
-          <StyledImage
-            height="235"
-            borderRadius="20px 20px 0 0"
-            src={imageUrl}
-          />
-        ) : (
-          <Box alignItems="center" justifyContent="center">
-            <PersonIcon
-              style={{ color: colors.primaryPurple, fontSize: 250 }}
-            />
-          </Box>
-        )}
+        <StyledImage
+          fallbackSrc="/images/default-profile.svg"
+          height={235}
+          borderRadius="20px 20px 0 0"
+          src={imageUrl}
+          alt="speaker-card"
+        />
         <Box
           borderRadius="0 0 20px 20px"
           borderTop={`4px solid ${colors.primaryPurple}`}

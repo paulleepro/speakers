@@ -43,6 +43,7 @@ export const ArrowLeftText = styled.span<{
   margin?: string;
   noCenterAlign?: boolean;
 }>`
+  color: #fff;
   font-size: 18px;
   font-weight: bold;
   font-stretch: normal;
@@ -151,15 +152,6 @@ export const Divider = styled.div<{ width: string; noCenterAlign?: boolean }>`
   }
 `;
 
-export const StyledImage = styled.img<{ borderRadius?: string }>`
-  transition: all 0.3s ease-in-out;
-  width: 100%;
-  object-position: 50% 50%;
-  object-fit: cover;
-  ${(props) =>
-    props.borderRadius ? `border-radius: ${props.borderRadius};` : ""}
-`;
-
 export const Button = styled.button<{ margin?: string; width?: string }>`
   ${(props) => (props.margin ? `margin: ${props.margin};` : "")}
   ${(props) => (props.width ? `width: ${props.width};` : "")}
@@ -190,4 +182,19 @@ export const StyledRow = styled(Row)<RowProps & { margin: string }>`
 
 export const StyledCol = styled(Col)<ColProps & { margin: string }>`
   margin: ${(props) => props.margin};
+`;
+
+export const TopRightSemi = styled.div`
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40%;
+  height: 360px;
+  border-radius: 0 0 0 600px;
+  border-bottom: 1px solid ${colors.purpleLiner};
+
+  @media (max-width: 1024px) {
+    width: 60%;
+  }
 `;

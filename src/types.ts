@@ -74,3 +74,18 @@ export interface ISearchResult<T> {
   _score: number;
   _source: T;
 }
+
+export interface ISearch<T> {
+  hits: ISearchResult<T>[];
+}
+
+export interface IType {
+  name: string;
+  id: string;
+}
+
+export interface ITopic {
+  name: string;
+  id: string;
+  subtopics: IType[];
+}
