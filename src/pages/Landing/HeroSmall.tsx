@@ -8,6 +8,7 @@ import {
 import { Container, Row, Col } from "react-grid-system";
 import { Box } from "react-basic-blocks";
 import StyledImage from "components/StyledImage";
+import { Link } from "react-router-dom";
 
 interface IProps {
   heroDescriptor: string;
@@ -34,7 +35,9 @@ const HeroSmall: FC<IProps> = ({ heroDescriptor, imageUrl }) => {
                 business. Our high-profile speakers are available digitally for
                 your next corporate town hall, board meeting, or retreat.
               </DescriptionText>
-              <Button margin="40px 0 0 0">Explore Speakers</Button>
+              <Link to="/explore">
+                <Button margin="40px 0 0 0">Explore Speakers</Button>
+              </Link>
             </Box>
           </Col>
         </Row>

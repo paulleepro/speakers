@@ -7,6 +7,7 @@ import {
 } from "styles/components";
 import { Container, Row, Col } from "react-grid-system";
 import { HeroWrapper } from "./styles";
+import { Link } from "react-router-dom";
 
 interface IProps {
   heroDescriptor: string;
@@ -31,7 +32,9 @@ const HeroMedium: FC<IProps> = ({ heroDescriptor, imageUrl }) => {
               business. Our high-profile speakers are available digitally for
               your next corporate town hall, board meeting, or retreat.
             </DescriptionText>
-            <Button margin="40px 0 0 0">Explore Speakers</Button>
+            <Link to="/explore">
+              <Button margin="40px 0 0 0">Explore Speakers</Button>
+            </Link>
           </Col>
         </Row>
       </Container>

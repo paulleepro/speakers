@@ -35,4 +35,15 @@ export const Wrapper = styled.div`
   margin-top: 20px;
   background-color: ${colors.purpleLiner};
   border-radius: 20px;
+
+  animation: pulse 1.5s 1;
+
+  @keyframes pulse {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
 `;

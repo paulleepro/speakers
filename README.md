@@ -27,8 +27,8 @@ curl --silent --location --request POST 'http://localhost:3080/api/auth/v1/auth/
 
 # TODO
 
-- Talent Video
+
 - Tab swipe
-- auth
 - cleanup category page "See All" link
-- Image Crossfade
+
+- Talent Video
