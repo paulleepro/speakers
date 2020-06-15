@@ -19,6 +19,24 @@ curl --silent --location --request POST 'http://localhost:3080/api/auth/v1/auth/
 }' | base64
 ```
 
+## Auth usage
+
+```js
+// the eventHandler is specific to the app, should be kept in it's own file
+const auth = new Auth(eventHandler);
+auth.init();
+
+// password login example
+auth.passwordLogin("password").then((auth) => {
+  console.log(`Login: authenticated=${auth.isAuthenticated()}`);
+});
+
+// For future login page without KC template/iframe :)
+auth.login("manager@test.com", "password").then((auth) => {
+  console.log(`Login: authenticated=${auth.isAuthenticated()}`);
+});
+```
+
 ## Generate Component
 
 ```

@@ -2,6 +2,7 @@
 
 import Keycloak from "keycloak-js";
 import queryString from "query-string";
+import { config } from "config";
 
 export enum AuthEvents {
   INVITE_ERROR = "invite_error",
@@ -14,13 +15,14 @@ export enum AuthEvents {
 }
 
 export class Auth {
-  public keycloakProviderInitConfig: Keycloak.KeycloakInitOptions;
   public keycloak: Keycloak.KeycloakInstance;
-  public isAuthenticated = false;
   public userProfile: any;
 
+  private authenticated = false;
+  private keycloakConfig: any;
+  private currentToken: any = undefined;
+
   constructor(private eventHandler?: Function) {
-    this.keycloakProviderInitConfig = this.generateKeycloakInitOptions();
     this.keycloak = Keycloak({
       realm: process.env.ENDEAVOR_KEYCLOAK_REALM || "endeavor-speakers",
       url: process.env.ENDEAVOR_KEYCLOAK_URL || "http://localhost:30080/auth/",
@@ -29,45 +31,113 @@ export class Auth {
     });
   }
 
-  protected generateKeycloakInitOptions(): Keycloak.KeycloakInitOptions {
-    this.isAuthenticated = false;
+  public init() {
+    this.handleInvite();
+  }
 
-    const options: Keycloak.KeycloakInitOptions = {
-      onLoad: "check-sso" as Keycloak.KeycloakOnLoad,
-    };
+  public isAuthenticated(): boolean {
+    return this.authenticated;
+  }
 
-    const qs = queryString.parse(window.location.search);
+  public login(username: string, password: string) {
+    return fetch(`${config.speakersAuthUrl}/v1/auth/tokens/grant`, {
+      method: "POST",
+      body: JSON.stringify({ username, password, encode: "base64" }),
+      headers: { "Content-Type": "application/json" },
+    })
+      .then(async (res: any) => {
+        if (res.ok) {
+          const data = await res.json();
+          return this.initWithToken(data.token);
+        }
+      })
+      .catch(() => {
+        this.authenticated = false;
+      })
+      .then(() => {
+        return this;
+      });
+  }
+
+  public passwordLogin(password: string) {
+    return fetch(`${config.speakersAuthUrl}/v1/auth/tokens/password-auth`, {
+      method: "POST",
+      body: JSON.stringify({ password }),
+      headers: { "Content-Type": "application/json" },
+    })
+      .then(async (res: any) => {
+        if (res.ok) {
+          const data = await res.json();
+          return this.initWithToken(data.token);
+        }
+      })
+      .catch(() => {
+        this.authenticated = false;
+      })
+      .then(() => {
+        return this;
+      });
+  }
+
+  protected handleInvite() {
+    const qs: any = queryString.parse(window.location.search);
+
+    if (qs.invite === "jwt" && qs.token) {
+      return this.initWithToken(qs.token);
+    } else {
+      return false;
+    }
+  }
+
+  protected initWithToken(token: string) {
+    this.authenticated = false;
 
     try {
-      if (qs.invite === "jwt" && qs.token) {
-        const jsonToken: string = window.atob(qs.token as string);
-        const jwt = JSON.parse(jsonToken);
+      const jsonToken: string = window.atob(token);
+      const jwt = JSON.parse(jsonToken);
 
-        options.token = (jwt.token || jwt.access_token) as string;
-        options.refreshToken = (jwt.refreshToken ||
-          jwt.refresh_token) as string;
-        options.idToken = (jwt.idToken || jwt.id_token) as string;
-        options.redirectUri = window.location.href.split("?")[0];
-        options.enableLogging = true;
-        options.timeSkew = undefined;
+      const options: any = {
+        onLoad: "check-sso",
+        promiseType: "native",
+        token: (jwt.token || jwt.access_token) as string,
+        refreshToken: jwt.refreshToken || jwt.refresh_token,
+        idToken: (jwt.idToken || jwt.id_token) as string,
+        redirectUri: window.location.href.split("?")[0],
+        enableLogging: true,
+        timeSkew: undefined,
         // interval is in seconds and 5 is the default in the lib
-        options.checkLoginIframeInterval = process.env
+        checkLoginIframeInterval: process.env
           .ENDEAVOR_KEYCLOAK_TOKEN_REFRESH_INTERVAL
           ? Number(process.env.ENDEAVOR_KEYCLOAK_TOKEN_REFRESH_INTERVAL)
-          : 30;
+          : 30,
         // if we check login with Iframe it invalidates the token
-        options.checkLoginIframe = false;
-      }
+        checkLoginIframe: false,
+      };
+
+      this.keycloakConfig = options;
+
+      this.keycloak.onReady = this.onKeycloakEvent("onReady");
+      this.keycloak.onAuthSuccess = this.onKeycloakEvent("onAuthSuccess");
+      this.keycloak.onAuthError = this.onKeycloakErrorEvent("onAuthError");
+      this.keycloak.onAuthRefreshSuccess = this.onKeycloakEvent(
+        "onAuthRefreshSuccess"
+      );
+      this.keycloak.onAuthRefreshError = this.onKeycloakErrorEvent(
+        "onAuthRefreshError"
+      );
+      this.keycloak.onAuthLogout = this.onKeycloakEvent("onAuthLogout");
+      this.keycloak.onTokenExpired = this.onKeycloakRefreshToken(
+        "onTokenExpired"
+      );
+
+      return this.keycloak.init(options);
     } catch (error) {
-      // TODO: notify error?
       // console.log(`Error processing invite: ${error}`);
       if (this.eventHandler) {
         this.eventHandler(AuthEvents.INVITE_ERROR, { error }, this);
         this.eventHandler(AuthEvents.NOT_AUTHENTICATED, { error }, this);
       }
     }
-
-    return options;
   }
 
   // workaround for when we do not have the login Iframe refresh
@@ -76,7 +146,7 @@ export class Auth {
       this.keycloak
         .updateToken(0)
         .then((refreshed) => {
-          this.isAuthenticated = true;
+          this.authenticated = true;
 
           if (refreshed) {
             // console.log(">>> Token was successfully refreshed");
@@ -94,27 +164,44 @@ export class Auth {
           // console.log(
           //   "Failed to refresh the token, or the session has expired"
           // );
-          this.isAuthenticated = false;
+          this.authenticated = false;
           if (this.eventHandler) {
             this.eventHandler(AuthEvents.TOKEN_INVALID, {}, this);
           }
         });
-    }, (this.keycloakProviderInitConfig.checkLoginIframeInterval || 30) * 1000);
+    }, (this.keycloakConfig.checkLoginIframeInterval || 30) * 1000);
   };
 
-  public onKeycloakEvent = (event: any, error: any) => {
-    // console.log(`>>> EVENT: ${event} error=${error}`);
-    if (
-      event === "onReady" &&
-      this.keycloakProviderInitConfig.checkLoginIframe === false
-    ) {
+  private onKeycloakEvent = (event: string) => () => {
+    this.onKeycloakEventHandler(event);
+
+    if (this.keycloak.token !== this.currentToken) {
+      this.currentToken = this.keycloak.token;
+      this.onKeycloakTokens(this.currentToken);
+    }
+  };
+
+  private onKeycloakErrorEvent = (event: string) => (error?: any) => {
+    this.onKeycloakEventHandler(event, error);
+  };
+
+  private onKeycloakRefreshToken = (event: string) => () => {
+    this.onKeycloakEventHandler(event);
+
+    if (this.keycloakConfig.checkLoginIframe !== false) {
+      this.keycloak.updateToken(5);
+    }
+  };
+
+  private onKeycloakEventHandler = (event: any, error?: any) => {
+    if (event === "onReady" && this.keycloakConfig.checkLoginIframe === false) {
       this.keycloakRefreshToken();
     }
 
     switch (event) {
       case "onAuthSuccess":
       case "onAuthRefreshSuccess":
-        this.isAuthenticated = true;
+        this.authenticated = true;
 
         if (this.eventHandler) {
           this.eventHandler(AuthEvents.AUTHENTICATED, {}, this);
@@ -124,7 +211,9 @@ export class Auth {
       case "onAuthRefreshError":
       case "onTokenExpired":
       case "onAuthLogout":
-        this.isAuthenticated = false;
+        this.authenticated = false;
+
+        this.keycloak.clearToken();
 
         if (this.eventHandler) {
           this.eventHandler(AuthEvents.NOT_AUTHENTICATED, { error }, this);
@@ -133,7 +222,7 @@ export class Auth {
     }
   };
 
-  public onKeycloakTokens = (tokens: any) => {
+  private onKeycloakTokens = (tokens: any) => {
     // to be used as as a test to see if the token is actually valid and auth server reachable
     // console.log(">>> TOKENS Base64: ", window.btoa(JSON.stringify(tokens)));
     if (this.eventHandler) {

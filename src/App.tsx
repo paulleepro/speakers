@@ -17,10 +17,18 @@ import Type from "pages/Type";
 import FAQ from "pages/FAQ";
 import AboutUs from "pages/AboutUs";
 import SearchResults from "pages/SearchResults";
-import { KeycloakProvider } from "@react-keycloak/web";
 import { Auth, eventHandler } from "Auth";
 
 const auth = new Auth(eventHandler);
+auth.init();
+// TODO: remove and use in the form
+auth.passwordLogin("Speakers2020").then((auth) => {
+  console.log(`Login: authenticated=${auth.isAuthenticated()}`);
+});
+// For future login page without KC template/iframe :)
+// auth.login("manager@test.com", "password").then((auth) => {
+//   console.log(`Login: authenticated=${auth.isAuthenticated()}`);
+// });
 
 const Wrapper = styled.div`
   display: flex;
@@ -39,44 +47,33 @@ const Wrapper = styled.div`
 
 const App = (): ReactElement => (
   <>
-    <KeycloakProvider
-      keycloak={auth.keycloak}
-      initConfig={auth.keycloakProviderInitConfig}
-      onEvent={auth.onKeycloakEvent}
-      onTokens={auth.onKeycloakTokens}
-    >
-      <Wrapper>
-        <AppHeader />
-        <div className="max-width-container">
-          <TopRightSemi />
-          <Switch>
-            <Route
-              path="/talent/:slug/confirmation"
-              component={Confirmation}
-              exact
-            />
-            <Route
-              path="/talent/:slug/booking"
-              component={TalentBooking}
-              exact
-            />
-            <Route path="/talent/:slug" component={Talent} exact />
-            <Route path="/type/:id" component={Type} exact />
-            <Route path="/subtopic/:id" component={Subtopic} exact />
-            <Route path="/topic" component={Topics} exact />
-            <Route path="/explore" component={Explore} exact />
-            <Route path="/how-it-works" component={HowItWorks} exact />
-            <Route path="/about-us" component={AboutUs} exact />
-            <Route path="/faq" component={FAQ} exact />
-            <Route path="/search-results" component={SearchResults} exact />
-            <Route path="/" component={Landing} exact />
+    <Wrapper>
+      <AppHeader />
+      <div className="max-width-container">
+        <TopRightSemi />
+        <Switch>
+          <Route
+            path="/talent/:slug/confirmation"
+            component={Confirmation}
+            exact
+          />
+          <Route path="/talent/:slug/booking" component={TalentBooking} exact />
+          <Route path="/talent/:slug" component={Talent} exact />
+          <Route path="/type/:id" component={Type} exact />
+          <Route path="/subtopic/:id" component={Subtopic} exact />
+          <Route path="/topic" component={Topics} exact />
+          <Route path="/explore" component={Explore} exact />
+          <Route path="/how-it-works" component={HowItWorks} exact />
+          <Route path="/about-us" component={AboutUs} exact />
+          <Route path="/faq" component={FAQ} exact />
+          <Route path="/search-results" component={SearchResults} exact />
+          <Route path="/" component={Landing} exact />
 
-            <Route render={() => <Box padding="20px">Not found</Box>} />
-          </Switch>
-        </div>
-        <Footer />
-      </Wrapper>
-    </KeycloakProvider>
+          <Route render={() => <Box padding="20px">Not found</Box>} />
+        </Switch>
+      </div>
+      <Footer />
+    </Wrapper>
   </>
 );
 
