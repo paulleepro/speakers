@@ -20,7 +20,7 @@ const HeroMedium: FC<IProps> = ({ heroDescriptor, imageUrl }) => {
       <Container fluid>
         <Row>
           <Col offset={{ md: 1 }} md={8} lg={6}>
-            <VirtualText>Virtual Speakers</VirtualText>
+            <VirtualText margin="0px">Virtual Speakers</VirtualText>
             <BigText>
               World class
               <br />

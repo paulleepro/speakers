@@ -16,27 +16,26 @@ interface IProps {
 
 const Sidebar: FC<IProps> = ({ show, setShow, types }) => {
   const [showTypes, setShowTypes] = useState<boolean>(false);
+  const close = () => {
+    setShow(false);
+    setShowTypes(false);
+  };
   return (
     <SidebarContainer className={show ? "open" : ""}>
-      <CloseWrapper
-        onClick={() => {
-          setShow(false);
-          setShowTypes(false);
-        }}
-      >
+      <CloseWrapper onClick={close}>
         <CloseIcon style={{ color: "#FFF" }} />
       </CloseWrapper>
 
       {!showTypes ? (
         <>
-          <SearchAutocomplete />
+          <SearchAutocomplete close={close} />
 
-          <Link to="/how-it-works" onClick={() => setShow(false)}>
+          <Link to="/how-it-works" onClick={() => close()}>
             <DescriptionText noCenterAlign weight="bold" margin="40px 0 20px 0">
               How It Works
             </DescriptionText>
           </Link>
-          <Link to="/how-it-works" onClick={() => setShow(false)}>
+          <Link to="/explore" onClick={() => close()}>
             <DescriptionText noCenterAlign weight="bold">
               Explore
             </DescriptionText>

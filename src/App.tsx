@@ -23,7 +23,7 @@ const auth = new Auth(eventHandler);
 auth.init();
 // TODO: remove and use in the form
 auth.passwordLogin("Speakers2020").then((auth) => {
-  console.log(`Login: authenticated=${auth.isAuthenticated()}`);
+  // console.log(`Login: authenticated=${auth.isAuthenticated()}`);
 });
 // For future login page without KC template/iframe :)
 // auth.login("manager@test.com", "password").then((auth) => {

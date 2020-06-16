@@ -14,7 +14,7 @@ const Footer: FC<IProps> = () => {
       <Container fluid>
         <Row>
           <Col>
-            <Box margin="20px 0" />
+            <Box margin="40px 0" />
           </Col>
         </Row>
         <Row>
@@ -52,7 +52,7 @@ const Footer: FC<IProps> = () => {
         </Row>
         <Row>
           <Col>
-            <Box margin="20px 0" />
+            <Box margin="55px 0" />
           </Col>
         </Row>
 
@@ -102,7 +102,7 @@ const Footer: FC<IProps> = () => {
         </Row>
         <Row>
           <Col>
-            <Box margin="20px 0" />
+            <Box margin="30px 0" />
           </Col>
         </Row>
       </Container>

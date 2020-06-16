@@ -20,7 +20,6 @@ const HowItWorks: FC = () => {
               <HowItWorksImage>
                 <StyledImage
                   src="/images/how-it-works-collage.png"
-                  height={655}
                   alt="how-it-works"
                 />
               </HowItWorksImage>

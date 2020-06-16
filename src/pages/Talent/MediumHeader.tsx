@@ -60,21 +60,19 @@ const MediumHeader: FC<IProps> = ({ talent }) => {
             </Link>
           </Col>
           <Col offset={{ md: 1 }} lg={6} md={7}>
-            <Box margin="0 0 50px 0">
-              <Box flexDirection="row" justifyContent="space-between">
-                <VirtualText>Featured</VirtualText>
-                <SocialIcons
-                  urls={
-                    Object.values(social_accounts).filter((x) => x) as string[]
-                  }
-                  margin="0px"
-                />
-              </Box>
-              <BigText>{name}</BigText>
-              <DescriptionText>
-                {ReactHtmlParser(getHighlight(highlights))}
-              </DescriptionText>
+            <Box flexDirection="row" justifyContent="space-between">
+              <VirtualText margin="0px">Featured</VirtualText>
+              <SocialIcons
+                urls={
+                  Object.values(social_accounts).filter((x) => x) as string[]
+                }
+                margin="0px"
+              />
             </Box>
+            <BigText>{name}</BigText>
+            <DescriptionText>
+              {ReactHtmlParser(getHighlight(highlights))}
+            </DescriptionText>
           </Col>
         </Row>
         <Row>

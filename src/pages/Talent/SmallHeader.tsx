@@ -36,8 +36,8 @@ const SmallHeader: FC<IProps> = ({ talent }) => {
       <Container fluid>
         <Row>
           <Col>
-            <BigText margin="24px 0">{name}</BigText>
-            <VirtualText margin="0 0 24px">Featured</VirtualText>
+            <BigText margin="24px 0 0">{name}</BigText>
+            <VirtualText>Featured</VirtualText>
             <SocialIcons
               urls={
                 Object.values(social_accounts).filter(

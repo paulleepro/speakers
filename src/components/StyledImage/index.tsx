@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import styled from "styled-components";
 
 export const StyledImg = styled.img<{ borderRadius?: string }>`
@@ -26,6 +26,10 @@ const StyledImage: FC<IProps> = ({
   fallbackSrc,
 }) => {
   const [imgSrc, setImgSrc] = useState<string>(src);
+  useEffect(() => {
+    setImgSrc(src);
+  }, [src]);
+
   return (
     <StyledImg
       src={imgSrc}

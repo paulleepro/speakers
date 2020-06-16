@@ -26,16 +26,30 @@ function useDebounce(value: string, delay: number) {
 
 interface IProps {
   onClickAway?: () => void;
+  close?: () => void;
 }
 
-const SearchAutocomplete: FC<IProps> = ({ onClickAway }) => {
+const SearchAutocomplete: FC<IProps> = ({ onClickAway, close }) => {
   const { push } = useHistory();
   const [value, setValue] = useState<string>("");
   const debouncedSearchTerm = useDebounce(value, 300);
   const [results, setResults] = useState<ISearchResult<ITalent>[]>([]);
+
+  const goTo = (url: string) => {
+    push(url);
+    if (onClickAway) {
+      onClickAway();
+    }
+    if (close) {
+      close();
+    }
+    setResults([]);
+    setValue("");
+  };
+
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter") {
-      push(`/search-results?query=${value}`);
+      goTo(`/search-results?query=${value}`);
     }
   };
 
@@ -80,7 +94,7 @@ const SearchAutocomplete: FC<IProps> = ({ onClickAway }) => {
             {results.slice(0, 7).map((x) => (
               <div
                 key={x._id}
-                onClick={() => push(`/talent/${x._source.slug}`)}
+                onClick={() => goTo(`/talent/${x._source.slug}`)}
               >
                 {x._source.name}
               </div>

@@ -20,7 +20,9 @@ export const VirtualText = styled.span<{
   letter-spacing: 2px;
   padding-left: 13px;
   display: block;
-  margin: ${(props) => props.margin || "0px"};
+  color: ${colors.midGrey};
+  text-transform: uppercase;
+  margin: ${(props) => props.margin || "80px 0 0 0"};
 
   ::before {
     width: 0;
@@ -35,6 +37,7 @@ export const VirtualText = styled.span<{
   }
 
   @media (max-width: 1024px) {
+    margin: ${(props) => props.margin || "24px 0 0 0"};
     text-align: ${(props) => (props.noCenterAlign ? "left" : "center")};
   }
 `;
@@ -158,7 +161,7 @@ export const Button = styled.button<{ margin?: string; width?: string }>`
   cursor: pointer;
   border-radius: 12px;
   background-color: ${colors.primaryPurple};
-  padding: 10px 30px;
+  padding: 14px 30px;
   font-size: 
   font-size: 16px;
   font-weight: bold;

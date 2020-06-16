@@ -4,6 +4,7 @@ import { Container, Row, Col } from "react-grid-system";
 import Tabs from "components/Tabs";
 import { scroller } from "react-scroll";
 import { Box } from "react-basic-blocks";
+import colors from "styles/colors";
 
 interface IProps {
   tabs: string[];
@@ -43,11 +44,13 @@ const Title: FC<IProps> = ({ tabs }) => {
             />
           </Col>
         </Row>
+        <Box
+          margin="40px 0 80px 0"
+          borderBottom={`1px solid ${colors.purpleBgFill}`}
+        />
         <Row>
           <Col offset={{ lg: 1 }} lg={10}>
-            <Box margin="120px 0 0 0">
-              <HeaderText>Featured</HeaderText>
-            </Box>
+            <HeaderText>Featured</HeaderText>
           </Col>
         </Row>
       </Container>

@@ -37,7 +37,7 @@ const MediumHeader: FC<IProps> = ({ talent }) => {
             </Box>
           </Col>
           <Col offset={{ md: 1 }} lg={6} md={7}>
-            <VirtualText>Booking Enquiry</VirtualText>
+            <VirtualText margin="0px">Booking Enquiry</VirtualText>
             <BigText margin="30px 0">{name}</BigText>
             <Form slug={slug} id={id} />
           </Col>

@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useState, memo } from "react";
 import { Container, Row, Col } from "react-grid-system";
 import { HeaderText, Button } from "styles/components";
 import { Box } from "react-basic-blocks";
@@ -74,4 +74,4 @@ const Explore: FC = () => {
   );
 };
 
-export default Explore;
+export default memo(Explore);

@@ -17,8 +17,8 @@ export const HeroWrapper = styled.div<{ backgroundImage: string }>`
   background-image: url(${(props) => props.backgroundImage});
   background-size: contain;
   background-repeat: no-repeat;
-  background-position: right top;
-  max-width: 1440px;
+  background-position-x: 135%;
+  background-position-y: 50px;
 
   @media (max-width: 1024px) {
     min-height: calc(100vh - 64px);

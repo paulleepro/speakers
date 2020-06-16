@@ -12,6 +12,7 @@ export const Wrapper = styled(Box)`
 
   @media (max-width: 1024px) {
     height: 64px;
+    position: relative;
   }
 `;
 

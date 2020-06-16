@@ -29,7 +29,7 @@ const HeroSmall: FC<IProps> = ({ heroDescriptor, imageUrl }) => {
                 <u>{heroDescriptor}</u>,<br />
                 on demand.
               </BigText>
-              <StyledImage src={imageUrl}></StyledImage>
+              <StyledImage src={imageUrl} />
               <DescriptionText>
                 Endeavor Virtual Speakers is bringing talent directly to your
                 business. Our high-profile speakers are available digitally for

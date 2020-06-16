@@ -8,15 +8,15 @@ export const SidebarContainer = styled.div`
   box-shadow: 0 0px 8px 2px rgba(0, 0, 0, 0.3);
   position: fixed;
   z-index: 15;
-  left: -100%;
+  right: -100%;
   width: 100%;
   background-color: ${colors.darkPurpleFill};
   overflow-x: hidden;
-  transition: left 0.5s;
+  transition: right 0.5s;
   top: 0px;
 
   &.open {
-    left: 0px;
+    right: 0px;
   }
 
   @media only screen and (min-width: 1024px) {

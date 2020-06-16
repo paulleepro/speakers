@@ -13,7 +13,7 @@ const FeaturedCards: FC<IProps> = ({ talentList, cardsPerRow = 3 }) => {
   return (
     <Container fluid>
       <Row>
-        {talentList.map((x) => (
+        {talentList.slice(0, 6).map((x) => (
           <Col md={12 / cardsPerRow} key={`featured-talent-${x.id}`}>
             <SpeakerCard
               name={x.name}
