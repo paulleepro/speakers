@@ -17,10 +17,11 @@ export enum AuthEvents {
 export class Auth {
   public keycloak: Keycloak.KeycloakInstance;
   public userProfile: any;
+  public tokens: any = {};
+  public tokensBase64 = "";
 
   private authenticated = false;
   private keycloakConfig: any;
-  private currentToken: any = undefined;
 
   constructor(private eventHandler?: Function) {
     this.keycloak = Keycloak({
@@ -56,7 +57,7 @@ export class Auth {
         }
       })
       .catch(() => {
-        this.authenticated = false;
+        this.setNotAuthenticated();
       })
       .then(() => {
         return this;
@@ -76,7 +77,7 @@ export class Auth {
         }
       })
       .catch(() => {
-        this.authenticated = false;
+        this.setNotAuthenticated();
       })
       .then(() => {
         return this;
@@ -93,17 +94,27 @@ export class Auth {
     }
   }
 
-  public logout() {
-    if (this.isAuthenticated()) {
-      this.authenticated = false;
-      this.userProfile = undefined;
+  public loginWithToken(token: string) {
+    return this.initWithToken(token);
+  }
 
+  public logout() {
+    this.setNotAuthenticated();
+  }
+
+  protected setNotAuthenticated() {
+    if (this.isAuthenticated()) {
       this.keycloak.clearToken();
     }
+
+    this.authenticated = false;
+    this.userProfile = undefined;
+    this.tokens = {};
+    this.tokensBase64 = "";
   }
 
   protected initWithToken(token: string) {
-    this.authenticated = false;
+    this.setNotAuthenticated();
 
     try {
       const jsonToken: string = window.atob(token);
@@ -161,6 +172,8 @@ export class Auth {
         .then((refreshed) => {
           this.authenticated = true;
 
+          this.onKeycloakTokens();
+
           if (refreshed) {
             // console.log(">>> Token was successfully refreshed");
             if (this.eventHandler) {
@@ -177,7 +190,8 @@ export class Auth {
           // console.log(
           //   "Failed to refresh the token, or the session has expired"
           // );
-          this.authenticated = false;
+          this.setNotAuthenticated();
+
           if (this.eventHandler) {
             this.eventHandler(AuthEvents.TOKEN_INVALID, {}, this);
           }
@@ -188,9 +202,8 @@ export class Auth {
   private onKeycloakEvent = (event: string) => () => {
     this.onKeycloakEventHandler(event);
 
-    if (this.keycloak.token !== this.currentToken) {
-      this.currentToken = this.keycloak.token;
-      this.onKeycloakTokens(this.currentToken);
+    if (this.keycloak.token !== this.tokens.access_token) {
+      this.onKeycloakTokens();
     }
   };
 
@@ -224,9 +237,7 @@ export class Auth {
       case "onAuthRefreshError":
       case "onTokenExpired":
       case "onAuthLogout":
-        this.authenticated = false;
-
-        this.keycloak.clearToken();
+        this.setNotAuthenticated();
 
         if (this.eventHandler) {
           this.eventHandler(AuthEvents.NOT_AUTHENTICATED, { error }, this);
@@ -235,15 +246,32 @@ export class Auth {
     }
   };
 
-  private onKeycloakTokens = (tokens: any) => {
+  private onKeycloakTokens = () => {
     // to be used as as a test to see if the token is actually valid and auth server reachable
-    // console.log(">>> TOKENS Base64: ", window.btoa(JSON.stringify(tokens)));
+    this.tokens = {
+      access_token: this.keycloak.token,
+      id_token: this.keycloak.idToken,
+      refresh_token: this.keycloak.refreshToken,
+    };
+    this.tokensBase64 = window.btoa(JSON.stringify(this.tokens));
+
+    // console.log(`>>> SAME TOKEN: ${newTokens.access_token === tokens}`);
+    // console.log(">>> TOKENS Base64: ", window.btoa(JSON.stringify(newTokens)));
+
     if (this.eventHandler) {
       this.loadUserProfile().then((userProfile: any) => {
         this.userProfile = userProfile;
 
         if (this.eventHandler) {
-          this.eventHandler(AuthEvents.TOKENS, { tokens, userProfile }, this);
+          this.eventHandler(
+            AuthEvents.TOKENS,
+            {
+              token: this.tokens.access_token,
+              tokens: this.tokens,
+              userProfile,
+            },
+            this
+          );
         }
       });
     }
@@ -306,7 +334,7 @@ export function eventHandler(event: any, payload: any, auth: Auth) {
       // console.log(`token invalid`);
       break;
     case AuthEvents.TOKENS:
-      // console.log(`tokens: ${JSON.stringify(payload.tokens, null, 2)}`);
+      console.log(`tokens: ${JSON.stringify(payload.tokens, null, 2)}`);
       // if (payload.userProfile) {
       //   console.log(
       //     `user profile: ${JSON.stringify(payload.userProfile, null, 2)}`
