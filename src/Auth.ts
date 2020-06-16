@@ -79,13 +79,22 @@ export class Auth {
       });
   }
 
-  protected handleInvite() {
+  public handleInvite() {
     const qs: any = queryString.parse(window.location.search);
 
     if (qs.invite === "jwt" && qs.token) {
       return this.initWithToken(qs.token);
     } else {
       return false;
+    }
+  }
+
+  public logout() {
+    if (this.isAuthenticated()) {
+      this.authenticated = false;
+      this.userProfile = undefined;
+
+      this.keycloak.clearToken();
     }
   }
 
