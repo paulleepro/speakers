@@ -268,6 +268,7 @@ export class Auth {
             {
               token: this.tokens.access_token,
               tokens: this.tokens,
+              tokensBase64: this.tokensBase64,
               userProfile,
             },
             this
@@ -334,7 +335,9 @@ export function eventHandler(event: any, payload: any, auth: Auth) {
       // console.log(`token invalid`);
       break;
     case AuthEvents.TOKENS:
-      console.log(`tokens: ${JSON.stringify(payload.tokens, null, 2)}`);
+      // console.log(`tokens: ${JSON.stringify(payload.tokens, null, 2)}`);
+      // console.log(`tokensBase64: ${payload.tokensBase64}`);
+
       // if (payload.userProfile) {
       //   console.log(
       //     `user profile: ${JSON.stringify(payload.userProfile, null, 2)}`
