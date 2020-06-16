@@ -39,6 +39,10 @@ export class Auth {
     return this.authenticated;
   }
 
+  public token() {
+    return this.keycloak.token;
+  }
+
   public login(username: string, password: string) {
     return fetch(`${config.speakersAuthUrl}/v1/auth/tokens/grant`, {
       method: "POST",
