@@ -1,4 +1,4 @@
-import React, { ReactElement, useContext, useEffect, useState } from "react";
+import React, { ReactElement, useContext } from "react";
 import styled from "styled-components/macro";
 import { Box } from "react-basic-blocks";
 import { Route, Switch } from "react-router";
@@ -36,17 +36,9 @@ const Wrapper = styled.div`
 `;
 
 const App = (): ReactElement => {
-  const [authenticated, setAuthenticated] = useState<boolean>(false);
   const { keycloak } = useContext(AuthContext);
-  // eslint-disable-next-line
-  console.log(
-    `Authenticated: ${keycloak.authenticated}, token: ${keycloak.token}`
-  );
-  useEffect(() => {
-    setAuthenticated(keycloak.authenticated || false);
-  }, [keycloak.authenticated]);
 
-  if (!authenticated) {
+  if (!keycloak.authenticated) {
     return <PasswordProtection />;
   }
 

@@ -27,8 +27,10 @@ export const keycloakRefreshToken = (keycloak: Keycloak.KeycloakInstance) => {
 
 export const onKeycloakEvent = (
   keycloak: Keycloak.KeycloakInstance,
+  setLatestEventDate: (date: number) => void,
   event: string
 ) => (error?: any) => {
+  setLatestEventDate(Date.now());
   onKeycloakEventHandler(keycloak, event, error);
 };
 
@@ -63,17 +65,41 @@ export const onKeycloakEventHandler = (
   }
 };
 
-export const setKCEventHandlers = (keycloak: Keycloak.KeycloakInstance) => {
-  keycloak.onReady = onKeycloakEvent(keycloak, "onReady");
-  keycloak.onAuthSuccess = onKeycloakEvent(keycloak, "onAuthSuccess");
-  keycloak.onAuthError = onKeycloakEvent(keycloak, "onAuthError");
+export const setKCEventHandlers = (
+  keycloak: Keycloak.KeycloakInstance,
+  setLatestEventDate: (date: number) => void
+) => {
+  keycloak.onReady = onKeycloakEvent(keycloak, setLatestEventDate, "onReady");
+  keycloak.onAuthSuccess = onKeycloakEvent(
+    keycloak,
+    setLatestEventDate,
+    "onAuthSuccess"
+  );
+  keycloak.onAuthError = onKeycloakEvent(
+    keycloak,
+    setLatestEventDate,
+    "onAuthError"
+  );
   keycloak.onAuthRefreshSuccess = onKeycloakEvent(
     keycloak,
+    setLatestEventDate,
     "onAuthRefreshSuccess"
   );
-  keycloak.onAuthRefreshError = onKeycloakEvent(keycloak, "onAuthRefreshError");
-  keycloak.onAuthLogout = onKeycloakEvent(keycloak, "onAuthLogout");
-  keycloak.onTokenExpired = onKeycloakEvent(keycloak, "onTokenExpired");
+  keycloak.onAuthRefreshError = onKeycloakEvent(
+    keycloak,
+    setLatestEventDate,
+    "onAuthRefreshError"
+  );
+  keycloak.onAuthLogout = onKeycloakEvent(
+    keycloak,
+    setLatestEventDate,
+    "onAuthLogout"
+  );
+  keycloak.onTokenExpired = onKeycloakEvent(
+    keycloak,
+    setLatestEventDate,
+    "onTokenExpired"
+  );
 };
 
 export const initWithToken = async (
@@ -97,7 +123,6 @@ export const initWithToken = async (
       checkLoginIframe,
     };
 
-    setKCEventHandlers(keycloak);
     await keycloak.init(options);
   } catch (error) {
     logout(keycloak);
