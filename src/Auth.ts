@@ -145,8 +145,10 @@ export class Auth {
           : 30,
         // if we check login with Iframe it invalidates the token
         checkLoginIframe: false,
+        loginRequired: false,
       };
 
+      console.log(`>>> KC OPTIONS: ${JSON.stringify(options, null, 2)}`);
       this.keycloakConfig = options;
 
       this.keycloak.onReady = this.onKeycloakEvent("onReady");
@@ -286,22 +288,22 @@ export class Auth {
     // console.log(">>> TOKENS Base64: ", window.btoa(JSON.stringify(newTokens)));
 
     if (this.eventHandler) {
-      this.loadUserProfile().then((userProfile: any) => {
-        this.userProfile = userProfile;
+      // this.loadUserProfile().then((userProfile: any) => {
+      //   this.userProfile = userProfile;
 
-        if (this.eventHandler) {
-          this.eventHandler(
-            AuthEvents.TOKENS,
-            {
-              token: this.tokens.access_token,
-              tokens: this.tokens,
-              tokensBase64: this.tokensBase64,
-              userProfile,
-            },
-            this
-          );
-        }
-      });
+      if (this.eventHandler) {
+        this.eventHandler(
+          AuthEvents.TOKENS,
+          {
+            token: this.tokens.access_token,
+            tokens: this.tokens,
+            tokensBase64: this.tokensBase64,
+            // userProfile,
+          },
+          this
+        );
+      }
+      // });
     }
   };
 
