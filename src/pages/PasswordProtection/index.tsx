@@ -33,8 +33,8 @@ const onSubmit = (
     .passwordLogin(data.password)
     .then(() => {
       // eslint-disable-next-line
-      console.log(`>>> isAuthenticated: ${auth.isAuthenticated()}`);
-      push("/");
+      // console.log(`>>> isAuthenticated: ${auth.isAuthenticated()}`);
+      // push("/");
     })
     .catch(() => {
       setError(

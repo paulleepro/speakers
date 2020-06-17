@@ -148,7 +148,6 @@ export class Auth {
         loginRequired: false,
       };
 
-      console.log(`>>> KC OPTIONS: ${JSON.stringify(options, null, 2)}`);
       this.keycloakConfig = options;
 
       this.keycloak.onReady = this.onKeycloakEvent("onReady");

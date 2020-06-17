@@ -16,12 +16,10 @@ export const AuthProvider: FC = ({ children }) => {
     switch (event) {
       case AuthEvents.AUTHENTICATED:
         // USER IS AUTHENTICATED
-        console.log(`AUTHENTICATED: ${payload.auth.isAuthenticated()}`);
         setAuthenticated(payload.auth.isAuthenticated());
         break;
       case AuthEvents.NOT_AUTHENTICATED:
         // USER IS NOT AUTHENTICATED
-        console.log(`user not authenticated`);
         setAuthenticated(false);
         break;
     }
