@@ -43,7 +43,7 @@ export const CirclesWrapper = styled.div`
 `;
 
 export const HowItWorksImage = styled.div`
-  z-index: 10;
+  z-index: 9;
 `;
 
 export const HowItWorksImageWrapper = styled.div`
