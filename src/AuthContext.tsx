@@ -10,7 +10,7 @@ export const AuthContext = createContext<IAuthContext>({} as IAuthContext);
 export const AuthProvider: FC = ({ children }) => {
   const keycloak = Keycloak({
     realm: process.env.ENDEAVOR_KEYCLOAK_REALM || "endeavor-speakers",
-    url: process.env.ENDEAVOR_KEYCLOAK_URL || "http://localhost:30080/auth/",
+    url: process.env.ENDEAVOR_KEYCLOAK_URL || "/auth/",
     clientId:
       process.env.ENDEAVOR_KEYCLOAK_CLIENT_ID || "endeavor-speakers-frontend",
   });
