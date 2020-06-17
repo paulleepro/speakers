@@ -27,10 +27,10 @@ export const keycloakRefreshToken = (keycloak: Keycloak.KeycloakInstance) => {
 
 export const onKeycloakEvent = (
   keycloak: Keycloak.KeycloakInstance,
-  setLatestEventDate: (date: number) => void,
+  setLatestEventDate: (text: string) => void,
   event: string
 ) => (error?: any) => {
-  setLatestEventDate(Date.now());
+  setLatestEventDate(`event: ${event}, ${Date.now()}`);
   onKeycloakEventHandler(keycloak, event, error);
 };
 
@@ -67,7 +67,7 @@ export const onKeycloakEventHandler = (
 
 export const setKCEventHandlers = (
   keycloak: Keycloak.KeycloakInstance,
-  setLatestEventDate: (date: number) => void
+  setLatestEventDate: (text: string) => void
 ) => {
   keycloak.onReady = onKeycloakEvent(keycloak, setLatestEventDate, "onReady");
   keycloak.onAuthSuccess = onKeycloakEvent(
@@ -125,6 +125,8 @@ export const initWithToken = async (
 
     await keycloak.init(options);
   } catch (error) {
+    // eslint-disable-next-line
+    console.log("error when initializing", error);
     logout(keycloak);
   }
 };

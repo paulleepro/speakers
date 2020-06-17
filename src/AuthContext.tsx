@@ -4,13 +4,15 @@ import { setKCEventHandlers } from "auth-helpers";
 
 export interface IAuthContext {
   keycloak: Keycloak.KeycloakInstance;
-  latestEventDate: number;
+  latestEventDate: string;
 }
 
 export const AuthContext = createContext<IAuthContext>({} as IAuthContext);
 
 export const AuthProvider: FC = ({ children }) => {
-  const [latestEventDate, setLatestEventDate] = useState<number>(Date.now());
+  const [latestEventDate, setLatestEventDate] = useState<string>(
+    `${Date.now()}`
+  );
   const keycloak = Keycloak({
     realm: process.env.ENDEAVOR_KEYCLOAK_REALM || "endeavor-speakers",
     url: process.env.ENDEAVOR_KEYCLOAK_URL || "/auth/",
