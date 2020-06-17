@@ -16,7 +16,6 @@ import colors from "styles/colors";
 import { useForm, ErrorMessage } from "react-hook-form";
 import * as yup from "yup";
 import { AuthContext } from "AuthContext";
-// import { passwordLogin } from "auth-helpers";
 import { Auth } from "Auth";
 
 const validationSchema = yup.object().shape({
@@ -25,7 +24,6 @@ const validationSchema = yup.object().shape({
 
 const onSubmit = (
   data: any,
-  // keycloak: Keycloak.KeycloakInstance,
   auth: Auth,
   push: (url: string) => void,
   setError: (name: string, type: string, message: string) => void
@@ -33,9 +31,8 @@ const onSubmit = (
   auth.logout();
   auth
     .passwordLogin(data.password)
-    // passwordLogin(data.password, keycloak)
     .then(() => {
-  // eslint-disable-next-line
+      // eslint-disable-next-line
       console.log(`>>> isAuthenticated: ${auth.isAuthenticated()}`);
       push("/");
     })
@@ -49,7 +46,6 @@ const onSubmit = (
 };
 
 const PasswordProtection: FC = () => {
-  // const { keycloak } = useContext(AuthContext);
   const { auth } = useContext(AuthContext);
   const { push } = useHistory();
   const { register, handleSubmit, errors, setError } = useForm({
@@ -110,7 +106,6 @@ const PasswordProtection: FC = () => {
           >
             <form
               onSubmit={handleSubmit((data) =>
-                // onSubmit(data, keycloak, push, setError)
                 onSubmit(data, auth, push, setError)
               )}
             >
