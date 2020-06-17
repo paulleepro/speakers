@@ -1,12 +1,9 @@
 import styled from "styled-components";
+import colors from "styles/colors";
 
 export const LandingWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  background-image: url(/images/art-radius.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: left top;
 `;
 
 export const HeroWrapper = styled.div<{ backgroundImage: string }>`
@@ -49,4 +46,20 @@ export const HowItWorksImage = styled.div`
 export const HowItWorksImageWrapper = styled.div`
   z-index: 1;
   display: flex;
+`;
+
+export const TopSemi = styled.div`
+  z-index: -2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 75%;
+  height: 1250px;
+  object-fit: contain;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(34, 30, 41, 0),
+    ${colors.purpleBgFill}
+  );
+  border-radius: 0 0 600px 0;
 `;

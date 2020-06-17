@@ -1,6 +1,6 @@
 import React, { FC, useState, useEffect } from "react";
 import HeroMedium from "./HeroMedium";
-import { LandingWrapper } from "./styles";
+import { LandingWrapper, TopSemi } from "./styles";
 import { Visible } from "react-grid-system";
 import Explore from "./Explore";
 import CustomizeEvent from "./CustomizeEvent";
@@ -25,6 +25,7 @@ const Landing: FC = () => {
 
   return (
     <LandingWrapper>
+      <TopSemi />
       <Visible md lg>
         <HeroMedium {...heroDatum} />
       </Visible>
