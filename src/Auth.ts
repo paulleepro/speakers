@@ -26,7 +26,7 @@ export class Auth {
   constructor(private eventHandler?: Function) {
     this.keycloak = Keycloak({
       realm: process.env.ENDEAVOR_KEYCLOAK_REALM || "endeavor-speakers",
-      url: process.env.ENDEAVOR_KEYCLOAK_URL || "http://localhost:30080/auth/",
+      url: process.env.ENDEAVOR_KEYCLOAK_URL || "/auth/",
       clientId:
         process.env.ENDEAVOR_KEYCLOAK_CLIENT_ID || "endeavor-speakers-frontend",
     });
