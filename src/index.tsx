@@ -5,6 +5,7 @@ import GlobalStyles from "styles/global-styles";
 import App from "App";
 import ScrollToTop from "components/ScrollTop";
 import { ScreenClassProvider, setConfiguration } from "react-grid-system";
+import { AuthProvider } from "AuthContext";
 
 setConfiguration({
   gutterWidth: 24,
@@ -18,7 +19,9 @@ ReactDOM.render(
     <GlobalStyles />
     <ScrollToTop />
     <ScreenClassProvider>
-      <App />
+      <AuthProvider>
+        <App />
+      </AuthProvider>
     </ScreenClassProvider>
   </Router>,
   document.getElementById("root")

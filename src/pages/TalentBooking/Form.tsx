@@ -1,5 +1,10 @@
 import React, { FC, useState, useEffect } from "react";
-import { DescriptionText, Divider, Button } from "styles/components";
+import {
+  DescriptionText,
+  Divider,
+  Button,
+  StyledError,
+} from "styles/components";
 import { Row, Col } from "react-grid-system";
 import { useHistory } from "react-router";
 import { useForm, ErrorMessage } from "react-hook-form";
@@ -8,14 +13,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { onSubmit } from "./on-submit";
 import { validationSchema } from "./schema";
 import { BeatLoader } from "react-spinners";
-import {
-  StyledError,
-  Select,
-  Input,
-  TextArea,
-  StyledForm,
-  InputLabel,
-} from "./styles";
+import { Select, Input, TextArea, StyledForm, InputLabel } from "./styles";
 import EventTypeRadio from "./EventTypeRadio";
 
 interface IProps {

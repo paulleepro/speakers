@@ -76,17 +76,6 @@ export const TextArea = styled.textarea`
   }
 `;
 
-export const StyledError = styled.p`
-  color: #bf1650;
-  margin: 10px 0 0 0;
-  padding: 0;
-
-  ::before {
-    display: inline;
-    content: "⚠ ";
-  }
-`;
-
 export const InputLabel = styled.span<{ margin?: string }>`
   margin: ${(props) => props.margin || "20px 0"};
   display: block;

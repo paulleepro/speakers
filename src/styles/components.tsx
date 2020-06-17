@@ -201,3 +201,14 @@ export const TopRightSemi = styled.div`
     width: 60%;
   }
 `;
+
+export const StyledError = styled.p`
+  color: #bf1650;
+  margin: 10px 0 0 0;
+  padding: 0;
+
+  ::before {
+    display: inline;
+    content: "⚠ ";
+  }
+`;
