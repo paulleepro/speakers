@@ -14,13 +14,14 @@ export enum AuthEvents {
   NOT_AUTHENTICATED = "not_authenticated",
 }
 
+const COOKIE_NAME = "ENDEAVOR_SPEAKERS_TOKENS";
+
 export class Auth {
   public keycloak: Keycloak.KeycloakInstance;
   public userProfile: any;
   public tokens: any = {};
   public tokensBase64 = "";
 
-  private authenticated = false;
   private keycloakConfig: any;
 
   constructor(private eventHandler?: Function) {
@@ -33,11 +34,17 @@ export class Auth {
   }
 
   public init() {
-    this.handleInvite();
+    const cookie = localStorage.getItem(COOKIE_NAME);
+
+    if (cookie) {
+      this.loginWithToken(cookie);
+    } else {
+      this.handleInvite();
+    }
   }
 
   public isAuthenticated(): boolean {
-    return this.authenticated;
+    return this.keycloak.authenticated === true;
   }
 
   public token() {
@@ -64,7 +71,7 @@ export class Auth {
       });
   }
 
-  public passwordLogin(password: string) {
+  public async passwordLogin(password: string) {
     return fetch(`${config.speakersAuthUrl}/v1/auth/tokens/password-auth`, {
       method: "POST",
       body: JSON.stringify({ password }),
@@ -107,7 +114,8 @@ export class Auth {
       this.keycloak.clearToken();
     }
 
-    this.authenticated = false;
+    localStorage.removeItem(COOKIE_NAME);
+
     this.userProfile = undefined;
     this.tokens = {};
     this.tokensBase64 = "";
@@ -158,8 +166,12 @@ export class Auth {
     } catch (error) {
       // console.log(`Error processing invite: ${error}`);
       if (this.eventHandler) {
-        this.eventHandler(AuthEvents.INVITE_ERROR, { error }, this);
-        this.eventHandler(AuthEvents.NOT_AUTHENTICATED, { error }, this);
+        this.eventHandler(AuthEvents.INVITE_ERROR, { auth: this, error }, this);
+        this.eventHandler(
+          AuthEvents.NOT_AUTHENTICATED,
+          { auth: this, error },
+          this
+        );
       }
     }
   }
@@ -170,19 +182,25 @@ export class Auth {
       this.keycloak
         .updateToken(0)
         .then((refreshed) => {
-          this.authenticated = true;
-
           this.onKeycloakTokens();
 
           if (refreshed) {
             // console.log(">>> Token was successfully refreshed");
             if (this.eventHandler) {
-              this.eventHandler(AuthEvents.TOKEN_REFRESHED, {}, this);
+              this.eventHandler(
+                AuthEvents.TOKEN_REFRESHED,
+                { auth: this },
+                this
+              );
             }
           } else {
             // console.log("Token is still valid");
             if (this.eventHandler) {
-              this.eventHandler(AuthEvents.TOKEN_STILL_VALID, {}, this);
+              this.eventHandler(
+                AuthEvents.TOKEN_STILL_VALID,
+                { auth: this },
+                this
+              );
             }
           }
         })
@@ -193,7 +211,7 @@ export class Auth {
           this.setNotAuthenticated();
 
           if (this.eventHandler) {
-            this.eventHandler(AuthEvents.TOKEN_INVALID, {}, this);
+            this.eventHandler(AuthEvents.TOKEN_INVALID, { auth: this }, this);
           }
         });
     }, (this.keycloakConfig.checkLoginIframeInterval || 30) * 1000);
@@ -227,10 +245,8 @@ export class Auth {
     switch (event) {
       case "onAuthSuccess":
       case "onAuthRefreshSuccess":
-        this.authenticated = true;
-
         if (this.eventHandler) {
-          this.eventHandler(AuthEvents.AUTHENTICATED, {}, this);
+          this.eventHandler(AuthEvents.AUTHENTICATED, { auth: this }, this);
         }
         break;
       case "onAuthError":
@@ -240,7 +256,11 @@ export class Auth {
         this.setNotAuthenticated();
 
         if (this.eventHandler) {
-          this.eventHandler(AuthEvents.NOT_AUTHENTICATED, { error }, this);
+          this.eventHandler(
+            AuthEvents.NOT_AUTHENTICATED,
+            { auth: this, error },
+            this
+          );
         }
         break;
     }
@@ -254,7 +274,13 @@ export class Auth {
       refresh_token: this.keycloak.refreshToken,
     };
     this.tokensBase64 = window.btoa(JSON.stringify(this.tokens));
+    localStorage.setItem(COOKIE_NAME, this.tokensBase64);
 
+    // console.log(
+    //   `>>> SET COOKIE: ${this.isAuthenticated()} ${localStorage.getItem(
+    //     COOKIE_NAME
+    //   )}`
+    // );
     // console.log(`>>> SAME TOKEN: ${newTokens.access_token === tokens}`);
     // console.log(">>> TOKENS Base64: ", window.btoa(JSON.stringify(newTokens)));
 
@@ -304,13 +330,7 @@ export function eventHandler(event: any, payload: any, auth: Auth) {
   switch (event) {
     case AuthEvents.AUTHENTICATED:
       // USER IS AUTHENTICATED
-      if (payload.userProfile) {
-        // console.log(
-        //   `user profile: ${JSON.stringify(payload.userProfile, null, 2)}`
-        // );
-      } else {
-        // console.log(`no user profile`);
-      }
+      // console.log(`AUTHENTICATED: ${payload.auth.isAuthenticated()}`);
       break;
     case AuthEvents.NOT_AUTHENTICATED:
       // USER IS NOT AUTHENTICATED
@@ -338,6 +358,8 @@ export function eventHandler(event: any, payload: any, auth: Auth) {
       // console.log(`tokens: ${JSON.stringify(payload.tokens, null, 2)}`);
       // console.log(`tokensBase64: ${payload.tokensBase64}`);
 
+      // console.log(`TOKENS`);
+      // // TODO: update the UI here
       // if (payload.userProfile) {
       //   console.log(
       //     `user profile: ${JSON.stringify(payload.userProfile, null, 2)}`

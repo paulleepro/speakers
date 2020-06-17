@@ -16,7 +16,8 @@ import colors from "styles/colors";
 import { useForm, ErrorMessage } from "react-hook-form";
 import * as yup from "yup";
 import { AuthContext } from "AuthContext";
-import { passwordLogin } from "auth-helpers";
+// import { passwordLogin } from "auth-helpers";
+import { Auth } from "Auth";
 
 const validationSchema = yup.object().shape({
   password: yup.string().required(),
@@ -24,12 +25,18 @@ const validationSchema = yup.object().shape({
 
 const onSubmit = (
   data: any,
-  keycloak: Keycloak.KeycloakInstance,
+  // keycloak: Keycloak.KeycloakInstance,
+  auth: Auth,
   push: (url: string) => void,
   setError: (name: string, type: string, message: string) => void
 ) => {
-  passwordLogin(data.password, keycloak)
+  auth.logout();
+  auth
+    .passwordLogin(data.password)
+    // passwordLogin(data.password, keycloak)
     .then(() => {
+  // eslint-disable-next-line
+      console.log(`>>> isAuthenticated: ${auth.isAuthenticated()}`);
       push("/");
     })
     .catch(() => {
@@ -42,7 +49,8 @@ const onSubmit = (
 };
 
 const PasswordProtection: FC = () => {
-  const { keycloak } = useContext(AuthContext);
+  // const { keycloak } = useContext(AuthContext);
+  const { auth } = useContext(AuthContext);
   const { push } = useHistory();
   const { register, handleSubmit, errors, setError } = useForm({
     validationSchema,
@@ -102,7 +110,8 @@ const PasswordProtection: FC = () => {
           >
             <form
               onSubmit={handleSubmit((data) =>
-                onSubmit(data, keycloak, push, setError)
+                // onSubmit(data, keycloak, push, setError)
+                onSubmit(data, auth, push, setError)
               )}
             >
               <FormBox justifyContent="center" alignItems="center">

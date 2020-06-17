@@ -36,11 +36,12 @@ const Wrapper = styled.div`
 `;
 
 const App = (): ReactElement => {
-  const { keycloak, latestEventDate } = useContext(AuthContext);
+  // const { keycloak } = useContext(AuthContext);
+  const { auth } = useContext(AuthContext);
 
   // eslint-disable-next-line
-  console.log(latestEventDate, keycloak);
-  if (!keycloak.authenticated) {
+  console.log(`>>> APP isAuthenticated: ${auth.isAuthenticated()}`);
+  if (!auth.isAuthenticated()) {
     return <PasswordProtection />;
   }
 
