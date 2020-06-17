@@ -39,7 +39,7 @@ const App = (): ReactElement => {
   const { keycloak, latestEventDate } = useContext(AuthContext);
 
   // eslint-disable-next-line
-  console.log(latestEventDate);
+  console.log(latestEventDate, keycloak);
   if (!keycloak.authenticated) {
     return <PasswordProtection />;
   }
