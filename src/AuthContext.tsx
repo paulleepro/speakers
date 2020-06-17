@@ -14,6 +14,8 @@ export const AuthProvider: FC = ({ children }) => {
     clientId:
       process.env.ENDEAVOR_KEYCLOAK_CLIENT_ID || "endeavor-speakers-frontend",
   });
+  // @ts-ignore
+  window.keycloak = keycloak;
 
   return (
     <AuthContext.Provider value={{ keycloak }}>{children}</AuthContext.Provider>
