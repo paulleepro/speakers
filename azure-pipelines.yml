@@ -34,7 +34,7 @@ stages:
               fi
             displayName: 'yarn install'          
           - script: |   
-              yarn build
+              yarn build-dev
               if [ $? -ne 0 ]; then
                   exit 1
               fi  
