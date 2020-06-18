@@ -1,4 +1,4 @@
-import React, { createContext, FC, useState } from "react";
+import React, { createContext, FC, useState, useEffect } from "react";
 
 import { Auth, AuthEvents } from "Auth";
 
@@ -10,6 +10,7 @@ export interface IAuthContext {
 export const AuthContext = createContext<IAuthContext>({} as IAuthContext);
 
 export const AuthProvider: FC = ({ children }) => {
+  const [auth] = useState(new Auth(eventHandler, false));
   const [authenticated, setAuthenticated] = useState(false);
 
   function eventHandler(event: any, payload: any, auth: Auth) {
@@ -25,10 +26,13 @@ export const AuthProvider: FC = ({ children }) => {
     }
   }
 
-  // eslint-disable-next-line
-  const auth = new Auth(eventHandler);
-  auth.init();
+  useEffect(() => {
+    auth.init().then((isAuthenticated: boolean | undefined) => {
+      setAuthenticated(isAuthenticated === true);
+    });
+  }, [auth]);
 
+  // eslint-disable-next-line
   return (
     <AuthContext.Provider value={{ auth, authenticated }}>
       {children}

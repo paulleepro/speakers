@@ -24,7 +24,10 @@ export class Auth {
 
   private keycloakConfig: any;
 
-  constructor(private eventHandler?: Function) {
+  constructor(
+    private eventHandler?: Function,
+    private useKeycloakLogin = false
+  ) {
     this.keycloak = Keycloak({
       realm: process.env.REACT_APP_KEYCLOAK_REALM || "endeavor-speakers",
       url: process.env.REACT_APP_KEYCLOAK_URL || "/auth/",
@@ -34,13 +37,15 @@ export class Auth {
     });
   }
 
-  public init() {
-    const cookie = localStorage.getItem(COOKIE_NAME);
+  public async init() {
+    const cookie = sessionStorage.getItem(COOKIE_NAME);
 
     if (cookie) {
-      this.loginWithToken(cookie);
-    } else {
-      this.handleInvite();
+      return this.loginWithToken(cookie);
+    } else if (this.hasInvite()) {
+      return this.handleInvite();
+    } else if (this.useKeycloakLogin) {
+      return this.initWithToken(undefined, true);
     }
   }
 
@@ -52,7 +57,7 @@ export class Auth {
     return this.keycloak.token;
   }
 
-  public login(username: string, password: string) {
+  public async login(username: string, password: string) {
     return fetch(`${config.speakersAuthUrl}/v1/auth/tokens/grant`, {
       method: "POST",
       body: JSON.stringify({ username, password, encode: "base64" }),
@@ -92,7 +97,13 @@ export class Auth {
       });
   }
 
-  public handleInvite() {
+  protected hasInvite() {
+    const qs: any = queryString.parse(window.location.search);
+
+    return qs.invite === "jwt" && qs.token;
+  }
+
+  public async handleInvite() {
     const qs: any = queryString.parse(window.location.search);
 
     if (qs.invite === "jwt" && qs.token) {
@@ -102,7 +113,7 @@ export class Auth {
     }
   }
 
-  public loginWithToken(token: string) {
+  public async loginWithToken(token: string) {
     return this.initWithToken(token);
   }
 
@@ -115,40 +126,50 @@ export class Auth {
       this.keycloak.clearToken();
     }
 
-    localStorage.removeItem(COOKIE_NAME);
+    sessionStorage.removeItem(COOKIE_NAME);
 
     this.userProfile = undefined;
     this.tokens = {};
     this.tokensBase64 = "";
   }
 
-  protected initWithToken(token: string) {
-    this.setNotAuthenticated();
+  protected newKeycloakConfig(
+    token: string | undefined,
+    checkLoginIframe = false
+  ): any {
+    const options: any = {
+      onLoad: this.useKeycloakLogin ? "login-required" : "check-sso",
+      promiseType: "native",
+      redirectUri: window.location.href.split("?")[0],
+      enableLogging: true,
+      timeSkew: undefined,
+      // interval is in seconds and 5 is the default in the lib
+      checkLoginIframeInterval: process.env
+        .ENDEAVOR_KEYCLOAK_TOKEN_REFRESH_INTERVAL
+        ? Number(process.env.ENDEAVOR_KEYCLOAK_TOKEN_REFRESH_INTERVAL)
+        : 30,
+      // if we check login with Iframe it invalidates the token
+      checkLoginIframe: checkLoginIframe,
+      loginRequired: false,
+    };
 
-    try {
+    if (token) {
       const jsonToken: string = window.atob(token);
       const jwt = JSON.parse(jsonToken);
 
-      const options: any = {
-        onLoad: "check-sso",
-        promiseType: "native",
-        token: (jwt.token || jwt.access_token) as string,
-        refreshToken: jwt.refreshToken || jwt.refresh_token,
-        idToken: (jwt.idToken || jwt.id_token) as string,
-        redirectUri: window.location.href.split("?")[0],
-        enableLogging: true,
-        timeSkew: undefined,
-        // interval is in seconds and 5 is the default in the lib
-        checkLoginIframeInterval: process.env
-          .ENDEAVOR_KEYCLOAK_TOKEN_REFRESH_INTERVAL
-          ? Number(process.env.ENDEAVOR_KEYCLOAK_TOKEN_REFRESH_INTERVAL)
-          : 30,
-        // if we check login with Iframe it invalidates the token
-        checkLoginIframe: false,
-        loginRequired: false,
-      };
+      options.token = (jwt.token || jwt.access_token) as string;
+      options.refreshToken = jwt.refreshToken || jwt.refresh_token;
+      options.idToken = (jwt.idToken || jwt.id_token) as string;
+    }
 
-      this.keycloakConfig = options;
+    return options;
+  }
+
+  protected initWithToken(token: string | undefined, checkLoginIframe = false) {
+    this.setNotAuthenticated();
+
+    try {
+      this.keycloakConfig = this.newKeycloakConfig(token, checkLoginIframe);
 
       this.keycloak.onReady = this.onKeycloakEvent("onReady");
       this.keycloak.onAuthSuccess = this.onKeycloakEvent("onAuthSuccess");
@@ -164,7 +185,21 @@ export class Auth {
         "onTokenExpired"
       );
 
-      return this.keycloak.init(options);
+      return this.keycloak
+        .init(this.keycloakConfig)
+        .then(async (authenticated) => {
+          console.log(`>> KC 1 authenticated: ${authenticated}`);
+
+          //   this.keycloakConfig = this.newKeycloakConfig(undefined, true);
+
+          //   await this.keycloak.updateToken(-1);
+          //   return this.keycloak.init(this.keycloakConfig);
+          // })
+          // .then((authenticated) => {
+          //   console.log(`>> KC 2 authenticated: ${authenticated}`);
+
+          return authenticated;
+        });
     } catch (error) {
       // console.log(`Error processing invite: ${error}`);
       if (this.eventHandler) {
@@ -276,10 +311,13 @@ export class Auth {
       refresh_token: this.keycloak.refreshToken,
     };
     this.tokensBase64 = window.btoa(JSON.stringify(this.tokens));
-    localStorage.setItem(COOKIE_NAME, this.tokensBase64);
+
+    if (!this.useKeycloakLogin) {
+      sessionStorage.setItem(COOKIE_NAME, this.tokensBase64);
+    }
 
     // console.log(
-    //   `>>> SET COOKIE: ${this.isAuthenticated()} ${localStorage.getItem(
+    //   `>>> SET COOKIE: ${this.isAuthenticated()} ${sessionStorage.getItem(
     //     COOKIE_NAME
     //   )}`
     // );

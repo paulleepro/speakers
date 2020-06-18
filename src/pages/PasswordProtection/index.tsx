@@ -29,20 +29,9 @@ const onSubmit = (
   setError: (name: string, type: string, message: string) => void
 ) => {
   auth.logout();
-  auth
-    .passwordLogin(data.password)
-    .then(() => {
-      // eslint-disable-next-line
-      // console.log(`>>> isAuthenticated: ${auth.isAuthenticated()}`);
-      // push("/");
-    })
-    .catch(() => {
-      setError(
-        "password",
-        "invalidPassword",
-        "Password is invalid. Try Again."
-      );
-    });
+  auth.passwordLogin(data.password).catch(() => {
+    setError("password", "invalidPassword", "Password is invalid. Try Again.");
+  });
 };
 
 const PasswordProtection: FC = () => {
