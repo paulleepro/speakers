@@ -1,17 +1,18 @@
 import React, { FC } from "react";
 import { FooterWrapper, FooterLink, InfoText, ImageWrapper } from "./styles";
-import { Container, Row, Col, Visible } from "react-grid-system";
+import { Row, Col, Visible } from "react-grid-system";
 import { Link } from "react-router-dom";
 import { Box } from "react-basic-blocks";
 import { hardCodedTalent } from "hard-coded-talent";
 import SocialIcons from "components/SocialIcons";
+import { StyledContainer } from "styles/components";
 
 interface IProps {}
 
 const Footer: FC<IProps> = () => {
   return (
     <FooterWrapper>
-      <Container fluid>
+      <StyledContainer fluid>
         <Row>
           <Col>
             <Box margin="40px 0" />
@@ -113,7 +114,7 @@ const Footer: FC<IProps> = () => {
             <Box margin="30px 0" />
           </Col>
         </Row>
-      </Container>
+      </StyledContainer>
     </FooterWrapper>
   );
 };

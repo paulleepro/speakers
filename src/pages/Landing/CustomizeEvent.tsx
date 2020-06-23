@@ -1,6 +1,11 @@
 import React, { FC, useState, memo } from "react";
-import { Container, Row, Col } from "react-grid-system";
-import { HeaderText, DescriptionText, Button } from "styles/components";
+import { Row, Col } from "react-grid-system";
+import {
+  HeaderText,
+  DescriptionText,
+  Button,
+  StyledContainer,
+} from "styles/components";
 import { CustomizeWrapper } from "./styles";
 import { Box } from "react-basic-blocks";
 import Tabs from "components/Tabs";
@@ -44,7 +49,7 @@ const CustomizeEvent: FC = () => {
   const { copy, image } = tabValues[tabs[activeTab]];
   return (
     <CustomizeWrapper>
-      <Container fluid>
+      <StyledContainer fluid>
         <Row>
           <Col offset={{ md: 1 }} md={10}>
             <HeaderText>Customize Your Very Own Digital Event</HeaderText>
@@ -97,7 +102,7 @@ const CustomizeEvent: FC = () => {
             </Box>
           </Col>
         </Row>
-      </Container>
+      </StyledContainer>
     </CustomizeWrapper>
   );
 };

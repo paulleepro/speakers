@@ -1,17 +1,15 @@
 import React, { FC } from "react";
 import { Box } from "react-basic-blocks";
-import { Container, Row, Col } from "react-grid-system";
+import { Row, Col } from "react-grid-system";
 import Step from "./Step";
-import colors from "styles/colors";
 import { HowItWorksImageWrapper, HowItWorksImage } from "./styles";
 import StyledImage from "components/StyledImage";
-import Circles from "components/Circles";
-import { HeaderText } from "styles/components";
+import { HeaderText, StyledContainer } from "styles/components";
 
 const HowItWorks: FC = () => {
   return (
     <Box margin="160px 0 0 0">
-      <Container fluid>
+      <StyledContainer fluid>
         <Row>
           <Col lg={5} md={4} sm={6} xs={12}>
             <HowItWorksImageWrapper>
@@ -21,7 +19,6 @@ const HowItWorks: FC = () => {
                   alt="how-it-works"
                 />
               </HowItWorksImage>
-              <Circles color={colors.primaryPurple} top="-30%" />
             </HowItWorksImageWrapper>
           </Col>
           <Col
@@ -50,7 +47,7 @@ const HowItWorks: FC = () => {
             />
           </Col>
         </Row>
-      </Container>
+      </StyledContainer>
     </Box>
   );
 };

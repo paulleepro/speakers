@@ -1,6 +1,10 @@
 import React, { FC, useState } from "react";
-import { Container, Row, Col } from "react-grid-system";
-import { DescriptionText, HeaderText } from "styles/components";
+import { Row, Col } from "react-grid-system";
+import {
+  DescriptionText,
+  HeaderText,
+  StyledContainer,
+} from "styles/components";
 import { Box } from "react-basic-blocks";
 import colors from "styles/colors";
 import AddIcon from "@material-ui/icons/Add";
@@ -48,7 +52,7 @@ const Bio: FC<IProps> = ({ highlights, details }) => {
   const [highlightsHidden, setHighlightsHidden] = useState<boolean>(false);
   const [detailsHidden, setDetailsHidden] = useState<boolean>(true);
   return (
-    <Container fluid>
+    <StyledContainer fluid>
       <Row>
         <Col offset={{ lg: 1 }} md={12} lg={10}>
           <div id="highlights">
@@ -86,7 +90,7 @@ const Bio: FC<IProps> = ({ highlights, details }) => {
           </AccordionTextBox>
         </Col>
       </Row>
-    </Container>
+    </StyledContainer>
   );
 };
 

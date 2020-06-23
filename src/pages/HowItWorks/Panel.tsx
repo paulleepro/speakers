@@ -1,7 +1,11 @@
 import React, { FC } from "react";
-import { HeaderText, DescriptionText } from "styles/components";
+import {
+  HeaderText,
+  DescriptionText,
+  StyledContainer,
+} from "styles/components";
 import { Box } from "react-basic-blocks";
-import { Container, Row, Col, useScreenClass } from "react-grid-system";
+import { Row, Col, useScreenClass } from "react-grid-system";
 import colors from "styles/colors";
 import { ActionIcon, ActionWrapper, PanelWrapper, TextWrapper } from "./styles";
 import StyledImage from "components/StyledImage";
@@ -65,7 +69,7 @@ const Panel: FC<IProps> = ({
   const isSmall = ["xs", "sm"].includes(screenClass);
   return (
     <PanelWrapper>
-      <Container fluid>
+      <StyledContainer fluid>
         <Row>
           {imageRight && !isSmall ? null : (
             <PanelImage
@@ -101,7 +105,7 @@ const Panel: FC<IProps> = ({
             />
           ) : null}
         </Row>
-      </Container>
+      </StyledContainer>
     </PanelWrapper>
   );
 };

@@ -9,7 +9,7 @@ import CategoryPreview from "./CategoryPreview";
 import Featured from "components/Featured";
 import { IListResult, ITalent } from "types";
 import { hardCodedTalent } from "hard-coded-talent";
-import { Container } from "react-grid-system";
+import { StyledContainer } from "styles/components";
 
 const getTalent = (data: ITalent[], slugs: string[]) =>
   data.filter((x) => slugs.includes(x.slug));
@@ -51,10 +51,10 @@ const Explore: FC = () => {
   }
 
   return (
-    <Container fluid>
+    <StyledContainer fluid>
       <Title tabs={hardCodedTalent.map((x) => x.name)} />
       {components}
-    </Container>
+    </StyledContainer>
   );
 };
 

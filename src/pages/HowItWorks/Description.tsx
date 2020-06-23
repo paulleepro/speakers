@@ -1,14 +1,15 @@
 import React, { FC } from "react";
 import { Box } from "react-basic-blocks";
-import { Container, Row, Col, Visible } from "react-grid-system";
+import { Row, Col, Visible } from "react-grid-system";
 import colors from "styles/colors";
 import Step from "components/Step";
 import { TopSemi } from "./styles";
+import { StyledContainer } from "styles/components";
 
 const Decription: FC = () => {
   return (
     <div>
-      <Container fluid>
+      <StyledContainer fluid>
         <Row>
           <Col>
             <TopSemi />
@@ -58,7 +59,7 @@ const Decription: FC = () => {
             />
           </Col>
         </Row>
-      </Container>
+      </StyledContainer>
     </div>
   );
 };

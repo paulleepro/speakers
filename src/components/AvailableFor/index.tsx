@@ -9,26 +9,6 @@ const Wrapper = styled(Box)`
   padding-bottom: 20px;
 `;
 
-const AvailableForBg = styled.div`
-  position: absolute;
-  bottom: 0;
-  left: -100%;
-  border-radius: 0 0 600px 0;
-  background-image: linear-gradient(
-    to bottom,
-    rgba(34, 30, 41, 0),
-    ${colors.purpleBgFill}
-  );
-  z-index: -1;
-  width: 300%;
-  height: 100%;
-
-  @media (max-width: 1023px) {
-    left: 0;
-    width: 100%;
-  }
-`;
-
 interface IProps {}
 
 const categories = [
@@ -42,7 +22,6 @@ const categories = [
 const AvailableFor: FC<IProps> = () => {
   return (
     <Wrapper>
-      <AvailableForBg />
       <DescriptionText weight="bold">Available For:</DescriptionText>
       <Divider width="200px" />
       {categories.map((x, i) => (

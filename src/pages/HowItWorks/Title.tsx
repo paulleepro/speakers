@@ -1,16 +1,17 @@
 import React, { FC } from "react";
-import { Container, Row, Col } from "react-grid-system";
+import { Row, Col } from "react-grid-system";
 import {
   VirtualText,
   BigText,
   DescriptionText,
   TopAreaDivider,
+  StyledContainer,
 } from "styles/components";
 
 const Title: FC = () => {
   return (
     <div>
-      <Container fluid>
+      <StyledContainer fluid>
         <Row>
           <Col offset={{ lg: 1 }} xs={12} md={9} lg={6}>
             <VirtualText>Virtual Speakers</VirtualText>
@@ -22,7 +23,7 @@ const Title: FC = () => {
           </Col>
         </Row>
         <TopAreaDivider />
-      </Container>
+      </StyledContainer>
     </div>
   );
 };

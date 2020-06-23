@@ -5,8 +5,10 @@ import {
   DescriptionText,
   Button,
   ArrowLeftText,
+  StyledContainer,
+  AvailableForBg,
 } from "styles/components";
-import { Container, Row, Col } from "react-grid-system";
+import { Row, Col } from "react-grid-system";
 import ReactHtmlParser from "react-html-parser";
 import AvailableFor from "components/AvailableFor";
 import KnownFor from "./KnownFor";
@@ -17,6 +19,7 @@ import { config } from "config";
 import colors from "styles/colors";
 import SocialIcons from "components/SocialIcons";
 import StyledImage from "components/StyledImage";
+import { KnownForWrapper } from "./styles";
 
 interface IProps {
   talent: ITalent;
@@ -44,7 +47,7 @@ const MediumHeader: FC<IProps> = ({ talent }) => {
 
   return (
     <>
-      <Container fluid>
+      <StyledContainer fluid>
         <Row>
           <Col offset={{ lg: 1 }} xs={12} lg={10}>
             <Box padding="30px 0 70px">
@@ -90,15 +93,20 @@ const MediumHeader: FC<IProps> = ({ talent }) => {
             <Box margin="48px 0" />
           </Col>
         </Row>
-        <Row>
-          <Col offset={{ lg: 1 }} lg={3} md={4}>
-            <AvailableFor />
-          </Col>
-          <Col offset={{ md: 1 }} lg={5} md={7}>
-            <KnownFor bulletPoints={titles} />
-          </Col>
-        </Row>
-      </Container>
+      </StyledContainer>
+      <KnownForWrapper>
+        <AvailableForBg />
+        <StyledContainer fluid>
+          <Row>
+            <Col offset={{ lg: 1 }} lg={3} md={4}>
+              <AvailableFor />
+            </Col>
+            <Col offset={{ md: 1 }} lg={5} md={7}>
+              <KnownFor bulletPoints={titles} />
+            </Col>
+          </Row>
+        </StyledContainer>
+      </KnownForWrapper>
     </>
   );
 };

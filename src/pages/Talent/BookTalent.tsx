@@ -1,7 +1,12 @@
 import React, { FC } from "react";
-import { Row, Col, Container } from "react-grid-system";
+import { Row, Col } from "react-grid-system";
 import { Box } from "react-basic-blocks";
-import { DescriptionText, HeaderText, Button } from "styles/components";
+import {
+  DescriptionText,
+  HeaderText,
+  Button,
+  StyledContainer,
+} from "styles/components";
 import colors from "styles/colors";
 import { Link } from "react-router-dom";
 import { BookTalentWrapper } from "./styles";
@@ -14,7 +19,7 @@ interface IProps {
 const BookTalent: FC<IProps> = ({ name, slug }) => {
   return (
     <BookTalentWrapper>
-      <Container fluid>
+      <StyledContainer fluid>
         <Row>
           <Col offset={{ md: 2 }} md={8} xs={12}>
             <Box margin="120px 0 120px 0" alignItems="center">
@@ -29,7 +34,7 @@ const BookTalent: FC<IProps> = ({ name, slug }) => {
             </Box>
           </Col>
         </Row>
-      </Container>
+      </StyledContainer>
     </BookTalentWrapper>
   );
 };

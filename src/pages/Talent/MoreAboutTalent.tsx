@@ -1,10 +1,11 @@
 import React, { FC } from "react";
-import { Container, Row, Col } from "react-grid-system";
+import { Row, Col } from "react-grid-system";
 import {
   HeaderText,
   DescriptionText,
   Divider,
   BigText,
+  StyledContainer,
 } from "styles/components";
 import { Box } from "react-basic-blocks";
 import { IReview } from "types";
@@ -22,7 +23,7 @@ const MoreAboutTalent: FC<IProps> = ({ name, reviews }) => {
   }
 
   return (
-    <Container fluid>
+    <StyledContainer fluid>
       <Row>
         <Col offset={{ lg: 1 }} md={12} lg={10}>
           <Box margin="80px 0 0 0">
@@ -71,7 +72,7 @@ const MoreAboutTalent: FC<IProps> = ({ name, reviews }) => {
           </Box>
         </Col>
       </Row>
-    </Container>
+    </StyledContainer>
   );
 };
 

@@ -1,7 +1,12 @@
 import React, { FC } from "react";
-import { Container, Row, Col } from "react-grid-system";
+import { Row, Col } from "react-grid-system";
 import { useLocation } from "react-router";
-import { DescriptionText, HeaderText, Button } from "styles/components";
+import {
+  DescriptionText,
+  HeaderText,
+  Button,
+  StyledContainer,
+} from "styles/components";
 import Step from "components/Step";
 import colors from "styles/colors";
 import { Box } from "react-basic-blocks";
@@ -31,7 +36,7 @@ const WhatHappensNext: FC<IProps> = ({ name }) => {
   const query = (qs.parse(useLocation().search.slice(1)) as unknown) as IQuery;
   return (
     <div>
-      <Container fluid>
+      <StyledContainer fluid>
         <Row>
           <Col offset={{ lg: 1, md: 0, sm: 1 }} xs={12} sm={10} md={7} lg={5}>
             <HeaderText>What happens next</HeaderText>
@@ -129,7 +134,7 @@ const WhatHappensNext: FC<IProps> = ({ name }) => {
             </Box>
           </Col>
         </Row>
-      </Container>
+      </StyledContainer>
     </div>
   );
 };

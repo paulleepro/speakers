@@ -26,3 +26,7 @@ export const BookTalentWrapper = styled.div`
     rgba(34, 30, 41, 0.5)
   );
 `;
+
+export const KnownForWrapper = styled.div`
+  position: relative;
+`;

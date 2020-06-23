@@ -1,13 +1,13 @@
 import React, { FC } from "react";
 import { useLocation } from "react-router";
-import { Container, Row, Col } from "react-grid-system";
+import { Row, Col } from "react-grid-system";
 import { ITalent, ISearch } from "types";
 import { config } from "config";
 import SpeakerCard from "components/SpeakerCard";
 import { fetchSingle } from "fetch-hooks-react";
 import Loader from "components/Loader";
 import ErrorNotice from "components/ErrorNotice";
-import { BigText, ArrowLeftText } from "styles/components";
+import { BigText, ArrowLeftText, StyledContainer } from "styles/components";
 import { Box } from "react-basic-blocks";
 import { Link } from "react-router-dom";
 import StarPower from "components/StarPower";
@@ -27,7 +27,7 @@ const SearchResults: FC = () => {
   return (
     <>
       <div>
-        <Container fluid>
+        <StyledContainer fluid>
           <Row>
             <Col offset={{ lg: 1 }} xs={12} lg={10}>
               <Box padding="40px 0 80px">
@@ -54,7 +54,7 @@ const SearchResults: FC = () => {
               </Row>
             </Col>
           </Row>
-        </Container>
+        </StyledContainer>
       </div>
       <StarPower />
     </>

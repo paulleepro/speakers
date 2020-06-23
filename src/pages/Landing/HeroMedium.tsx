@@ -4,8 +4,9 @@ import {
   BigText,
   DescriptionText,
   Button,
+  StyledContainer,
 } from "styles/components";
-import { Container, Row, Col } from "react-grid-system";
+import { Row, Col } from "react-grid-system";
 import { HeroWrapper } from "./styles";
 import { Link } from "react-router-dom";
 
@@ -17,7 +18,7 @@ interface IProps {
 const HeroMedium: FC<IProps> = ({ heroDescriptor, imageUrl }) => {
   return (
     <HeroWrapper backgroundImage={imageUrl}>
-      <Container fluid>
+      <StyledContainer fluid>
         <Row>
           <Col offset={{ md: 1 }} md={8} lg={6}>
             <VirtualText margin="0px">Virtual Speakers</VirtualText>
@@ -37,7 +38,7 @@ const HeroMedium: FC<IProps> = ({ heroDescriptor, imageUrl }) => {
             </Link>
           </Col>
         </Row>
-      </Container>
+      </StyledContainer>
     </HeroWrapper>
   );
 };

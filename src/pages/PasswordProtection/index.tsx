@@ -1,7 +1,12 @@
 import React, { FC, useContext } from "react";
-import { Container, Row, Col } from "react-grid-system";
+import { Row, Col } from "react-grid-system";
 import { Box } from "react-basic-blocks";
-import { Divider, Button, StyledError } from "styles/components";
+import {
+  Divider,
+  Button,
+  StyledError,
+  StyledContainer,
+} from "styles/components";
 import {
   Input,
   Wrapper,
@@ -91,7 +96,7 @@ const PasswordProtection: FC = () => {
           />
         </svg>
       </CirclesWrapper>
-      <Container fluid>
+      <StyledContainer fluid>
         <Row>
           <Col
             offset={{ lg: 3, md: 2, sm: 1, xs: 0 }}
@@ -151,7 +156,7 @@ const PasswordProtection: FC = () => {
             </Box>
           </Col>
         </Row>
-      </Container>
+      </StyledContainer>
     </Wrapper>
   );
 };

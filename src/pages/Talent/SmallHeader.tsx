@@ -5,6 +5,7 @@ import {
   DescriptionText,
   Button,
   ArrowLeftText,
+  AvailableForBg,
 } from "styles/components";
 import { Container, Row, Col } from "react-grid-system";
 import ReactHtmlParser from "react-html-parser";
@@ -83,6 +84,7 @@ const SmallHeader: FC<IProps> = ({ talent }) => {
         </Row>
         <Row>
           <Col>
+            <AvailableForBg />
             <Box margin="40px 0">
               <AvailableFor />
             </Box>

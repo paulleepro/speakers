@@ -1,5 +1,5 @@
 import React, { FC, useState } from "react";
-import { Container, Row, Col } from "react-grid-system";
+import { Row, Col } from "react-grid-system";
 import { config } from "config";
 import SpeakerCard from "components/SpeakerCard";
 import Featured from "components/Featured";
@@ -13,6 +13,7 @@ import {
   HeaderText,
   TopAreaDivider,
   SeeAllText,
+  StyledContainer,
 } from "styles/components";
 import StarPower from "components/StarPower";
 
@@ -32,7 +33,7 @@ const CategoryPage: FC<IProps> = ({
   const [showAll, setShowAll] = useState<boolean>(false);
   return (
     <div>
-      <Container fluid>
+      <StyledContainer fluid>
         <Row>
           <Col offset={{ lg: 1 }} xs={12} lg={10}>
             <Box padding="40px 0 0 0">
@@ -112,7 +113,7 @@ const CategoryPage: FC<IProps> = ({
             </Row>
           </Col>
         </Row>
-      </Container>
+      </StyledContainer>
       <Box height="80px" />
       <StarPower />
     </div>

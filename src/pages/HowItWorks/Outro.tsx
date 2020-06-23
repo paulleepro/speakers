@@ -1,11 +1,11 @@
 import React, { FC } from "react";
-import { Container, Row, Col } from "react-grid-system";
-import { BigText, DescriptionText } from "styles/components";
+import { Row, Col } from "react-grid-system";
+import { BigText, DescriptionText, StyledContainer } from "styles/components";
 
 const Outro: FC = () => {
   return (
     <div>
-      <Container fluid>
+      <StyledContainer fluid>
         <Row>
           <Col offset={{ lg: 1 }} xs={12} md={10}>
             <BigText margin="100px 0 0 0">In Person Events</BigText>
@@ -19,7 +19,7 @@ const Outro: FC = () => {
             </DescriptionText>
           </Col>
         </Row>
-      </Container>
+      </StyledContainer>
     </div>
   );
 };

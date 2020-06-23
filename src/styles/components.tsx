@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import colors from "styles/colors";
 import { Box } from "react-basic-blocks";
-import { Row, RowProps, Col, ColProps } from "react-grid-system";
+import { Container, Row, RowProps, Col, ColProps } from "react-grid-system";
 
 export const SectionWrapper = styled(Box)`
   max-width: 1160px;
@@ -246,4 +246,27 @@ export const TopAreaDivider = styled.div`
   width: 100%;
   margin: 40px 0 80px 0;
   border-bottom: 1px solid ${colors.purpleBgFill};
+`;
+
+export const StyledContainer = styled(Container)`
+  max-width: 1440px;
+`;
+
+export const AvailableForBg = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-radius: 0 0 600px 0;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(34, 30, 41, 0),
+    ${colors.purpleBgFill}
+  );
+  z-index: -1;
+  width: 50%;
+  height: 100%;
+
+  @media (max-width: 1023px) {
+    width: 100%;
+  }
 `;

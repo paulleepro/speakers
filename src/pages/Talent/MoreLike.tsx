@@ -2,8 +2,8 @@ import React, { FC } from "react";
 import { Link } from "react-router-dom";
 import { fetchSingle } from "fetch-hooks-react";
 import Loader from "components/Loader";
-import { Container, Row, Col } from "react-grid-system";
-import { HeaderText, Button } from "styles/components";
+import { Row, Col } from "react-grid-system";
+import { HeaderText, Button, StyledContainer } from "styles/components";
 import { Box } from "react-basic-blocks";
 import { config } from "config";
 import { IListResult, ITalent } from "types";
@@ -29,7 +29,7 @@ const MoreLike: FC<IProps> = ({ name, types }) => {
     return null;
   }
   return (
-    <Container fluid>
+    <StyledContainer fluid>
       <Row>
         <Col offset={{ lg: 1 }} md={12} lg={10}>
           <Box margin="80px 0 0 0">
@@ -64,7 +64,7 @@ const MoreLike: FC<IProps> = ({ name, types }) => {
           </Box>
         </Col>
       </Row>
-    </Container>
+    </StyledContainer>
   );
 };
 

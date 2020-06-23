@@ -1,10 +1,11 @@
 import React, { FC } from "react";
-import { Container, Row, Col, Visible } from "react-grid-system";
+import { Row, Col, Visible } from "react-grid-system";
 import {
   HeaderText,
   DescriptionText,
   BigText,
   Button,
+  StyledContainer,
 } from "styles/components";
 import { Box } from "react-basic-blocks";
 import colors from "styles/colors";
@@ -13,7 +14,7 @@ import StyledImage from "components/StyledImage";
 const OurEvents: FC = () => {
   return (
     <div>
-      <Container fluid>
+      <StyledContainer fluid>
         <Row>
           <Col offset={{ lg: 1, md: 0, sm: 1 }} xs={12} sm={10} md={9} lg={6}>
             <Box margin="80px 0">
@@ -74,7 +75,7 @@ const OurEvents: FC = () => {
             </Visible>
           </Col>
         </Row>
-      </Container>
+      </StyledContainer>
     </div>
   );
 };

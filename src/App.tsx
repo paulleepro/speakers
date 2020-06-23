@@ -15,7 +15,6 @@ import Topics from "pages/TopicList";
 import Subtopic from "pages/Subtopic";
 import Type from "pages/Type";
 import FAQ from "pages/FAQ";
-import AboutUs from "pages/AboutUs";
 import SearchResults from "pages/SearchResults";
 import { AuthContext } from "AuthContext";
 import PasswordProtection from "pages/PasswordProtection";
@@ -60,12 +59,11 @@ const App = (): ReactElement => {
               exact
             />
             <Route path="/talent/:slug" component={Talent} exact />
-            <Route path="/type/:id" component={Type} exact />
-            <Route path="/subtopic/:id" component={Subtopic} exact />
+            <Route path="/type/:slug" component={Type} exact />
+            <Route path="/subtopic/:slug" component={Subtopic} exact />
             <Route path="/topic" component={Topics} exact />
             <Route path="/explore" component={Explore} exact />
             <Route path="/how-it-works" component={HowItWorks} exact />
-            <Route path="/about-us" component={AboutUs} exact />
             <Route path="/faq" component={FAQ} exact />
             <Route path="/search-results" component={SearchResults} exact />
             <Route path="/" component={Landing} exact />

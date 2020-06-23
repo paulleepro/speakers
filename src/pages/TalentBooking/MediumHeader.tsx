@@ -1,6 +1,11 @@
 import React, { FC } from "react";
-import { VirtualText, BigText, ArrowLeftText } from "styles/components";
-import { Container, Row, Col } from "react-grid-system";
+import {
+  VirtualText,
+  BigText,
+  ArrowLeftText,
+  StyledContainer,
+} from "styles/components";
+import { Row, Col } from "react-grid-system";
 import AvailableFor from "components/AvailableFor";
 import { ITalent } from "types";
 import Form from "./Form";
@@ -23,7 +28,7 @@ const MediumHeader: FC<IProps> = ({ talent }) => {
 
   return (
     <>
-      <Container fluid>
+      <StyledContainer fluid>
         <Row>
           <Col offset={{ lg: 1 }} xs={12} lg={10}>
             <Box padding="30px 0 70px">
@@ -52,7 +57,7 @@ const MediumHeader: FC<IProps> = ({ talent }) => {
             <Form slug={slug} id={id} />
           </Col>
         </Row>
-      </Container>
+      </StyledContainer>
     </>
   );
 };

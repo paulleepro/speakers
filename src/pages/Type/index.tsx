@@ -15,28 +15,28 @@ interface IFetchMany {
 }
 
 const Type: FC = () => {
-  const { id } = useParams<{ id: string }>();
+  const { slug } = useParams<{ slug: string }>();
   const { data, error, isLoading } = fetchMany<IFetchMany>([
     {
       key: "type",
-      url: `${config.speakersTalentUrl}/v1/talents/metadata/types/${id}`,
+      url: `${config.speakersTalentUrl}/v1/talents/metadata/types/slug/${slug}`,
     },
     {
       key: "featured",
-      url: `${config.speakersTalentUrl}/v1/talents?limit=6&where=types.id:exact:${id}&where=is_new:exact:false`,
+      url: `${config.speakersTalentUrl}/v1/talents?limit=6&where=types.slug:exact:${slug}&where=is_new:exact:false`,
     },
     {
       key: "new",
-      url: `${config.speakersTalentUrl}/v1/talents?limit=8&where=types.id:exact:${id}&where=is_new:exact:true`,
+      url: `${config.speakersTalentUrl}/v1/talents?limit=8&where=types.slug:exact:${slug}&where=is_new:exact:true`,
     },
     {
       key: "all",
-      url: `${config.speakersTalentUrl}/v1/talents?limit=20&where=types.id:exact:${id}`,
+      url: `${config.speakersTalentUrl}/v1/talents?limit=20&where=types.slug:exact:${slug}`,
     },
   ]);
 
   const { data: allData } = fetchSingle<IListResult<ITalent>>(
-    `${config.speakersTalentUrl}/v1/talents?where=types.id:exact:${id}`
+    `${config.speakersTalentUrl}/v1/talents?where=types.slug:exact:${slug}`
   );
 
   if (isLoading) {

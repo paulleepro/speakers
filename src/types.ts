@@ -80,11 +80,13 @@ export interface ISearch<T> {
 }
 
 export interface IType {
+  slug: string;
   name: string;
   id: string;
 }
 
 export interface ITopic {
+  slug: string;
   name: string;
   id: string;
   subtopics: IType[];

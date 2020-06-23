@@ -1,7 +1,7 @@
 import React, { FC } from "react";
-import { Container, Row, Col } from "react-grid-system";
+import { Row, Col } from "react-grid-system";
 import { Link } from "react-router-dom";
-import { DescriptionText } from "styles/components";
+import { DescriptionText, StyledContainer } from "styles/components";
 import Loader from "components/Loader";
 import { fetchSingle } from "fetch-hooks-react";
 import { IListResult, ITopic, IType } from "types";
@@ -40,7 +40,7 @@ const Topics: FC = () => {
 
   return (
     <div>
-      <Container fluid>
+      <StyledContainer fluid>
         <Row>
           <Col offset={{ lg: 1 }} xs={12} lg={10}>
             <Box padding="40px 0 0 0">
@@ -80,8 +80,8 @@ const Topics: FC = () => {
                   lg={5}
                   key={`type-col-${i}`}
                 >
-                  {getSubtopics(i, subtopics).map(({ name, id }) => (
-                    <Link key={id} to={`/subtopic/${id}`}>
+                  {getSubtopics(i, subtopics).map(({ name, id, slug }) => (
+                    <Link key={id} to={`/subtopic/${slug}`}>
                       <DescriptionText noCenterAlign>{name}</DescriptionText>
                     </Link>
                   ))}
@@ -90,7 +90,7 @@ const Topics: FC = () => {
             </Row>
           </div>
         ))}
-      </Container>
+      </StyledContainer>
       <Box margin="40px 0" />
       <StarPower />
     </div>

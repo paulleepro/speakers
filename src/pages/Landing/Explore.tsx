@@ -1,6 +1,6 @@
 import React, { FC, useState, memo } from "react";
-import { Container, Row, Col } from "react-grid-system";
-import { HeaderText, Button } from "styles/components";
+import { Row, Col } from "react-grid-system";
+import { HeaderText, Button, StyledContainer } from "styles/components";
 import { Link } from "react-router-dom";
 import { Box } from "react-basic-blocks";
 import "swiper/css/swiper.css";
@@ -37,7 +37,7 @@ const Explore: FC = () => {
   return (
     <>
       <div>
-        <Container fluid>
+        <StyledContainer fluid>
           <Row>
             <Col lg={10} md={12} offset={{ lg: 1 }}>
               <Box alignItems="center" margin="120px 0 0 0">
@@ -66,7 +66,7 @@ const Explore: FC = () => {
               </Box>
             </Col>
           </Row>
-        </Container>
+        </StyledContainer>
       </div>
     </>
   );

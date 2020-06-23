@@ -1,13 +1,13 @@
 import React, { FC } from "react";
-import { Container, Row, Col } from "react-grid-system";
+import { Row, Col } from "react-grid-system";
 import StarPower from "components/StarPower";
-import { BigText, TopAreaDivider } from "styles/components";
+import { BigText, TopAreaDivider, StyledContainer } from "styles/components";
 import QuestionAnswer from "./QuestionAnswer";
 
 const FAQ: FC = () => {
   return (
     <div>
-      <Container fluid>
+      <StyledContainer fluid>
         <Row>
           <Col offset={{ lg: 1 }} xs={12} lg={10}>
             <BigText margin="80px 0 0 0">FAQ</BigText>
@@ -30,7 +30,7 @@ const FAQ: FC = () => {
           question="Question 4 - What is Lorem Ipsum?"
           answer="Answer 4 - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur gravida scelerisque sagittis. Pellentesque egestas vulputate rutrum. Maecenas vel mattis nisl. Vestibulum a commodo nulla."
         />
-      </Container>
+      </StyledContainer>
       <StarPower />
     </div>
   );

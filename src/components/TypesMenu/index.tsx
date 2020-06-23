@@ -80,10 +80,10 @@ const TypesMenu: FC<IProps> = ({ types, show, setShow, close }) => {
               lg={2.5}
               key={`type-col-${i}`}
             >
-              {getTypes(i, types).map(({ name, id }) => (
+              {getTypes(i, types).map(({ name, id, slug }) => (
                 <Link
                   key={id}
-                  to={`/type/${id}`}
+                  to={`/type/${slug}`}
                   onClick={() => close && close()}
                 >
                   <TypeLink>{name}</TypeLink>

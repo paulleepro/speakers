@@ -15,28 +15,28 @@ interface IFetchMany {
 }
 
 const Subtopic: FC = () => {
-  const { id } = useParams<{ id: string }>();
+  const { slug } = useParams<{ slug: string }>();
   const { data, error, isLoading } = fetchMany<IFetchMany>([
     {
       key: "subtopic",
-      url: `${config.speakersTalentUrl}/v1/talents/metadata/subtopics/${id}`,
+      url: `${config.speakersTalentUrl}/v1/talents/metadata/subtopics/slug/${slug}`,
     },
     {
       key: "featured",
-      url: `${config.speakersTalentUrl}/v1/talents?limit=6&where=subtopics.id:exact:${id}&where=is_new:exact:false`,
+      url: `${config.speakersTalentUrl}/v1/talents?limit=6&where=subtopics.slug:exact:${slug}&where=is_new:exact:false`,
     },
     {
       key: "new",
-      url: `${config.speakersTalentUrl}/v1/talents?limit=8&where=subtopics.id:exact:${id}&where=is_new:exact:true`,
+      url: `${config.speakersTalentUrl}/v1/talents?limit=8&where=subtopics.slug:exact:${slug}&where=is_new:exact:true`,
     },
     {
       key: "all",
-      url: `${config.speakersTalentUrl}/v1/talents?limit=20&where=subtopics.id:exact:${id}`,
+      url: `${config.speakersTalentUrl}/v1/talents?limit=20&where=subtopics.slug:exact:${slug}`,
     },
   ]);
 
   const { data: allData } = fetchSingle<IListResult<ITalent>>(
-    `${config.speakersTalentUrl}/v1/talents?where=subtopics.id:exact:${id}`
+    `${config.speakersTalentUrl}/v1/talents?where=subtopics.slug:exact:${slug}`
   );
 
   if (isLoading) {

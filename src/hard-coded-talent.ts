@@ -12,7 +12,7 @@ export const hardCodedTalent = [
   },
   {
     name: "Diversity, Inclusion & Equity",
-    url: "/subtopic/fcf918b9-5bea-449a-84a7-c6f6ec0bf258",
+    url: "/subtopic/diversity-inclusion",
     talent: [
       "tyler-perry",
       "bozoma-saint-john",
@@ -26,7 +26,7 @@ export const hardCodedTalent = [
   },
   {
     name: "LGBTQIA",
-    url: "/type/dc58411e-0b37-49f3-b719-f45f3573b9d8",
+    url: "/type/lgbtqia",
     talent: [
       "katie-sowers",
       "lilly-singh",
@@ -40,7 +40,7 @@ export const hardCodedTalent = [
   },
   {
     name: "Leadership",
-    url: "/subtopic/651ac688-fcb3-4613-b9cd-674761be6d67",
+    url: "/subtopic/leadership-strategic-management",
     talent: [
       "simon-sinek",
       "marcus-lemonis",
@@ -54,7 +54,7 @@ export const hardCodedTalent = [
   },
   {
     name: "Inspiration & Motivation",
-    url: "/subtopic/0b020775-73c5-4de8-8a96-f265ebd43feb",
+    url: "/subtopic/personal-growth-inspiration",
     talent: [
       "kevin-hart",
       "ashley-judd",
@@ -68,7 +68,7 @@ export const hardCodedTalent = [
   },
   {
     name: "Politics",
-    url: "/subtopic/d2d901fe-b531-4db8-85b5-0c2920f98cff",
+    url: "/subtopic/u-s-politics-government",
     talent: [
       "rham-emanuel",
       "chris-christie",
