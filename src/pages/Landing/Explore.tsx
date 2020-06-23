@@ -1,6 +1,7 @@
 import React, { FC, useState, memo } from "react";
 import { Container, Row, Col } from "react-grid-system";
 import { HeaderText, Button } from "styles/components";
+import { Link } from "react-router-dom";
 import { Box } from "react-basic-blocks";
 import "swiper/css/swiper.css";
 import Tabs from "components/Tabs";
@@ -59,7 +60,9 @@ const Explore: FC = () => {
           <Row>
             <Col>
               <Box alignItems="center">
-                <Button margin="40px 0 0 0">See All Speakers</Button>
+                <Link to="/explore">
+                  <Button margin="40px 0 0 0">See All Speakers</Button>
+                </Link>
               </Box>
             </Col>
           </Row>
