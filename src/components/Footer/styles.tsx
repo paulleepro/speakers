@@ -2,6 +2,11 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import colors from "styles/colors";
 
+export const FooterWrapper = styled.div`
+  background-color: #111111;
+  border-top: 1px solid ${colors.purpleLiner};
+`;
+
 export const FooterLink = styled(Link)`
   font-weight: normal;
   font-size: 16px;
@@ -14,6 +19,7 @@ export const FooterLink = styled(Link)`
 `;
 
 export const InfoText = styled.span`
+  margin-top: 8px;
   text-align: center;
   font-weight: normal;
   font-size: 16px;

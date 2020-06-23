@@ -188,7 +188,7 @@ export class Auth {
       return this.keycloak
         .init(this.keycloakConfig)
         .then(async (authenticated) => {
-          console.log(`>> KC 1 authenticated: ${authenticated}`);
+          // console.log(`>> KC 1 authenticated: ${authenticated}`);
 
           //   this.keycloakConfig = this.newKeycloakConfig(undefined, true);
 

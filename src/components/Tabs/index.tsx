@@ -12,8 +12,14 @@ interface ITabProps {
 const StyledContainer = styled.div`
   display: flex;
   flex-direction: row;
-  max-width: 100%;
+  max-width: calc(100vw - 60px);
   overflow-x: scroll;
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+
+  ::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+  }
   div + div {
     margin-left: 30px;
   }

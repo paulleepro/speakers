@@ -36,7 +36,7 @@ export const VirtualText = styled.span<{
     margin-right: 10px;
   }
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1023px) {
     margin: ${(props) => props.margin || "24px 0 0 0"};
     text-align: ${(props) => (props.noCenterAlign ? "left" : "center")};
   }
@@ -60,16 +60,16 @@ export const ArrowLeftText = styled.span<{
   ::before {
     width: 0;
     height: 0;
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
-    border-right: 10px solid ${colors.primaryPurple};
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-right: 8px solid ${colors.primaryPurple};
     content: "";
     font-size: 0px;
     vertical-align: middle;
     margin-right: 10px;
   }
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1023px) {
     text-align: ${(props) => (props.noCenterAlign ? "left" : "center")};
   }
 `;
@@ -90,7 +90,7 @@ export const BigText = styled.span<{ margin?: string; color?: string }>`
     text-decoration-color: ${colors.primaryPurple};
   }
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1023px) {
     font-size: 44px;
     font-weight: bold;
     font-stretch: normal;
@@ -122,12 +122,41 @@ export const DescriptionText = styled.span<{
     props.textAlign ? `text-align: ${props.textAlign};` : ""}
   display: block;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1023px) {
     text-align: ${(props) => (props.noCenterAlign ? "left" : "center")};
+  }
+
+  p {
+    margin: 20px 0 0 0;
+  }
+
+  a {
+    color: ${colors.primaryPurple};
   }
 `;
 
-export const HeaderText = styled.span<{ noCenterAlign?: boolean }>`
+export const SeeAllText = styled.span`
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.78;
+  letter-spacing: 0.22px;
+  text-align: right;
+  margin: 0 18px;
+  white-space: nowrap;
+
+  @media (max-width: 1023px) {
+    font-size: 18px;
+  }
+`;
+
+export const HeaderText = styled.span<{
+  margin?: string;
+  noCenterAlign?: boolean;
+}>`
+  margin: ${(props) => props.margin || "0 0 25px 0"};
   font-family: Montserrat;
   font-size: 40px;
   font-weight: bold;
@@ -135,12 +164,12 @@ export const HeaderText = styled.span<{ noCenterAlign?: boolean }>`
   font-style: normal;
   line-height: normal;
   letter-spacing: 0.33px;
-  margin-bottom: 25px;
   display: block;
   color: #ffffff;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1023px) {
     text-align: ${(props) => (props.noCenterAlign ? "left" : "center")};
+    font-size: 32px;
   }
 `;
 
@@ -150,7 +179,7 @@ export const Divider = styled.div<{ width: string; noCenterAlign?: boolean }>`
   width: ${(props) => props.width};
   margin: 30px 0;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1023px) {
     align-self: ${(props) => (props.noCenterAlign ? "flex-start" : "center")};
   }
 `;
@@ -161,7 +190,7 @@ export const Button = styled.button<{ margin?: string; width?: string }>`
   cursor: pointer;
   border-radius: 12px;
   background-color: ${colors.primaryPurple};
-  padding: 14px 30px;
+  padding: 14px 60px;
   font-size: 
   font-size: 16px;
   font-weight: bold;
@@ -197,7 +226,7 @@ export const TopRightSemi = styled.div`
   border-radius: 0 0 0 600px;
   border-bottom: 1px solid ${colors.purpleLiner};
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1023px) {
     width: 60%;
   }
 `;
@@ -211,4 +240,10 @@ export const StyledError = styled.p`
     display: inline;
     content: "⚠ ";
   }
+`;
+
+export const TopAreaDivider = styled.div`
+  width: 100%;
+  margin: 40px 0 80px 0;
+  border-bottom: 1px solid ${colors.purpleBgFill};
 `;

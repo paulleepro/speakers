@@ -4,6 +4,12 @@ import { Box } from "react-basic-blocks";
 const getIcon = (url: string) => {
   if (/instagram/.test(url)) {
     return "/images/instagram.png";
+  } else if (/facebook/.test(url)) {
+    return "/images/facebook.png";
+  } else if (/linkedin/.test(url)) {
+    return "/images/linkedin.png";
+  } else if (/youtube/.test(url)) {
+    return "/images/youtube.png";
   } else {
     return "/images/twitter.png";
   }

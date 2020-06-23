@@ -3,17 +3,31 @@ import { HeaderText, DescriptionText } from "styles/components";
 import { Box } from "react-basic-blocks";
 import { Container, Row, Col, useScreenClass } from "react-grid-system";
 import colors from "styles/colors";
-import { ActionIcon, ActionWrapper, PanelWrapper } from "./styles";
+import { ActionIcon, ActionWrapper, PanelWrapper, TextWrapper } from "./styles";
 import StyledImage from "components/StyledImage";
+import Circles from "components/Circles";
 
 interface PIProps {
   imageRight?: boolean;
   imageUrl: string;
   iconUrl?: string;
+  showCircles?: boolean;
 }
 
-const PanelImage: FC<PIProps> = ({ iconUrl, imageUrl, imageRight }) => (
-  <Col offset={{ lg: 1, md: imageRight ? 1 : 0 }} xs={12} md={5} lg={5}>
+const PanelImage: FC<PIProps> = ({
+  iconUrl,
+  imageUrl,
+  imageRight,
+  showCircles,
+}) => (
+  <Col
+    offset={{ lg: 1, md: imageRight ? 1 : 0, sm: 2, xs: 1 }}
+    xs={10}
+    sm={8}
+    md={5}
+    lg={5}
+  >
+    {showCircles ? <Circles color={colors.purpleLiner} top="0" /> : false}
     <ActionWrapper>
       <StyledImage
         height={376}
@@ -36,6 +50,7 @@ interface IProps {
   description: string;
   imageUrl: string;
   iconUrl?: string;
+  showCircles?: boolean;
 }
 
 const Panel: FC<IProps> = ({
@@ -44,6 +59,7 @@ const Panel: FC<IProps> = ({
   description,
   imageUrl,
   iconUrl,
+  showCircles,
 }) => {
   const screenClass = useScreenClass();
   const isSmall = ["xs", "sm"].includes(screenClass);
@@ -56,6 +72,7 @@ const Panel: FC<IProps> = ({
               imageUrl={imageUrl}
               imageRight={imageRight}
               iconUrl={iconUrl}
+              showCircles={showCircles}
             />
           )}
           <Col offset={{ md: imageRight ? 0 : 1, lg: 1 }} xs={12} md={6} lg={4}>
@@ -63,15 +80,17 @@ const Panel: FC<IProps> = ({
               justifyContent="center"
               height="100%"
               alignItems={isSmall ? "center" : "flex-start"}
-              margin={isSmall ? "0 0 80px 0" : "0"}
+              margin={isSmall ? "40px 0 40px 0" : "0"}
             >
-              <HeaderText>{title}</HeaderText>
-              <DescriptionText
-                color={colors.midGrey}
-                textAlign={isSmall ? "center" : "left"}
-              >
-                {description}
-              </DescriptionText>
+              <TextWrapper>
+                <HeaderText>{title}</HeaderText>
+                <DescriptionText
+                  color={colors.midGrey}
+                  textAlign={isSmall ? "center" : "left"}
+                >
+                  {description}
+                </DescriptionText>
+              </TextWrapper>
             </Box>
           </Col>
           {imageRight && !isSmall ? (

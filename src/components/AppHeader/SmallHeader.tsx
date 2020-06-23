@@ -15,13 +15,7 @@ const SmallHeader: FC<IProps> = ({ types }) => {
   return (
     <>
       <Sidebar show={showSidebar} setShow={setShowSidebar} types={types} />
-      <Wrapper
-        flexDirection="row"
-        className="app-header"
-        justifyContent="center"
-        alignItems="center"
-        backgroundColor={colors.black}
-      >
+      <Wrapper backgroundColor={colors.black} justifyContent="center">
         <Link to="/">
           <img src="/logo.png" height="40" alt="logo" />
         </Link>

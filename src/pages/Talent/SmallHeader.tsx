@@ -4,6 +4,7 @@ import {
   BigText,
   DescriptionText,
   Button,
+  ArrowLeftText,
 } from "styles/components";
 import { Container, Row, Col } from "react-grid-system";
 import ReactHtmlParser from "react-html-parser";
@@ -36,16 +37,29 @@ const SmallHeader: FC<IProps> = ({ talent }) => {
       <Container fluid>
         <Row>
           <Col>
+            <Link to="/explore">
+              <ArrowLeftText margin="40px 0 0 0">EXPLORE ALL</ArrowLeftText>
+            </Link>
             <BigText margin="24px 0 0">{name}</BigText>
-            <VirtualText>Featured</VirtualText>
-            <SocialIcons
-              urls={
-                Object.values(social_accounts).filter(
-                  (x) => x !== undefined
-                ) as string[]
-              }
-              justifyContent="center"
-            />
+          </Col>
+        </Row>
+        <Row>
+          <Col offset={{ sm: 1, xs: 0 }} sm={10} xs={12}>
+            <Box flexDirection="row" justifyContent="space-between">
+              <VirtualText>Featured</VirtualText>
+              <SocialIcons
+                urls={
+                  Object.values(social_accounts).filter(
+                    (x) => x !== undefined
+                  ) as string[]
+                }
+                justifyContent="center"
+              />
+            </Box>
+          </Col>
+        </Row>
+        <Row>
+          <Col offset={{ sm: 3, xs: 0 }} sm={6} xs={12}>
             <StyledImage
               alt="talent-img"
               fallbackSrc="/images/default-profile.svg"
@@ -58,6 +72,10 @@ const SmallHeader: FC<IProps> = ({ talent }) => {
                 Book Today
               </Button>
             </Link>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
             <DescriptionText>
               {ReactHtmlParser(getHighlight(highlights))}
             </DescriptionText>

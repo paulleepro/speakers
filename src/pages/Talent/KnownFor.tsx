@@ -11,7 +11,7 @@ interface IProps {
 const KnownFor: FC<IProps> = ({ bulletPoints }) => {
   return (
     <Box>
-      <DescriptionText>Known For:</DescriptionText>
+      <DescriptionText weight="bold">Known For:</DescriptionText>
       <Divider width="200px" />
       <StyledUl>
         {bulletPoints.map((x, i) => (

@@ -1,48 +1,27 @@
 import React, { FC } from "react";
-import { fetchMany } from "fetch-hooks-react";
+import { fetchSingle } from "fetch-hooks-react";
 import Loader from "components/Loader";
 import { config } from "config";
 import ErrorNotice from "components/ErrorNotice";
-import { MainWrapper } from "./styles";
 import StarPower from "components/StarPower";
 import Title from "./Title";
+import CategoryPreview from "./CategoryPreview";
 import Featured from "components/Featured";
 import { IListResult, ITalent } from "types";
-import Topics from "./Topics";
+import { hardCodedTalent } from "hard-coded-talent";
+import { Container } from "react-grid-system";
 
-const topics = [
-  "Innovators & Entrepreneurs",
-  "Basketball Players & Coaches",
-  "Social Media Influencers",
-  "Artists & Entertainers",
-];
-
-const slugs = [
-  "lin-manuel-miranda",
-  "kevin-hart",
-  "alex-rodriguez",
-  "tyler-perry",
-  "indra-nooyi",
-  "venus-williams",
-];
+const getTalent = (data: ITalent[], slugs: string[]) =>
+  data.filter((x) => slugs.includes(x.slug));
 
 const Explore: FC = () => {
-  const params = topics
-    .map((x) => ({
-      url: `${config.speakersTalentUrl}/v1/talents?limit=4&where=types.name:like:${x}`,
-      key: x,
-    }))
-    .concat({
-      url: `${
-        config.speakersTalentUrl
-      }/v1/talents?fields=name,id,slug,titles,media&where=slug:in:${slugs.join(
-        ":"
-      )}`,
-      key: "featured",
-    });
-  const { data, error, isLoading } = fetchMany<{
-    [key: string]: IListResult<ITalent>;
-  }>(params);
+  const slugs = hardCodedTalent
+    .reduce((prev, curr) => [...prev, ...curr.talent], [] as string[])
+    .join(":");
+
+  const { data, error, isLoading } = fetchSingle<IListResult<ITalent>>(
+    `${config.speakersTalentUrl}/v1/talents?fields=name,id,slug,titles,media&where=slug:in:${slugs}`
+  );
 
   let components = <div />;
 
@@ -53,18 +32,29 @@ const Explore: FC = () => {
   } else {
     components = (
       <>
-        <Featured data={data.featured.data} />
-        <Topics data={data} />
+        <Featured data={getTalent(data.data, hardCodedTalent[0].talent)} />
+        {hardCodedTalent.slice(1).map((x, i) => (
+          <div
+            id={x.name.replace(/ /g, "-").toLowerCase()}
+            key={`category-${i}`}
+          >
+            <CategoryPreview
+              categoryName={x.name}
+              data={getTalent(data.data, x.talent)}
+              url={x.url}
+            />
+          </div>
+        ))}
         <StarPower />
       </>
     );
   }
 
   return (
-    <MainWrapper>
-      <Title tabs={topics} />
+    <Container fluid>
+      <Title tabs={hardCodedTalent.map((x) => x.name)} />
       {components}
-    </MainWrapper>
+    </Container>
   );
 };
 

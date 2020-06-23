@@ -20,11 +20,13 @@ const AccordionItem: FC<IAIProps> = ({ title, hide, hidden }) => {
       backgroundColor={colors.purpleBgFill}
       width="100%"
       height="85px"
+      margin="40px 0 0 0"
       padding="0 32px"
       flexDirection="row"
       alignItems="center"
       justifyContent="space-between"
       cursor="pointer"
+      borderRadius="12px"
       onClick={() => hide(!hidden)}
     >
       <DescriptionText color={colors.white}>{title}</DescriptionText>
@@ -50,7 +52,7 @@ const Bio: FC<IProps> = ({ highlights, details }) => {
       <Row>
         <Col offset={{ lg: 1 }} md={12} lg={10}>
           <div id="highlights">
-            <Box margin="80px 0 30px">
+            <Box margin="80px 0 0 0">
               <HeaderText>Full Biography</HeaderText>
             </Box>
           </div>

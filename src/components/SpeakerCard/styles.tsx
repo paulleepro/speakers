@@ -13,6 +13,10 @@ export const SpeakerName = styled.span`
   line-clamp: 2;
   text-overflow: ellipsis;
   white-space: nowrap;
+
+  @media (max-width: 1023px) {
+    font-size: 18px;
+  }
 `;
 
 export const SpeakerDesc = styled.span`
@@ -27,6 +31,10 @@ export const SpeakerDesc = styled.span`
   line-clamp: 2;
   text-overflow: ellipsis;
   white-space: nowrap;
+
+  @media (max-width: 1023px) {
+    font-size: 16px;
+  }
 `;
 
 export const Wrapper = styled.div`
@@ -35,6 +43,7 @@ export const Wrapper = styled.div`
   margin-top: 20px;
   background-color: ${colors.purpleLiner};
   border-radius: 20px;
+  border: solid 1px #222222;
 
   animation: pulse 1.5s 1;
 

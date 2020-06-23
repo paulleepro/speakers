@@ -55,12 +55,7 @@ const Explore: FC = () => {
               </Box>
             </Col>
           </Row>
-        </Container>
-      </div>
-      <Featured data={currentTalent} />
-
-      <div>
-        <Container fluid>
+          <Featured data={currentTalent} />
           <Row>
             <Col>
               <Box alignItems="center">

@@ -46,6 +46,10 @@ const GlobalStyle = createGlobalStyle`
 		outline: none;
 		border: none;
 	}
+
+	option {
+		font-family: acumin-pro;
+	}
 }
 `;
 

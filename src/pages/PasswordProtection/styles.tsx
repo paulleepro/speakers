@@ -25,7 +25,9 @@ export const Input = styled.input`
 `;
 
 export const Wrapper = styled.div`
-  padding-top: 195px;
+  @media (min-width: 767px) {
+    padding-top: 100px;
+  }
 `;
 
 export const TopSemi = styled.div`
@@ -43,15 +45,6 @@ export const TopSemi = styled.div`
   );
   height: 360px;
   border-radius: 0 0 300px 0;
-`;
-
-export const CirclesWrapper = styled.div`
-  position: absolute;
-  top: -500px;
-  right: -500px;
-  width: 1000px;
-  height: 1000px;
-  z-index: -1;
 `;
 
 export const FormBox = styled(Box)`
@@ -79,4 +72,13 @@ export const InstructionText = styled.span`
   @media (max-width: 767px) {
     margin: 175px 0 0 0;
   }
+`;
+
+export const CirclesWrapper = styled.div`
+  position: absolute;
+  top: -500px;
+  right: -500px;
+  width: 1000px;
+  height: 1000px;
+  z-index: -1;
 `;

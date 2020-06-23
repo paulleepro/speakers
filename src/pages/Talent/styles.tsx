@@ -19,6 +19,7 @@ export const AccordionTextBox = styled.div<{ height: string }>`
 export const BookTalentWrapper = styled.div`
   border-top: solid 1px ${colors.purpleLiner};
   border-bottom: solid 1px ${colors.purpleLiner};
+  border-radius: 0 300px 0 0;
   background-image: linear-gradient(
     to bottom,
     #000000 30%,

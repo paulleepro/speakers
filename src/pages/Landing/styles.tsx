@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import colors from "styles/colors";
+import { Box } from "react-basic-blocks";
 
 export const LandingWrapper = styled.div`
   display: flex;
@@ -17,7 +18,7 @@ export const HeroWrapper = styled.div<{ backgroundImage: string }>`
   background-position-x: 135%;
   background-position-y: 50px;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1023px) {
     min-height: calc(100vh - 64px);
   }
 `;
@@ -28,15 +29,6 @@ export const CustomizeWrapper = styled.div`
   background-image: linear-gradient(to bottom, transparent, #221e29);
   border-radius: 0 0 250px 0;
   padding-bottom: 100px;
-`;
-
-export const CirclesWrapper = styled.div`
-  position: absolute;
-  top: -200px;
-  left: -500px;
-  width: 1000px;
-  height: 1000px;
-  z-index: 1;
 `;
 
 export const HowItWorksImage = styled.div`
@@ -62,4 +54,21 @@ export const TopSemi = styled.div`
     ${colors.purpleBgFill}
   );
   border-radius: 0 0 600px 0;
+`;
+
+export const StepWrapper = styled(Box)`
+  flex-direction: row;
+
+  @media (max-width: 767px) {
+    align-items: center;
+    flex-direction: column;
+  }
+`;
+
+export const DescriptionWrapper = styled(Box)`
+  margin: 0 0 0 45px;
+
+  @media (max-width: 767px) {
+    margin: 0;
+  }
 `;

@@ -4,6 +4,7 @@ import {
   BigText,
   DescriptionText,
   Button,
+  ArrowLeftText,
 } from "styles/components";
 import { Container, Row, Col } from "react-grid-system";
 import ReactHtmlParser from "react-html-parser";
@@ -45,6 +46,15 @@ const MediumHeader: FC<IProps> = ({ talent }) => {
     <>
       <Container fluid>
         <Row>
+          <Col offset={{ lg: 1 }} xs={12} lg={10}>
+            <Box padding="30px 0 70px">
+              <Link to="/explore">
+                <ArrowLeftText>EXPLORE ALL</ArrowLeftText>
+              </Link>
+            </Box>
+          </Col>
+        </Row>
+        <Row>
           <Col offset={{ lg: 1 }} lg={3} md={4}>
             <StyledImage
               alt="talent-img"
@@ -54,7 +64,7 @@ const MediumHeader: FC<IProps> = ({ talent }) => {
               height={417}
             />
             <Link to={`/talent/${slug}/booking`}>
-              <Button margin="30px 0" width="100%">
+              <Button margin="30px 0 0 0" width="100%">
                 Book Today
               </Button>
             </Link>
@@ -73,6 +83,11 @@ const MediumHeader: FC<IProps> = ({ talent }) => {
             <DescriptionText>
               {ReactHtmlParser(getHighlight(highlights))}
             </DescriptionText>
+          </Col>
+        </Row>
+        <Row>
+          <Col offset={{ lg: 1 }} lg={3} md={4}>
+            <Box margin="48px 0" />
           </Col>
         </Row>
         <Row>

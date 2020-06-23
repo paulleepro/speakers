@@ -7,7 +7,7 @@ const Outro: FC = () => {
     <div>
       <Container fluid>
         <Row>
-          <Col offset={{ lg: 1 }} xs={12}>
+          <Col offset={{ lg: 1 }} xs={12} md={10}>
             <BigText margin="100px 0 0 0">In Person Events</BigText>
           </Col>
         </Row>

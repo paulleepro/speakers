@@ -1,6 +1,5 @@
 import React, { FC, useContext } from "react";
 import { Container, Row, Col } from "react-grid-system";
-import { useHistory } from "react-router";
 import { Box } from "react-basic-blocks";
 import { Divider, Button, StyledError } from "styles/components";
 import {
@@ -16,27 +15,35 @@ import colors from "styles/colors";
 import { useForm, ErrorMessage } from "react-hook-form";
 import * as yup from "yup";
 import { AuthContext } from "AuthContext";
-import { Auth } from "Auth";
+import Cookies from "universal-cookie";
 
 const validationSchema = yup.object().shape({
   password: yup.string().required(),
 });
 
+export const COOKIE_NAME = "END_OK";
+
 const onSubmit = (
   data: any,
-  auth: Auth,
-  push: (url: string) => void,
+  setAuthenticated: (val: boolean) => void,
   setError: (name: string, type: string, message: string) => void
 ) => {
-  auth.logout();
-  auth.passwordLogin(data.password).catch(() => {
+  if (data.password === "Speakers2020") {
+    const cookies = new Cookies();
+    cookies.set(COOKIE_NAME, "ok", {
+      sameSite: true,
+      path: "/",
+      domain: window.location.hostname,
+      maxAge: 2 * 24 * 60 * 60,
+    });
+    setAuthenticated(true);
+  } else {
     setError("password", "invalidPassword", "Password is invalid. Try Again.");
-  });
+  }
 };
 
 const PasswordProtection: FC = () => {
-  const { auth } = useContext(AuthContext);
-  const { push } = useHistory();
+  const { setAuthenticated } = useContext(AuthContext);
   const { register, handleSubmit, errors, setError } = useForm({
     validationSchema,
   });
@@ -95,7 +102,7 @@ const PasswordProtection: FC = () => {
           >
             <form
               onSubmit={handleSubmit((data) =>
-                onSubmit(data, auth, push, setError)
+                onSubmit(data, setAuthenticated, setError)
               )}
             >
               <FormBox justifyContent="center" alignItems="center">

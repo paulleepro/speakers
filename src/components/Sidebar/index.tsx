@@ -1,5 +1,5 @@
 import React, { FC, useState } from "react";
-import { SidebarContainer, CloseWrapper } from "./styles";
+import { SidebarContainer, IconWrapper } from "./styles";
 import CloseIcon from "@material-ui/icons/Close";
 import { Link } from "react-router-dom";
 import { DescriptionText, Divider } from "styles/components";
@@ -22,9 +22,12 @@ const Sidebar: FC<IProps> = ({ show, setShow, types }) => {
   };
   return (
     <SidebarContainer className={show ? "open" : ""}>
-      <CloseWrapper onClick={close}>
-        <CloseIcon style={{ color: "#FFF" }} />
-      </CloseWrapper>
+      <IconWrapper>
+        <Link to="/" onClick={() => close()}>
+          <img src="logo.png" alt="logo" height="32" />
+        </Link>
+        <CloseIcon style={{ color: "#FFF" }} onClick={close} />
+      </IconWrapper>
 
       {!showTypes ? (
         <>

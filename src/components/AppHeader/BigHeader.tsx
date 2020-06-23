@@ -8,22 +8,19 @@ import SearchAutocomplete from "components/SearchAutocomplete";
 import ClickAwayListener from "react-click-away-listener";
 import { IType } from "types";
 import TypesMenu from "components/TypesMenu";
+import useScrollPosition from "@react-hook/window-scroll";
 
 interface IProps {
   types?: IType[];
 }
 
 const BigHeader: FC<IProps> = ({ types }) => {
+  const scrollY = useScrollPosition(30);
   const [searchExtended, setSearchExtended] = useState<boolean>(false);
   const [showTypes, setShowTypes] = useState<boolean>(false);
-  const backgroundColor = colors.black;
+  const backgroundColor = scrollY < 20 ? colors.black : colors.purpleBgFill;
   return (
-    <Wrapper
-      flexDirection="row"
-      justifyContent="space-between"
-      className="app-header"
-      backgroundColor={backgroundColor}
-    >
+    <Wrapper backgroundColor={backgroundColor} justifyContent="space-between">
       <Box flexDirection="row" alignItems="center">
         <Link to="/">
           <img src="/logo.png" height="40" alt="logo" />

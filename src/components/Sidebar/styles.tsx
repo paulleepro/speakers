@@ -4,7 +4,7 @@ import colors from "styles/colors";
 export const SidebarContainer = styled.div`
   position: relative;
   height: 100vh;
-  padding: 60px 30px;
+  padding: 0px 40px;
   box-shadow: 0 0px 8px 2px rgba(0, 0, 0, 0.3);
   position: fixed;
   z-index: 15;
@@ -24,9 +24,10 @@ export const SidebarContainer = styled.div`
   }
 `;
 
-export const CloseWrapper = styled.div`
-  top: 16px;
-  right: 16px;
-  position: absolute;
+export const IconWrapper = styled.div`
   cursor: pointer;
+  margin-top: 16px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
 `;

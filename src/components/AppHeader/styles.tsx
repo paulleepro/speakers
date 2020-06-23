@@ -1,8 +1,18 @@
 import styled from "styled-components";
-import { Box } from "react-basic-blocks";
 import colors from "styles/colors";
 
-export const Wrapper = styled(Box)`
+export const Wrapper = styled.div<{
+  backgroundColor: string;
+  justifyContent: string;
+}>`
+  display: flex;
+  flex-direction: row;
+  justify-content: ${(props) => props.justifyContent};
+  align-items: center;
+  background-color: ${(props) => props.backgroundColor};
+  transition: background-color 0.5s ease;
+  width: 100%;
+
   padding: 0 24px;
   position: sticky;
   top: 0;
@@ -10,7 +20,7 @@ export const Wrapper = styled(Box)`
   height: 83px;
   z-index: 10;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1023px) {
     height: 64px;
     position: relative;
   }

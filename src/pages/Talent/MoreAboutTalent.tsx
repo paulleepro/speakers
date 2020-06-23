@@ -33,7 +33,9 @@ const MoreAboutTalent: FC<IProps> = ({ name, reviews }) => {
       <Row>
         <Col offset={{ lg: 1 }} xs={12} md={7} lg={6}>
           <Box margin="30px 0">
-            <DescriptionText>Reviews About {name}</DescriptionText>
+            <DescriptionText weight="bold">
+              Reviews About {name}
+            </DescriptionText>
             <Divider width="200px" />
             <Box flexDirection="row">
               <BigText margin="-20px 5px" color={colors.midGrey}>
@@ -53,7 +55,9 @@ const MoreAboutTalent: FC<IProps> = ({ name, reviews }) => {
         </Col>
         <Col offset={{ md: 1 }} xs={12} md={4} lg={3}>
           <Box margin="30px 0">
-            <DescriptionText>Hosted By Groups Like</DescriptionText>
+            <DescriptionText weight="bold">
+              Hosted By Groups Like
+            </DescriptionText>
             <Divider width="200px" />
             <StyledUl color={colors.white}>
               {reviews.map((x, i) => (

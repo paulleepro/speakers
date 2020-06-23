@@ -53,6 +53,10 @@ export const Input = styled.input`
   &::placeholder {
     color: ${colors.midGrey};
   }
+
+  &:focus {
+    color: #ffffff;
+  }
 `;
 
 export const TextArea = styled.textarea`
@@ -73,6 +77,10 @@ export const TextArea = styled.textarea`
 
   &::placeholder {
     color: ${colors.midGrey};
+  }
+
+  &:focus {
+    color: #ffffff;
   }
 `;
 

@@ -31,9 +31,9 @@ export const CaretRight = styled.div`
   ::before {
     width: 0;
     height: 0;
-    border-left: 10px solid ${colors.primaryPurple};
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
+    border-left: 7px solid ${colors.primaryPurple};
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
     content: "";
     font-size: 0px;
     vertical-align: middle;
@@ -45,9 +45,9 @@ export const CaretLeft = styled.div`
   ::before {
     width: 0;
     height: 0;
-    border-right: 10px solid ${colors.midGrey};
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
+    border-right: 7px solid ${colors.midGrey};
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
     content: "";
     font-size: 0px;
     vertical-align: middle;

@@ -1,20 +1,18 @@
 import React, { FC } from "react";
 import { Box } from "react-basic-blocks";
 import { Container, Row, Col } from "react-grid-system";
-import Step from "components/Step";
+import Step from "./Step";
 import colors from "styles/colors";
-import {
-  CirclesWrapper,
-  HowItWorksImageWrapper,
-  HowItWorksImage,
-} from "./styles";
+import { HowItWorksImageWrapper, HowItWorksImage } from "./styles";
 import StyledImage from "components/StyledImage";
+import Circles from "components/Circles";
+import { HeaderText } from "styles/components";
 
 const HowItWorks: FC = () => {
   return (
     <Box margin="160px 0 0 0">
       <Container fluid>
-        <Row align="center">
+        <Row>
           <Col lg={5} md={4} sm={6} xs={12}>
             <HowItWorksImageWrapper>
               <HowItWorksImage>
@@ -23,46 +21,7 @@ const HowItWorks: FC = () => {
                   alt="how-it-works"
                 />
               </HowItWorksImage>
-              <CirclesWrapper>
-                <svg viewBox="-100 -100 200 200">
-                  <circle
-                    cx="0"
-                    cy="0"
-                    r="15"
-                    strokeWidth="0.3"
-                    strokeDasharray={1}
-                    stroke={colors.primaryPurple}
-                    fill="transparent"
-                  />
-                  <circle
-                    cx="0"
-                    cy="0"
-                    r="40"
-                    strokeWidth="0.3"
-                    strokeDasharray={1}
-                    stroke={colors.primaryPurple}
-                    fill="transparent"
-                  />
-                  <circle
-                    cx="0"
-                    cy="0"
-                    r="70"
-                    strokeWidth="0.3"
-                    strokeDasharray={1}
-                    stroke={colors.primaryPurple}
-                    fill="transparent"
-                  />
-                  <circle
-                    cx="0"
-                    cy="0"
-                    r="100"
-                    strokeWidth="0.3"
-                    strokeDasharray={1}
-                    stroke={colors.primaryPurple}
-                    fill="transparent"
-                  />
-                </svg>
-              </CirclesWrapper>
+              <Circles color={colors.primaryPurple} top="-30%" />
             </HowItWorksImageWrapper>
           </Col>
           <Col
@@ -73,6 +32,7 @@ const HowItWorks: FC = () => {
             xs={12}
             style={{ zIndex: 2 }}
           >
+            <HeaderText margin="0 0 72px 0">How It Works</HeaderText>
             <Step
               imageUrl="/images/swipe.png"
               step="Browse Talent"

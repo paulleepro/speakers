@@ -22,7 +22,7 @@ const Confirmation: FC = () => {
   }
   return (
     <div>
-      <Title name={data.name} />
+      <Title name={data.name} slug={slug} />
       <WhatHappensNext name={data.name} />
       <StarPower />
     </div>

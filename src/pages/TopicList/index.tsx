@@ -7,7 +7,7 @@ import { fetchSingle } from "fetch-hooks-react";
 import { IListResult, ITopic, IType } from "types";
 import { config } from "config";
 import ErrorNotice from "components/ErrorNotice";
-import { ArrowLeftText, BigText } from "styles/components";
+import { ArrowLeftText, BigText, TopAreaDivider } from "styles/components";
 import { Box } from "react-basic-blocks";
 import colors from "styles/colors";
 import StarPower from "components/StarPower";
@@ -43,7 +43,7 @@ const Topics: FC = () => {
       <Container fluid>
         <Row>
           <Col offset={{ lg: 1 }} xs={12} lg={10}>
-            <Box padding="40px 0 80px">
+            <Box padding="40px 0 0 0">
               <Link to="/explore">
                 <ArrowLeftText>BACK TO EXPLORE</ArrowLeftText>
               </Link>
@@ -51,6 +51,7 @@ const Topics: FC = () => {
             </Box>
           </Col>
         </Row>
+        <TopAreaDivider />
         {data.data.map(({ name, id, subtopics }) => (
           <div key={id}>
             <Row>
@@ -60,7 +61,11 @@ const Topics: FC = () => {
                   margin="40px 0 20px"
                   padding="10px 0"
                 >
-                  <DescriptionText weight="bold" color={colors.midGrey}>
+                  <DescriptionText
+                    weight="bold"
+                    color={colors.midGrey}
+                    noCenterAlign
+                  >
                     {name}
                   </DescriptionText>
                 </Box>
@@ -77,7 +82,7 @@ const Topics: FC = () => {
                 >
                   {getSubtopics(i, subtopics).map(({ name, id }) => (
                     <Link key={id} to={`/subtopic/${id}`}>
-                      <DescriptionText>{name}</DescriptionText>
+                      <DescriptionText noCenterAlign>{name}</DescriptionText>
                     </Link>
                   ))}
                 </Col>

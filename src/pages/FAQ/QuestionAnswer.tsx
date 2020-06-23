@@ -15,7 +15,7 @@ const QuestionAnswer: FC<IProps> = ({ question, answer }) => {
       <Col offset={{ lg: 1 }} xs={12} lg={10}>
         <DescriptionText
           weight="bold"
-          margin="80px 0 0 0"
+          margin="0 0 80px 0"
           color={colors.midGrey}
         >
           {question}

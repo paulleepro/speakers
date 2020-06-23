@@ -60,10 +60,14 @@ const Form: FC<IProps> = ({ slug, id }) => {
             value="USD"
             ref={register}
           />
-          <DescriptionText>
-            Please provide some additional information to begin the booking
-            process.
-          </DescriptionText>
+          <Row>
+            <Col offset={{ sm: 1, md: 0 }} xs={12} sm={10} md={12}>
+              <DescriptionText margin="24px 0 0 0">
+                Please provide some additional information to begin the booking
+                process.
+              </DescriptionText>
+            </Col>
+          </Row>
           <DescriptionText weight="bold" margin="30px 0">
             1. Enter Your Event Details
           </DescriptionText>
@@ -210,7 +214,7 @@ const Form: FC<IProps> = ({ slug, id }) => {
               <ErrorMessage as={StyledError} errors={errors} name="user_id" />
             </Col>
           </Row>
-          <Button margin="50px 0" type="submit" width="290px">
+          <Button margin="50px 0 120px 0" type="submit">
             {submitting ? (
               <BeatLoader size="8px" loading color="white" />
             ) : (

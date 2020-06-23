@@ -6,15 +6,19 @@ import colors from "styles/colors";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  width: 100vw;
   margin-top: 120px;
-  border-radius: 0 300px 0 0;
+  border-radius: 0 250px 0 0;
   border-top: solid 1px ${colors.purpleLiner};
   background-image: linear-gradient(
     to bottom,
     #000000 30%,
     rgba(34, 30, 41, 0.5)
   );
+  z-index: 9;
+
+  @media (max-width: 1024px) {
+    border-radius: 0 150px 0 0;
+  }
 `;
 
 const StarPower: FC = () => {
@@ -29,7 +33,9 @@ const StarPower: FC = () => {
                 We bring talent directly to you. Our high-profile speakers are
                 available for your next corporate event.
               </DescriptionText>
-              <Button margin="40px 0 0 0">Get In Touch</Button>
+              <a href="mailto:contact@wmespeakersbeta.com">
+                <Button margin="40px 0 0 0">Get In Touch</Button>
+              </a>
             </Box>
           </Col>
         </Row>

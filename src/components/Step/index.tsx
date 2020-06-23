@@ -1,7 +1,8 @@
 import React, { FC } from "react";
 import { Box } from "react-basic-blocks";
-import { DescriptionText, HeaderText, Divider } from "styles/components";
+import { DescriptionText, HeaderText } from "styles/components";
 import colors from "styles/colors";
+import { StepWrapper, DescriptionWrapper } from "./styles";
 
 interface IStepProps {
   imageUrl: string;
@@ -11,8 +12,9 @@ interface IStepProps {
 }
 
 const Step: FC<IStepProps> = ({ imageUrl, step, description, margin }) => (
-  <Box flexDirection="row" margin={margin}>
+  <StepWrapper flexDirection="row" margin={margin} alignItems="self-start">
     <Box
+      margin="0 0 32px 0"
       width="80px"
       height="80px"
       borderRadius="40px"
@@ -23,14 +25,11 @@ const Step: FC<IStepProps> = ({ imageUrl, step, description, margin }) => (
     >
       <img src={imageUrl} height="40" width="40" alt="swipe" />
     </Box>
-    <Box margin="0 0 0 45px">
-      <HeaderText noCenterAlign>{step}</HeaderText>
-      <DescriptionText color={colors.midGrey} noCenterAlign>
-        {description}
-      </DescriptionText>
-      <Divider width="100px" />
-    </Box>
-  </Box>
+    <DescriptionWrapper>
+      <HeaderText>{step}</HeaderText>
+      <DescriptionText color={colors.midGrey}>{description}</DescriptionText>
+    </DescriptionWrapper>
+  </StepWrapper>
 );
 
 export default Step;

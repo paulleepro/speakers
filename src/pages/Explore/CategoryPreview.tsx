@@ -1,58 +1,66 @@
 import React, { FC } from "react";
-import { HeaderText, DescriptionText } from "styles/components";
-import { Container, Row, Col, Visible } from "react-grid-system";
-import { Box } from "react-basic-blocks";
+import { HeaderText, SeeAllText } from "styles/components";
+import { Row, Col, Visible } from "react-grid-system";
 import SpeakerCard from "components/SpeakerCard";
 import SwipeableCards from "components/SwipeableCards";
-import { ITalent, IListResult } from "types";
+import { ITalent } from "types";
 import { config } from "config";
+import { Link } from "react-router-dom";
+import { HeaderWrapper } from "./styles";
 
 interface IProps {
   categoryName: string;
-  data: IListResult<ITalent>;
+  data: ITalent[];
+  url?: string;
 }
 
-const CategoryPreview: FC<IProps> = ({ categoryName, data }) => {
+const CategoryPreview: FC<IProps> = ({ categoryName, data, url }) => {
   return (
-    <div>
-      <Container fluid>
-        <Row>
-          <Col offset={{ lg: 1 }} lg={10}>
-            <Box
-              flexDirection="row"
-              justifyContent="space-between"
-              width="100%"
-              margin="120px 0 0 0"
+    <>
+      <Row>
+        <Col offset={{ lg: 1 }} lg={10}>
+          <HeaderWrapper
+            flexDirection="row"
+            justifyContent="space-between"
+            alignItems="flex-end"
+            width="100%"
+          >
+            <HeaderText noCenterAlign margin="25px 0 0 0">
+              {categoryName}
+            </HeaderText>
+            {url ? (
+              <Link to={url}>
+                <SeeAllText>See All</SeeAllText>
+              </Link>
+            ) : null}
+          </HeaderWrapper>
+        </Col>
+      </Row>
+      <Row>
+        <Visible md lg sm>
+          {data.slice(0, 4).map((x, i) => (
+            <Col
+              offset={{ lg: i === 0 ? 1 : 0 }}
+              xs={3}
+              lg={2.5}
+              key={`speaker-${categoryName.replace(/ /g, "-")}-${i}`}
             >
-              <HeaderText>{categoryName}</HeaderText>
-              <DescriptionText>See All</DescriptionText>
-            </Box>
+              <SpeakerCard
+                slug={x.slug}
+                imageUrl={`${config.imageProxyUrl}${x.media.images[0]?.url}`}
+                name={x.name}
+                description={x.titles[0]}
+              />
+            </Col>
+          ))}
+        </Visible>
+        <Visible xs>
+          <Col>
+            <SwipeableCards talentList={data} />
           </Col>
-        </Row>
-        <Row>
-          <Visible md lg sm>
-            {data.data.map((x, i) => (
-              <Col
-                offset={{ lg: i === 0 ? 1 : 0 }}
-                xs={3}
-                lg={2.5}
-                key={`speaker-${categoryName.replace(/ /g, "-")}-${i}`}
-              >
-                <SpeakerCard
-                  slug={x.slug}
-                  imageUrl={`${config.imageProxyUrl}${x.media.images[0]?.url}`}
-                  name={x.name}
-                  description={x.titles[0]}
-                />
-              </Col>
-            ))}
-          </Visible>
-          <Visible xs>
-            <SwipeableCards talentList={data.data} />
-          </Visible>
-        </Row>
-      </Container>
-    </div>
+        </Visible>
+      </Row>
+    </>
   );
 };
 

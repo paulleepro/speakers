@@ -1,6 +1,6 @@
 import React, { FC } from "react";
-import { FooterLink, InfoText, ImageWrapper } from "./styles";
-import { Container, Row, Col } from "react-grid-system";
+import { FooterWrapper, FooterLink, InfoText, ImageWrapper } from "./styles";
+import { Container, Row, Col, Visible } from "react-grid-system";
 import { Link } from "react-router-dom";
 import { Box } from "react-basic-blocks";
 import { hardCodedTalent } from "hard-coded-talent";
@@ -10,7 +10,7 @@ interface IProps {}
 
 const Footer: FC<IProps> = () => {
   return (
-    <div>
+    <FooterWrapper>
       <Container fluid>
         <Row>
           <Col>
@@ -18,7 +18,7 @@ const Footer: FC<IProps> = () => {
           </Col>
         </Row>
         <Row>
-          <Col offset={{ xs: 1 }} xs={12} sm={6} md={6} lg={4}>
+          <Col offset={{ xs: 1 }} xs={11} sm={6} md={6} lg={4}>
             <Row>
               <Col xs={12} md={6}>
                 <FooterLink to="/explore">Browse Speakers</FooterLink>
@@ -36,7 +36,7 @@ const Footer: FC<IProps> = () => {
               </Col>
             </Row>
           </Col>
-          <Col offset={{ xs: 1, sm: 0 }} xs={12} sm={5} md={4} lg={6}>
+          <Col offset={{ xs: 1, sm: 0 }} xs={11} sm={5} md={4} lg={6}>
             <Row>
               <Col xs={12} md={6} lg={8}>
                 <FooterLink to="/explore">Contact Us</FooterLink>
@@ -69,8 +69,11 @@ const Footer: FC<IProps> = () => {
               <Col xs={12} lg={7}>
                 <Box>
                   <InfoText>
-                    © {new Date().getFullYear()} Endeavor Operating Company,
-                    LLC. All rights reserved.
+                    {`© ${new Date().getFullYear()} Endeavor Operating Company, LLC.`}
+                    <Visible xs>
+                      <br />
+                    </Visible>
+                    All rights reserved.
                   </InfoText>
                 </Box>
               </Col>
@@ -87,7 +90,12 @@ const Footer: FC<IProps> = () => {
                     >
                       Privacy Policy
                     </a>
-                    {" | "}
+                    <Visible sm md lg>
+                      {" | "}
+                    </Visible>
+                    <Visible xs>
+                      <br />
+                    </Visible>
                     <a
                       href="http://www.wmeagency.com/cookiepolicy/"
                       target="_terms"
@@ -106,7 +114,7 @@ const Footer: FC<IProps> = () => {
           </Col>
         </Row>
       </Container>
-    </div>
+    </FooterWrapper>
   );
 };
 

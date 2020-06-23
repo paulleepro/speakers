@@ -36,10 +36,9 @@ const Wrapper = styled.div`
 `;
 
 const App = (): ReactElement => {
-  const { auth, authenticated } = useContext(AuthContext);
+  const { authenticated } = useContext(AuthContext);
 
-  // eslint-disable-next-line
-  if (!authenticated && !auth.isAuthenticated()) {
+  if (!authenticated) {
     return <PasswordProtection />;
   }
 

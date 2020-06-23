@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Container, Row, Col } from "react-grid-system";
+import { Container, Row, Col, Visible } from "react-grid-system";
 import {
   HeaderText,
   DescriptionText,
@@ -15,10 +15,10 @@ const OurEvents: FC = () => {
     <div>
       <Container fluid>
         <Row>
-          <Col offset={{ lg: 1 }} xs={12} md={9} lg={6}>
+          <Col offset={{ lg: 1, md: 0, sm: 1 }} xs={12} sm={10} md={9} lg={6}>
             <Box margin="80px 0">
               <BigText>Our Events</BigText>
-              <DescriptionText maxWidth="670px">
+              <DescriptionText>
                 In the new digital age, we provide the ability to book top tier
                 talent for a wide variety of virtual egagements.
               </DescriptionText>
@@ -26,17 +26,27 @@ const OurEvents: FC = () => {
           </Col>
         </Row>
         <Row align="center">
-          <Col offset={{ lg: 1 }} lg={4} md={5} xs={12}>
+          <Col offset={{ lg: 1, md: 0, sm: 1 }} lg={4} md={5} sm={10} xs={12}>
             <Box justifyContent="center">
               <HeaderText>Inspiring your team</HeaderText>
-              <DescriptionText color={colors.midGrey}>
-                Learn how Kevin Hart inspired a hardworking team of students and
-                teachers at lorem ipsum university.
-              </DescriptionText>
-              <Button margin="30px 0 0 0">Watch the Case Study</Button>
+              <Visible md lg>
+                <DescriptionText color={colors.midGrey}>
+                  Learn how Kevin Hart inspired a hardworking team of students
+                  and teachers at lorem ipsum university.
+                </DescriptionText>
+                <div>
+                  <Button margin="30px 0 0 0">Watch the Case Study</Button>
+                </div>
+              </Visible>
             </Box>
           </Col>
-          <Col lg={6} xs={12}>
+          <Col
+            offset={{ sm: 3, xs: 0, md: 1, lg: 0 }}
+            lg={6}
+            md={6}
+            sm={6}
+            xs={12}
+          >
             <Box
               backgroundColor={colors.midDarkGrey}
               padding="12px"
@@ -47,6 +57,21 @@ const OurEvents: FC = () => {
             >
               <StyledImage src="/images/kevin.png" borderRadius="12px" />
             </Box>
+          </Col>
+        </Row>
+        <Row>
+          <Col offset={{ sm: 1 }} sm={10} xs={12}>
+            <Visible xs sm>
+              <Box alignItems="center" margin="20px 0">
+                <DescriptionText color={colors.midGrey}>
+                  Learn how Kevin Hart inspired a hardworking team of students
+                  and teachers at lorem ipsum university.
+                </DescriptionText>
+                <div>
+                  <Button margin="30px 0 0 0">Watch the Case Study</Button>
+                </div>
+              </Box>
+            </Visible>
           </Col>
         </Row>
       </Container>

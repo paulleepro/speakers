@@ -23,7 +23,7 @@ const AvailableForBg = styled.div`
   width: 300%;
   height: 100%;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1023px) {
     left: 0;
     width: 100%;
   }
@@ -43,7 +43,7 @@ const AvailableFor: FC<IProps> = () => {
   return (
     <Wrapper>
       <AvailableForBg />
-      <DescriptionText>Available For:</DescriptionText>
+      <DescriptionText weight="bold">Available For:</DescriptionText>
       <Divider width="200px" />
       {categories.map((x, i) => (
         <Box

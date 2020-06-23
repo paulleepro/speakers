@@ -44,12 +44,10 @@ const TypesMenu: FC<IProps> = ({ types, show, setShow, close }) => {
                 onClick={() => setShow && setShow(false)}
               >
                 <CaretLeft />
-                <DescriptionText color={colors.midGrey}>
-                  Go Back
-                </DescriptionText>
+                <DescriptionText color={colors.midGrey}>Back</DescriptionText>
               </Box>
             </Visible>
-            <Box flexDirection="row" margin="0 0 20px 0">
+            <Box flexDirection="row" margin="0 0 32px 0">
               <Visible md lg>
                 <DescriptionText color={colors.midGrey}>
                   Browse Types
