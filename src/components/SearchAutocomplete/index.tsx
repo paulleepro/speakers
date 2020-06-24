@@ -8,7 +8,7 @@ import {
   StyledClickAwayListener,
 } from "./styles";
 import { config } from "config";
-import { ITalent, ISearchResult } from "types";
+import { ISearchResult } from "types";
 import { Box } from "react-basic-blocks";
 import colors from "styles/colors";
 
@@ -33,7 +33,7 @@ const SearchAutocomplete: FC<IProps> = ({ onClickAway, close }) => {
   const { push } = useHistory();
   const [value, setValue] = useState<string>("");
   const debouncedSearchTerm = useDebounce(value, 300);
-  const [results, setResults] = useState<ISearchResult<ITalent>[]>([]);
+  const [results, setResults] = useState<ISearchResult[]>([]);
 
   const goTo = (url: string) => {
     push(url);
@@ -59,7 +59,7 @@ const SearchAutocomplete: FC<IProps> = ({ onClickAway, close }) => {
         `${config.speakersTalentUrl}/v1/talents/search/multi-match?query=${debouncedSearchTerm}&limit=20`
       ).then(async (res) => {
         const json = await res.json();
-        setResults((json?.hits as unknown) as ISearchResult<ITalent>[]);
+        setResults((json?.results as unknown) as ISearchResult[]);
       });
     } else {
       setResults([]);
@@ -79,6 +79,7 @@ const SearchAutocomplete: FC<IProps> = ({ onClickAway, close }) => {
       <AutocompleteWrapper>
         <Box flexDirection="row" alignItems="center">
           <Input
+            autoFocus
             placeholder="Try “Kendrick Lamar” or “Diversity”"
             onChange={(e) => setValue(e.target.value)}
             value={value}
@@ -92,11 +93,8 @@ const SearchAutocomplete: FC<IProps> = ({ onClickAway, close }) => {
         {results.length ? (
           <AutocompleteResults>
             {results.slice(0, 7).map((x) => (
-              <div
-                key={x._id}
-                onClick={() => goTo(`/talent/${x._source.slug}`)}
-              >
-                {x._source.name}
+              <div key={x.id.raw} onClick={() => goTo(`/talent/${x.slug.raw}`)}>
+                {x.name.raw}
               </div>
             ))}
           </AutocompleteResults>

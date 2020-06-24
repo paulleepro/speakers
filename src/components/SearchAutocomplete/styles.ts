@@ -21,6 +21,10 @@ export const Input = styled.input<{ squareBottom?: boolean }>`
   &::placeholder {
     color: ${colors.midGrey};
   }
+
+  &:focus {
+    color: #ffffff;
+  }
 `;
 
 export const SearchWrapper = styled.div`

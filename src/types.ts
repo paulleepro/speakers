@@ -67,16 +67,66 @@ export interface IListResult<T> {
   };
 }
 
-export interface ISearchResult<T> {
-  _index: string;
-  _type: string;
-  _id: string;
-  _score: number;
-  _source: T;
+export interface ISearchResult {
+  name: {
+    raw: string;
+  };
+  is_exclusive: {
+    raw: boolean;
+  };
+  slug: {
+    raw: string;
+  };
+  types: {
+    raw: string[];
+  };
+  metadata: {
+    raw: string;
+  };
+  _meta: {
+    id: string;
+    engine: string;
+    score: number;
+  };
+  id: {
+    raw: string;
+  };
+  bio_details: {
+    raw: string;
+  };
+  subtopics: {
+    raw: string[];
+  };
+  status: {
+    raw: string;
+  };
+  titles: {
+    raw: string[];
+  };
+  is_new: {
+    raw: true;
+  };
+  media: {
+    raw: string;
+  };
+  bio_highlights: {
+    raw: string;
+  };
+  headline: {
+    raw: string;
+  };
 }
 
-export interface ISearch<T> {
-  hits: ISearchResult<T>[];
+export interface ISearch {
+  results: ISearchResult;
+  metadata: {
+    total: number;
+    pages: number;
+    count: number;
+    offset: number;
+    limit: number;
+    page: number;
+  };
 }
 
 export interface IType {
