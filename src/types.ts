@@ -118,7 +118,7 @@ export interface ISearchResult {
 }
 
 export interface ISearch {
-  results: ISearchResult;
+  results: ISearchResult[];
   metadata: {
     total: number;
     pages: number;

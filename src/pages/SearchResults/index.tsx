@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { useLocation } from "react-router";
 import { Row, Col } from "react-grid-system";
-import { ITalent, ISearch } from "types";
+import { ISearch } from "types";
 import { config } from "config";
 import SpeakerCard from "components/SpeakerCard";
 import { fetchSingle } from "fetch-hooks-react";
@@ -14,7 +14,7 @@ import StarPower from "components/StarPower";
 
 const SearchResults: FC = () => {
   const query = new URLSearchParams(useLocation().search);
-  const { data, error, isLoading } = fetchSingle<ISearch<ITalent>>(
+  const { data, error, isLoading } = fetchSingle<ISearch>(
     `${config.speakersTalentUrl}/v1/talents/search/multi-match?query=${query}&limit=20`
   );
 
@@ -41,16 +41,23 @@ const SearchResults: FC = () => {
           <Row>
             <Col offset={{ lg: 1 }} lg={10}>
               <Row>
-                {data.hits.map((x, i) => (
-                  <Col key={`search-result-${i}`} xs={6} md={3}>
-                    <SpeakerCard
-                      slug={x._source.slug}
-                      imageUrl={`${config.imageProxyUrl}${x._source.media.images[0]?.url}`}
-                      name={x._source.name}
-                      description={x._source.titles[0]}
-                    />
-                  </Col>
-                ))}
+                {data.results.map((x, i) => {
+                  const images = x.media?.raw
+                    ? JSON.parse(x.media?.raw)?.images
+                    : null;
+                  return (
+                    <Col key={`search-result-${i}`} xs={6} md={3}>
+                      <SpeakerCard
+                        slug={x.slug?.raw}
+                        imageUrl={`${config.imageProxyUrl}${
+                          images && Array.isArray(images) && images[0].url
+                        }`}
+                        name={x.name?.raw}
+                        description={x.titles?.raw && x.titles?.raw[0]}
+                      />
+                    </Col>
+                  );
+                })}
               </Row>
             </Col>
           </Row>
