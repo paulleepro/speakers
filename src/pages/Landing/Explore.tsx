@@ -41,7 +41,7 @@ const Explore: FC = () => {
           <Row>
             <Col lg={10} md={12} offset={{ lg: 1 }}>
               <Box alignItems="center" margin="120px 0 0 0">
-                <HeaderText>Explore Speakers</HeaderText>
+                <HeaderText smallerOnMobile>Explore Speakers</HeaderText>
               </Box>
             </Col>
           </Row>

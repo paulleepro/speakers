@@ -17,7 +17,7 @@ export const Input = styled.input`
   font-style: normal;
   line-height: 1.5;
   letter-spacing: 0.2px;
-  color: ${colors.midGrey};
+  color: #ffffff;
 
   &::placeholder {
     color: ${colors.midGrey};
@@ -54,7 +54,7 @@ export const FormBox = styled(Box)`
 
   @media (max-width: 767px) {
     border: none;
-    padding: 150px 16px;
+    padding: 75px 16px;
     background-color: transparent;
   }
 `;
@@ -76,9 +76,9 @@ export const InstructionText = styled.span`
 
 export const CirclesWrapper = styled.div`
   position: absolute;
-  top: -500px;
-  right: -500px;
-  width: 1000px;
-  height: 1000px;
+  top: 0px;
+  right: 0px;
+  width: 500px;
+  height: 500px;
   z-index: -1;
 `;

@@ -1,5 +1,11 @@
 import React, { FC } from "react";
-import { FooterWrapper, FooterLink, InfoText, ImageWrapper } from "./styles";
+import {
+  FooterWrapper,
+  FooterLink,
+  InfoText,
+  ImageWrapper,
+  FooterAnchor,
+} from "./styles";
 import { Row, Col, Visible } from "react-grid-system";
 import { Link } from "react-router-dom";
 import { Box } from "react-basic-blocks";
@@ -40,7 +46,12 @@ const Footer: FC<IProps> = () => {
           <Col offset={{ xs: 1, sm: 0 }} xs={11} sm={5} md={4} lg={6}>
             <Row>
               <Col xs={12} md={6} lg={8}>
-                <FooterLink to="/explore">Contact Us</FooterLink>
+                <FooterAnchor
+                  target="_mail"
+                  href="mailto:contact@wmespeakersbeta.com"
+                >
+                  Contact Us
+                </FooterAnchor>
               </Col>
               <Col xs={12} md={6} lg={4}>
                 <InfoText>Connect With Us</InfoText>

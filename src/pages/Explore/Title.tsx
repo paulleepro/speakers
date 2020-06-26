@@ -57,7 +57,9 @@ const Title: FC<IProps> = ({ tabs }) => {
       <TopAreaDivider />
       <Row>
         <Col offset={{ lg: 1 }} lg={10}>
-          <HeaderText noCenterAlign>Featured</HeaderText>
+          <HeaderText noCenterAlign smallerOnMobile>
+            Featured
+          </HeaderText>
         </Col>
       </Row>
     </>

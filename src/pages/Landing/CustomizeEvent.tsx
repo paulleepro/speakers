@@ -6,7 +6,7 @@ import {
   Button,
   StyledContainer,
 } from "styles/components";
-import { CustomizeWrapper } from "./styles";
+import { CustomizeWrapper, CenterOnMobile } from "./styles";
 import { Box } from "react-basic-blocks";
 import Tabs from "components/Tabs";
 import colors from "styles/colors";
@@ -95,9 +95,11 @@ const CustomizeEvent: FC = () => {
                   {tabs[activeTab]}
                 </DescriptionText>
                 <DescriptionText color={colors.midGrey}>{copy}</DescriptionText>
-                <Link to="/how-it-works">
-                  <Button margin="30px 0 0 0 ">Learn More</Button>
-                </Link>
+                <CenterOnMobile>
+                  <Link to="/how-it-works">
+                    <Button margin="30px 0 0 0 ">Learn More</Button>
+                  </Link>
+                </CenterOnMobile>
               </Box>
             </Box>
           </Col>

@@ -7,7 +7,7 @@ import {
   StyledContainer,
 } from "styles/components";
 import { Row, Col } from "react-grid-system";
-import { HeroWrapper } from "./styles";
+import { HeroWrapper, HeroBGWrapper } from "./styles";
 import { Link } from "react-router-dom";
 
 interface IProps {
@@ -17,9 +17,10 @@ interface IProps {
 
 const HeroMedium: FC<IProps> = ({ heroDescriptor, imageUrl }) => {
   return (
-    <HeroWrapper backgroundImage={imageUrl}>
+    <HeroWrapper>
       <StyledContainer fluid>
         <Row>
+          <HeroBGWrapper backgroundImage={imageUrl} />
           <Col offset={{ md: 1 }} md={8} lg={6}>
             <VirtualText margin="0px">Virtual Speakers</VirtualText>
             <BigText>

@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Box } from "react-basic-blocks";
+import Swiper from "react-id-swiper";
 import styled from "styled-components";
 import colors from "styles/colors";
 
@@ -10,8 +10,6 @@ interface ITabProps {
 }
 
 const StyledContainer = styled.div`
-  display: flex;
-  flex-direction: row;
   max-width: calc(100vw - 60px);
   overflow-x: scroll;
   -ms-overflow-style: none; /* Internet Explorer 10+ */
@@ -19,9 +17,6 @@ const StyledContainer = styled.div`
 
   ::-webkit-scrollbar {
     display: none; /* Safari and Chrome */
-  }
-  div + div {
-    margin-left: 30px;
   }
 `;
 
@@ -37,15 +32,12 @@ const StyledText = styled.span`
   white-space: nowrap;
 `;
 
-const Tab: FC<ITabProps> = ({ label, active, onClick }) => (
-  <Box
-    borderBottom={active ? `2px solid ${colors.primaryPurple}` : undefined}
-    onClick={onClick}
-    cursor="pointer"
-  >
-    <StyledText>{label}</StyledText>
-  </Box>
-);
+const StyledTab = styled.div<{ active?: boolean }>`
+  border-bottom: ${(props) =>
+    props.active ? `2px solid ${colors.primaryPurple}` : undefined};
+  cursor: pointer;
+  width: fit-content;
+`;
 
 interface TabProps {
   activeTab: number;
@@ -56,14 +48,17 @@ interface TabProps {
 const Tabs: FC<TabProps> = ({ activeTab, setActiveTab, values }) => {
   return (
     <StyledContainer>
-      {values.map((tabValue, i) => (
-        <Tab
-          key={`tab_${tabValue}`}
-          label={tabValue}
-          active={activeTab === i}
-          onClick={() => setActiveTab(i)}
-        />
-      ))}
+      <Swiper {...{ slidesPerView: "auto", spaceBetween: 30 }}>
+        {values.map((tabValue, i) => (
+          <StyledTab
+            key={`tab_${tabValue}`}
+            active={activeTab === i}
+            onClick={() => setActiveTab(i)}
+          >
+            <StyledText>{tabValue}</StyledText>
+          </StyledTab>
+        ))}
+      </Swiper>
     </StyledContainer>
   );
 };

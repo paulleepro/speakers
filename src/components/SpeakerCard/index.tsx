@@ -1,7 +1,5 @@
 import React, { FC } from "react";
-import { Box } from "react-basic-blocks";
-import { SpeakerName, SpeakerDesc, Wrapper } from "./styles";
-import colors from "styles/colors";
+import { SpeakerName, SpeakerDesc, Wrapper, SpeakerInfo } from "./styles";
 import { Link } from "react-router-dom";
 import StyledImage from "components/StyledImage";
 
@@ -23,15 +21,10 @@ const SpeakerCard: FC<IProps> = ({ name, imageUrl, slug, description }) => {
           src={imageUrl}
           alt="speaker-card"
         />
-        <Box
-          borderRadius="0 0 20px 20px"
-          borderTop={`4px solid ${colors.primaryPurple}`}
-          backgroundColor="#221e29"
-          padding="15px 30px"
-        >
+        <SpeakerInfo>
           <SpeakerName>{name}</SpeakerName>
           <SpeakerDesc>{description}</SpeakerDesc>
-        </Box>
+        </SpeakerInfo>
       </Wrapper>
     </Link>
   );

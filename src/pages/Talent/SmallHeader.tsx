@@ -18,6 +18,7 @@ import { config } from "config";
 import { getHighlight } from "./MediumHeader";
 import SocialIcons from "components/SocialIcons";
 import StyledImage from "components/StyledImage";
+import { SmallImageWrapper } from "./styles";
 
 interface IProps {
   talent: ITalent;
@@ -60,14 +61,16 @@ const SmallHeader: FC<IProps> = ({ talent }) => {
           </Col>
         </Row>
         <Row>
-          <Col offset={{ sm: 3, xs: 0 }} sm={6} xs={12}>
-            <StyledImage
-              alt="talent-img"
-              fallbackSrc="/images/default-profile.svg"
-              borderRadius="20px"
-              src={`${config.imageProxyUrl}${images[0]?.url}`}
-              height={417}
-            />
+          <Col xs={12}>
+            <SmallImageWrapper>
+              <StyledImage
+                alt="talent-img"
+                fallbackSrc="/images/default-profile.svg"
+                borderRadius="20px"
+                src={`${config.imageProxyUrl}${images[0]?.url}`}
+                height={417}
+              />
+            </SmallImageWrapper>
             <Link to={`/talent/${slug}/booking`}>
               <Button margin="40px 0 0 0" width="100%">
                 Book Today

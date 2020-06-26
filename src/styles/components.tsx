@@ -155,6 +155,7 @@ export const SeeAllText = styled.span`
 export const HeaderText = styled.span<{
   margin?: string;
   noCenterAlign?: boolean;
+  smallerOnMobile?: boolean;
 }>`
   margin: ${(props) => props.margin || "0 0 25px 0"};
   font-family: Montserrat;
@@ -169,7 +170,7 @@ export const HeaderText = styled.span<{
 
   @media (max-width: 1023px) {
     text-align: ${(props) => (props.noCenterAlign ? "left" : "center")};
-    font-size: 32px;
+    font-size: ${(props) => (props.smallerOnMobile ? "22px" : "32px")};
   }
 `;
 

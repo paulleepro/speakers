@@ -16,14 +16,10 @@ export const Input = styled.input<{ squareBottom?: boolean }>`
   font-style: normal;
   line-height: 1.5;
   letter-spacing: 0.2px;
-  color: ${colors.midGrey};
+  color: #ffffff;
 
   &::placeholder {
     color: ${colors.midGrey};
-  }
-
-  &:focus {
-    color: #ffffff;
   }
 `;
 

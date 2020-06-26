@@ -44,6 +44,7 @@ export const Wrapper = styled.div`
   background-color: ${colors.purpleLiner};
   border-radius: 20px;
   border: solid 1px #222222;
+  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.25);
 
   animation: pulse 1.5s 1;
 
@@ -54,5 +55,18 @@ export const Wrapper = styled.div`
     100% {
       opacity: 1;
     }
+  }
+`;
+
+export const SpeakerInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  border-radius: 0 0 20px 20px;
+  border-top: 4px solid ${colors.primaryPurple};
+  background-color: ${colors.purpleBgFill};
+  padding: 15px 30px;
+
+  @media (max-width: 767px) {
+    padding: 8px 16px;
   }
 `;

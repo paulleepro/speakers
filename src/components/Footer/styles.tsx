@@ -18,6 +18,17 @@ export const FooterLink = styled(Link)`
   display: block;
 `;
 
+export const FooterAnchor = styled.a`
+  font-weight: normal;
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  margin-bottom: 24px;
+  letter-spacing: 0.2px;
+  display: block;
+`;
+
 export const InfoText = styled.span`
   margin-top: 8px;
   text-align: center;

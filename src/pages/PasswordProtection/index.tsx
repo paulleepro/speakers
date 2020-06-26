@@ -57,9 +57,9 @@ const PasswordProtection: FC = () => {
     <Wrapper>
       <TopSemi />
       <CirclesWrapper>
-        <svg viewBox="-100 -100 200 200">
+        <svg viewBox="0 0 100 100">
           <circle
-            cx="0"
+            cx="100"
             cy="0"
             r="15"
             strokeWidth="0.3"
@@ -68,7 +68,7 @@ const PasswordProtection: FC = () => {
             fill="transparent"
           />
           <circle
-            cx="0"
+            cx="100"
             cy="0"
             r="40"
             strokeWidth="0.3"
@@ -77,7 +77,7 @@ const PasswordProtection: FC = () => {
             fill="transparent"
           />
           <circle
-            cx="0"
+            cx="100"
             cy="0"
             r="70"
             strokeWidth="0.3"
@@ -86,7 +86,7 @@ const PasswordProtection: FC = () => {
             fill="transparent"
           />
           <circle
-            cx="0"
+            cx="100"
             cy="0"
             r="100"
             strokeWidth="0.3"

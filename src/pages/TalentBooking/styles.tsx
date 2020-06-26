@@ -48,7 +48,7 @@ export const Input = styled.input`
   font-style: normal;
   line-height: 1.5;
   letter-spacing: 0.2px;
-  color: ${colors.midGrey};
+  color: #ffffff;
 
   &::placeholder {
     color: ${colors.midGrey};
@@ -138,4 +138,10 @@ export const Checkbox = styled.input`
   &::placeholder {
     color: ${colors.midGrey};
   }
+`;
+
+export const SmallImageWrapper = styled.div`
+  margin: 0 auto;
+  max-width: 375px;
+  width: 100%;
 `;

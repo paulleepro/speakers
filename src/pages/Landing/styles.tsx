@@ -7,20 +7,24 @@ export const LandingWrapper = styled.div`
   flex-direction: column;
 `;
 
-export const HeroWrapper = styled.div<{ backgroundImage: string }>`
+export const HeroWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: calc(100vh - 83px);
+  min-height: calc(100vh - 165px);
+`;
+
+export const HeroBGWrapper = styled.div<{ backgroundImage: string }>`
+  position: absolute;
+  top: 0;
+  right: -100px;
+  height: 100%;
+  width: 100%;
   background-image: url(${(props) => props.backgroundImage});
   background-size: contain;
   background-repeat: no-repeat;
-  background-position-x: 135%;
+  background-position-x: 100%;
   background-position-y: 50px;
-
-  @media (max-width: 1023px) {
-    min-height: calc(100vh - 64px);
-  }
 `;
 
 export const CustomizeWrapper = styled.div`
@@ -70,5 +74,13 @@ export const DescriptionWrapper = styled(Box)`
 
   @media (max-width: 767px) {
     margin: 0;
+  }
+`;
+
+export const CenterOnMobile = styled(Box)`
+  align-items: flex-start;
+
+  @media (max-width: 767px) {
+    align-items: center;
   }
 `;

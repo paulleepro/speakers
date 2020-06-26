@@ -7,6 +7,7 @@ import {
   Button,
   StyledContainer,
 } from "styles/components";
+import { RequestSpacer } from "./styles";
 import Step from "components/Step";
 import colors from "styles/colors";
 import { Box } from "react-basic-blocks";
@@ -74,21 +75,21 @@ const WhatHappensNext: FC<IProps> = ({ name }) => {
               <DescriptionText weight="bold" color={colors.white}>
                 Your Booking Request
               </DescriptionText>
-              <br />
+              <RequestSpacer />
               <DescriptionText color={colors.midGrey}>
                 Talent Requested
               </DescriptionText>
               <DescriptionText weight="bold" color={colors.white}>
                 {name}
               </DescriptionText>
-              <br />
+              <RequestSpacer />
               <DescriptionText color={colors.midGrey}>
                 Booked by
               </DescriptionText>
               <DescriptionText weight="bold" color={colors.white}>
                 {query.user_id}
               </DescriptionText>
-              <br />
+              <RequestSpacer />
               <DescriptionText color={colors.midGrey}>
                 Event Type
               </DescriptionText>
@@ -97,14 +98,14 @@ const WhatHappensNext: FC<IProps> = ({ name }) => {
                   ? "In Person"
                   : "Digital"}
               </DescriptionText>
-              <br />
+              <RequestSpacer />
               <DescriptionText color={colors.midGrey}>
                 Event Date
               </DescriptionText>
               <DescriptionText weight="bold" color={colors.white}>
                 {new Date(query?.options?.event_date).toLocaleDateString()}
               </DescriptionText>
-              <br />
+              <RequestSpacer />
               <DescriptionText color={colors.midGrey}>
                 Preferred Budget
               </DescriptionText>
@@ -114,14 +115,14 @@ const WhatHappensNext: FC<IProps> = ({ name }) => {
                 {" - "}
                 {query?.options?.budget_max_cents / 100}
               </DescriptionText>
-              <br />
+              <RequestSpacer />
               <DescriptionText color={colors.midGrey}>
                 Event Theme
               </DescriptionText>
               <DescriptionText weight="bold" color={colors.white}>
                 {query?.options?.event_theme}
               </DescriptionText>
-              <br />
+              <RequestSpacer />
               <DescriptionText color={colors.midGrey}>
                 Additional Notes
               </DescriptionText>

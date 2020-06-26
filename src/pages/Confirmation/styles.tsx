@@ -28,3 +28,7 @@ export const ActionWrapper = styled.div`
 export const PanelWrapper = styled.div`
   margin-top: 120px;
 `;
+
+export const RequestSpacer = styled.div`
+  height: 25px;
+`;

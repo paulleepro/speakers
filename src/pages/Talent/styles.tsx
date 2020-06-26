@@ -30,3 +30,9 @@ export const BookTalentWrapper = styled.div`
 export const KnownForWrapper = styled.div`
   position: relative;
 `;
+
+export const SmallImageWrapper = styled.div`
+  margin: 0 auto;
+  max-width: 375px;
+  width: 100%;
+`;

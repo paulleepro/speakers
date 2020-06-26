@@ -6,6 +6,7 @@ import Form from "./Form";
 import { config } from "config";
 import StyledImage from "components/StyledImage";
 import { Link } from "react-router-dom";
+import { SmallImageWrapper } from "./styles";
 
 interface IProps {
   talent: ITalent;
@@ -32,14 +33,16 @@ const SmallHeader: FC<IProps> = ({ talent }) => {
           </Col>
         </Row>
         <Row>
-          <Col offset={{ sm: 3, xs: 0 }} sm={6} xs={12}>
-            <StyledImage
-              alt="talent-img"
-              fallbackSrc="/images/default-profile.svg"
-              borderRadius="20px"
-              src={`${config.imageProxyUrl}${images[0]?.url}`}
-              height={417}
-            />
+          <Col>
+            <SmallImageWrapper>
+              <StyledImage
+                alt="talent-img"
+                fallbackSrc="/images/default-profile.svg"
+                borderRadius="20px"
+                src={`${config.imageProxyUrl}${images[0]?.url}`}
+                height={417}
+              />
+            </SmallImageWrapper>
           </Col>
         </Row>
         <Row>

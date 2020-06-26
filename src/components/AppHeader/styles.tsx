@@ -14,9 +14,6 @@ export const Wrapper = styled.div<{
   width: 100%;
 
   padding: 0 24px;
-  position: sticky;
-  top: 0;
-  box-shadow: 0px 2px 6px -2px rgba(0, 0, 0, 0.7);
   height: 83px;
   z-index: 10;
 
@@ -26,9 +23,38 @@ export const Wrapper = styled.div<{
   }
 `;
 
-export const LinkText = styled.span`
+export const SubnavWrapper = styled.div<{
+  backgroundColor: string;
+}>`
+  padding: 0;
+  position: sticky;
+  top: 0;
+  box-shadow: 0px 2px 6px -2px rgba(0, 0, 0, 0.7);
+  height: 83px;
+  z-index: 10;
+  background-color: ${(props) => props.backgroundColor};
+`;
+
+export const SubnavContainer = styled.div<{
+  justifyContent: string;
+}>`
+  display: flex;
+  flex-direction: row;
+  justify-content: ${(props) => props.justifyContent};
+  align-items: center;
+  transition: background-color 0.5s ease;
+  width: 100%;
+  justifycontent: string;
+  height: 83px;
+`;
+
+export const SearchBarContainer = styled.div`
+  width: 570px;
+`;
+
+export const LinkText = styled.span<{ noMargin?: boolean }>`
   color: white;
-  margin-left: 30px;
+  ${(props) => (props.noMargin ? "" : "margin-left: 30px;")}
   font-size: 16px;
   font-weight: 600;
   font-stretch: normal;

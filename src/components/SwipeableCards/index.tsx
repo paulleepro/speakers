@@ -16,7 +16,7 @@ const SwipeableCards: FC<IProps> = ({ talentList }) => {
     <div style={{ maxWidth: "calc(100vw - 24px)" }}>
       <Swiper
         {...{
-          slidesPerView: screenClass === "xs" ? 2 : 4,
+          slidesPerView: screenClass === "xs" ? 2.2 : 4.2,
           spaceBetween: 15,
         }}
         rebuildOnUpdate

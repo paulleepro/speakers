@@ -25,7 +25,7 @@ const CategoryPreview: FC<IProps> = ({ categoryName, data, url }) => {
             alignItems="flex-end"
             width="100%"
           >
-            <HeaderText noCenterAlign margin="25px 0 0 0">
+            <HeaderText noCenterAlign margin="25px 0 0 0" smallerOnMobile>
               {categoryName}
             </HeaderText>
             {url ? (

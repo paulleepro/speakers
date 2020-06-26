@@ -90,7 +90,7 @@ const MediumHeader: FC<IProps> = ({ talent }) => {
         </Row>
         <Row>
           <Col offset={{ lg: 1 }} lg={3} md={4}>
-            <Box margin="48px 0" />
+            <Box margin="45px 0 0 0" />
           </Col>
         </Row>
       </StyledContainer>
