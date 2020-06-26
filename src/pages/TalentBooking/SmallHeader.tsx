@@ -1,18 +1,22 @@
 import React, { FC } from "react";
 import { VirtualText, BigText, ArrowLeftText } from "styles/components";
-import { Container, Row, Col } from "react-grid-system";
+import { Container, Row, Col, useScreenClass } from "react-grid-system";
 import { ITalent } from "types";
 import Form from "./Form";
 import { config } from "config";
 import StyledImage from "components/StyledImage";
 import { Link } from "react-router-dom";
 import { SmallImageWrapper } from "./styles";
+import Circles from "components/Circles";
+import colors from "styles/colors";
+import TopLeftGradient from "components/TopLeftGradient";
 
 interface IProps {
   talent: ITalent;
 }
 
 const SmallHeader: FC<IProps> = ({ talent }) => {
+  const screenSize = useScreenClass();
   const {
     name,
     media: { images },
@@ -32,6 +36,20 @@ const SmallHeader: FC<IProps> = ({ talent }) => {
             <VirtualText margin="0 0 24px">Booking Inquiry</VirtualText>
           </Col>
         </Row>
+      </Container>
+      <Circles
+        color={colors.purpleLiner}
+        top="50px"
+        size={50}
+        maxWidth="400px"
+        zIndex="0"
+      />
+      <TopLeftGradient
+        height={screenSize === "xs" ? "1450px" : "1250px"}
+        width="100%"
+        borderRadius="600px"
+      />
+      <Container fluid>
         <Row>
           <Col>
             <SmallImageWrapper>

@@ -13,6 +13,9 @@ import { Box } from "react-basic-blocks";
 import { config } from "config";
 import StyledImage from "components/StyledImage";
 import { Link } from "react-router-dom";
+import Circles from "components/Circles";
+import TopLeftGradient from "components/TopLeftGradient";
+import colors from "styles/colors";
 
 interface IProps {
   talent: ITalent;
@@ -38,6 +41,16 @@ const MediumHeader: FC<IProps> = ({ talent }) => {
             </Box>
           </Col>
         </Row>
+      </StyledContainer>
+      <Circles
+        color={colors.purpleLiner}
+        top="50px"
+        size={25}
+        maxWidth="400px"
+        zIndex="0"
+      />
+      <TopLeftGradient height="1100px" width="50%" borderRadius="600px" />
+      <StyledContainer fluid>
         <Row>
           <Col offset={{ lg: 1 }} lg={3} md={4}>
             <StyledImage

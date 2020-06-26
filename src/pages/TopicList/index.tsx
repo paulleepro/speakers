@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Row, Col } from "react-grid-system";
+import { Row, Col, Visible } from "react-grid-system";
 import { Link } from "react-router-dom";
 import { DescriptionText, StyledContainer } from "styles/components";
 import Loader from "components/Loader";
@@ -11,6 +11,7 @@ import { ArrowLeftText, BigText, TopAreaDivider } from "styles/components";
 import { Box } from "react-basic-blocks";
 import colors from "styles/colors";
 import StarPower from "components/StarPower";
+import TopLeftGradient from "components/TopLeftGradient";
 
 const MAX_COLUMNS = 2;
 
@@ -51,7 +52,12 @@ const Topics: FC = () => {
             </Box>
           </Col>
         </Row>
-        <TopAreaDivider />
+      </StyledContainer>
+      <TopAreaDivider />
+      <Visible md lg>
+        <TopLeftGradient height="800px" width="60%" borderRadius="600px" />
+      </Visible>
+      <StyledContainer fluid>
         {data.data.map(({ name, id, subtopics }) => (
           <div key={id}>
             <Row>

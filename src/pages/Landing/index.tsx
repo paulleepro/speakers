@@ -1,17 +1,20 @@
 import React, { FC, useState, useEffect } from "react";
 import HeroMedium from "./HeroMedium";
 import { LandingWrapper, TopSemi } from "./styles";
-import { Visible } from "react-grid-system";
+import { Visible, useScreenClass } from "react-grid-system";
 import Explore from "./Explore";
 import CustomizeEvent from "./CustomizeEvent";
 import HowItWorks from "./HowItWorks";
 import StarPower from "components/StarPower";
 import HeroSmall from "./HeroSmall";
 import { heroData } from "./hero-data";
+import Circles from "components/Circles";
+import colors from "styles/colors";
 
 const Landing: FC = () => {
   const [counter, setCounter] = useState<number>(0);
   const heroDatum = heroData[counter];
+  const screenSize = useScreenClass();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -34,6 +37,12 @@ const Landing: FC = () => {
       </Visible>
       <Explore />
       <CustomizeEvent />
+      <Circles
+        top="-20px"
+        size={"xs" === screenSize ? 75 : 45}
+        maxWidth="700px"
+        color={colors.primaryPurple}
+      />
       <HowItWorks />
       <StarPower />
     </LandingWrapper>

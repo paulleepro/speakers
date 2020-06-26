@@ -54,7 +54,7 @@ export const TopSemi = styled.div`
   object-fit: contain;
   background-image: linear-gradient(
     to bottom,
-    rgba(34, 30, 41, 0),
+    rgba(34, 30, 41, 0.5),
     ${colors.purpleBgFill}
   );
   border-radius: 0 0 600px 0;

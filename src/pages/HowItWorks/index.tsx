@@ -5,12 +5,30 @@ import OurEvents from "./OurEvents";
 import Panel from "./Panel";
 import Outro from "./Outro";
 import StarPower from "components/StarPower";
+import Circles from "components/Circles";
+import colors from "styles/colors";
+import { Visible, useScreenClass } from "react-grid-system";
+import TopLeftGradient from "components/TopLeftGradient";
 
 const HowItWorks: FC = () => {
+  const screenSize = useScreenClass();
   return (
     <div>
       <Title />
+      <TopLeftGradient
+        height={["xs", "sm"].includes(screenSize) ? "1100px" : "900px"}
+        width={["xs", "sm"].includes(screenSize) ? "100%" : "60%"}
+        borderRadius="600px"
+      />
       <Description />
+      <Circles
+        color={colors.purpleLiner}
+        top="0"
+        size={100}
+        maxWidth="600px"
+        right
+        zIndex="0"
+      />
       <OurEvents />
       <Panel
         title="Panel Discussion"
@@ -18,6 +36,15 @@ const HowItWorks: FC = () => {
         imageUrl="/images/alright.png"
         iconUrl="/images/group.png"
       />
+      <Visible md lg>
+        <Circles
+          color={colors.purpleLiner}
+          top="100px"
+          size={100}
+          maxWidth="600px"
+          zIndex="0"
+        />
+      </Visible>
       <Panel
         title="Keynote"
         description="For your next conference, have the biggest name speaker deliver their long-form message digitally! The talk can be either live or pre-recorded, and will focus all of the topics that matter to you and your business."

@@ -33,23 +33,3 @@ export const TextWrapper = styled.div`
 export const PanelWrapper = styled.div`
   margin-top: 120px;
 `;
-
-export const TopSemi = styled.div`
-  z-index: -2;
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 700px;
-  object-fit: contain;
-  background-image: linear-gradient(
-    to bottom,
-    rgba(34, 30, 41, 0),
-    ${colors.purpleBgFill}
-  );
-  border-radius: 0 0 600px 0;
-  width: 50%;
-
-  @media (max-width: 1023px) {
-    width: 100%;
-  }
-`;

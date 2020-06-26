@@ -14,11 +14,7 @@ const Wrapper = styled.div`
   margin-top: 120px;
   border-radius: 0 250px 0 0;
   border-top: solid 1px ${colors.purpleLiner};
-  background-image: linear-gradient(
-    to bottom,
-    #000000 30%,
-    rgba(34, 30, 41, 0.5)
-  );
+  background-image: linear-gradient(to bottom, #000000 30%, rgba(26, 23, 31));
   z-index: 9;
 
   @media (max-width: 1024px) {

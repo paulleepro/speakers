@@ -22,8 +22,8 @@ const Title: FC = () => {
             </DescriptionText>
           </Col>
         </Row>
-        <TopAreaDivider />
       </StyledContainer>
+      <TopAreaDivider />
     </div>
   );
 };

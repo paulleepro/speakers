@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { useLocation } from "react-router";
-import { Row, Col } from "react-grid-system";
+import { Row, Col, Visible } from "react-grid-system";
 import { ISearch } from "types";
 import { config } from "config";
 import SpeakerCard from "components/SpeakerCard";
@@ -11,6 +11,7 @@ import { BigText, ArrowLeftText, StyledContainer } from "styles/components";
 import { Box } from "react-basic-blocks";
 import { Link } from "react-router-dom";
 import StarPower from "components/StarPower";
+import TopLeftGradient from "components/TopLeftGradient";
 
 const SearchResults: FC = () => {
   const query = new URLSearchParams(useLocation().search);
@@ -38,6 +39,11 @@ const SearchResults: FC = () => {
               </Box>
             </Col>
           </Row>
+        </StyledContainer>
+        <Visible md lg>
+          <TopLeftGradient height="800px" width="60%" borderRadius="600px" />
+        </Visible>
+        <StyledContainer fluid>
           <Row>
             <Col offset={{ lg: 1 }} lg={10}>
               <Row>

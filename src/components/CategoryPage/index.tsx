@@ -1,5 +1,5 @@
 import React, { FC, useState } from "react";
-import { Row, Col } from "react-grid-system";
+import { Row, Col, Visible } from "react-grid-system";
 import { config } from "config";
 import SpeakerCard from "components/SpeakerCard";
 import Featured from "components/Featured";
@@ -16,6 +16,7 @@ import {
   StyledContainer,
 } from "styles/components";
 import StarPower from "components/StarPower";
+import TopLeftGradient from "components/TopLeftGradient";
 
 interface IProps {
   name: string;
@@ -44,7 +45,12 @@ const CategoryPage: FC<IProps> = ({
             </Box>
           </Col>
         </Row>
-        <TopAreaDivider />
+      </StyledContainer>
+      <TopAreaDivider />
+      <Visible md lg>
+        <TopLeftGradient height="800px" width="60%" borderRadius="600px" />
+      </Visible>
+      <StyledContainer fluid>
         <Row>
           <Col offset={{ lg: 1 }} lg={10}>
             <HeaderText margin="0 0 12px 0">{`Featured ${name}`}</HeaderText>

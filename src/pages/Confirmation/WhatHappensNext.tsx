@@ -4,7 +4,6 @@ import { useLocation } from "react-router";
 import {
   DescriptionText,
   HeaderText,
-  Button,
   StyledContainer,
 } from "styles/components";
 import { RequestSpacer } from "./styles";
@@ -130,8 +129,6 @@ const WhatHappensNext: FC<IProps> = ({ name }) => {
                 {query?.options?.notes || "N/A"}
               </DescriptionText>
               <br />
-              <br />
-              <Button>Modify Request</Button>
             </Box>
           </Col>
         </Row>

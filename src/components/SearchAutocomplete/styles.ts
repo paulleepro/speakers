@@ -3,7 +3,7 @@ import colors from "styles/colors";
 import ClickAwayListener from "react-click-away-listener";
 
 export const Input = styled.input<{ squareBottom?: boolean }>`
-  background-color: transparent;
+  background-color: ${colors.black};
   border: 1px solid ${colors.midGrey};
   border-radius: ${(props) => (props.squareBottom ? "12px 12px 0 0" : "12px")};
   outline: none;

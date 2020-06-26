@@ -6,7 +6,6 @@ import {
   Button,
   ArrowLeftText,
   StyledContainer,
-  AvailableForBg,
 } from "styles/components";
 import { Row, Col } from "react-grid-system";
 import ReactHtmlParser from "react-html-parser";
@@ -20,6 +19,8 @@ import colors from "styles/colors";
 import SocialIcons from "components/SocialIcons";
 import StyledImage from "components/StyledImage";
 import { KnownForWrapper } from "./styles";
+import Circles from "components/Circles";
+import TopLeftGradient from "components/TopLeftGradient";
 
 interface IProps {
   talent: ITalent;
@@ -57,6 +58,16 @@ const MediumHeader: FC<IProps> = ({ talent }) => {
             </Box>
           </Col>
         </Row>
+      </StyledContainer>
+      <Circles
+        color={colors.purpleLiner}
+        top="50px"
+        size={25}
+        maxWidth="400px"
+        zIndex="0"
+      />
+      <TopLeftGradient height="1200px" width="50%" borderRadius="600px" />
+      <StyledContainer fluid>
         <Row>
           <Col offset={{ lg: 1 }} lg={3} md={4}>
             <StyledImage
@@ -95,7 +106,6 @@ const MediumHeader: FC<IProps> = ({ talent }) => {
         </Row>
       </StyledContainer>
       <KnownForWrapper>
-        <AvailableForBg />
         <StyledContainer fluid>
           <Row>
             <Col offset={{ lg: 1 }} lg={3} md={4}>

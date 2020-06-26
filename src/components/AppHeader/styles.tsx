@@ -33,6 +33,7 @@ export const SubnavWrapper = styled.div<{
   height: 83px;
   z-index: 10;
   background-color: ${(props) => props.backgroundColor};
+  border-top: 1px solid ${colors.purpleLiner};
 `;
 
 export const SubnavContainer = styled.div<{

@@ -4,7 +4,6 @@ import { Box } from "react-basic-blocks";
 import { Link } from "react-router-dom";
 import { IType } from "types";
 import Subnav from "./Subnav";
-import colors from "styles/colors";
 
 interface IProps {
   types?: IType[];
@@ -13,7 +12,7 @@ interface IProps {
 const BigHeader: FC<IProps> = ({ types }) => {
   return (
     <>
-      <Wrapper backgroundColor={colors.black} justifyContent="space-between">
+      <Wrapper backgroundColor="transparent" justifyContent="space-between">
         <Box flexDirection="row" alignItems="center">
           <Link to="/">
             <img src="/logo.png" height="40" alt="logo" />

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import colors from "styles/colors";
 
 export const Select = styled.select`
-  background-color: transparent;
+  background-color: ${colors.black};
   border: 1px solid ${colors.midGrey};
   border-radius: 12px;
   outline: none;
@@ -35,7 +35,7 @@ export const Select = styled.select`
 `;
 
 export const Input = styled.input`
-  background-color: transparent;
+  background-color: ${colors.black};
   border: 1px solid ${colors.midGrey};
   border-radius: 12px;
   outline: none;
@@ -60,7 +60,7 @@ export const Input = styled.input`
 `;
 
 export const TextArea = styled.textarea`
-  background-color: transparent;
+  background-color: ${colors.black};
   border: 1px solid ${colors.midGrey};
   border-radius: 12px;
   outline: none;

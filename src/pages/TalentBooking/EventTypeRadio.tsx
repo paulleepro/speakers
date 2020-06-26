@@ -35,6 +35,7 @@ const EventTypeRadio: FC<IETProps> = ({ label, eventTypes = [], setValue }) => {
         onClick={onClick}
         flexDirection="row"
         alignItems="center"
+        backgroundColor="#000000"
       >
         {checked ? (
           <RadioButtonCheckedIcon style={{ color: colors.primaryPurple }} />

@@ -3,18 +3,20 @@ import { Box } from "react-basic-blocks";
 import { Row, Col, Visible } from "react-grid-system";
 import colors from "styles/colors";
 import Step from "components/Step";
-import { TopSemi } from "./styles";
 import { StyledContainer } from "styles/components";
+import Circles from "components/Circles";
 
 const Decription: FC = () => {
   return (
     <div>
+      <Circles
+        color={colors.purpleLiner}
+        top="200px"
+        size={30}
+        maxWidth="400px"
+        zIndex="0"
+      />
       <StyledContainer fluid>
-        <Row>
-          <Col>
-            <TopSemi />
-          </Col>
-        </Row>
         <Row>
           <Visible md lg>
             <Col offset={{ lg: 1 }} xs={12} md={4} lg={3}>

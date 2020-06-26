@@ -9,21 +9,14 @@ import { Row, Col, useScreenClass } from "react-grid-system";
 import colors from "styles/colors";
 import { ActionIcon, ActionWrapper, PanelWrapper, TextWrapper } from "./styles";
 import StyledImage from "components/StyledImage";
-import Circles from "components/Circles";
 
 interface PIProps {
   imageRight?: boolean;
   imageUrl: string;
   iconUrl?: string;
-  showCircles?: boolean;
 }
 
-const PanelImage: FC<PIProps> = ({
-  iconUrl,
-  imageUrl,
-  imageRight,
-  showCircles,
-}) => (
+const PanelImage: FC<PIProps> = ({ iconUrl, imageUrl, imageRight }) => (
   <Col
     offset={{ lg: 1, md: imageRight ? 1 : 0, sm: 2, xs: 1 }}
     xs={10}
@@ -31,7 +24,6 @@ const PanelImage: FC<PIProps> = ({
     md={5}
     lg={5}
   >
-    {showCircles ? <Circles color={colors.purpleLiner} top="0" /> : false}
     <ActionWrapper>
       <StyledImage
         height={376}
@@ -54,7 +46,6 @@ interface IProps {
   description: string;
   imageUrl: string;
   iconUrl?: string;
-  showCircles?: boolean;
 }
 
 const Panel: FC<IProps> = ({
@@ -63,7 +54,6 @@ const Panel: FC<IProps> = ({
   description,
   imageUrl,
   iconUrl,
-  showCircles,
 }) => {
   const screenClass = useScreenClass();
   const isSmall = ["xs", "sm"].includes(screenClass);
@@ -76,7 +66,6 @@ const Panel: FC<IProps> = ({
               imageUrl={imageUrl}
               imageRight={imageRight}
               iconUrl={iconUrl}
-              showCircles={showCircles}
             />
           )}
           <Col offset={{ md: imageRight ? 0 : 1, lg: 1 }} xs={12} md={6} lg={4}>

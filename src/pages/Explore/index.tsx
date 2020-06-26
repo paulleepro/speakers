@@ -10,6 +10,8 @@ import Featured from "components/Featured";
 import { IListResult, ITalent } from "types";
 import { hardCodedTalent } from "hard-coded-talent";
 import { StyledContainer } from "styles/components";
+import TopLeftGradient from "components/TopLeftGradient";
+import { Visible } from "react-grid-system";
 
 const getTalent = (data: ITalent[], slugs: string[]) =>
   data.filter((x) => slugs.includes(x.slug));
@@ -51,10 +53,15 @@ const Explore: FC = () => {
   }
 
   return (
-    <StyledContainer fluid>
-      <Title tabs={hardCodedTalent.map((x) => x.name)} />
-      {components}
-    </StyledContainer>
+    <>
+      <StyledContainer fluid>
+        <Title tabs={hardCodedTalent.map((x) => x.name)} />
+      </StyledContainer>
+      <Visible md lg>
+        <TopLeftGradient height="800px" width="60%" borderRadius="600px" />
+      </Visible>
+      <StyledContainer fluid>{components}</StyledContainer>
+    </>
   );
 };
 

@@ -19,7 +19,7 @@ export const TypesWrapper = styled.div`
   @media (min-width: 1023px) {
     position: absolute;
     width: 100%;
-    top: 83px;
+    top: 82px;
     left: 0;
     z-index: 16;
     padding: 50px 0;

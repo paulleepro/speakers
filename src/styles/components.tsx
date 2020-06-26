@@ -252,22 +252,3 @@ export const TopAreaDivider = styled.div`
 export const StyledContainer = styled(Container)`
   max-width: 1440px;
 `;
-
-export const AvailableForBg = styled.div`
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  border-radius: 0 0 600px 0;
-  background-image: linear-gradient(
-    to bottom,
-    rgba(34, 30, 41, 0),
-    ${colors.purpleBgFill}
-  );
-  z-index: -1;
-  width: 50%;
-  height: 100%;
-
-  @media (max-width: 1023px) {
-    width: 100%;
-  }
-`;

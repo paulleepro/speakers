@@ -22,7 +22,7 @@ interface IProps {
 const Subnav: FC<IProps> = ({ types }) => {
   const scrollY = useScrollPosition(30);
   const [showTypes, setShowTypes] = useState<boolean>(false);
-  const backgroundColor = scrollY < 20 ? colors.black : colors.purpleBgFill;
+  const backgroundColor = scrollY < 20 ? "transparent" : colors.purpleBgFill;
   return (
     <SubnavWrapper backgroundColor={backgroundColor}>
       <Container fluid>
@@ -39,11 +39,6 @@ const Subnav: FC<IProps> = ({ types }) => {
                   <LinkText noMargin>Browse Talent</LinkText>
                   <CaretDown />
                 </Box>
-                <TypesMenu
-                  types={types}
-                  show={showTypes}
-                  close={() => setShowTypes(false)}
-                />
               </ClickAwayListener>
               <SearchBarContainer>
                 <SearchAutocomplete />
@@ -52,6 +47,11 @@ const Subnav: FC<IProps> = ({ types }) => {
           </Col>
         </Row>
       </Container>
+      <TypesMenu
+        types={types}
+        show={showTypes}
+        close={() => setShowTypes(false)}
+      />
     </SubnavWrapper>
   );
 };

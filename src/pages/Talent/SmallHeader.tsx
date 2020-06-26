@@ -5,9 +5,8 @@ import {
   DescriptionText,
   Button,
   ArrowLeftText,
-  AvailableForBg,
 } from "styles/components";
-import { Container, Row, Col } from "react-grid-system";
+import { Container, Row, Col, useScreenClass } from "react-grid-system";
 import ReactHtmlParser from "react-html-parser";
 import AvailableFor from "components/AvailableFor";
 import KnownFor from "./KnownFor";
@@ -19,12 +18,16 @@ import { getHighlight } from "./MediumHeader";
 import SocialIcons from "components/SocialIcons";
 import StyledImage from "components/StyledImage";
 import { SmallImageWrapper } from "./styles";
+import Circles from "components/Circles";
+import colors from "styles/colors";
+import TopLeftGradient from "components/TopLeftGradient";
 
 interface IProps {
   talent: ITalent;
 }
 
 const SmallHeader: FC<IProps> = ({ talent }) => {
+  const screenSize = useScreenClass();
   const {
     name,
     bio_highlights: highlights,
@@ -60,6 +63,20 @@ const SmallHeader: FC<IProps> = ({ talent }) => {
             </Box>
           </Col>
         </Row>
+      </Container>
+      <Circles
+        color={colors.purpleLiner}
+        top="50px"
+        size={50}
+        maxWidth="400px"
+        zIndex="0"
+      />
+      <TopLeftGradient
+        height={screenSize === "xs" ? "1500px" : "1400px"}
+        width="100%"
+        borderRadius="600px"
+      />
+      <Container fluid>
         <Row>
           <Col xs={12}>
             <SmallImageWrapper>
@@ -87,7 +104,6 @@ const SmallHeader: FC<IProps> = ({ talent }) => {
         </Row>
         <Row>
           <Col>
-            <AvailableForBg />
             <Box margin="40px 0">
               <AvailableFor />
             </Box>
