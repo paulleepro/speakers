@@ -54,9 +54,7 @@ const SmallHeader: FC<IProps> = ({ talent }) => {
               <VirtualText>Featured</VirtualText>
               <SocialIcons
                 urls={
-                  Object.values(social_accounts).filter(
-                    (x) => x !== undefined
-                  ) as string[]
+                  Object.values(social_accounts).filter((x) => x) as string[]
                 }
                 justifyContent="center"
               />

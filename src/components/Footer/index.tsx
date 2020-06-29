@@ -10,7 +10,7 @@ import { Row, Col, Visible } from "react-grid-system";
 import { Link } from "react-router-dom";
 import { Box } from "react-basic-blocks";
 import { hardCodedTalent } from "hard-coded-talent";
-import SocialIcons from "components/SocialIcons";
+// import SocialIcons from "components/SocialIcons";
 import { StyledContainer } from "styles/components";
 
 interface IProps {}
@@ -54,10 +54,10 @@ const Footer: FC<IProps> = () => {
                 </FooterAnchor>
               </Col>
               <Col xs={12} md={6} lg={4}>
-                <InfoText>Connect With Us</InfoText>
+                {/* <InfoText>Connect With Us</InfoText>
                 <SocialIcons
                   urls={["https://instagram.com", "https://twitter.com"]}
-                />
+                /> */}
               </Col>
             </Row>
           </Col>

@@ -28,12 +28,15 @@ interface IProps {
 
 export const getHighlight = (str: string) => {
   const res = str
-    .split("</p>")[0]
+    .split("</p>")
+    .map((x) => x.trim().replace(/<p>/g, ""))
+    .filter((x) => x)[0]
     ?.trim()
-    .replace(/<p>/g, "")
     .match(/.{1,350}(\s|$)/g);
-  const unescaped = res === null ? "" : res[0].slice(0, -1);
-  return `${unescaped}<span>… </span><a href="#highlights" style="color: ${colors.primaryPurple}">Read More</a>`;
+  const unescaped = res === null ? "" : res[0].slice(0, -1).trim();
+  return unescaped
+    ? `${unescaped}<span>… </span><a href="#highlights" style="color: ${colors.primaryPurple}">Read More</a>`
+    : "";
 };
 
 const MediumHeader: FC<IProps> = ({ talent }) => {
