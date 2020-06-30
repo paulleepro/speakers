@@ -47,20 +47,18 @@ const Explore: FC = () => {
             />
           </div>
         ))}
-        <StarPower />
       </>
     );
   }
 
   return (
     <>
-      <StyledContainer fluid>
-        <Title tabs={hardCodedTalent.map((x) => x.name)} />
-      </StyledContainer>
+      <Title tabs={hardCodedTalent.map((x) => x.name)} />
       <Visible md lg>
         <TopLeftGradient height="800px" width="60%" borderRadius="600px" />
       </Visible>
       <StyledContainer fluid>{components}</StyledContainer>
+      <StarPower />
     </>
   );
 };

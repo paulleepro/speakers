@@ -4,6 +4,7 @@ import {
   BigText,
   HeaderText,
   TopAreaDivider,
+  StyledContainer,
 } from "styles/components";
 import { Row, Col } from "react-grid-system";
 import Tabs from "components/Tabs";
@@ -41,28 +42,32 @@ const Title: FC<IProps> = ({ tabs }) => {
   }, [activeTab]);
 
   return (
-    <>
-      <Row>
-        <Col offset={{ lg: 1 }} md={12} lg={10}>
-          <VirtualText>Virtual Speakers</VirtualText>
-          <BigText>Explore</BigText>
+    <div>
+      <StyledContainer fluid>
+        <Row>
+          <Col offset={{ lg: 1 }} md={12} lg={10}>
+            <VirtualText>Virtual Speakers</VirtualText>
+            <BigText>Explore</BigText>
 
-          <Tabs
-            values={tabs}
-            setActiveTab={setActiveTab}
-            activeTab={activeTab}
-          />
-        </Col>
-      </Row>
+            <Tabs
+              values={tabs}
+              setActiveTab={setActiveTab}
+              activeTab={activeTab}
+            />
+          </Col>
+        </Row>
+      </StyledContainer>
       <TopAreaDivider />
-      <Row>
-        <Col offset={{ lg: 1 }} lg={10}>
-          <HeaderText noCenterAlign smallerOnMobile>
-            Featured
-          </HeaderText>
-        </Col>
-      </Row>
-    </>
+      <StyledContainer fluid>
+        <Row>
+          <Col offset={{ lg: 1 }} lg={10}>
+            <HeaderText noCenterAlign smallerOnMobile>
+              Featured
+            </HeaderText>
+          </Col>
+        </Row>
+      </StyledContainer>
+    </div>
   );
 };
 

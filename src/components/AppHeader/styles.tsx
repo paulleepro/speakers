@@ -82,12 +82,23 @@ export const CaretDown = styled.div`
   ::before {
     width: 0;
     height: 0;
-    border-top: 5px solid ${colors.primaryPurple};
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
+    border-top: 8px solid ${colors.primaryPurple};
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
     content: "";
     font-size: 0px;
     vertical-align: middle;
     margin-left: 5px;
+    line-height: 22px;
   }
+`;
+
+export const BrowseTalentText = styled.span`
+  color: white;
+  font-size: 24px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: 0.3px;
 `;

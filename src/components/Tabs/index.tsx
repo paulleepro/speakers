@@ -10,7 +10,7 @@ interface ITabProps {
 }
 
 const StyledContainer = styled.div`
-  max-width: calc(100vw - 60px);
+  max-width: calc(100vw - 24px);
   overflow-x: scroll;
   -ms-overflow-style: none; /* Internet Explorer 10+ */
   scrollbar-width: none; /* Firefox */

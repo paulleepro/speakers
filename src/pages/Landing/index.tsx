@@ -27,25 +27,27 @@ const Landing: FC = () => {
   }, []);
 
   return (
-    <LandingWrapper>
-      <TopSemi />
-      <Visible md lg>
-        <HeroMedium {...heroDatum} />
-      </Visible>
-      <Visible xs sm>
-        <HeroSmall {...heroDatum} />
-      </Visible>
-      <Explore />
-      <CustomizeEvent />
-      <Circles
-        top="-20px"
-        size={"xs" === screenSize ? 75 : 45}
-        maxWidth="700px"
-        color={colors.primaryPurple}
-      />
-      <HowItWorks />
+    <>
+      <LandingWrapper>
+        <TopSemi />
+        <Visible md lg>
+          <HeroMedium {...heroDatum} />
+        </Visible>
+        <Visible xs sm>
+          <HeroSmall {...heroDatum} />
+        </Visible>
+        <Explore />
+        <CustomizeEvent />
+        <Circles
+          top="-20px"
+          size={"xs" === screenSize ? 75 : 45}
+          maxWidth="700px"
+          color={colors.primaryPurple}
+        />
+        <HowItWorks />
+      </LandingWrapper>
       <StarPower />
-    </LandingWrapper>
+    </>
   );
 };
 

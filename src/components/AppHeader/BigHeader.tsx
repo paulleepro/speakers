@@ -12,7 +12,7 @@ interface IProps {
 const BigHeader: FC<IProps> = ({ types }) => {
   return (
     <>
-      <Wrapper backgroundColor="transparent" justifyContent="space-between">
+      <Wrapper backgroundColor="rbga(0,0,0,0.2)" justifyContent="space-between">
         <Box flexDirection="row" alignItems="center">
           <Link to="/">
             <img src="/logo.png" height="40" alt="logo" />

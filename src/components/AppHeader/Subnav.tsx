@@ -2,7 +2,7 @@ import React, { FC, useState } from "react";
 import { Container, Row, Col } from "react-grid-system";
 import {
   SubnavWrapper,
-  LinkText,
+  BrowseTalentText,
   CaretDown,
   SubnavContainer,
   SearchBarContainer,
@@ -22,7 +22,8 @@ interface IProps {
 const Subnav: FC<IProps> = ({ types }) => {
   const scrollY = useScrollPosition(30);
   const [showTypes, setShowTypes] = useState<boolean>(false);
-  const backgroundColor = scrollY < 20 ? "transparent" : colors.purpleBgFill;
+  const backgroundColor =
+    scrollY < 20 ? "rbga(0,0,0,0.2)" : colors.purpleBgFill;
   return (
     <SubnavWrapper backgroundColor={backgroundColor}>
       <Container fluid>
@@ -36,7 +37,7 @@ const Subnav: FC<IProps> = ({ types }) => {
                   onClick={() => setShowTypes(!showTypes)}
                   alignItems="flex-end"
                 >
-                  <LinkText noMargin>Browse Talent</LinkText>
+                  <BrowseTalentText>Browse Talent</BrowseTalentText>
                   <CaretDown />
                 </Box>
               </ClickAwayListener>
