@@ -26,9 +26,7 @@ const MoreAboutTalent: FC<IProps> = ({ name, reviews }) => {
     <StyledContainer fluid>
       <Row>
         <Col offset={{ lg: 1 }} md={12} lg={10}>
-          <Box margin="80px 0 0 0">
-            <HeaderText>More About {name}</HeaderText>
-          </Box>
+          <HeaderText>More About {name}</HeaderText>
         </Col>
       </Row>
       <Row>

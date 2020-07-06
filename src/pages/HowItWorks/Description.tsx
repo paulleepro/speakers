@@ -20,21 +20,12 @@ const Decription: FC = () => {
         <Row>
           <Visible md lg>
             <Col offset={{ lg: 1 }} xs={12} md={4} lg={3}>
-              <Box
-                backgroundColor={colors.midDarkGrey}
-                height="661px"
-                width="321px"
-                borderRadius="40px"
-                alignItems="center"
-                justifyContent="center"
-                border="1px solid #2a2a2a"
-                flex="0 0 auto"
-              >
+              <Box boxShadow="0 0 50px 0 rgba(0,0,0,0.50);" borderRadius="60px">
                 <img
                   src="/images/iphone.png"
-                  height="631"
-                  width="291"
-                  alt="swipe"
+                  height="673"
+                  width="336"
+                  alt="iphone"
                 />
               </Box>
             </Col>

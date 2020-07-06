@@ -33,7 +33,7 @@ const HowItWorks: FC = () => {
       <Panel
         title="Panel Discussion"
         description="Invite several of the biggest names across any field to join a live panel discussion with other speakers, focusing on a particular topic of your choice!"
-        imageUrl="/images/alright.png"
+        imageUrl="/images/matt-mcconaughey.png"
         iconUrl="/images/group.png"
       />
       <Visible md lg>
@@ -49,33 +49,33 @@ const HowItWorks: FC = () => {
         title="Keynote"
         description="For your next conference, have the biggest name speaker deliver their long-form message digitally! The talk can be either live or pre-recorded, and will focus all of the topics that matter to you and your business."
         imageRight
-        imageUrl="/images/keynote.png"
+        imageUrl="/images/kendrick-lamar.png"
         iconUrl="/images/presentation.png"
       />
       <Panel
         title="Digital Q&A"
         description="Bring a traditional Q&A to a digital setting by booking talent to join a live chat where the audience can ask them specific questions."
-        imageUrl="/images/shaq-people.png"
+        imageUrl="/images/shaq-collage.png"
         iconUrl="/images/chat.png"
       />
       <Panel
         title="Live Drop In"
         description="The content of the chat can be whatever you like,  ranging from a quick comedy set or musical performance, wishing someone a happy birthday, or a shout out to someone for  business win."
         imageRight
-        imageUrl="/images/kevin.png"
+        imageUrl="/images/kevin-hart.png"
         iconUrl="/images/video-conference.png"
       />
       <Panel
         title="Digital Video Message"
         description="The talent of your choice will provide a short, pre-recorded video message based on a brief provided by you!"
-        imageUrl="/images/obama.png"
+        imageUrl="/images/barack-obama.png"
         iconUrl="/images/video-bubble.png"
       />
       <Outro />
       <Panel
         title="Don’t forget live…"
         description="Invite several of the biggest names across any field to join a live panel discussion with other speakers, focusing on a particular topic."
-        imageUrl="/images/some-guy.png"
+        imageUrl="/images/stephen-colbert.png"
       />
       <StarPower />
     </div>

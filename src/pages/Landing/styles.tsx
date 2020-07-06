@@ -11,7 +11,6 @@ export const HeroWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: calc(100vh - 165px);
 `;
 
 export const HeroBGWrapper = styled.div<{ backgroundImage: string }>`
@@ -24,7 +23,8 @@ export const HeroBGWrapper = styled.div<{ backgroundImage: string }>`
   background-size: contain;
   background-repeat: no-repeat;
   background-position-x: 100%;
-  background-position-y: 50px;
+  background-position-y: 0px;
+  margin-top: 50px;
 `;
 
 export const CustomizeWrapper = styled.div`

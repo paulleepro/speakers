@@ -2,9 +2,9 @@ import React, { FC } from "react";
 import { Container, Row, Col, Visible } from "react-grid-system";
 import { IType } from "types";
 import { Link } from "react-router-dom";
-import { TypeLink, TypesWrapper, CaretRight, CaretLeft } from "./styles";
+import { TypeLink, TypesWrapper, CaretLeft } from "./styles";
 import colors from "styles/colors";
-import { DescriptionText, Divider } from "styles/components";
+import { DescriptionText, Divider, CaretRight } from "styles/components";
 import { Box } from "react-basic-blocks";
 
 const MAX_COLUMNS = 4;

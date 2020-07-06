@@ -23,9 +23,11 @@ const Subnav: FC<IProps> = ({ types }) => {
   const scrollY = useScrollPosition(30);
   const [showTypes, setShowTypes] = useState<boolean>(false);
   const backgroundColor =
-    scrollY < 20 ? "rbga(0,0,0,0.2)" : colors.purpleBgFill;
+    scrollY < 85 ? "rgba(0,0,0,0.2)" : colors.purpleBgFill;
+  const boxShadow =
+    scrollY > 20 ? "0px 2px 6px -2px rgba(0, 0, 0, 0.7)" : undefined;
   return (
-    <SubnavWrapper backgroundColor={backgroundColor}>
+    <SubnavWrapper backgroundColor={backgroundColor} boxShadow={boxShadow}>
       <Container fluid>
         <Row>
           <Col offset={{ lg: 1 }} md={12} lg={10}>

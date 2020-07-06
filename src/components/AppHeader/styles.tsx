@@ -25,15 +25,16 @@ export const Wrapper = styled.div<{
 
 export const SubnavWrapper = styled.div<{
   backgroundColor: string;
+  boxShadow?: string;
 }>`
   padding: 0;
   position: sticky;
   top: 0;
-  box-shadow: 0px 2px 6px -2px rgba(0, 0, 0, 0.7);
   height: 83px;
   z-index: 10;
   background-color: ${(props) => props.backgroundColor};
   border-top: 1px solid ${colors.purpleLiner};
+  ${(props) => (props.boxShadow ? `box-shadow: ${props.boxShadow};` : "")}
 `;
 
 export const SubnavContainer = styled.div<{

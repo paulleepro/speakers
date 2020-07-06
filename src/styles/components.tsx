@@ -135,8 +135,9 @@ export const DescriptionText = styled.span<{
   }
 `;
 
-export const SeeAllText = styled.span`
-  color: #ffffff;
+export const SeeAllText = styled.span<{ color?: string; margin?: string }>`
+  color: ${(props) => (props.color ? props.color : "#ffffff")};
+  ${(props) => (props.margin ? `margin: ${props.margin};` : "")}
   font-size: 24px;
   font-weight: normal;
   font-stretch: normal;
@@ -144,7 +145,6 @@ export const SeeAllText = styled.span`
   line-height: 1.78;
   letter-spacing: 0.22px;
   text-align: right;
-  margin: 0 18px;
   white-space: nowrap;
 
   @media (max-width: 1023px) {
@@ -251,4 +251,18 @@ export const TopAreaDivider = styled.div`
 
 export const StyledContainer = styled(Container)`
   max-width: 1440px;
+`;
+
+export const CaretRight = styled.div`
+  ::before {
+    width: 0;
+    height: 0;
+    border-left: 7px solid ${colors.primaryPurple};
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    content: "";
+    font-size: 0px;
+    vertical-align: middle;
+    margin-left: 10px;
+  }
 `;

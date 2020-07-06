@@ -56,7 +56,7 @@ const OurEvents: FC = () => {
               justifyContent="center"
               border="1px solid #2a2a2a"
             >
-              <StyledImage src="/images/kevin.png" borderRadius="12px" />
+              <StyledImage src="/images/kevin-hart.png" borderRadius="12px" />
             </Box>
           </Col>
         </Row>

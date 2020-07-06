@@ -21,7 +21,7 @@ const HeroMedium: FC<IProps> = ({ heroDescriptor, imageUrl }) => {
       <StyledContainer fluid>
         <Row>
           <HeroBGWrapper backgroundImage={imageUrl} />
-          <Col offset={{ md: 1 }} md={8} lg={6}>
+          <Col offset={{ md: 0, lg: 1 }} md={8} lg={6}>
             <VirtualText margin="0px">Virtual Speakers</VirtualText>
             <BigText>
               World class

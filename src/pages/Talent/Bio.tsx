@@ -90,6 +90,9 @@ const Bio: FC<IProps> = ({ highlights, details }) => {
           </AccordionTextBox>
         </Col>
       </Row>
+      <Row>
+        <Box height="80px" />
+      </Row>
     </StyledContainer>
   );
 };

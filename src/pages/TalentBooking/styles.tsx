@@ -27,7 +27,7 @@ export const Select = styled.select`
   font-style: normal;
   line-height: 1.5;
   letter-spacing: 0.2px;
-  color: ${colors.midGrey};
+  color: ${colors.white};
 
   &::placeholder {
     color: ${colors.midGrey};
@@ -73,7 +73,7 @@ export const TextArea = styled.textarea`
   font-style: normal;
   line-height: 1.5;
   letter-spacing: 0.2px;
-  color: ${colors.midGrey};
+  color: ${colors.white};
 
   &::placeholder {
     color: ${colors.midGrey};
@@ -115,7 +115,7 @@ export const StyledForm = styled.form`
     font-style: normal;
     line-height: 1.5;
     letter-spacing: 0.2px;
-    color: ${colors.midGrey};
+    color: ${colors.white};
   }
 `;
 
@@ -133,7 +133,7 @@ export const Checkbox = styled.input`
   font-style: normal;
   line-height: 1.5;
   letter-spacing: 0.2px;
-  color: ${colors.midGrey};
+  color: ${colors.white};
 
   &::placeholder {
     color: ${colors.midGrey};

@@ -53,6 +53,7 @@ const Type: FC = () => {
       featuredTalent={data.all.data.slice(0, 6)}
       newTalent={data.new.data}
       allTalent={all}
+      totalTalent={data.all.metadata.total}
     />
   );
 };

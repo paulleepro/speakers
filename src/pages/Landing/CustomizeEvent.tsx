@@ -17,27 +17,27 @@ const tabValues = {
   "Panel Discussion": {
     copy:
       "Invite several of the biggest names across any field to join a live panel discussion with other speakers, focusing on a particular topic of your choice!",
-    image: "/images/alright.png",
+    image: "/images/matt-mcconaughey.png",
   },
   Keynote: {
     copy:
       "For your next conference, have the biggest name speaker deliver their long-form message digitally! The talk can be either live or pre-recorded, and will focus all of the topics that matter to you and your business.",
-    image: "/images/keynote.png",
+    image: "/images/kendrick-lamar.png",
   },
   "Digital Q & A": {
     copy:
       "Bring a traditional Q&A to a digital setting by booking talent to join a live chat where the audience can ask them specific questions.",
-    image: "/images/shaq-people.png",
+    image: "/images/shaq-collage.png",
   },
   "Live Drop In": {
     copy:
       "The content of the chat can be whatever you like,  ranging from a quick comedy set or musical performance, wishing someone a happy birthday, or a shout out to someone for  business win.",
-    image: "/images/kevin.png",
+    image: "/images/kevin-hart.png",
   },
   "Video Message": {
     copy:
       "The talent of your choice will provide a short, pre-recorded video message based on a brief provided by you!",
-    image: "/images/obama.png",
+    image: "/images/barack-obama.png",
   },
 };
 

@@ -27,20 +27,6 @@ export const TypesWrapper = styled.div`
   }
 `;
 
-export const CaretRight = styled.div`
-  ::before {
-    width: 0;
-    height: 0;
-    border-left: 7px solid ${colors.primaryPurple};
-    border-top: 7px solid transparent;
-    border-bottom: 7px solid transparent;
-    content: "";
-    font-size: 0px;
-    vertical-align: middle;
-    margin-left: 10px;
-  }
-`;
-
 export const CaretLeft = styled.div`
   ::before {
     width: 0;

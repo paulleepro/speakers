@@ -2,7 +2,7 @@ import React, { FC, useState } from "react";
 import { SidebarContainer, IconWrapper } from "./styles";
 import CloseIcon from "@material-ui/icons/Close";
 import { Link } from "react-router-dom";
-import { DescriptionText, Divider } from "styles/components";
+import { DescriptionText, Divider, CaretRight } from "styles/components";
 import SearchAutocomplete from "components/SearchAutocomplete";
 import { Box } from "react-basic-blocks";
 import { IType } from "types";
@@ -44,10 +44,17 @@ const Sidebar: FC<IProps> = ({ show, setShow, types }) => {
             </DescriptionText>
           </Link>
           <Divider width="50px" />
-          <Box cursor="pointer" onClick={() => setShowTypes(true)}>
+          <Box
+            cursor="pointer"
+            onClick={() => setShowTypes(true)}
+            justifyContent="space-between"
+            flexDirection="row"
+            alignItems="center"
+          >
             <DescriptionText noCenterAlign weight="bold">
               Browse Talent
             </DescriptionText>
+            <CaretRight />
           </Box>
           <Divider width="50px" />
         </>
