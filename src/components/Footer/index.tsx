@@ -39,7 +39,6 @@ const Footer: FC<IProps> = () => {
               </Col>
               <Col xs={12} md={6}>
                 <FooterLink to="/how-it-works">How It Works</FooterLink>
-                <FooterLink to="/faq">FAQ</FooterLink>
               </Col>
             </Row>
           </Col>
