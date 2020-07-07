@@ -81,11 +81,9 @@ const Footer: FC<IProps> = () => {
               <Col xs={12} lg={7}>
                 <Box>
                   <InfoText>
-                    {`© ${new Date().getFullYear()} Endeavor Operating Company, LLC.`}
-                    <Visible xs>
-                      <br />
-                    </Visible>
-                    All rights reserved.
+                    {`© ${new Date().getFullYear()} ENDEAVOR OPERATING COMPANY, LLC.`}
+                    <br />
+                    ALL RIGHTS RESERVED. WME IS AN ENDEAVOR COMPANY.
                   </InfoText>
                 </Box>
               </Col>
