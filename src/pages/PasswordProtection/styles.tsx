@@ -70,7 +70,7 @@ export const InstructionText = styled.span`
   text-align: center;
 
   @media (max-width: 767px) {
-    margin: 175px 0 0 0;
+    margin: 75px 0 0 0;
   }
 `;
 

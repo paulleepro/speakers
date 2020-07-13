@@ -22,7 +22,7 @@ const HeroMedium: FC<IProps> = ({ heroDescriptor, imageUrl }) => {
         <Row>
           <HeroBGWrapper backgroundImage={imageUrl} />
           <Col offset={{ md: 0, lg: 1 }} md={8} lg={6}>
-            <VirtualText margin="0px">Virtual Speakers</VirtualText>
+            <VirtualText margin="80px 0 0 0">Virtual Speakers</VirtualText>
             <BigText>
               World class
               <br />
