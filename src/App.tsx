@@ -38,7 +38,7 @@ const Wrapper = styled.div`
 const App = (): ReactElement => {
   const { authenticated } = useContext(AuthContext);
 
-  if (!authenticated) {
+  if (!authenticated && !process?.env?.CI_BUILD) {
     return <PasswordProtection />;
   }
 

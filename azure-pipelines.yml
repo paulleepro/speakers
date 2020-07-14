@@ -2,6 +2,8 @@ variables:
   - group: 'directus'
   - name: content-api-url
     value: https://speakers.edigital.dev/api
+  - name: CI_BUILD
+    value: true
 
 trigger:
 - master
