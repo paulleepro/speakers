@@ -4,9 +4,6 @@ variables:
     value: https://speakers.edigital.dev/api
   - name: CI_BUILD
     value: true
-REACT_APP_SPEAKERS_TALENT_URL=https://speakers.cluster1.endvr-digital-dev.com/api/speakers-talent
-REACT_APP_SPEAKERS_BOOKING_URL=https://speakers.cluster1.endvr-digital-dev.com/api/speakers-booking
-REACT_APP_IMAGE_PROXY_URL=https://speakers.cluster1.endvr-digital-dev.com/
 
 trigger:
 - master
