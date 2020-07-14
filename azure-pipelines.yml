@@ -90,7 +90,7 @@ stages:
                   exit 1
               fi  
             displayName: 'Build deployable package'                    
-            variables:
+            env:
               REACT_APP_SPEAKERS_BOOKING_URL: 'https://www.wmespeakersbeta.com/api/speakers-talent'
               REACT_APP_IMAGE_PROXY_URL: 'https://www.wmespeakersbeta.com/'
           - publish: $(Build.Repository.LocalPath)/build
