@@ -82,14 +82,13 @@ stages:
               fi
             displayName: 'yarn install'          
           - script: |   
+              export REACT_APP_SPEAKERS_BOOKING_URL='https://www.wmespeakersbeta.com/api/speakers-talent'
+              export REACT_APP_IMAGE_PROXY_URL='https://www.wmespeakersbeta.com/'
               yarn build
               if [ $? -ne 0 ]; then
                   exit 1
               fi  
             displayName: 'Build deployable package'                    
-            env:
-              REACT_APP_SPEAKERS_BOOKING_URL: 'https://www.wmespeakersbeta.com/api/speakers-talent'
-              REACT_APP_IMAGE_PROXY_URL: 'https://www.wmespeakersbeta.com/'
           - publish: $(Build.Repository.LocalPath)/build
             artifact: ProductionWebApp
       - deployment: ProductionDeploy
