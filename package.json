@@ -13,8 +13,7 @@
     "analyze": "react-scripts build && source-map-explorer 'build/static/js/*.js'",
     "test-coverage": "npm test -- --coverage",
     "view-coverage": "open coverage/index.html",
-    "gc": "node templates/copy-templates.js ${0}",
-    "postbuild": "react-snap"
+    "gc": "node templates/copy-templates.js ${0}"
   },
   "dependencies": {
     "@material-ui/core": "^4.10.1",
