@@ -11,14 +11,14 @@ const AppHeader: FC = () => {
     `${config.speakersTalentUrl}/v1/talents/metadata/types?order=name:asc`
   );
   return (
-    <>
+    <header>
       <Visible xs sm>
         <SmallHeader types={data?.data} />
       </Visible>
       <Visible md lg>
         <BigHeader types={data?.data} />
       </Visible>
-    </>
+    </header>
   );
 };
 

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import colors from "styles/colors";
 
-export const FooterWrapper = styled.div`
+export const FooterWrapper = styled.footer`
   background-color: #111111;
   border-top: 1px solid ${colors.purpleLiner};
 `;
