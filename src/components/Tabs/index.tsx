@@ -9,7 +9,7 @@ interface ITabProps {
   onClick: () => void;
 }
 
-const StyledContainer = styled.div`
+const StyledTabsContainer = styled.div`
   max-width: calc(100vw - 24px);
   overflow-x: scroll;
   -ms-overflow-style: none; /* Internet Explorer 10+ */
@@ -47,7 +47,7 @@ interface TabProps {
 
 const Tabs: FC<TabProps> = ({ activeTab, setActiveTab, values }) => {
   return (
-    <StyledContainer>
+    <StyledTabsContainer>
       <Swiper {...{ slidesPerView: "auto", spaceBetween: 30 }}>
         {values.map((tabValue, i) => (
           <StyledTab
@@ -59,7 +59,7 @@ const Tabs: FC<TabProps> = ({ activeTab, setActiveTab, values }) => {
           </StyledTab>
         ))}
       </Swiper>
-    </StyledContainer>
+    </StyledTabsContainer>
   );
 };
 

@@ -3,7 +3,7 @@ import { config } from "config";
 import { ITalent } from "types";
 import Swiper from "react-id-swiper";
 import SpeakerCard from "components/SpeakerCard";
-import { useScreenClass } from "react-grid-system";
+import { useScreenClass } from "components/Grid";
 
 interface IProps {
   talentList: ITalent[];

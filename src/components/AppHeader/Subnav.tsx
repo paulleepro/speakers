@@ -1,5 +1,5 @@
 import React, { FC, useState } from "react";
-import { Container, Row, Col } from "react-grid-system";
+import { Container, Row, Col } from "components/Grid";
 import {
   SubnavWrapper,
   BrowseTalentText,
@@ -27,7 +27,11 @@ const Subnav: FC<IProps> = ({ types }) => {
   const boxShadow =
     scrollY > 20 ? "0px 2px 6px -2px rgba(0, 0, 0, 0.7)" : undefined;
   return (
-    <SubnavWrapper backgroundColor={backgroundColor} boxShadow={boxShadow}>
+    <SubnavWrapper
+      backgroundColor={backgroundColor}
+      boxShadow={boxShadow}
+      className="visible-md visible-lg"
+    >
       <Container fluid>
         <Row>
           <Col offset={{ lg: 1 }} md={12} lg={10}>

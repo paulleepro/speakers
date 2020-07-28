@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { Box } from "react-basic-blocks";
-import { Row, Col } from "react-grid-system";
+import { Row, Col } from "components/Grid";
 import Step from "./Step";
 import { HowItWorksImageWrapper, HowItWorksImage } from "./styles";
 import StyledImage from "components/StyledImage";

@@ -5,7 +5,7 @@ import {
   StyledContainer,
 } from "styles/components";
 import { Box } from "react-basic-blocks";
-import { Row, Col, useScreenClass } from "react-grid-system";
+import { Row, Col, useScreenClass, Visible } from "components/Grid";
 import colors from "styles/colors";
 import { ActionIcon, ActionWrapper, PanelWrapper, TextWrapper } from "./styles";
 import StyledImage from "components/StyledImage";
@@ -24,19 +24,21 @@ const PanelImage: FC<PIProps> = ({ iconUrl, imageUrl, imageRight }) => (
     md={5}
     lg={5}
   >
-    <ActionWrapper>
-      <StyledImage
-        height={376}
-        src={imageUrl}
-        alt="panel-img"
-        borderRadius="20px"
-      />
-      {iconUrl && (
-        <ActionIcon imageRight={imageRight}>
-          <img src={iconUrl} height="40" width="40" alt="swipe" />
-        </ActionIcon>
-      )}
-    </ActionWrapper>
+    <Visible md lg>
+      <ActionWrapper>
+        <StyledImage
+          height={376}
+          src={imageUrl}
+          alt="panel-img"
+          borderRadius="20px"
+        />
+        {iconUrl && (
+          <ActionIcon imageRight={imageRight}>
+            <img src={iconUrl} height="40" width="40" alt="swipe" />
+          </ActionIcon>
+        )}
+      </ActionWrapper>
+    </Visible>
   </Col>
 );
 
@@ -61,7 +63,7 @@ const Panel: FC<IProps> = ({
     <PanelWrapper>
       <StyledContainer fluid>
         <Row>
-          {imageRight && !isSmall ? null : (
+          {imageRight ? null : (
             <PanelImage
               imageUrl={imageUrl}
               imageRight={imageRight}
@@ -86,7 +88,7 @@ const Panel: FC<IProps> = ({
               </TextWrapper>
             </Box>
           </Col>
-          {imageRight && !isSmall ? (
+          {imageRight ? (
             <PanelImage
               imageUrl={imageUrl}
               imageRight={imageRight}

@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { DescriptionText } from "styles/components";
-import { Col } from "react-grid-system";
+import { Col } from "components/Grid";
 import "react-datepicker/dist/react-datepicker.css";
 import { Box } from "react-basic-blocks";
 import colors from "styles/colors";

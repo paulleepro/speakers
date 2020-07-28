@@ -3,7 +3,6 @@ import { Wrapper, LinkText } from "./styles";
 import { Box } from "react-basic-blocks";
 import { Link } from "react-router-dom";
 import { IType } from "types";
-import Subnav from "./Subnav";
 
 interface IProps {
   types?: IType[];
@@ -28,7 +27,6 @@ const BigHeader: FC<IProps> = ({ types }) => {
           </Link>
         </Box>
       </Wrapper>
-      <Subnav types={types} />
     </>
   );
 };

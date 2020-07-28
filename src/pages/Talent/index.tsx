@@ -9,7 +9,7 @@ import Bio from "./Bio";
 import MoreAboutTalent from "./MoreAboutTalent";
 import BookTalent from "./BookTalent";
 import MoreLike from "./MoreLike";
-import { Visible } from "react-grid-system";
+import { Visible } from "components/Grid";
 import SmallHeader from "./SmallHeader";
 import { config } from "config";
 

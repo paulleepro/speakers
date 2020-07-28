@@ -11,7 +11,7 @@ import { IListResult, ITalent } from "types";
 import { hardCodedTalent } from "hard-coded-talent";
 import { StyledContainer } from "styles/components";
 import TopLeftGradient from "components/TopLeftGradient";
-import { Visible } from "react-grid-system";
+import { Visible } from "components/Grid";
 
 const getTalent = (data: ITalent[], slugs: string[]) =>
   data.filter((x) => slugs.includes(x.slug));

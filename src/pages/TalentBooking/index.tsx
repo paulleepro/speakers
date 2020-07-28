@@ -5,7 +5,7 @@ import Loader from "components/Loader";
 import ErrorNotice from "components/ErrorNotice";
 import MediumHeader from "./MediumHeader";
 import { ITalent } from "types";
-import { Visible } from "react-grid-system";
+import { Visible } from "components/Grid";
 import SmallHeader from "./SmallHeader";
 import { config } from "config";
 

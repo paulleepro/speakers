@@ -7,13 +7,13 @@ import Outro from "./Outro";
 import StarPower from "components/StarPower";
 import Circles from "components/Circles";
 import colors from "styles/colors";
-import { Visible, useScreenClass } from "react-grid-system";
+import { Visible, useScreenClass } from "components/Grid";
 import TopLeftGradient from "components/TopLeftGradient";
 
 const HowItWorks: FC = () => {
   const screenSize = useScreenClass();
   return (
-    <div>
+    <>
       <Title />
       <TopLeftGradient
         height={["xs", "sm"].includes(screenSize) ? "1100px" : "900px"}
@@ -78,7 +78,7 @@ const HowItWorks: FC = () => {
         imageUrl="/images/stephen-colbert.png"
       />
       <StarPower />
-    </div>
+    </>
   );
 };
 

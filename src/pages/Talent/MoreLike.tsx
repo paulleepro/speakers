@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import { Link } from "react-router-dom";
 import { fetchSingle } from "fetch-hooks-react";
 import Loader from "components/Loader";
-import { Row, Col } from "react-grid-system";
+import { Row, Col } from "components/Grid";
 import { HeaderText, Button, StyledContainer } from "styles/components";
 import { Box } from "react-basic-blocks";
 import { config } from "config";
@@ -44,7 +44,7 @@ const MoreLike: FC<IProps> = ({ name, types }) => {
             offset={{ lg: i === 0 ? 1 : 0 }}
             xs={6}
             md={3}
-            lg={2.5}
+            lg={25}
           >
             <SpeakerCard
               slug={x.slug}

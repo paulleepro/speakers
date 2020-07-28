@@ -6,7 +6,7 @@ import {
   Button,
   StyledContainer,
 } from "styles/components";
-import { Row, Col } from "react-grid-system";
+import { Row, Col } from "components/Grid";
 import { HeroWrapper, HeroBGWrapper } from "./styles";
 import { Link } from "react-router-dom";
 

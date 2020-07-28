@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import colors from "styles/colors";
 import { Box } from "react-basic-blocks";
-import { Container, Row, RowProps, Col, ColProps } from "react-grid-system";
+import { Container } from "components/Grid";
 
 export const SectionWrapper = styled(Box)`
   max-width: 1160px;
@@ -207,14 +207,6 @@ export const Button = styled.button<{ margin?: string; width?: string }>`
   &:disabled{
     background-color: ${colors.darkPurpleFill};
   }
-`;
-
-export const StyledRow = styled(Row)<RowProps & { margin: string }>`
-  margin: ${(props) => props.margin};
-`;
-
-export const StyledCol = styled(Col)<ColProps & { margin: string }>`
-  margin: ${(props) => props.margin};
 `;
 
 export const TopRightSemi = styled.div`

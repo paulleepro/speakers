@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Row, Col } from "react-grid-system";
+import { Row, Col } from "components/Grid";
 import StarPower from "components/StarPower";
 import { BigText, TopAreaDivider, StyledContainer } from "styles/components";
 import QuestionAnswer from "./QuestionAnswer";

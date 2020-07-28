@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { Box } from "react-basic-blocks";
-import { Row, Col, Visible } from "react-grid-system";
+import { Row, Col, Visible } from "components/Grid";
 import colors from "styles/colors";
 import Step from "components/Step";
 import { StyledContainer } from "styles/components";
@@ -18,8 +18,8 @@ const Decription: FC = () => {
       />
       <StyledContainer fluid>
         <Row>
-          <Visible md lg>
-            <Col offset={{ lg: 1 }} xs={12} md={4} lg={3}>
+          <Col offset={{ lg: 1 }} xs={12} md={4} lg={3}>
+            <Visible md lg>
               <Box boxShadow="0 0 50px 0 rgba(0,0,0,0.50);" borderRadius="60px">
                 <img
                   src="/images/iphone.png"
@@ -28,8 +28,8 @@ const Decription: FC = () => {
                   alt="iphone"
                 />
               </Box>
-            </Col>
-          </Visible>
+            </Visible>
+          </Col>
 
           <Col offset={{ md: 1, sm: 3 }} xs={12} sm={6} md={7} lg={6}>
             <Step

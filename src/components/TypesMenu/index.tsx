@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Container, Row, Col, Visible } from "react-grid-system";
+import { Container, Row, Col, Visible } from "components/Grid";
 import { IType } from "types";
 import { Link } from "react-router-dom";
 import { TypeLink, TypesWrapper, CaretLeft } from "./styles";
@@ -77,7 +77,7 @@ const TypesMenu: FC<IProps> = ({ types, show, setShow, close }) => {
             <Col
               offset={{ lg: i === 0 ? 1 : 0 }}
               md={3}
-              lg={2.5}
+              lg={25}
               key={`type-col-${i}`}
             >
               {getTypes(i, types).map(({ name, id, slug }) => (

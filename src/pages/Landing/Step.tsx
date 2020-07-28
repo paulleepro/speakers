@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { Box } from "react-basic-blocks";
 import { DescriptionText, Divider } from "styles/components";
-import { useScreenClass } from "react-grid-system";
+import { useScreenClass } from "components/Grid";
 import colors from "styles/colors";
 import { StepWrapper, DescriptionWrapper } from "./styles";
 

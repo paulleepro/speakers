@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Row, Col, Visible } from "react-grid-system";
+import { Row, Col, Visible } from "components/Grid";
 import { ITalent } from "types";
 import SwipeableCards from "components/SwipeableCards";
 import FeaturedCards from "components/Featured/FeaturedCards";

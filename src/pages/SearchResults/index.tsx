@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { useLocation } from "react-router";
-import { Row, Col, Visible } from "react-grid-system";
+import { Row, Col, Visible } from "components/Grid";
 import { ISearch } from "types";
 import { config } from "config";
 import SpeakerCard from "components/SpeakerCard";

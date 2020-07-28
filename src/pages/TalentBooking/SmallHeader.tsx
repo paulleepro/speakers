@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { VirtualText, BigText, ArrowLeftText } from "styles/components";
-import { Container, Row, Col, useScreenClass } from "react-grid-system";
+import { Container, Row, Col, useScreenClass } from "components/Grid";
 import { ITalent } from "types";
 import Form from "./Form";
 import { config } from "config";

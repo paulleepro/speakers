@@ -1,7 +1,7 @@
 import React, { FC, useState, useEffect } from "react";
 import HeroMedium from "./HeroMedium";
 import { LandingWrapper, TopSemi } from "./styles";
-import { Visible, useScreenClass } from "react-grid-system";
+import { Visible, useScreenClass } from "components/Grid";
 import Explore from "./Explore";
 import CustomizeEvent from "./CustomizeEvent";
 import HowItWorks from "./HowItWorks";
@@ -27,7 +27,7 @@ const Landing: FC = () => {
   }, []);
 
   return (
-    <>
+    <section>
       <LandingWrapper>
         <TopSemi />
         <Visible md lg>
@@ -47,7 +47,7 @@ const Landing: FC = () => {
         <HowItWorks />
       </LandingWrapper>
       <StarPower />
-    </>
+    </section>
   );
 };
 

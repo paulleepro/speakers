@@ -5,7 +5,7 @@ import {
   ArrowLeftText,
   StyledContainer,
 } from "styles/components";
-import { Row, Col } from "react-grid-system";
+import { Row, Col } from "components/Grid";
 import AvailableFor from "components/AvailableFor";
 import { ITalent } from "types";
 import Form from "./Form";

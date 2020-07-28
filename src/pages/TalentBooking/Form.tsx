@@ -5,7 +5,7 @@ import {
   Button,
   StyledError,
 } from "styles/components";
-import { Row, Col } from "react-grid-system";
+import { Row, Col } from "components/Grid";
 import { useHistory } from "react-router";
 import { useForm, ErrorMessage } from "react-hook-form";
 import DatePicker from "react-datepicker";

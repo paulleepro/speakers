@@ -6,7 +6,7 @@ import {
   Button,
   ArrowLeftText,
 } from "styles/components";
-import { Container, Row, Col, useScreenClass } from "react-grid-system";
+import { Container, Row, Col, useScreenClass } from "components/Grid";
 import ReactHtmlParser from "react-html-parser";
 import AvailableFor from "components/AvailableFor";
 import KnownFor from "./KnownFor";

@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Row, Col } from "react-grid-system";
+import { Row, Col } from "components/Grid";
 import {
   VirtualText,
   BigText,

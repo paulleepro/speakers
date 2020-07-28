@@ -6,7 +6,7 @@ import {
   ImageWrapper,
   FooterAnchor,
 } from "./styles";
-import { Row, Col, Visible } from "react-grid-system";
+import { Row, Col, Visible } from "components/Grid";
 import { Link } from "react-router-dom";
 import { Box } from "react-basic-blocks";
 import { hardCodedTalent } from "hard-coded-talent";

@@ -1,5 +1,5 @@
 import React, { FC, useState, memo } from "react";
-import { Row, Col } from "react-grid-system";
+import { Row, Col } from "components/Grid";
 import { HeaderText, Button, StyledContainer } from "styles/components";
 import { Link } from "react-router-dom";
 import { Box } from "react-basic-blocks";

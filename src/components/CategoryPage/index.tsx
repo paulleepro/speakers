@@ -1,5 +1,5 @@
 import React, { FC, useState } from "react";
-import { Row, Col, Visible } from "react-grid-system";
+import { Row, Col, Visible } from "components/Grid";
 import { config } from "config";
 import SpeakerCard from "components/SpeakerCard";
 import Featured from "components/Featured";

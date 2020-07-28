@@ -5,7 +5,7 @@ import {
   DescriptionText,
   Button,
 } from "styles/components";
-import { Container, Row, Col } from "react-grid-system";
+import { Container, Row, Col } from "components/Grid";
 import { Box } from "react-basic-blocks";
 import StyledImage from "components/StyledImage";
 import { Link } from "react-router-dom";
