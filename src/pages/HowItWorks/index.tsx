@@ -9,11 +9,16 @@ import Circles from "components/Circles";
 import colors from "styles/colors";
 import { Visible, useScreenClass } from "components/Grid";
 import TopLeftGradient from "components/TopLeftGradient";
+import HeaderTags from "components/HeaderTags";
 
 const HowItWorks: FC = () => {
   const screenSize = useScreenClass();
   return (
     <>
+      <HeaderTags
+        title="How It Works"
+        description="We bring talent directly to you. Our high-profile speakers are available for your next corporate event."
+      />
       <Title />
       <TopLeftGradient
         height={["xs", "sm"].includes(screenSize) ? "1100px" : "900px"}

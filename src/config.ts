@@ -5,4 +5,5 @@ export const config = {
   speakersBookingUrl:
     process.env.REACT_APP_SPEAKERS_BOOKING_URL || "/api/speakers-booking",
   speakersAuthUrl: process.env.REACT_APP_SPEAKERS_AUTH_URL || "/api/auth",
+  pageTitle: "WME Speakers Beta",
 };

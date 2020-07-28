@@ -8,6 +8,7 @@ import { ITalent } from "types";
 import { Visible } from "components/Grid";
 import SmallHeader from "./SmallHeader";
 import { config } from "config";
+import HeaderTags from "components/HeaderTags";
 
 const TalentBooking: FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -22,14 +23,26 @@ const TalentBooking: FC = () => {
   }
 
   return (
-    <div>
-      <Visible xs sm>
-        <SmallHeader talent={data} />
-      </Visible>
-      <Visible md lg>
-        <MediumHeader talent={data} />
-      </Visible>
-    </div>
+    <>
+      <HeaderTags
+        title={data.name}
+        description={
+          data.bio_highlights
+            .replace(/&nbsp;/gi, "")
+            .replace(/(<([^>]+)>)/gi, "")
+            .trim()
+            .slice(0, 157) + "..."
+        }
+      />
+      <div>
+        <Visible xs sm>
+          <SmallHeader talent={data} />
+        </Visible>
+        <Visible md lg>
+          <MediumHeader talent={data} />
+        </Visible>
+      </div>
+    </>
   );
 };
 

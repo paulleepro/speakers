@@ -12,6 +12,7 @@ import { Box } from "react-basic-blocks";
 import { Link } from "react-router-dom";
 import StarPower from "components/StarPower";
 import TopLeftGradient from "components/TopLeftGradient";
+import HeaderTags from "components/HeaderTags";
 
 const SearchResults: FC = () => {
   const query = new URLSearchParams(useLocation().search);
@@ -27,6 +28,10 @@ const SearchResults: FC = () => {
 
   return (
     <>
+      <HeaderTags
+        title="Search"
+        description="Search through our many high-profile speakers for your next corporate town hall, board meeting, or retreat."
+      />
       <div>
         <StyledContainer fluid>
           <Row>

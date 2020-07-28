@@ -111,9 +111,15 @@ export const useScreenClass = () => {
     const viewport = window.innerWidth;
     if (viewport) {
       newScreenClass = "xs";
-      if (breakpoints[0] && viewport >= breakpoints[0]) {newScreenClass = "sm";}
-      if (breakpoints[1] && viewport >= breakpoints[1]) {newScreenClass = "md";}
-      if (breakpoints[2] && viewport >= breakpoints[2]) {newScreenClass = "lg";}
+      if (breakpoints[0] && viewport >= breakpoints[0]) {
+        newScreenClass = "sm";
+      }
+      if (breakpoints[1] && viewport >= breakpoints[1]) {
+        newScreenClass = "md";
+      }
+      if (breakpoints[2] && viewport >= breakpoints[2]) {
+        newScreenClass = "lg";
+      }
     }
 
     return newScreenClass;

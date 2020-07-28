@@ -21,6 +21,7 @@ import { useForm, ErrorMessage } from "react-hook-form";
 import * as yup from "yup";
 import { AuthContext } from "AuthContext";
 import Cookies from "universal-cookie";
+import HeaderTags from "components/HeaderTags";
 
 const validationSchema = yup.object().shape({
   password: yup.string().required(),
@@ -55,6 +56,10 @@ const PasswordProtection: FC = () => {
 
   return (
     <Wrapper>
+      <HeaderTags
+        title="Password"
+        description="Please enter the site password."
+      />
       <TopSemi />
       <CirclesWrapper>
         <svg viewBox="0 0 100 100">

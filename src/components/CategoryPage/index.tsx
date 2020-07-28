@@ -19,6 +19,7 @@ import StarPower from "components/StarPower";
 import TopLeftGradient from "components/TopLeftGradient";
 import colors from "styles/colors";
 import { SeeAllContainer } from "./styles";
+import HeaderTags from "components/HeaderTags";
 
 interface IProps {
   name: string;
@@ -38,6 +39,10 @@ const CategoryPage: FC<IProps> = ({
   const [showAll, setShowAll] = useState<boolean>(false);
   return (
     <div>
+      <HeaderTags
+        title={name}
+        description={`Search for talent in the ${name} category.`}
+      />
       <StyledContainer fluid>
         <Row>
           <Col offset={{ lg: 1 }} xs={12} lg={10}>

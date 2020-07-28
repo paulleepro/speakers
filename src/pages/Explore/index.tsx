@@ -12,6 +12,7 @@ import { hardCodedTalent } from "hard-coded-talent";
 import { StyledContainer } from "styles/components";
 import TopLeftGradient from "components/TopLeftGradient";
 import { Visible } from "components/Grid";
+import HeaderTags from "components/HeaderTags";
 
 const getTalent = (data: ITalent[], slugs: string[]) =>
   data.filter((x) => slugs.includes(x.slug));
@@ -53,6 +54,10 @@ const Explore: FC = () => {
 
   return (
     <>
+      <HeaderTags
+        title="Explore"
+        description="Choose from our many high-profile speakers. Our high-profile speakers are available digitally for your next corporate town hall, board meeting, or retreat."
+      />
       <Title tabs={hardCodedTalent.map((x) => x.name)} />
       <Visible md lg>
         <TopLeftGradient height="800px" width="60%" borderRadius="600px" />

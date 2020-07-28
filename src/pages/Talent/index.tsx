@@ -12,6 +12,7 @@ import MoreLike from "./MoreLike";
 import { Visible } from "components/Grid";
 import SmallHeader from "./SmallHeader";
 import { config } from "config";
+import HeaderTags from "components/HeaderTags";
 
 const Talent: FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -26,18 +27,30 @@ const Talent: FC = () => {
   }
 
   return (
-    <div>
-      <Visible xs sm>
-        <SmallHeader talent={data} />
-      </Visible>
-      <Visible md lg>
-        <MediumHeader talent={data} />
-      </Visible>
-      <Bio highlights={data.bio_highlights} details={data.bio_details} />
-      <MoreAboutTalent name={data.name} reviews={data.reviews} />
-      <BookTalent name={data.name} slug={data.slug} />
-      <MoreLike name={data.name} types={data.types.map((x) => x.name)} />
-    </div>
+    <>
+      <HeaderTags
+        title={data.name}
+        description={
+          data.bio_highlights
+            .replace(/&nbsp;/gi, "")
+            .replace(/(<([^>]+)>)/gi, "")
+            .trim()
+            .slice(0, 157) + "..."
+        }
+      />
+      <div>
+        <Visible xs sm>
+          <SmallHeader talent={data} />
+        </Visible>
+        <Visible md lg>
+          <MediumHeader talent={data} />
+        </Visible>
+        <Bio highlights={data.bio_highlights} details={data.bio_details} />
+        <MoreAboutTalent name={data.name} reviews={data.reviews} />
+        <BookTalent name={data.name} slug={data.slug} />
+        <MoreLike name={data.name} types={data.types.map((x) => x.name)} />
+      </div>
+    </>
   );
 };
 

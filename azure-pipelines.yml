@@ -63,6 +63,16 @@ stages:
                   sourceFolder: '$(Pipeline.Workspace)/StagingWebApp'
                   globExpressions: '**'                              
                   filesAcl: 'public-read'
+      - job: Lighthouse
+        steps:
+          - task: Lighthouse@1
+            inputs:
+              url: 'https://speakers.cluster1.endvr-digital-dev.com/'
+              args: '--quiet'
+              assertions: |
+                no-vulnerable-libraries = 1
+                robots-txt = 1
+                speed-index > 0.5
   
   - stage: ProductionDeploy  
     displayName: "Deploy To Production"
@@ -117,3 +127,13 @@ stages:
                   awsCommand: 'cloudfront'
                   awsSubCommand: 'create-invalidation'   
                   awsArguments: '--distribution-id ELPJK0DT806PY --paths "/index.html"'
+      - job: Lighthouse
+        steps:
+          - task: Lighthouse@1
+            inputs:
+              url: 'https://www.wmespeakersbeta.com/'
+              args: '--quiet'
+              assertions: |
+                no-vulnerable-libraries = 1
+                robots-txt = 1
+                speed-index > 0.5

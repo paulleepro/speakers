@@ -10,6 +10,7 @@ import HeroSmall from "./HeroSmall";
 import { heroData } from "./hero-data";
 import Circles from "components/Circles";
 import colors from "styles/colors";
+import HeaderTags from "components/HeaderTags";
 
 const Landing: FC = () => {
   const [counter, setCounter] = useState<number>(0);
@@ -27,27 +28,30 @@ const Landing: FC = () => {
   }, []);
 
   return (
-    <section>
-      <LandingWrapper>
-        <TopSemi />
-        <Visible md lg>
-          <HeroMedium {...heroDatum} />
-        </Visible>
-        <Visible xs sm>
-          <HeroSmall {...heroDatum} />
-        </Visible>
-        <Explore />
-        <CustomizeEvent />
-        <Circles
-          top="-20px"
-          size={"xs" === screenSize ? 75 : 45}
-          maxWidth="700px"
-          color={colors.primaryPurple}
-        />
-        <HowItWorks />
-      </LandingWrapper>
-      <StarPower />
-    </section>
+    <>
+      <HeaderTags description="WME Virtual Speakers is bringing talent directly to your business." />
+      <section>
+        <LandingWrapper>
+          <TopSemi />
+          <Visible md lg>
+            <HeroMedium {...heroDatum} />
+          </Visible>
+          <Visible xs sm>
+            <HeroSmall {...heroDatum} />
+          </Visible>
+          <Explore />
+          <CustomizeEvent />
+          <Circles
+            top="-20px"
+            size={"xs" === screenSize ? 75 : 45}
+            maxWidth="700px"
+            color={colors.primaryPurple}
+          />
+          <HowItWorks />
+        </LandingWrapper>
+        <StarPower />
+      </section>
+    </>
   );
 };
 

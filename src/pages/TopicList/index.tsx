@@ -12,6 +12,7 @@ import { Box } from "react-basic-blocks";
 import colors from "styles/colors";
 import StarPower from "components/StarPower";
 import TopLeftGradient from "components/TopLeftGradient";
+import HeaderTags from "components/HeaderTags";
 
 const MAX_COLUMNS = 2;
 
@@ -41,6 +42,10 @@ const Topics: FC = () => {
 
   return (
     <div>
+      <HeaderTags
+        title="Topic List"
+        description={`Search for speakers in our many categories.`}
+      />
       <StyledContainer fluid>
         <Row>
           <Col offset={{ lg: 1 }} xs={12} lg={10}>
