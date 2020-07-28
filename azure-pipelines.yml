@@ -64,6 +64,7 @@ stages:
                   globExpressions: '**'                              
                   filesAcl: 'public-read'
       - job: Lighthouse
+        dependsOn: StagingDeploy
         steps:
           - task: Lighthouse@1
             inputs:
@@ -128,6 +129,7 @@ stages:
                   awsSubCommand: 'create-invalidation'   
                   awsArguments: '--distribution-id ELPJK0DT806PY --paths "/index.html"'
       - job: Lighthouse
+        dependsOn: ProductionDeploy
         steps:
           - task: Lighthouse@1
             inputs:
