@@ -1,0 +1,12 @@
+{
+  "search_input_placeholder_text": "Try “Kendrick Lamar” or “Diversity”",
+  "search_input_text": "Phil\n",
+  "search_results_url": "/search-results",
+  "search_expected_results": [
+    ["Phil Libin", "/talent/phil-libin"],
+    ["Phil Hansen", "/talent/phil-hansen"],
+    ["Phil Jackson", "/talent/phil-jackson"],
+    ["Phil Simms", "/talent/phil-simms"]
+  ],
+  "default_profile_image": "/images/default-profile.svg"
+}

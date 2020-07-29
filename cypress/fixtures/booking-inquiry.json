@@ -1,0 +1,13 @@
+{
+  "talent_url": "/talent/phil-jackson",
+  "talent_booking_url": "/talent/phil-jackson/booking",
+  "talent_booking_confirmation_url": "/talent/phil-jackson/confirmation",
+  "talent_full_name": "Phil Jackson",
+  "booking_button_text": "Book Today",
+  "booking_page_subtitle": "Booking Inquiry",
+  "booking_inquiry_user_id": "user@test.com",
+  "booking_inquiry_event_type": "in_person",
+  "booking_inquiry_interest": "Keynote",
+  "booking_inquiry_confirmation_text": "Congrats!",
+  "booking_inquiry_confirmation_visible_image": "/images/paper-plane.png"
+}
