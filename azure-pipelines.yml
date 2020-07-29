@@ -73,7 +73,6 @@ stages:
               assertions: |
                 no-vulnerable-libraries = 1
                 robots-txt = 1
-                speed-index > 0.5
   
   - stage: ProductionDeploy  
     displayName: "Deploy To Production"
@@ -138,4 +137,3 @@ stages:
               assertions: |
                 no-vulnerable-libraries = 1
                 robots-txt = 1
-                speed-index > 0.5
