@@ -36,3 +36,25 @@ export const SmallImageWrapper = styled.div`
   max-width: 375px;
   width: 100%;
 `;
+
+export const FulfilledByText = styled.span`
+  display: block;
+  width: 100%;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 2;
+  letter-spacing: 0.2px;
+  text-align: center;
+  color: ${colors.midGrey};
+  margin-top: 8px;
+
+  .talent-agency {
+    color: #ffffff;
+  }
+
+  @media (max-width: 1023px) {
+    margin-top: 16px;
+  }
+`;

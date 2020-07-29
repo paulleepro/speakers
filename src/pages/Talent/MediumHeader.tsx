@@ -18,7 +18,7 @@ import { config } from "config";
 import colors from "styles/colors";
 import SocialIcons from "components/SocialIcons";
 import StyledImage from "components/StyledImage";
-import { KnownForWrapper } from "./styles";
+import { KnownForWrapper, FulfilledByText } from "./styles";
 import Circles from "components/Circles";
 import TopLeftGradient from "components/TopLeftGradient";
 
@@ -85,6 +85,10 @@ const MediumHeader: FC<IProps> = ({ talent }) => {
                 Book Today
               </Button>
             </Link>
+            <FulfilledByText>
+              Fulfilled by{" "}
+              <span className="talent-agency">Harry Walker Agency</span>
+            </FulfilledByText>
           </Col>
           <Col offset={{ md: 1 }} lg={6} md={7}>
             <Box flexDirection="row" justifyContent="space-between">

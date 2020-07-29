@@ -17,7 +17,7 @@ import { config } from "config";
 import { getHighlight } from "./MediumHeader";
 import SocialIcons from "components/SocialIcons";
 import StyledImage from "components/StyledImage";
-import { SmallImageWrapper } from "./styles";
+import { SmallImageWrapper, FulfilledByText } from "./styles";
 import Circles from "components/Circles";
 import colors from "styles/colors";
 import TopLeftGradient from "components/TopLeftGradient";
@@ -91,6 +91,10 @@ const SmallHeader: FC<IProps> = ({ talent }) => {
                 Book Today
               </Button>
             </Link>
+            <FulfilledByText>
+              Fulfilled by{" "}
+              <span className="talent-agency">Harry Walker Agency</span>
+            </FulfilledByText>
           </Col>
         </Row>
         <Row>
