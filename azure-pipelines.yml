@@ -1,7 +1,4 @@
 variables: 
-  - group: 'directus'
-  - name: content-api-url
-    value: https://speakers.edigital.dev/api
   - name: CI_BUILD
     value: true
 
@@ -92,6 +89,9 @@ stages:
               fi
             displayName: 'yarn install'          
           - script: |   
+              export REACT_APP_SPEAKERS_TALENT_URL=https://wmespeakersbeta.com/api/speakers-talent
+              export REACT_APP_IMAGE_PROXY_URL=https://wmespeakersbeta.com/
+              export REACT_APP_SPEAKERS_BOOKING_URL=https://wmespeakersbeta.com/api/speakers-booking
               yarn build
               if [ $? -ne 0 ]; then
                   exit 1
