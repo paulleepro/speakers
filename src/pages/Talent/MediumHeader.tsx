@@ -33,7 +33,8 @@ export const getHighlight = (str: string) => {
     .filter((x) => x)[0]
     ?.trim()
     .match(/.{1,350}(\s|$)/g);
-  const unescaped = res === null ? "" : res[0].slice(0, -1).trim();
+  const unescaped =
+    res === null || res === undefined ? "" : res[0].slice(0, -1).trim();
   return unescaped
     ? `${unescaped}<span>… </span><a href="#highlights" style="color: ${colors.primaryPurple}">Read More</a>`
     : "";
