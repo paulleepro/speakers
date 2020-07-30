@@ -70,3 +70,16 @@ export const SpeakerInfo = styled.div`
     padding: 8px 16px;
   }
 `;
+
+export const ImageWrapper = styled.div`
+  position: relative;
+`;
+
+export const ImageOverlay = styled.img`
+  width: 86px;
+  height: 36px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 2;
+`;

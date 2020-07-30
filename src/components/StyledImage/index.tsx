@@ -6,6 +6,7 @@ export const StyledImg = styled.img<{ borderRadius?: string }>`
   object-position: 50% 40%;
   object-fit: cover;
   transition: opacity 1s ease-in-out;
+  display: block;
   ${(props) =>
     props.borderRadius ? `border-radius: ${props.borderRadius};` : ""}
 `;

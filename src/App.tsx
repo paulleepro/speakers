@@ -38,7 +38,7 @@ const Wrapper = styled.div`
 const App = (): ReactElement => {
   const { authenticated } = useContext(AuthContext);
 
-  if (!authenticated && navigator.userAgent !== "ReactSnap") {
+  if (!authenticated) {
     return <PasswordProtection />;
   }
 
