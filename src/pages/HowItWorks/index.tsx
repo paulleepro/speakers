@@ -17,7 +17,7 @@ const HowItWorks: FC = () => {
     <>
       <HeaderTags
         title="How It Works"
-        description="We bring talent directly to you. Our high-profile speakers are available for your next corporate event."
+        description="We bring our talent directly to you for your upcoming corporate event."
       />
       <Title />
       <TopLeftGradient
@@ -37,7 +37,7 @@ const HowItWorks: FC = () => {
       <OurEvents />
       <Panel
         title="Panel Discussion"
-        description="Invite several of the biggest names across any field to join a live panel discussion with other speakers, focusing on a particular topic of your choice!"
+        description="Invite the most recognizable names in the field to join a panel discussion with industry experts, focusing on a particular topic of your choice."
         imageUrl="/images/matt-mcconaughey.png"
         iconUrl="/images/group.png"
       />
@@ -51,35 +51,35 @@ const HowItWorks: FC = () => {
         />
       </Visible>
       <Panel
-        title="Keynote"
-        description="For your next conference, have the biggest name speaker deliver their long-form message digitally! The talk can be either live or pre-recorded, and will focus all of the topics that matter to you and your business."
+        title="Keynote Presentation"
+        description="For your next conference, welcome attendees with a long-form message conducted by your distinguished speaker. The talk can be either live or pre-recorded and centers on a subject that matters to your business."
         imageRight
         imageUrl="/images/kendrick-lamar.png"
         iconUrl="/images/presentation.png"
       />
       <Panel
-        title="Digital Q&A"
-        description="Bring a traditional Q&A to a digital setting by booking talent to join a live chat where the audience can ask them specific questions."
+        title="Digital Q&A Session"
+        description="Bring your traditional Q&A session to an online experience by booking talent to join a live chat where attendees can ask them specific questions directly."
         imageUrl="/images/shaq-collage.png"
         iconUrl="/images/chat.png"
       />
       <Panel
-        title="Live Drop In"
-        description="The content of the chat can be whatever you like,  ranging from a quick comedy set or musical performance, wishing someone a happy birthday, or a shout out to someone for  business win."
+        title="Live Drop-In"
+        description="The content of the chat can be whatever you like, ranging from a quick comedy set or musical performance, a happy birthday wish, or even a shoutout for a business win."
         imageRight
         imageUrl="/images/kevin-hart.png"
         iconUrl="/images/video-conference.png"
       />
       <Panel
         title="Digital Video Message"
-        description="The talent of your choice will provide a short, pre-recorded video message based on a brief provided by you!"
+        description="The talent of your choice will deliver a pre-recorded message based on brief provided by you."
         imageUrl="/images/barack-obama.png"
         iconUrl="/images/video-bubble.png"
       />
       <Outro />
       <Panel
-        title="Don’t forget live…"
-        description="Invite several of the biggest names across any field to join a live panel discussion with other speakers, focusing on a particular topic."
+        title="Live Events"
+        description="Whatever the event type, we have a full roster of names to choose from across all industries."
         imageUrl="/images/stephen-colbert.png"
       />
       <StarPower />

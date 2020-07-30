@@ -17,8 +17,8 @@ const Title: FC = () => {
             <VirtualText>Virtual Speakers</VirtualText>
             <BigText>How It Works</BigText>
             <DescriptionText margin="0">
-              We bring talent directly to you. Our high-profile speakers are
-              available for your next corporate event.
+              We bring our talent directly to you for your upcoming corporate
+              event.
             </DescriptionText>
           </Col>
         </Row>

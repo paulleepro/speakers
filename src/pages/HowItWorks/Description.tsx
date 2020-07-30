@@ -36,19 +36,19 @@ const Decription: FC = () => {
               margin="0 0 120px 0"
               imageUrl="/images/swipe.png"
               step="1. Explore talent"
-              description="Choose from our selection of high-profile talent from a variety of industries for your specific digital event."
+              description="Choose from our diverse range of high-profile talent from a variety of industries for your unique digital event."
             />
             <Step
               margin="0 0 120px 0"
               imageUrl="/images/contract.png"
               step="2. Book Your Talent"
-              description="Simply make your selection based on your business' needs."
+              description="Make your selection based on your business' preferences for the event."
             />
             <Step
               margin="0 0 120px 0"
               imageUrl="/images/profile.png"
               step="3. Create Your Event"
-              description="Choose from our selection of high-profile talent from a variety of industries for your specific digital event."
+              description="Elevate your in-person or digital event experience with an incredible line-up of world-renowned names."
             />
           </Col>
         </Row>

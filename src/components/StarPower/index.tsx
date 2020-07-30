@@ -29,10 +29,10 @@ const StarPower: FC = () => {
         <Row>
           <Col offset={{ sm: 2 }} sm={8} xs={12}>
             <Box margin="120px 0 120px 0" alignItems="center">
-              <HeaderText>Bring Star Power to Your Next Event</HeaderText>
+              <HeaderText>Book Premium Talent for Your Next Event</HeaderText>
               <DescriptionText color={colors.midGrey} textAlign="center">
-                We bring talent directly to you. Our high-profile speakers are
-                available for your next corporate event.
+                Reach out to us about who you would like to book for your
+                upcoming in-person or digital experience!
               </DescriptionText>
               <a href="mailto:contact@wmespeakersbeta.com">
                 <Button margin="40px 0 0 0">Get In Touch</Button>

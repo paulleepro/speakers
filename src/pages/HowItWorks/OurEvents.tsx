@@ -20,8 +20,9 @@ const OurEvents: FC = () => {
             <Box margin="80px 0">
               <BigText>Our Events</BigText>
               <DescriptionText>
-                In the new digital age, we provide the ability to book top tier
-                talent for a wide variety of virtual egagements.
+                In this increasingly digital and adaptive environment, we
+                provide access to book top-tier talent for both in-person and
+                digital engagements.
               </DescriptionText>
             </Box>
           </Col>
@@ -29,11 +30,13 @@ const OurEvents: FC = () => {
         <Row align="center">
           <Col offset={{ lg: 1, md: 0, sm: 1 }} lg={4} md={5} sm={10} xs={12}>
             <Box justifyContent="center">
-              <HeaderText>Inspiring your team</HeaderText>
+              <HeaderText>Best Practices Whitepaper</HeaderText>
               <Visible md lg>
                 <DescriptionText color={colors.midGrey}>
-                  Learn how Kevin Hart inspired a hardworking team of students
-                  and teachers at lorem ipsum university.
+                  Learn how businesses adapted their in-person events to an
+                  online experience amidst COVID-19. Find out the best practices
+                  on how you can create a seamless virtual event for your
+                  industry.
                 </DescriptionText>
                 <div>
                   <Button margin="30px 0 0 0">Watch the Case Study</Button>

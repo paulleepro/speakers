@@ -8,14 +8,15 @@ const Outro: FC = () => {
       <StyledContainer fluid>
         <Row>
           <Col offset={{ lg: 1 }} xs={12} md={10}>
-            <BigText margin="100px 0 0 0">In Person Events</BigText>
+            <BigText margin="100px 0 0 0">In-Person Events</BigText>
           </Col>
         </Row>
         <Row>
           <Col offset={{ lg: 1 }} xs={12} md={8} lg={6}>
             <DescriptionText maxWidth="670px">
-              Book talent for an in-person corporate event such as a retreat,
-              town hall, conference, and more.
+              Seamlessly book talent for any in-person corporate event, varying
+              from a team retreat, all-hands meeting, industry conference, and
+              more.
             </DescriptionText>
           </Col>
         </Row>
