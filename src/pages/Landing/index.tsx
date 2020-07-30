@@ -46,6 +46,7 @@ const Landing: FC = () => {
             size={"xs" === screenSize ? 75 : 45}
             maxWidth="700px"
             color={colors.primaryPurple}
+            zIndex="-1"
           />
           <HowItWorks />
         </LandingWrapper>

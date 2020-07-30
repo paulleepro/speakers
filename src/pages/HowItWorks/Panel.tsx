@@ -14,17 +14,30 @@ interface PIProps {
   imageRight?: boolean;
   imageUrl: string;
   iconUrl?: string;
+  showOnLarge?: boolean;
+  showOnSmall?: boolean;
 }
 
-const PanelImage: FC<PIProps> = ({ iconUrl, imageUrl, imageRight }) => (
+const PanelImage: FC<PIProps> = ({
+  iconUrl,
+  imageUrl,
+  imageRight,
+  showOnSmall,
+  showOnLarge,
+}) => (
   <Col
     offset={{ lg: 1, md: imageRight ? 1 : 0, sm: 2, xs: 1 }}
-    xs={10}
-    sm={8}
-    md={5}
-    lg={5}
+    xs={showOnSmall ? 10 : 0}
+    sm={showOnSmall ? 8 : 0}
+    md={showOnLarge ? 5 : 0}
+    lg={showOnLarge ? 5 : 0}
   >
-    <Visible md lg>
+    <Visible
+      md={showOnLarge}
+      lg={showOnLarge}
+      xs={showOnSmall}
+      sm={showOnSmall}
+    >
       <ActionWrapper>
         <StyledImage
           height={376}
@@ -63,13 +76,13 @@ const Panel: FC<IProps> = ({
     <PanelWrapper>
       <StyledContainer fluid>
         <Row>
-          {imageRight ? null : (
-            <PanelImage
-              imageUrl={imageUrl}
-              imageRight={imageRight}
-              iconUrl={iconUrl}
-            />
-          )}
+          <PanelImage
+            imageUrl={imageUrl}
+            imageRight={imageRight}
+            iconUrl={iconUrl}
+            showOnLarge={!imageRight}
+            showOnSmall
+          />
           <Col offset={{ md: imageRight ? 0 : 1, lg: 1 }} xs={12} md={6} lg={4}>
             <Box
               justifyContent="center"
@@ -88,13 +101,13 @@ const Panel: FC<IProps> = ({
               </TextWrapper>
             </Box>
           </Col>
-          {imageRight ? (
-            <PanelImage
-              imageUrl={imageUrl}
-              imageRight={imageRight}
-              iconUrl={iconUrl}
-            />
-          ) : null}
+          <PanelImage
+            imageUrl={imageUrl}
+            imageRight={imageRight}
+            iconUrl={iconUrl}
+            showOnLarge={imageRight}
+            showOnSmall={false}
+          />
         </Row>
       </StyledContainer>
     </PanelWrapper>

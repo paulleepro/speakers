@@ -39,7 +39,7 @@ const OurEvents: FC = () => {
                   industry.
                 </DescriptionText>
                 <div>
-                  <Button margin="30px 0 0 0">Watch the Case Study</Button>
+                  <Button margin="30px 0 0 0">Download the Whitepaper</Button>
                 </div>
               </Visible>
             </Box>
@@ -68,11 +68,13 @@ const OurEvents: FC = () => {
             <Visible xs sm>
               <Box alignItems="center" margin="20px 0">
                 <DescriptionText color={colors.midGrey}>
-                  Learn how Kevin Hart inspired a hardworking team of students
-                  and teachers at lorem ipsum university.
+                  Learn how businesses adapted their in-person events to an
+                  online experience amidst COVID-19. Find out the best practices
+                  on how you can create a seamless virtual event for your
+                  industry.
                 </DescriptionText>
                 <div>
-                  <Button margin="30px 0 0 0">Watch the Case Study</Button>
+                  <Button margin="30px 0 0 0">Download the Whitepaper</Button>
                 </div>
               </Box>
             </Visible>

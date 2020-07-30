@@ -13,7 +13,7 @@ const Outro: FC = () => {
         </Row>
         <Row>
           <Col offset={{ lg: 1 }} xs={12} md={8} lg={6}>
-            <DescriptionText maxWidth="670px">
+            <DescriptionText>
               Seamlessly book talent for any in-person corporate event, varying
               from a team retreat, all-hands meeting, industry conference, and
               more.
