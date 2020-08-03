@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start": "react-scripts start",
+    "start-dev-k8s": "yarn start",
     "build-dev": "react-scripts build",
     "build": "GENERATE_SOURCEMAP=false react-scripts build",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css}\"",
@@ -101,7 +102,8 @@
     "mochawesome-merge": "^4.1.0",
     "mochawesome-report-generator": "^5.1.0",
     "prettier": "^2.0.5",
-    "react-snap": "^1.23.0"
+    "react-snap": "^1.23.0",
+    "ts-node-dev": "^1.0.0-pre.56"
   },
   "jest": {
     "coverageReporters": [
