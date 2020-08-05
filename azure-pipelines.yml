@@ -64,6 +64,12 @@ stages:
         dependsOn: StagingDeploy
         steps:
           - script: |
+              yarn
+              if [ $? -ne 0 ]; then
+                  exit 1
+              fi
+            displayName: 'yarn install'          
+          - script: |
               export CYPRESS_BASE_URL=https://speakers.cluster1.endvr-digital-dev.com
               yarn run cy:test
               if [ $? -ne 0 ]; then
