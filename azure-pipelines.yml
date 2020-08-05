@@ -61,6 +61,7 @@ stages:
                   globExpressions: '**'                              
                   filesAcl: 'public-read'
       - job: Cypress
+        dependsOn: StagingDeploy
         steps:
           - script: |
               export CYPRESS_BASE_URL=https://speakers.cluster1.endvr-digital-dev.com
