@@ -60,7 +60,7 @@ stages:
                   sourceFolder: '$(Pipeline.Workspace)/StagingWebApp'
                   globExpressions: '**'                              
                   filesAcl: 'public-read'
-      - job: Build
+      - job: Cypress
         steps:
           - script: |
               export CYPRESS_BASE_URL=https://speakers.cluster1.endvr-digital-dev.com
