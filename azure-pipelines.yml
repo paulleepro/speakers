@@ -83,8 +83,9 @@ stages:
               testResultsFormat: 'JUnit'
               testResultsFiles: '**/test-output-*.xml' 
               mergeTestResults: true
-              failTaskOnFailedTests: true
+              failTaskOnFailedTests: false
               testRunTitle: Cypress Test Results
+              publishRunAttachments: true
       - job: Lighthouse
         dependsOn: StagingDeploy
         steps:
