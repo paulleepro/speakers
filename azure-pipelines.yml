@@ -60,6 +60,24 @@ stages:
                   sourceFolder: '$(Pipeline.Workspace)/StagingWebApp'
                   globExpressions: '**'                              
                   filesAcl: 'public-read'
+      - job: Build
+        steps:
+          - script: |
+              export CYPRESS_BASE_URL=https://speakers.cluster1.endvr-digital-dev.com
+              yarn run cy:test
+              if [ $? -ne 0 ]; then
+                  exit 1
+              fi
+            displayName: 'yarn run cy:test'          
+          - publish: $(Build.Repository.LocalPath)/build
+            artifact: StagingWebApp
+          - task: PublishTestResults@2
+            inputs:
+              testResultsFormat: 'JUnit'
+              testResultsFiles: '**/test-output-*.xml' 
+              mergeTestResults: true
+              failTaskOnFailedTests: true
+              testRunTitle: Cypress Test Results
       - job: Lighthouse
         dependsOn: StagingDeploy
         steps:

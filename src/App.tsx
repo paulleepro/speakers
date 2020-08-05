@@ -43,38 +43,32 @@ const App = (): ReactElement => {
   }
 
   return (
-    <>
-      <Wrapper>
-        <AppHeader />
-        <div className="max-width-container">
-          <TopRightSemi />
-          <Switch>
-            <Route
-              path="/talent/:slug/confirmation"
-              component={Confirmation}
-              exact
-            />
-            <Route
-              path="/talent/:slug/booking"
-              component={TalentBooking}
-              exact
-            />
-            <Route path="/talent/:slug" component={Talent} exact />
-            <Route path="/type/:slug" component={Type} exact />
-            <Route path="/subtopic/:slug" component={Subtopic} exact />
-            <Route path="/topic" component={Topics} exact />
-            <Route path="/explore" component={Explore} exact />
-            <Route path="/how-it-works" component={HowItWorks} exact />
-            <Route path="/faq" component={FAQ} exact />
-            <Route path="/search-results" component={SearchResults} exact />
-            <Route path="/" component={Landing} exact />
+    <Wrapper>
+      <AppHeader />
+      <div className="max-width-container">
+        <TopRightSemi />
+        <Switch>
+          <Route
+            path="/talent/:slug/confirmation"
+            component={Confirmation}
+            exact
+          />
+          <Route path="/talent/:slug/booking" component={TalentBooking} exact />
+          <Route path="/talent/:slug" component={Talent} exact />
+          <Route path="/type/:slug" component={Type} exact />
+          <Route path="/subtopic/:slug" component={Subtopic} exact />
+          <Route path="/topic" component={Topics} exact />
+          <Route path="/explore" component={Explore} exact />
+          <Route path="/how-it-works" component={HowItWorks} exact />
+          <Route path="/faq" component={FAQ} exact />
+          <Route path="/search-results" component={SearchResults} exact />
+          <Route path="/" component={Landing} exact />
 
-            <Route render={() => <Box padding="20px">Not found</Box>} />
-          </Switch>
-        </div>
-        <Footer />
-      </Wrapper>
-    </>
+          <Route render={() => <Box padding="20px">Not found</Box>} />
+        </Switch>
+      </div>
+      <Footer />
+    </Wrapper>
   );
 };
 
