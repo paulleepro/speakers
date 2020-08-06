@@ -77,8 +77,6 @@ stages:
                   exit 1
               fi
             displayName: 'yarn run cy:test'          
-          - publish: $(Build.Repository.LocalPath)/build
-            artifact: StagingWebApp
           - task: PublishTestResults@2
             inputs:
               testResultsFormat: 'JUnit'
