@@ -1,6 +1,8 @@
 variables: 
-  - name: CI_BUILD
-    value: true
+  - name: DEV_URL
+    value: https://speakers.cluster1.endvr-digital-dev.com
+  - name: PROD_URL
+    value: https://wmespeakersbeta.com
 
 trigger:
 - master
@@ -33,6 +35,9 @@ stages:
               fi
             displayName: 'yarn install'          
           - script: |   
+              export REACT_APP_SPEAKERS_TALENT_URL=$(DEV_URL)/api/speakers-talent
+              export REACT_APP_IMAGE_PROXY_URL=$(DEV_URL)/
+              export REACT_APP_SPEAKERS_BOOKING_URL=$(DEV_URL)/api/speakers-booking
               yarn build-dev
               if [ $? -ne 0 ]; then
                   exit 1
@@ -70,7 +75,7 @@ stages:
               fi
             displayName: 'yarn install'          
           - script: |
-              export CYPRESS_BASE_URL=https://speakers.cluster1.endvr-digital-dev.com
+              export CYPRESS_BASE_URL=$(DEV_URL)
               yarn run cy:test
               yarn run cy:merge
               if [ $? -ne 0 ]; then
@@ -90,7 +95,7 @@ stages:
         steps:
           - task: Lighthouse@1
             inputs:
-              url: 'https://speakers.cluster1.endvr-digital-dev.com/'
+              url: $(DEV_URL)
               args: '--quiet'
               assertions: |
                 no-vulnerable-libraries = 1
@@ -114,9 +119,9 @@ stages:
               fi
             displayName: 'yarn install'          
           - script: |   
-              export REACT_APP_SPEAKERS_TALENT_URL=https://wmespeakersbeta.com/api/speakers-talent
-              export REACT_APP_IMAGE_PROXY_URL=https://wmespeakersbeta.com/
-              export REACT_APP_SPEAKERS_BOOKING_URL=https://wmespeakersbeta.com/api/speakers-booking
+              export REACT_APP_SPEAKERS_TALENT_URL=$(PROD_URL)/api/speakers-talent
+              export REACT_APP_IMAGE_PROXY_URL=$(PROD_URL)/
+              export REACT_APP_SPEAKERS_BOOKING_URL=$(PROD_URL)/api/speakers-booking
               yarn build
               if [ $? -ne 0 ]; then
                   exit 1
@@ -157,7 +162,7 @@ stages:
         steps:
           - task: Lighthouse@1
             inputs:
-              url: 'https://www.wmespeakersbeta.com/'
+              url: $(PROD_URL)
               args: '--quiet'
               assertions: |
                 no-vulnerable-libraries = 1
