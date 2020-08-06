@@ -7,12 +7,8 @@
   "chromeWebSecurity": false,
   "reporter": "junit",
   "reporterOptions": {
-    "mochaFile": "tests/test-output-[hash].xml",
+    "mochaFile": "cypress/reports/tests/test-output-[hash].xml",
     "toConsole": true,
-    "attachments": true,
-    "reportDir": "cypress/reports/tests",
-    "overwrite": false,
-    "html": false,
-    "json": true
+    "attachments": true
   }
 }

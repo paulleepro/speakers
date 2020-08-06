@@ -72,6 +72,7 @@ stages:
           - script: |
               export CYPRESS_BASE_URL=https://speakers.cluster1.endvr-digital-dev.com
               yarn run cy:test
+              yarn run cy:merge
               if [ $? -ne 0 ]; then
                   exit 1
               fi
@@ -81,7 +82,7 @@ stages:
           - task: PublishTestResults@2
             inputs:
               testResultsFormat: 'JUnit'
-              testResultsFiles: '**/test-output-*.xml' 
+              testResultsFiles: '**/reports/merged.xml' 
               mergeTestResults: true
               failTaskOnFailedTests: false
               testRunTitle: Cypress Test Results

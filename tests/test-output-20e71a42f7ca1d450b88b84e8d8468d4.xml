@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="Mocha Tests" time="24.054" tests="1" failures="0">
-  <testsuite name="Root Suite" timestamp="2020-08-05T18:28:17" tests="0" file="cypress/integration/search.js" failures="0" time="0">
-  </testsuite>
-  <testsuite name="Search" timestamp="2020-08-05T18:28:17" tests="1" failures="0" time="24.054">
-    <testcase name="Search should return expected results" time="24.054" classname="should return expected results">
-    </testcase>
-  </testsuite>
-</testsuites>

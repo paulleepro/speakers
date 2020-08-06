@@ -19,9 +19,8 @@
     "cy:base": "npx cypress run --env type=base --config screenshotsFolder=cypress/snapshots/base,baseUrl=${CYPRESS_BASE_URL}",
     "cy:test": "npm run clean-reports; npx cypress run --env type=actual --config baseUrl=${CYPRESS_BASE_URL}",
     "clean-reports": "rm -rf cypress/reports",
-    "merge-report": "npx mochawesome-merge \"cypress/reports/tests/*.json\" --output cypress/reports/report.json",
-    "generate-report": "npx marge --reportDir cypress/reports/html cypress/reports/report.json",
-    "cy:report": "npm run merge-report; npm run generate-report"
+    "cy:merge": "junit-merge -d \"cypress/reports/tests\" --out cypress/reports/merged.xml",
+    "cy:open": "xunit-viewer -r cypress/reports/merged.xml -o cypress/reports/merged.html && open cypress/reports/merged.html"
   },
   "dependencies": {
     "@material-ui/core": "^4.10.1",
@@ -90,6 +89,7 @@
     "@typescript-eslint/parser": "^2.32.0",
     "cypress": "^4.11.0",
     "cypress-iframe": "^1.0.1",
+    "cypress-junit-reporter": "^1.3.1",
     "cypress-keycloak-commands": "^1.2.0",
     "cypress-visual-regression": "^1.4.0",
     "cypress-wait-until": "^1.7.1",
@@ -98,12 +98,11 @@
     "eslint-config-react-app": "^5.2.1",
     "eslint-plugin-react-hooks": "^4.0.0",
     "husky": "^4.2.5",
-    "mochawesome": "^6.1.1",
-    "mochawesome-merge": "^4.1.0",
-    "mochawesome-report-generator": "^5.1.0",
+    "junit-merge": "^2.0.0",
     "prettier": "^2.0.5",
     "react-snap": "^1.23.0",
-    "ts-node-dev": "^1.0.0-pre.56"
+    "ts-node-dev": "^1.0.0-pre.56",
+    "xunit-viewer": "^6.3.9"
   },
   "jest": {
     "coverageReporters": [
