@@ -158,6 +158,31 @@ stages:
                   awsCommand: 'cloudfront'
                   awsSubCommand: 'create-invalidation'   
                   awsArguments: '--distribution-id ELPJK0DT806PY --paths "/index.html"'
+      - job: Cypress
+        dependsOn: ProductionDeploy
+        steps:
+          - script: |
+              yarn
+              if [ $? -ne 0 ]; then
+                  exit 1
+              fi
+            displayName: 'yarn install'          
+          - script: |
+              export CYPRESS_BASE_URL=$(PROD_URL)
+              yarn run cy:test
+              yarn run cy:merge
+              if [ $? -ne 0 ]; then
+                  exit 1
+              fi
+            displayName: 'yarn run cy:test'          
+          - task: PublishTestResults@2
+            inputs:
+              testResultsFormat: 'JUnit'
+              testResultsFiles: '**/reports/merged.xml' 
+              mergeTestResults: true
+              failTaskOnFailedTests: false
+              testRunTitle: Cypress Test Results
+              publishRunAttachments: true
       - job: Lighthouse
         dependsOn: ProductionDeploy
         steps:

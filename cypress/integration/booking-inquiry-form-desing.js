@@ -1,5 +1,4 @@
 import "cypress-iframe";
-import Cypress from "cypress";
 import utils from "../support/utils";
 
 describe("Booking inquiry form design", () => {
@@ -18,11 +17,13 @@ describe("Booking inquiry form design", () => {
       utils.screenSizes.forEach((screenSize) => {
         utils.setViewPortToScreenSize(screenSize);
 
-        cy.visit("/", { failOnStatusCode: !Cypress.env("DEV_ENV") });
-        cy.visit(fixture.talent_booking_url);
+        const devEnv = Cypress.env("DEV_ENV");
+        cy.visit("/");
+        cy.visit(fixture.talent_booking_url, { failOnStatusCode: !devEnv });
 
         cy.location("pathname", {
-          timeout: 10000
+          timeout: 10000,
+          failOnStatusCode: !devEnv
         }).should("include", fixture.talent_booking_url);
 
         cy.get(".container > div > div > span:first")

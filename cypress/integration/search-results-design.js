@@ -1,5 +1,4 @@
 import "cypress-iframe";
-import Cypress from "cypress";
 import utils from "../support/utils";
 
 describe("Search result design", () => {
@@ -18,7 +17,8 @@ describe("Search result design", () => {
       utils.screenSizes.forEach((screenSize) => {
         utils.setViewPortToScreenSize(screenSize);
 
-        cy.visit("/", { failOnStatusCode: !Cypress.env("DEV_ENV") });
+        const devEnv = Cypress.env("DEV_ENV");
+        cy.visit("/", { failOnStatusCode: !devEnv });
 
         cy.get(`input[placeholder="${fixture.search_input_placeholder_text}"`)
           .first()
@@ -28,6 +28,7 @@ describe("Search result design", () => {
 
         cy.location("pathname", {
           timeout: 10000,
+          failOnStatusCode: !devEnv
         }).should("include", fixture.search_results_url);
 
         cy.wait(8000);

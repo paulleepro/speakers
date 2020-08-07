@@ -1,5 +1,4 @@
 import "cypress-iframe";
-import Cypress from "cypress";
 import utils from "../support/utils";
 
 describe("Booking inquiry form", () => {
@@ -19,7 +18,8 @@ describe("Booking inquiry form", () => {
       utils.screenSizes.forEach((screenSize) => {
         utils.setViewPortToScreenSize(screenSize);
 
-        cy.visit(fixture.talent_url, { failOnStatusCode: !Cypress.env("DEV_ENV") });
+        const devEnv = Cypress.env("DEV_ENV");
+        cy.visit(fixture.talent_url, { failOnStatusCode: !devEnv });
 
         cy.get(".container > div > div > span:first")
           .should("have.text", fixture.talent_full_name);
@@ -29,7 +29,8 @@ describe("Booking inquiry form", () => {
         });
 
         cy.location("pathname", {
-          timeout: 10000
+          timeout: 10000,
+          failOnStatusCode: !devEnv
         }).should("include", fixture.talent_booking_url);
 
         cy.get(".container > div > div > span:first")
@@ -56,10 +57,12 @@ describe("Booking inquiry form", () => {
       utils.screenSizes.forEach((screenSize) => {
         utils.setViewPortToScreenSize(screenSize);
 
-        cy.visit(fixture.talent_booking_url, { failOnStatusCode: !Cypress.env("DEV_ENV") });
+        const devEnv = Cypress.env("DEV_ENV");
+        cy.visit(fixture.talent_booking_url, { failOnStatusCode: !devEnv });
 
         cy.location("pathname", {
-          timeout: 10000
+          timeout: 10000,
+          failOnStatusCode: !devEnv
         }).should("include", fixture.talent_booking_url);
 
         cy.get("form").filter(':visible').within(() => {
@@ -81,7 +84,8 @@ describe("Booking inquiry form", () => {
         cy.get("form").filter(':visible').submit();
 
         cy.location("pathname", {
-          timeout: 10000
+          timeout: 10000,
+          failOnStatusCode: !devEnv
         }).should("include", fixture.talent_booking_confirmation_url);
 
         // URL query format: ?user_id=user%40test.com&options%5Bevent_type_options%5D%5B0%5D=keynote&options%5Bnotes%5D=Bring%20your%20basketball%21&options%5Bevent_theme%5D=Fun%20NBA%20stories&options%5Bbudget_max_cents%5D=500000&options%5Bbudget_min_cents%5D=100000&options%5Bbudget_currency%5D=USD&options%5Bevent_date%5D=2020-06-04T22%3A00%3A00.000Z&options%5Bevent_type%5D=in_person&talent_id=88b89e96-97ec-4476-b8a7-0512cd0975c4
