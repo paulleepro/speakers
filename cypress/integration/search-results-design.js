@@ -33,7 +33,7 @@ describe("Search result design", () => {
 
         cy.wait(8000);
 
-        cy.compareSnapshot(`search-result-${screenSize}`, 0.1);
+        cy.compareSnapshot(`search-result-${screenSize}`, 0.25);
       });
     });
   });

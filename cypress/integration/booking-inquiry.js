@@ -84,7 +84,7 @@ describe("Booking inquiry form", () => {
         cy.get("form").filter(':visible').submit();
 
         cy.location("pathname", {
-          timeout: 10000,
+          timeout: 30000,
           failOnStatusCode: !devEnv
         }).should("include", fixture.talent_booking_confirmation_url);
 

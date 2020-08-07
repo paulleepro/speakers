@@ -31,7 +31,7 @@ describe("Booking inquiry form design", () => {
 
         cy.wait(5000);
 
-        cy.compareSnapshot(`booking-inquiry-form-${screenSize}`, 0.1);
+        cy.compareSnapshot(`booking-inquiry-form-${screenSize}`, 0.25);
       });
     });
   });
