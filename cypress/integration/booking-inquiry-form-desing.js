@@ -1,4 +1,5 @@
 import "cypress-iframe";
+import Cypress from "cypress";
 import utils from "../support/utils";
 
 describe("Booking inquiry form design", () => {
@@ -17,7 +18,7 @@ describe("Booking inquiry form design", () => {
       utils.screenSizes.forEach((screenSize) => {
         utils.setViewPortToScreenSize(screenSize);
 
-        cy.visit("/");
+        cy.visit("/", { failOnStatusCode: !Cypress.env("DEV_ENV") });
         cy.visit(fixture.talent_booking_url);
 
         cy.location("pathname", {

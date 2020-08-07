@@ -1,4 +1,5 @@
 import "cypress-iframe";
+import Cypress from "cypress";
 import utils from "../support/utils";
 
 describe("Booking inquiry form", () => {
@@ -18,7 +19,7 @@ describe("Booking inquiry form", () => {
       utils.screenSizes.forEach((screenSize) => {
         utils.setViewPortToScreenSize(screenSize);
 
-        cy.visit(fixture.talent_url);
+        cy.visit(fixture.talent_url, { failOnStatusCode: !Cypress.env("DEV_ENV") });
 
         cy.get(".container > div > div > span:first")
           .should("have.text", fixture.talent_full_name);
@@ -55,7 +56,7 @@ describe("Booking inquiry form", () => {
       utils.screenSizes.forEach((screenSize) => {
         utils.setViewPortToScreenSize(screenSize);
 
-        cy.visit(fixture.talent_booking_url);
+        cy.visit(fixture.talent_booking_url, { failOnStatusCode: !Cypress.env("DEV_ENV") });
 
         cy.location("pathname", {
           timeout: 10000
