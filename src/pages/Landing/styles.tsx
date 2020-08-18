@@ -13,18 +13,21 @@ export const HeroWrapper = styled.div`
   justify-content: center;
 `;
 
-export const HeroBGWrapper = styled.div<{ backgroundImage: string }>`
+export const HeroBGWrapper = styled.div`
   position: absolute;
   top: 0;
   right: 8.33%;
   height: 100%;
   width: 50%;
-  background-image: url(${(props) => props.backgroundImage});
   background-size: contain;
   background-repeat: no-repeat;
   background-position-x: 100%;
   background-position-y: 0px;
   margin-top: 50px;
+  img {
+    width: 100%;
+    box-shadow: 50px 50px 24px 0 rgba(0, 0, 0, 0.5);
+  }
 `;
 
 export const CustomizeWrapper = styled.div`

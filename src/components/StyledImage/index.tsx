@@ -1,7 +1,10 @@
 import React, { FC, useEffect, useState } from "react";
 import styled from "styled-components";
 
-export const StyledImg = styled.img<{ borderRadius?: string }>`
+export const StyledImg = styled.img<{
+  borderRadius?: string;
+  boxShadow?: string;
+}>`
   width: 100%;
   object-position: 50% 40%;
   object-fit: cover;
@@ -9,6 +12,7 @@ export const StyledImg = styled.img<{ borderRadius?: string }>`
   display: block;
   ${(props) =>
     props.borderRadius ? `border-radius: ${props.borderRadius};` : ""}
+  ${(props) => (props.boxShadow ? `box-shadow: ${props.boxShadow};` : "")}
 `;
 
 interface IProps {
@@ -17,6 +21,7 @@ interface IProps {
   height?: number;
   alt?: string;
   fallbackSrc?: string;
+  boxShadow?: string;
 }
 
 const StyledImage: FC<IProps> = ({
@@ -25,6 +30,7 @@ const StyledImage: FC<IProps> = ({
   height,
   alt,
   fallbackSrc,
+  boxShadow,
 }) => {
   const [imgSrc, setImgSrc] = useState<string>(src);
   useEffect(() => {
@@ -37,6 +43,7 @@ const StyledImage: FC<IProps> = ({
       borderRadius={borderRadius}
       height={height}
       alt={alt}
+      boxShadow={boxShadow}
       onError={() => {
         if (fallbackSrc && imgSrc !== fallbackSrc) {
           setImgSrc(fallbackSrc);

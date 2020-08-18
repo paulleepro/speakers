@@ -29,8 +29,11 @@ const HeroSmall: FC<IProps> = ({ heroDescriptor, imageUrl }) => {
                 <u>{heroDescriptor}</u>,<br />
                 on demand.
               </BigText>
-              <StyledImage src={imageUrl} />
-              <DescriptionText>
+              <StyledImage
+                src={imageUrl}
+                boxShadow="50px 50px 24px 0 rgba(0,0,0,0.50)"
+              />
+              <DescriptionText margin="25px">
                 Endeavor Virtual Performers is bringing talent directly to your
                 business. Our high-profile speakers are available digitally for
                 your next corporate town hall, board meeting, or retreat.

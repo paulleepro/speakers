@@ -20,7 +20,9 @@ const HeroMedium: FC<IProps> = ({ heroDescriptor, imageUrl }) => {
     <HeroWrapper>
       <StyledContainer fluid>
         <Row>
-          <HeroBGWrapper backgroundImage={imageUrl} />
+          <HeroBGWrapper>
+            <img src={imageUrl} alt="hero" />
+          </HeroBGWrapper>
           <Col offset={{ md: 0, lg: 1 }} md={8} lg={5}>
             <VirtualText margin="80px 0 0 0">Virtual Performers</VirtualText>
             <LargeText>
