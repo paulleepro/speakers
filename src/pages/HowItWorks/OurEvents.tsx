@@ -38,9 +38,9 @@ const OurEvents: FC = () => {
                   on how you can create a seamless virtual event for your
                   industry.
                 </DescriptionText>
-                <div>
+                <a href="/WMESpeakerBeta.pdf" download>
                   <Button margin="30px 0 0 0">Download the Whitepaper</Button>
-                </div>
+                </a>
               </Visible>
             </Box>
           </Col>
@@ -64,9 +64,9 @@ const OurEvents: FC = () => {
                   on how you can create a seamless virtual event for your
                   industry.
                 </DescriptionText>
-                <div>
+                <a href="/WMESpeakerBeta.pdf" download>
                   <Button margin="30px 0 0 0">Download the Whitepaper</Button>
-                </div>
+                </a>
               </Box>
             </Visible>
           </Col>
