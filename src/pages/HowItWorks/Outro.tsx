@@ -8,7 +8,7 @@ const Outro: FC = () => {
       <StyledContainer fluid>
         <Row>
           <Col offset={{ lg: 1 }} xs={12} md={10}>
-            <BigText margin="100px 0 0 0">In-Person Events</BigText>
+            <BigText margin="100px 0 35px 0">In-Person Events</BigText>
           </Col>
         </Row>
         <Row>

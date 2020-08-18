@@ -7,9 +7,8 @@ import SpeakerCard from "components/SpeakerCard";
 import { fetchSingle } from "fetch-hooks-react";
 import Loader from "components/Loader";
 import ErrorNotice from "components/ErrorNotice";
-import { BigText, ArrowLeftText, StyledContainer } from "styles/components";
+import { BigText, StyledContainer } from "styles/components";
 import { Box } from "react-basic-blocks";
-import { Link } from "react-router-dom";
 import StarPower from "components/StarPower";
 import TopLeftGradient from "components/TopLeftGradient";
 import HeaderTags from "components/HeaderTags";
@@ -37,9 +36,6 @@ const SearchResults: FC = () => {
           <Row>
             <Col offset={{ lg: 1 }} xs={12} lg={10}>
               <Box padding="40px 0 80px">
-                <Link to="/explore">
-                  <ArrowLeftText>BACK TO EXPLORE</ArrowLeftText>
-                </Link>
                 <BigText>Search Results</BigText>
               </Box>
             </Col>

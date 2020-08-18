@@ -30,10 +30,9 @@ describe("Search result design", () => {
           timeout: 10000,
           failOnStatusCode: !devEnv
         }).should("include", fixture.search_results_url);
-
         cy.wait(8000);
 
-        cy.compareSnapshot(`search-result-${screenSize}`, 0.25);
+        cy.compareSnapshot(`search-result-${screenSize}`, 0.1);
       });
     });
   });

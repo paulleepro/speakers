@@ -3,6 +3,9 @@ import { DescriptionText, Divider } from "styles/components";
 import { Box } from "react-basic-blocks";
 import colors from "styles/colors";
 import styled from "styled-components";
+import ReactTooltip from "react-tooltip";
+import { productTypes } from "copy";
+import { Visible } from "components/Grid";
 
 const Wrapper = styled(Box)`
   position: relative;
@@ -11,34 +14,47 @@ const Wrapper = styled(Box)`
 
 interface IProps {}
 
-const categories = [
-  "Keynote",
-  "Panel Discussion",
-  "Digital Q&A",
-  "Live Drop In",
-  "Video Message",
-];
-
 const AvailableFor: FC<IProps> = () => {
   return (
     <Wrapper>
       <DescriptionText weight="bold">Available For:</DescriptionText>
       <Divider width="200px" />
-      {categories.map((x, i) => (
-        <Box
-          key={`available-for-${i}`}
-          backgroundColor={colors.purpleBgFill}
-          borderRadius="12px"
-          width="100%"
-          height="85px"
-          margin="0 0 16px 0"
-          padding="0 0 0 20px"
-          justifyContent="center"
-          border={`1px solid ${colors.purpleLiner}`}
-        >
-          <DescriptionText>{x}</DescriptionText>
-        </Box>
-      ))}
+      <Box
+        backgroundColor={colors.purpleBgFill}
+        borderRadius="12px"
+        width="100%"
+        margin="0 0 16px 0"
+        padding="40px 32px"
+        justifyContent="center"
+        border={`1px solid ${colors.purpleLiner}`}
+      >
+        {productTypes.map(({ title, description }, i) => (
+          <>
+            <DescriptionText
+              cursor="default"
+              margin={i === 0 ? "0" : "32px 0 0 0"}
+              data-tip
+              data-for={`panel-discussion-${i}`}
+            >
+              {title}
+            </DescriptionText>
+            <Visible md lg>
+              <ReactTooltip
+                id={`panel-discussion-${i}`}
+                place="right"
+                type="dark"
+                effect="float"
+                className="tooltip"
+                backgroundColor="#000"
+                border
+                borderColor="#2c2832"
+              >
+                {description}
+              </ReactTooltip>
+            </Visible>
+          </>
+        ))}
+      </Box>
     </Wrapper>
   );
 };

@@ -35,7 +35,10 @@ const Explore: FC = () => {
   } else {
     components = (
       <>
-        <Featured data={getTalent(data.data, hardCodedTalent[0].talent)} />
+        <Featured
+          data={getTalent(data.data, hardCodedTalent[0].talent)}
+          mdCardsPerRow={4}
+        />
         {hardCodedTalent.slice(1).map((x, i) => (
           <div
             id={x.name.replace(/ /g, "-").toLowerCase()}

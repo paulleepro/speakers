@@ -46,7 +46,7 @@ const Title: FC<IProps> = ({ tabs }) => {
       <StyledContainer fluid>
         <Row>
           <Col offset={{ lg: 1 }} md={12} lg={10}>
-            <VirtualText>Virtual Speakers</VirtualText>
+            <VirtualText>Virtual Performers</VirtualText>
             <BigText>Explore</BigText>
 
             <Tabs

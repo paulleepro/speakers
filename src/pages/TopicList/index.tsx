@@ -1,18 +1,18 @@
 import React, { FC } from "react";
 import { Row, Col, Visible } from "components/Grid";
-import { Link } from "react-router-dom";
 import { DescriptionText, StyledContainer } from "styles/components";
 import Loader from "components/Loader";
 import { fetchSingle } from "fetch-hooks-react";
 import { IListResult, ITopic, IType } from "types";
 import { config } from "config";
 import ErrorNotice from "components/ErrorNotice";
-import { ArrowLeftText, BigText, TopAreaDivider } from "styles/components";
+import { BigText, TopAreaDivider } from "styles/components";
 import { Box } from "react-basic-blocks";
 import colors from "styles/colors";
 import StarPower from "components/StarPower";
 import TopLeftGradient from "components/TopLeftGradient";
 import HeaderTags from "components/HeaderTags";
+import { StyledLink } from "./styles";
 
 const MAX_COLUMNS = 2;
 
@@ -50,9 +50,6 @@ const Topics: FC = () => {
         <Row>
           <Col offset={{ lg: 1 }} xs={12} lg={10}>
             <Box padding="40px 0 0 0">
-              <Link to="/explore">
-                <ArrowLeftText>BACK TO EXPLORE</ArrowLeftText>
-              </Link>
               <BigText>Browse by Topic</BigText>
             </Box>
           </Col>
@@ -92,9 +89,9 @@ const Topics: FC = () => {
                   key={`type-col-${i}`}
                 >
                   {getSubtopics(i, subtopics).map(({ name, id, slug }) => (
-                    <Link key={id} to={`/subtopic/${slug}`}>
-                      <DescriptionText noCenterAlign>{name}</DescriptionText>
-                    </Link>
+                    <StyledLink key={id} to={`/subtopic/${slug}`}>
+                      {name}
+                    </StyledLink>
                   ))}
                 </Col>
               ))}

@@ -50,7 +50,7 @@ const Type: FC = () => {
   return (
     <CategoryPage
       name={data.type.name}
-      featuredTalent={data.all.data.slice(0, 6)}
+      featuredTalent={data.all.data.slice(0, 8)}
       newTalent={data.new.data}
       allTalent={all}
       totalTalent={data.all.metadata.total}

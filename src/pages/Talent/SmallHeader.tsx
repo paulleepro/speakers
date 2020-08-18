@@ -1,11 +1,5 @@
 import React, { FC } from "react";
-import {
-  VirtualText,
-  BigText,
-  DescriptionText,
-  Button,
-  ArrowLeftText,
-} from "styles/components";
+import { BigText, DescriptionText, Button } from "styles/components";
 import { Container, Row, Col, useScreenClass } from "components/Grid";
 import ReactHtmlParser from "react-html-parser";
 import AvailableFor from "components/AvailableFor";
@@ -14,13 +8,13 @@ import { ITalent } from "types";
 import { Box } from "react-basic-blocks";
 import { Link } from "react-router-dom";
 import { config } from "config";
-import { getHighlight } from "./MediumHeader";
 import SocialIcons from "components/SocialIcons";
 import StyledImage from "components/StyledImage";
-import { SmallImageWrapper, FulfilledByText } from "./styles";
+import { SmallImageWrapper, FulfilledByText, StyledScrollLink } from "./styles";
 import Circles from "components/Circles";
 import colors from "styles/colors";
 import TopLeftGradient from "components/TopLeftGradient";
+import { cutAfterSentenceAt, sanitize } from "./utils";
 
 interface IProps {
   talent: ITalent;
@@ -42,16 +36,12 @@ const SmallHeader: FC<IProps> = ({ talent }) => {
       <Container fluid>
         <Row>
           <Col>
-            <Link to="/explore">
-              <ArrowLeftText margin="40px 0 0 0">EXPLORE ALL</ArrowLeftText>
-            </Link>
-            <BigText margin="24px 0 0">{name}</BigText>
+            <BigText margin="40px 0 0">{name}</BigText>
           </Col>
         </Row>
         <Row>
           <Col offset={{ sm: 1, xs: 0 }} sm={10} xs={12}>
-            <Box flexDirection="row" justifyContent="space-between">
-              <VirtualText>Featured</VirtualText>
+            <Box flexDirection="row" justifyContent="center">
               <SocialIcons
                 urls={
                   Object.values(social_accounts).filter((x) => x) as string[]
@@ -100,7 +90,17 @@ const SmallHeader: FC<IProps> = ({ talent }) => {
         <Row>
           <Col>
             <DescriptionText>
-              {ReactHtmlParser(getHighlight(highlights))}
+              {ReactHtmlParser(cutAfterSentenceAt(350, sanitize(highlights)))}
+              <StyledScrollLink
+                to="bio"
+                spy={true}
+                smooth={true}
+                offset={-10}
+                duration={700}
+                delay={300}
+              >
+                See More
+              </StyledScrollLink>
             </DescriptionText>
           </Col>
         </Row>

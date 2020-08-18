@@ -1,10 +1,10 @@
 import React, { FC } from "react";
 import {
   VirtualText,
-  BigText,
   DescriptionText,
   Button,
   StyledContainer,
+  LargeText,
 } from "styles/components";
 import { Row, Col } from "components/Grid";
 import { HeroWrapper, HeroBGWrapper } from "./styles";
@@ -21,16 +21,16 @@ const HeroMedium: FC<IProps> = ({ heroDescriptor, imageUrl }) => {
       <StyledContainer fluid>
         <Row>
           <HeroBGWrapper backgroundImage={imageUrl} />
-          <Col offset={{ md: 0, lg: 1 }} md={8} lg={6}>
-            <VirtualText margin="80px 0 0 0">Virtual Speakers</VirtualText>
-            <BigText>
+          <Col offset={{ md: 0, lg: 1 }} md={8} lg={5}>
+            <VirtualText margin="80px 0 0 0">Virtual Performers</VirtualText>
+            <LargeText>
               World class
               <br />
               <u>{heroDescriptor}</u>,<br />
               on demand.
-            </BigText>
-            <DescriptionText>
-              Endeavor Virtual Speakers is bringing talent directly to your
+            </LargeText>
+            <DescriptionText margin="0 17% 0 0">
+              Endeavor Virtual Performers is bringing talent directly to your
               business. Our high-profile speakers are available digitally for
               your next corporate town hall, board meeting, or retreat.
             </DescriptionText>

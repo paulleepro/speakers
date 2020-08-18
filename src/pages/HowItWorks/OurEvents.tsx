@@ -28,7 +28,7 @@ const OurEvents: FC = () => {
           </Col>
         </Row>
         <Row align="center">
-          <Col offset={{ lg: 1, md: 0, sm: 1 }} lg={4} md={5} sm={10} xs={12}>
+          <Col offset={{ lg: 1, md: 0, sm: 1 }} lg={7} md={7} sm={10} xs={12}>
             <Box justifyContent="center">
               <HeaderText>Best Practices Whitepaper</HeaderText>
               <Visible md lg>
@@ -46,21 +46,12 @@ const OurEvents: FC = () => {
           </Col>
           <Col
             offset={{ sm: 3, xs: 0, md: 1, lg: 0 }}
-            lg={6}
-            md={6}
+            lg={3}
+            md={3}
             sm={6}
             xs={12}
           >
-            <Box
-              backgroundColor={colors.midDarkGrey}
-              padding="12px"
-              borderRadius="23px"
-              alignItems="center"
-              justifyContent="center"
-              border="1px solid #2a2a2a"
-            >
-              <StyledImage src="/images/kevin-hart.png" borderRadius="12px" />
-            </Box>
+            <StyledImage src="/images/case-study.png" />
           </Col>
         </Row>
         <Row>

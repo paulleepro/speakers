@@ -11,6 +11,12 @@ export const TypeLink = styled.span`
   letter-spacing: 0.2px;
   display: block;
   margin: 0 0 20px 0;
+  cursor: pointer;
+
+  :hover {
+    color: ${colors.primaryPurple};
+    text-decoration: underline;
+  }
 `;
 
 export const TypesWrapper = styled.div`

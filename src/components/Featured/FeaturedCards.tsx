@@ -12,7 +12,7 @@ interface IProps {
 const FeaturedCards: FC<IProps> = ({ talentList, cardsPerRow = 3 }) => {
   return (
     <Row>
-      {talentList.slice(0, 6).map((x) => (
+      {talentList.slice(0, 8).map((x) => (
         <Col md={12 / cardsPerRow} key={`featured-talent-${x.id}`}>
           <SpeakerCard
             name={x.name}

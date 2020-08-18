@@ -30,6 +30,6 @@ export const TextWrapper = styled.div`
   z-index: 2;
 `;
 
-export const PanelWrapper = styled.div`
-  margin-top: 120px;
+export const PanelWrapper = styled.div<{ marginTop?: string }>`
+  margin-top: ${(props) => (props.marginTop ? props.marginTop : "120px")};
 `;

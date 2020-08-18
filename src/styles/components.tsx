@@ -74,7 +74,7 @@ export const ArrowLeftText = styled.span<{
   }
 `;
 
-export const BigText = styled.span<{ margin?: string; color?: string }>`
+export const BigText = styled.h1<{ margin?: string; color?: string }>`
   margin: ${(props) => props.margin || "35px 0"};
   color: ${(props) => props.color || "#FFF"};
   font-family: Montserrat;
@@ -85,6 +85,7 @@ export const BigText = styled.span<{ margin?: string; color?: string }>`
   line-height: 1.08;
   letter-spacing: 0.79px;
   display: block;
+  padding: 0;
 
   u {
     text-decoration-color: ${colors.primaryPurple};
@@ -101,6 +102,24 @@ export const BigText = styled.span<{ margin?: string; color?: string }>`
   }
 `;
 
+export const LargeText = styled.h1<{ margin?: string; color?: string }>`
+  margin: ${(props) => props.margin || "25px 0"};
+  color: ${(props) => props.color || "#FFF"};
+  font-family: Montserrat;
+  font-size: 80px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.3;
+  letter-spacing: 0.66px;
+  display: block;
+  padding: 0;
+
+  u {
+    text-decoration-color: ${colors.primaryPurple};
+  }
+`;
+
 export const DescriptionText = styled.span<{
   color?: string;
   weight?: string;
@@ -108,8 +127,11 @@ export const DescriptionText = styled.span<{
   textAlign?: string;
   margin?: string;
   noCenterAlign?: boolean;
+  cursor?: string;
 }>`
-  ${(props) => (props.margin ? `margin: ${props.margin};` : "")}
+  ${(props) => (props.cursor ? `cursor: ${props.cursor};` : "")}
+  ${(props) =>
+    props.margin ? `margin: ${props.margin};` : ""}
   font-size: 24px;
   font-weight: ${(props) => props.weight || "normal"};
   color: ${(props) => props.color || "#FFF"};

@@ -5,11 +5,9 @@ import SpeakerCard from "components/SpeakerCard";
 import Featured from "components/Featured";
 import { ITalent } from "types";
 import { Box } from "react-basic-blocks";
-import { Link } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
 import {
   BigText,
-  ArrowLeftText,
   HeaderText,
   TopAreaDivider,
   SeeAllText,
@@ -47,9 +45,6 @@ const CategoryPage: FC<IProps> = ({
         <Row>
           <Col offset={{ lg: 1 }} xs={12} lg={10}>
             <Box padding="40px 0 0 0">
-              <Link to="/explore">
-                <ArrowLeftText>BACK TO EXPLORE</ArrowLeftText>
-              </Link>
               <BigText>{name}</BigText>
             </Box>
           </Col>
@@ -68,7 +63,7 @@ const CategoryPage: FC<IProps> = ({
             >{`Featured ${name}`}</HeaderText>
           </Col>
         </Row>
-        <Featured data={featuredTalent} />
+        <Featured data={featuredTalent} mdCardsPerRow={4} />
         <Row>
           <Col offset={{ lg: 1 }} lg={10}>
             <HeaderText

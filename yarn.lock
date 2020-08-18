@@ -9668,6 +9668,14 @@ react-spinners@^0.8.3:
   dependencies:
     "@emotion/core" "^10.0.15"
 
+react-tooltip@^4.2.8:
+  version "4.2.8"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/react-tooltip/-/react-tooltip-4.2.8.tgz#270858fee46fab73b66de316271aa94145f7446b"
+  integrity sha1-JwhY/uRvq3O2beMWJxqpQUX3RGs=
+  dependencies:
+    prop-types "^15.7.2"
+    uuid "^7.0.3"
+
 react-transition-group@^4.4.0:
   version "4.4.1"
   resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-4.4.1.tgz#63868f9325a38ea5ee9535d828327f85773345c9"
@@ -11514,6 +11522,11 @@ utils-merge@1.0.1:
 uuid@^3.0.1, uuid@^3.3.2:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
+
+uuid@^7.0.3:
+  version "7.0.3"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/uuid/-/uuid-7.0.3.tgz#c5c9f2c8cf25dc0a372c4df1441c41f5bd0c680b"
+  integrity sha1-xcnyyM8l3Ao3LE3xRBxB9b0MaAs=
 
 v8-compile-cache@^2.0.3:
   version "2.1.0"

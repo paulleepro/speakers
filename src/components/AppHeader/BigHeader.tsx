@@ -14,7 +14,7 @@ const BigHeader: FC<IProps> = ({ types }) => {
       <Wrapper backgroundColor="rgba(0,0,0,0.2)" justifyContent="space-between">
         <Box flexDirection="row" alignItems="center">
           <Link to="/">
-            <img src="/logo.png" height="40" alt="logo" />
+            <img src="/logo.png" height="17" width="184" alt="logo" />
           </Link>
         </Box>
 

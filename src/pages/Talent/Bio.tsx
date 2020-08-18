@@ -1,47 +1,16 @@
 import React, { FC, useState } from "react";
 import { Row, Col } from "components/Grid";
 import {
-  DescriptionText,
   HeaderText,
+  DescriptionText,
+  Divider,
   StyledContainer,
 } from "styles/components";
 import { Box } from "react-basic-blocks";
-import colors from "styles/colors";
-import AddIcon from "@material-ui/icons/Add";
-import RemoveIcon from "@material-ui/icons/Remove";
 import ReactHtmlParser from "react-html-parser";
-import { AccordionTextBox } from "./styles";
-
-interface IAIProps {
-  title: string;
-  hidden: boolean;
-  hide: (hidden: boolean) => void;
-}
-
-const AccordionItem: FC<IAIProps> = ({ title, hide, hidden }) => {
-  return (
-    <Box
-      backgroundColor={colors.purpleBgFill}
-      width="100%"
-      height="85px"
-      margin="40px 0 0 0"
-      padding="0 32px"
-      flexDirection="row"
-      alignItems="center"
-      justifyContent="space-between"
-      cursor="pointer"
-      borderRadius="12px"
-      onClick={() => hide(!hidden)}
-    >
-      <DescriptionText color={colors.white}>{title}</DescriptionText>
-      {hidden ? (
-        <AddIcon style={{ color: colors.primaryPurple }} fontSize="large" />
-      ) : (
-        <RemoveIcon style={{ color: colors.primaryPurple }} fontSize="large" />
-      )}
-    </Box>
-  );
-};
+import { BioText } from "./styles";
+import colors from "styles/colors";
+import { sanitize, cutAfterSentenceAt } from "./utils";
 
 interface IProps {
   highlights: string;
@@ -49,49 +18,57 @@ interface IProps {
 }
 
 const Bio: FC<IProps> = ({ highlights, details }) => {
-  const [highlightsHidden, setHighlightsHidden] = useState<boolean>(false);
-  const [detailsHidden, setDetailsHidden] = useState<boolean>(true);
+  const sanitizedHighlights = sanitize(highlights);
+  const sanitizedDetails = sanitize(details);
+  const [moreHighlights, setMoreHighlights] = useState<boolean>(false);
+  const [moreDetails, setMoreDetails] = useState<boolean>(false);
+
+  const cleanHighlights = moreHighlights
+    ? sanitizedHighlights
+    : cutAfterSentenceAt(600, sanitizedHighlights);
+  const cleanDetails = moreDetails
+    ? sanitizedDetails
+    : cutAfterSentenceAt(600, sanitizedDetails);
   return (
-    <StyledContainer fluid>
+    <StyledContainer fluid id="bio">
       <Row>
         <Col offset={{ lg: 1 }} md={12} lg={10}>
-          <div id="highlights">
-            <Box margin="80px 0 0 0">
-              <HeaderText>Full Biography</HeaderText>
-            </Box>
-          </div>
-        </Col>
-        <Col offset={{ lg: 1 }} md={12} lg={10}>
-          <AccordionItem
-            title="Highlights"
-            hidden={highlightsHidden}
-            hide={setHighlightsHidden}
-          />
-        </Col>
-        <Col offset={{ lg: 2, md: 1 }} xs={12} md={10} lg={8}>
-          <AccordionTextBox height={highlightsHidden ? "0px" : "auto"}>
-            <DescriptionText color={colors.midGrey}>
-              {ReactHtmlParser(highlights)}
-            </DescriptionText>
-          </AccordionTextBox>
-        </Col>
-        <Col offset={{ lg: 1 }} md={12} lg={10}>
-          <AccordionItem
-            title="Background"
-            hidden={detailsHidden}
-            hide={setDetailsHidden}
-          />
-        </Col>
-        <Col offset={{ lg: 2, md: 1 }} xs={12} md={10} lg={8}>
-          <AccordionTextBox height={detailsHidden ? "0px" : "auto"}>
-            <DescriptionText color={colors.midGrey}>
-              {ReactHtmlParser(details)}
-            </DescriptionText>
-          </AccordionTextBox>
+          <HeaderText>Full Biography</HeaderText>
         </Col>
       </Row>
       <Row>
-        <Box height="80px" />
+        <Col offset={{ lg: 1 }} xs={12} md={6} lg={5}>
+          <Box margin="30px 0">
+            <DescriptionText weight="bold">Highlights</DescriptionText>
+            <Divider width="200px" />
+            <BioText>{ReactHtmlParser(cleanHighlights)}</BioText>
+            {moreHighlights ? null : (
+              <BioText
+                onClick={() => setMoreHighlights(true)}
+                color={colors.primaryPurple}
+                cursor="pointer"
+              >
+                <u>See More</u>
+              </BioText>
+            )}
+          </Box>
+        </Col>
+        <Col offset={{ md: 1 }} xs={12} md={5} lg={4}>
+          <Box margin="30px 0">
+            <DescriptionText weight="bold">Background</DescriptionText>
+            <Divider width="200px" />
+            <BioText>{ReactHtmlParser(cleanDetails)}</BioText>
+            {moreDetails ? null : (
+              <BioText
+                onClick={() => setMoreDetails(true)}
+                color={colors.primaryPurple}
+                cursor="pointer"
+              >
+                <u>See More</u>
+              </BioText>
+            )}
+          </Box>
+        </Col>
       </Row>
     </StyledContainer>
   );

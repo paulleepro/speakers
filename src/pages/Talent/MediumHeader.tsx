@@ -1,10 +1,8 @@
 import React, { FC } from "react";
 import {
-  VirtualText,
   BigText,
   DescriptionText,
   Button,
-  ArrowLeftText,
   StyledContainer,
 } from "styles/components";
 import { Row, Col } from "components/Grid";
@@ -18,9 +16,10 @@ import { config } from "config";
 import colors from "styles/colors";
 import SocialIcons from "components/SocialIcons";
 import StyledImage from "components/StyledImage";
-import { KnownForWrapper, FulfilledByText } from "./styles";
+import { KnownForWrapper, FulfilledByText, StyledScrollLink } from "./styles";
 import Circles from "components/Circles";
 import TopLeftGradient from "components/TopLeftGradient";
+import { sanitize, cutAfterSentenceAt } from "./utils";
 
 interface IProps {
   talent: ITalent;
@@ -52,17 +51,7 @@ const MediumHeader: FC<IProps> = ({ talent }) => {
 
   return (
     <>
-      <StyledContainer fluid>
-        <Row>
-          <Col offset={{ lg: 1 }} xs={12} lg={10}>
-            <Box padding="30px 0 70px">
-              <Link to="/explore">
-                <ArrowLeftText>EXPLORE ALL</ArrowLeftText>
-              </Link>
-            </Box>
-          </Col>
-        </Row>
-      </StyledContainer>
+      <Box height="65px" />
       <Circles
         color={colors.purpleLiner}
         top="50px"
@@ -92,8 +81,7 @@ const MediumHeader: FC<IProps> = ({ talent }) => {
             </FulfilledByText>
           </Col>
           <Col offset={{ md: 1 }} lg={6} md={7}>
-            <Box flexDirection="row" justifyContent="space-between">
-              <VirtualText margin="0px">Featured</VirtualText>
+            <Box flexDirection="row" justifyContent="flex-end">
               <SocialIcons
                 urls={
                   Object.values(social_accounts).filter((x) => x) as string[]
@@ -103,8 +91,18 @@ const MediumHeader: FC<IProps> = ({ talent }) => {
             </Box>
             <BigText>{name}</BigText>
             <DescriptionText>
-              {ReactHtmlParser(getHighlight(highlights))}
+              {ReactHtmlParser(cutAfterSentenceAt(350, sanitize(highlights)))}
             </DescriptionText>
+            <StyledScrollLink
+              to="bio"
+              spy={true}
+              smooth={true}
+              offset={-100}
+              duration={700}
+              delay={300}
+            >
+              See More
+            </StyledScrollLink>
           </Col>
         </Row>
         <Row>

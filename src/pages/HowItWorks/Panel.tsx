@@ -40,7 +40,7 @@ const PanelImage: FC<PIProps> = ({
     >
       <ActionWrapper>
         <StyledImage
-          height={376}
+          height={440}
           src={imageUrl}
           alt="panel-img"
           borderRadius="20px"
@@ -61,6 +61,7 @@ interface IProps {
   description: string;
   imageUrl: string;
   iconUrl?: string;
+  marginTop?: string;
 }
 
 const Panel: FC<IProps> = ({
@@ -69,11 +70,12 @@ const Panel: FC<IProps> = ({
   description,
   imageUrl,
   iconUrl,
+  marginTop,
 }) => {
   const screenClass = useScreenClass();
   const isSmall = ["xs", "sm"].includes(screenClass);
   return (
-    <PanelWrapper>
+    <PanelWrapper marginTop={marginTop}>
       <StyledContainer fluid>
         <Row>
           <PanelImage

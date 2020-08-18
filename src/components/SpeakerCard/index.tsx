@@ -24,7 +24,7 @@ const SpeakerCard: FC<IProps> = ({ name, imageUrl, slug, description }) => {
         <ImageWrapper>
           <StyledImage
             fallbackSrc="/images/default-profile.svg"
-            height={235}
+            height={336}
             borderRadius="20px 20px 0 0"
             src={imageUrl}
             alt="speaker-card"

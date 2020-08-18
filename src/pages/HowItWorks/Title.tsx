@@ -14,7 +14,7 @@ const Title: FC = () => {
       <StyledContainer fluid>
         <Row>
           <Col offset={{ lg: 1 }} xs={12} md={9} lg={6}>
-            <VirtualText>Virtual Speakers</VirtualText>
+            <VirtualText>Virtual Performers</VirtualText>
             <BigText>How It Works</BigText>
             <DescriptionText margin="0">
               We bring our talent directly to you for your upcoming corporate

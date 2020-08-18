@@ -45,8 +45,8 @@ const Talent: FC = () => {
         <Visible md lg>
           <MediumHeader talent={data} />
         </Visible>
-        <Bio highlights={data.bio_highlights} details={data.bio_details} />
         <MoreAboutTalent name={data.name} reviews={data.reviews} />
+        <Bio highlights={data.bio_highlights} details={data.bio_details} />
         <BookTalent name={data.name} slug={data.slug} />
         <MoreLike name={data.name} types={data.types.map((x) => x.name)} />
       </div>

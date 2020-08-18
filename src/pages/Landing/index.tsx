@@ -29,7 +29,7 @@ const Landing: FC = () => {
 
   return (
     <>
-      <HeaderTags description="WME Virtual Speakers is bringing talent directly to your business." />
+      <HeaderTags description="WME Virtual Performers is bringing talent directly to your business." />
       <section>
         <LandingWrapper>
           <TopSemi />
@@ -40,7 +40,7 @@ const Landing: FC = () => {
             <HeroSmall {...heroDatum} />
           </Visible>
           <Explore />
-          <CustomizeEvent />
+          <HowItWorks />
           <Circles
             top="-20px"
             size={"xs" === screenSize ? 75 : 45}
@@ -48,7 +48,7 @@ const Landing: FC = () => {
             color={colors.primaryPurple}
             zIndex="-1"
           />
-          <HowItWorks />
+          <CustomizeEvent />
         </LandingWrapper>
         <StarPower />
       </section>

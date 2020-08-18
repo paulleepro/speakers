@@ -41,7 +41,7 @@ const Explore: FC = () => {
           <Row>
             <Col lg={10} md={12} offset={{ lg: 1 }}>
               <Box alignItems="center" margin="120px 0 0 0">
-                <HeaderText smallerOnMobile>Explore Speakers</HeaderText>
+                <HeaderText smallerOnMobile>Discover Top Talent</HeaderText>
               </Box>
             </Col>
           </Row>
@@ -56,12 +56,12 @@ const Explore: FC = () => {
               </Box>
             </Col>
           </Row>
-          <Featured data={currentTalent} />
+          <Featured data={currentTalent} mdCardsPerRow={4} />
           <Row>
             <Col>
               <Box alignItems="center">
                 <Link to="/explore">
-                  <Button margin="40px 0 0 0">See All Speakers</Button>
+                  <Button margin="40px 0 0 0">See All Performers</Button>
                 </Link>
               </Box>
             </Col>

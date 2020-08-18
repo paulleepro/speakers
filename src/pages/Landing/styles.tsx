@@ -16,9 +16,9 @@ export const HeroWrapper = styled.div`
 export const HeroBGWrapper = styled.div<{ backgroundImage: string }>`
   position: absolute;
   top: 0;
-  right: -100px;
+  right: 8.33%;
   height: 100%;
-  width: 100%;
+  width: 50%;
   background-image: url(${(props) => props.backgroundImage});
   background-size: contain;
   background-repeat: no-repeat;
@@ -32,7 +32,7 @@ export const CustomizeWrapper = styled.div`
   width: 100%;
   background-image: linear-gradient(to bottom, transparent, #221e29);
   border-radius: 0 0 250px 0;
-  padding-bottom: 100px;
+  padding-bottom: 80px;
 `;
 
 export const HowItWorksImage = styled.div`

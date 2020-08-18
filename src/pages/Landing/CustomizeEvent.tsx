@@ -6,7 +6,7 @@ import {
   Button,
   StyledContainer,
 } from "styles/components";
-import { CustomizeWrapper, CenterOnMobile } from "./styles";
+import { CenterOnMobile } from "./styles";
 import { Box } from "react-basic-blocks";
 import Tabs from "components/Tabs";
 import colors from "styles/colors";
@@ -17,7 +17,7 @@ const tabValues = {
   "Panel Discussion": {
     copy:
       "Invite several of the biggest names across any field to join a live panel discussion with other speakers, focusing on a particular topic of your choice!",
-    image: "/images/matt-mcconaughey.png",
+    image: "/images/panel-discussion.png",
   },
   Keynote: {
     copy:
@@ -48,7 +48,8 @@ const CustomizeEvent: FC = () => {
   // @ts-ignore
   const { copy, image } = tabValues[tabs[activeTab]];
   return (
-    <CustomizeWrapper>
+    <>
+      <Box height="120px" />
       <StyledContainer fluid>
         <Row>
           <Col offset={{ md: 1 }} md={10}>
@@ -64,17 +65,8 @@ const CustomizeEvent: FC = () => {
         </Row>
         <Row align="center">
           <Col offset={{ md: 1, sm: 0 }} lg={6} md={5} sm={6} xs={12}>
-            <Box
-              backgroundColor={colors.midDarkGrey}
-              padding="12px"
-              borderRadius="23px"
-              alignItems="center"
-              justifyContent="center"
-              border="1px solid #2a2a2a"
-              margin="0 0 20px"
-            >
-              <StyledImage src={image} borderRadius="12px" />
-            </Box>
+            <StyledImage src={image} borderRadius="12px" />
+            <Box height="10px" />
           </Col>
           <Col lg={4} md={5} sm={6} xs={12}>
             <Box flexDirection="row" alignItems="stretch">
@@ -105,7 +97,7 @@ const CustomizeEvent: FC = () => {
           </Col>
         </Row>
       </StyledContainer>
-    </CustomizeWrapper>
+    </>
   );
 };
 

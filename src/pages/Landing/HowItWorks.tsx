@@ -1,14 +1,17 @@
 import React, { FC } from "react";
-import { Box } from "react-basic-blocks";
 import { Row, Col } from "components/Grid";
 import Step from "./Step";
-import { HowItWorksImageWrapper, HowItWorksImage } from "./styles";
+import {
+  HowItWorksImageWrapper,
+  HowItWorksImage,
+  CustomizeWrapper,
+} from "./styles";
 import StyledImage from "components/StyledImage";
 import { HeaderText, StyledContainer } from "styles/components";
 
 const HowItWorks: FC = () => {
   return (
-    <Box margin="160px 0 0 0">
+    <CustomizeWrapper>
       <StyledContainer fluid>
         <Row>
           <Col lg={5} md={4} sm={6} xs={12}>
@@ -48,7 +51,7 @@ const HowItWorks: FC = () => {
           </Col>
         </Row>
       </StyledContainer>
-    </Box>
+    </CustomizeWrapper>
   );
 };
 

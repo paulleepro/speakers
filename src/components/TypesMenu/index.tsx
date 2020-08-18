@@ -7,7 +7,7 @@ import colors from "styles/colors";
 import { DescriptionText, Divider, CaretRight } from "styles/components";
 import { Box } from "react-basic-blocks";
 
-const MAX_COLUMNS = 4;
+const MAX_COLUMNS = 5;
 
 const getTypes = (i: number, types: IType[]) => {
   const colLength = Math.floor(types.length) / MAX_COLUMNS;
@@ -47,37 +47,49 @@ const TypesMenu: FC<IProps> = ({ types, show, setShow, close }) => {
                 <DescriptionText color={colors.midGrey}>Back</DescriptionText>
               </Box>
             </Visible>
-            <Box flexDirection="row" margin="0 0 32px 0">
-              <Visible md lg>
-                <DescriptionText color={colors.midGrey}>
-                  Browse Types
+          </Col>
+        </Row>
+        <Row>
+          <Col offset={{ lg: 1 }} md={9} lg={8}>
+            <Visible md lg>
+              <DescriptionText color={colors.midGrey}>
+                Browse Types
+              </DescriptionText>
+            </Visible>
+          </Col>
+          <Col md={3}>
+            <Link to="/topic" onClick={() => close && close()}>
+              <Box flexDirection="row">
+                <DescriptionText color={colors.primaryPurple}>
+                  View All Topics
                 </DescriptionText>
-                <DescriptionText color={colors.purpleBgFill} margin="0 10px">
-                  |
+                <DescriptionText color={colors.primaryPurple}>
+                  <CaretRight />
                 </DescriptionText>
-              </Visible>
-              <Link to="/topic" onClick={() => close && close()}>
-                <Box flexDirection="row">
-                  <DescriptionText color={colors.primaryPurple}>
-                    Browse By Topics
-                  </DescriptionText>
-                  <DescriptionText color={colors.primaryPurple}>
-                    <CaretRight />
-                  </DescriptionText>
-                </Box>
-              </Link>
-            </Box>
+              </Box>
+            </Link>
+          </Col>
+        </Row>
+        <Row>
+          <Col offset={{ lg: 1 }} lg={10} xs={12}>
             <Visible xs sm>
               <Divider width="50px" />
+            </Visible>
+            <Visible md lg>
+              <Box
+                height="1px"
+                borderBottom="1px solid #2c2832"
+                margin="24px 0"
+              />
             </Visible>
           </Col>
         </Row>
         <Row>
-          {[0, 1, 2, 3].map((i) => (
+          {[0, 1, 2, 3, 4].map((i) => (
             <Col
               offset={{ lg: i === 0 ? 1 : 0 }}
               md={3}
-              lg={25}
+              lg={2}
               key={`type-col-${i}`}
             >
               {getTypes(i, types).map(({ name, id, slug }) => (

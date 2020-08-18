@@ -17,7 +17,7 @@ const SmallHeader: FC<IProps> = ({ types }) => {
       <Sidebar show={showSidebar} setShow={setShowSidebar} types={types} />
       <Wrapper backgroundColor={colors.black} justifyContent="center">
         <Link to="/">
-          <img src="/logo.png" height="40" alt="logo" />
+          <img src="/logo.png" height="17" width="184" alt="logo" />
         </Link>
 
         <MenuContainer onClick={() => setShowSidebar(true)}>

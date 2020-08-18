@@ -50,6 +50,18 @@ const GlobalStyle = createGlobalStyle`
 	option {
 		font-family: acumin-pro;
 	}
+
+	.tooltip {
+		width: 300px;
+		border-radius: 12px;
+		font-family: acumin-pro;
+		font-size: 16px;
+		font-weight: normal;
+		font-stretch: normal;
+		font-style: normal;
+		line-height: 1.38;
+		letter-spacing: 0.2px;
+	}
 }
 `;
 
