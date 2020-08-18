@@ -1,14 +1,14 @@
 export const heroData = [
   {
-    heroDescriptor: "speakers",
-    imageUrl: "/images/hero-img-1.png",
-  },
-  {
-    heroDescriptor: "inspirers",
+    heroDescriptor: "talent",
     imageUrl: "/images/hero-img-3.png",
   },
   {
-    heroDescriptor: "talent",
+    heroDescriptor: "inspirers",
     imageUrl: "/images/hero-img-2.png",
+  },
+  {
+    heroDescriptor: "leaders",
+    imageUrl: "/images/hero-img-1.png",
   },
 ];
