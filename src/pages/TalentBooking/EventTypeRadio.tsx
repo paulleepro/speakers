@@ -4,18 +4,35 @@ import { Col } from "components/Grid";
 import "react-datepicker/dist/react-datepicker.css";
 import { Box } from "react-basic-blocks";
 import colors from "styles/colors";
-import RadioButtonCheckedIcon from "@material-ui/icons/RadioButtonChecked";
-import RadioButtonUncheckedIcon from "@material-ui/icons/RadioButtonUnchecked";
+import Unchecked from "@material-ui/icons/CheckBoxOutlineBlank";
+import Checked from "@material-ui/icons/CheckBoxOutlined";
 import snakecase from "lodash.snakecase";
 
 interface IETProps {
   label: string;
   eventTypes: string[];
   setValue: (field: string, value: any) => void;
+  eventType: string;
+  digitalOnly?: boolean;
+  inPersonOnly?: boolean;
 }
 
-const EventTypeRadio: FC<IETProps> = ({ label, eventTypes = [], setValue }) => {
+const EventTypeRadio: FC<IETProps> = ({
+  label,
+  eventTypes = [],
+  setValue,
+  eventType,
+  digitalOnly,
+  inPersonOnly,
+}) => {
   const key = snakecase(label);
+
+  if (digitalOnly && eventType !== "digital") {
+    return null;
+  } else if (inPersonOnly && eventType !== "in_person") {
+    return null;
+  }
+
   const checked = eventTypes.includes(key);
   const onClick = () => {
     setValue(
@@ -38,9 +55,9 @@ const EventTypeRadio: FC<IETProps> = ({ label, eventTypes = [], setValue }) => {
         backgroundColor="#000000"
       >
         {checked ? (
-          <RadioButtonCheckedIcon style={{ color: colors.primaryPurple }} />
+          <Checked style={{ color: colors.primaryPurple }} fontSize="large" />
         ) : (
-          <RadioButtonUncheckedIcon />
+          <Unchecked style={{ color: colors.primaryPurple }} fontSize="large" />
         )}
         <DescriptionText weight="bold" margin="0  0 0 10px">
           {label}

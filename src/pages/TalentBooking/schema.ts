@@ -12,10 +12,6 @@ const optionsSchema = yup
     event_state: yup.string(),
     event_city: yup.string(),
     budget_currency: yup.string().required(),
-    budget_min_cents: yup
-      .number()
-      .typeError("Budget Min must be a number")
-      .required("Min Budget is required"),
     budget_max_cents: yup
       .number()
       .typeError("Budget Max must be a number")

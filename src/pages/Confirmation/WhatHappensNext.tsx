@@ -110,8 +110,6 @@ const WhatHappensNext: FC<IProps> = ({ name }) => {
               </DescriptionText>
               <DescriptionText weight="bold" color={colors.white}>
                 {query?.options?.budget_currency}{" "}
-                {query?.options?.budget_min_cents / 100}
-                {" - "}
                 {query?.options?.budget_max_cents / 100}
               </DescriptionText>
               <RequestSpacer />

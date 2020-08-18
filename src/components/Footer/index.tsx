@@ -6,7 +6,7 @@ import {
   ImageWrapper,
   FooterAnchor,
 } from "./styles";
-import { Row, Col, Visible } from "components/Grid";
+import { Row, Col } from "components/Grid";
 import { Link } from "react-router-dom";
 import { Box } from "react-basic-blocks";
 import { hardCodedTalent } from "hard-coded-talent";
@@ -71,7 +71,7 @@ const Footer: FC<IProps> = () => {
           <Col offset={{ md: 1 }} xs={12} md={2}>
             <ImageWrapper>
               <Link to="/">
-                <img src="/logo.png" height="40" alt="logo" />
+                <img src="/logo.png" height="17" width="184" alt="logo" />
               </Link>
             </ImageWrapper>
           </Col>
@@ -99,12 +99,7 @@ const Footer: FC<IProps> = () => {
                     >
                       Privacy Policy
                     </a>
-                    <Visible sm md lg>
-                      {" | "}
-                    </Visible>
-                    <Visible xs>
-                      <br />
-                    </Visible>
+                    {" | "}
                     <a
                       href="http://www.wmeagency.com/cookiepolicy/"
                       target="_terms"

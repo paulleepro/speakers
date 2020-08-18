@@ -29,7 +29,7 @@ const AvailableFor: FC<IProps> = () => {
         border={`1px solid ${colors.purpleLiner}`}
       >
         {productTypes.map(({ title, description }, i) => (
-          <>
+          <div key={`available-for-${i}`}>
             <DescriptionText
               cursor="default"
               margin={i === 0 ? "0" : "32px 0 0 0"}
@@ -52,7 +52,7 @@ const AvailableFor: FC<IProps> = () => {
                 {description}
               </ReactTooltip>
             </Visible>
-          </>
+          </div>
         ))}
       </Box>
     </Wrapper>

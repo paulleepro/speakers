@@ -1,6 +1,16 @@
 import { config } from "config";
 import qs from "qs";
 
+const filterEventTypeOptions = (eventType: string, options: string[]) => {
+  if (eventType === "digital") {
+    return options.filter((x) => !["q_a", "other"].includes(x));
+  } else {
+    return options.filter(
+      (x) => !["digital_q_a", "video_message", "live_drop_in"].includes(x)
+    );
+  }
+};
+
 export const onSubmit = (
   data: any,
   slug: string,
@@ -11,7 +21,11 @@ export const onSubmit = (
   const options = {
     ...data.options,
     budget_max_cents: data.options.budget_max_cents * 100,
-    budget_min_cents: data.options.budget_min_cents * 100,
+    budget_min_cents: 0,
+    event_type_options: filterEventTypeOptions(
+      data.options.event_type,
+      data.options.event_type_options
+    ),
   };
   data = { ...data, options };
   setSubmitting(true);

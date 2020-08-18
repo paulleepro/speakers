@@ -13,8 +13,10 @@ import "react-datepicker/dist/react-datepicker.css";
 import { onSubmit } from "./on-submit";
 import { validationSchema } from "./schema";
 import { BeatLoader } from "react-spinners";
-import { Select, Input, TextArea, StyledForm, InputLabel } from "./styles";
+import { Input, TextArea, StyledForm, InputLabel } from "./styles";
 import EventTypeRadio from "./EventTypeRadio";
+import { Box } from "react-basic-blocks";
+import colors from "styles/colors";
 
 interface IProps {
   slug: string;
@@ -28,14 +30,22 @@ const Form: FC<IProps> = ({ slug, id }) => {
   const { push } = useHistory();
   const { register, handleSubmit, errors, setValue, watch } = useForm({
     validationSchema,
+    defaultValues: {
+      options: {
+        event_type: "digital",
+        event_date: date,
+      },
+    },
   });
   useEffect(() => {
+    register("options.event_type");
     register("options.event_date");
     register("options.event_type_options");
     // eslint-disable-next-line
   }, []);
 
   const eventTypes = watch("options.event_type_options", []);
+  const selectedEventType = watch("options.event_type", "digital");
 
   return (
     <>
@@ -62,10 +72,57 @@ const Form: FC<IProps> = ({ slug, id }) => {
           />
           <Row>
             <Col offset={{ sm: 1, md: 0 }} xs={12} sm={10} md={12}>
-              <DescriptionText margin="24px 0 0 0">
+              <DescriptionText margin="24px 0 80px 0">
                 Please provide some additional information to begin the booking
                 process.
               </DescriptionText>
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={12}>
+              <InputLabel>Select Your Event Type</InputLabel>
+              <Box
+                flexDirection="row"
+                border={`1px solid ${colors.purpleLiner}`}
+                borderRadius="12px"
+                cursor="pointer"
+              >
+                <Box
+                  flexBasis="50%"
+                  backgroundColor={
+                    selectedEventType === "digital"
+                      ? colors.primaryPurple
+                      : colors.purpleBgFill
+                  }
+                  alignItems="center"
+                  borderRadius="12px 0 0 12px"
+                  onClick={() => setValue("options.event_type", "digital")}
+                >
+                  <DescriptionText weight="bold" margin="14px 0">
+                    Digital Event
+                  </DescriptionText>
+                </Box>
+                <Box
+                  flexBasis="50%"
+                  backgroundColor={
+                    selectedEventType === "in_person"
+                      ? colors.primaryPurple
+                      : colors.purpleBgFill
+                  }
+                  alignItems="center"
+                  borderRadius="0 12px 12px 0"
+                  onClick={() => setValue("options.event_type", "in_person")}
+                >
+                  <DescriptionText weight="bold" margin="14px 0">
+                    In-Person Event
+                  </DescriptionText>
+                </Box>
+              </Box>
+              <ErrorMessage
+                as={StyledError}
+                errors={errors}
+                name="options.event_type"
+              />
             </Col>
           </Row>
           <DescriptionText weight="bold" margin="30px 0">
@@ -74,25 +131,6 @@ const Form: FC<IProps> = ({ slug, id }) => {
           <Divider width="200px" />
 
           <Row>
-            <Col xs={12} sm={6}>
-              <InputLabel>Event Type</InputLabel>
-              <Select
-                ref={register}
-                name="options.event_type"
-                defaultValue="default"
-              >
-                <option disabled value="default">
-                  Select Event Type
-                </option>
-                <option value="in_person">In Person</option>
-                <option value="digital">Digital Event</option>
-              </Select>
-              <ErrorMessage
-                as={StyledError}
-                errors={errors}
-                name="options.event_type"
-              />
-            </Col>
             <Col xs={12} sm={6}>
               <InputLabel>Event Date</InputLabel>
               <DatePicker
@@ -120,26 +158,48 @@ const Form: FC<IProps> = ({ slug, id }) => {
               label="Keynote"
               eventTypes={eventTypes}
               setValue={setValue}
+              eventType={selectedEventType}
             />
             <EventTypeRadio
               label="Digital Q&A"
               eventTypes={eventTypes}
               setValue={setValue}
+              digitalOnly
+              eventType={selectedEventType}
+            />
+            <EventTypeRadio
+              label="Q&A"
+              eventTypes={eventTypes}
+              setValue={setValue}
+              inPersonOnly
+              eventType={selectedEventType}
             />
             <EventTypeRadio
               label="Video Message"
               eventTypes={eventTypes}
               setValue={setValue}
+              digitalOnly
+              eventType={selectedEventType}
             />
             <EventTypeRadio
               label="Panel Discussion"
               eventTypes={eventTypes}
               setValue={setValue}
+              eventType={selectedEventType}
             />
             <EventTypeRadio
               label="Live Drop In"
               eventTypes={eventTypes}
               setValue={setValue}
+              digitalOnly
+              eventType={selectedEventType}
+            />
+            <EventTypeRadio
+              label="Other"
+              eventTypes={eventTypes}
+              setValue={setValue}
+              inPersonOnly
+              eventType={selectedEventType}
             />
           </Row>
 
@@ -148,23 +208,16 @@ const Form: FC<IProps> = ({ slug, id }) => {
           </DescriptionText>
           <Divider width="200px" />
           <Row align="end">
-            <Col xs={6} sm={3}>
-              <InputLabel>Budget Range</InputLabel>
+            <Col xs={12} sm={4}>
+              <InputLabel>Do You Have a Budget?</InputLabel>
               <Input
-                placeholder="$ Min"
-                name="options.budget_min_cents"
-                ref={register}
-              />
-            </Col>
-            <Col xs={6} sm={3}>
-              <Input
-                placeholder="$ Max"
+                placeholder="$ Enter an estimate"
                 name="options.budget_max_cents"
                 ref={register}
               />
             </Col>
-            <Col xs={12} sm={6}>
-              <InputLabel>Event Theme</InputLabel>
+            <Col xs={12} sm={8}>
+              <InputLabel>Do You Have an Event Theme?</InputLabel>
               <Input
                 placeholder="Tech, Education, Politics..."
                 name="options.event_theme"
@@ -174,11 +227,6 @@ const Form: FC<IProps> = ({ slug, id }) => {
           </Row>
           <Row>
             <Col>
-              <ErrorMessage
-                as={StyledError}
-                errors={errors}
-                name="options.budget_min_cents"
-              />
               <ErrorMessage
                 as={StyledError}
                 errors={errors}
