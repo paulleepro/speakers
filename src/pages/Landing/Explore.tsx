@@ -40,7 +40,7 @@ const Explore: FC = () => {
         <StyledContainer fluid>
           <Row>
             <Col lg={10} md={12} offset={{ lg: 1 }}>
-              <Box alignItems="center" margin="120px 0 0 0">
+              <Box alignItems="center" margin="100px 0 0 0">
                 <HeaderText smallerOnMobile>Discover Top Talent</HeaderText>
               </Box>
             </Col>

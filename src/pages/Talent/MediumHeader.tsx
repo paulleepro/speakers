@@ -101,7 +101,7 @@ const MediumHeader: FC<IProps> = ({ talent }) => {
               duration={700}
               delay={300}
             >
-              See More
+              View full bio
             </StyledScrollLink>
           </Col>
         </Row>

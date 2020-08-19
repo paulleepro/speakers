@@ -24,7 +24,7 @@ const HeroMedium: FC<IProps> = ({ heroDescriptor, imageUrl }) => {
             <img src={imageUrl} alt="hero" />
           </HeroBGWrapper>
           <Col offset={{ md: 0, lg: 1 }} md={8} lg={5}>
-            <VirtualText margin="80px 0 0 0">Virtual Performers</VirtualText>
+            <VirtualText margin="100px 0 0 0">Virtual Performers</VirtualText>
             <LargeText>
               World class
               <br />

@@ -99,7 +99,7 @@ const SmallHeader: FC<IProps> = ({ talent }) => {
                 duration={700}
                 delay={300}
               >
-                See More
+                View fill bio
               </StyledScrollLink>
             </DescriptionText>
           </Col>

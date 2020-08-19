@@ -17,8 +17,8 @@ const OurEvents: FC = () => {
       <StyledContainer fluid>
         <Row>
           <Col offset={{ lg: 1, md: 0, sm: 1 }} xs={12} sm={10} md={9} lg={6}>
-            <Box margin="80px 0">
-              <BigText>Our Events</BigText>
+            <Box margin="0 0 80px 0">
+              <BigText margin="0 0 35px 0">Our Events</BigText>
               <DescriptionText>
                 In this increasingly digital and adaptive environment, we
                 provide access to book top-tier talent for both in-person and

@@ -23,7 +23,7 @@ export const HeroBGWrapper = styled.div`
   background-repeat: no-repeat;
   background-position-x: 100%;
   background-position-y: 0px;
-  margin-top: 50px;
+  margin-top: 100px;
   img {
     width: 100%;
     box-shadow: 50px 50px 24px 0 rgba(0, 0, 0, 0.5);
@@ -31,7 +31,7 @@ export const HeroBGWrapper = styled.div`
 `;
 
 export const CustomizeWrapper = styled.div`
-  margin-top: 160px;
+  margin-top: 120px;
   width: 100%;
   background-image: linear-gradient(to bottom, transparent, #221e29);
   border-radius: 0 0 250px 0;

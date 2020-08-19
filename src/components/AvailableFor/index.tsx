@@ -9,7 +9,6 @@ import { Visible } from "components/Grid";
 
 const Wrapper = styled(Box)`
   position: relative;
-  padding-bottom: 20px;
 `;
 
 interface IProps {}
@@ -23,7 +22,7 @@ const AvailableFor: FC<IProps> = () => {
         backgroundColor={colors.purpleBgFill}
         borderRadius="12px"
         width="100%"
-        margin="0 0 16px 0"
+        margin="0"
         padding="40px 32px"
         justifyContent="center"
         border={`1px solid ${colors.purpleLiner}`}

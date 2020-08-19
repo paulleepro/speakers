@@ -23,8 +23,8 @@ const Sidebar: FC<IProps> = ({ show, setShow, types }) => {
   return (
     <SidebarContainer className={show ? "open" : ""}>
       <IconWrapper>
-        <Link to="/" onClick={() => close()}>
-          <img src="logo.png" alt="logo" height="32" />
+        <Link to="/" onClick={() => close()} style={{ marginTop: 5 }}>
+          <img src="/logo.png" height="17" width="184" alt="logo" />
         </Link>
         <CloseIcon style={{ color: "#FFF" }} onClick={close} />
       </IconWrapper>

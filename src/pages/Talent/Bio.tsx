@@ -33,7 +33,7 @@ const Bio: FC<IProps> = ({ highlights, details }) => {
     <StyledContainer fluid id="bio">
       <Row>
         <Col offset={{ lg: 1 }} md={12} lg={10}>
-          <HeaderText>Full Biography</HeaderText>
+          <HeaderText margin="0">Full Biography</HeaderText>
         </Col>
       </Row>
       <Row>

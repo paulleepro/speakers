@@ -13,6 +13,7 @@ import { Visible } from "components/Grid";
 import SmallHeader from "./SmallHeader";
 import { config } from "config";
 import HeaderTags from "components/HeaderTags";
+import { TopAreaDivider } from "styles/components";
 
 const Talent: FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -46,6 +47,7 @@ const Talent: FC = () => {
           <MediumHeader talent={data} />
         </Visible>
         <MoreAboutTalent name={data.name} reviews={data.reviews} />
+        <TopAreaDivider />
         <Bio highlights={data.bio_highlights} details={data.bio_details} />
         <BookTalent name={data.name} slug={data.slug} />
         <MoreLike name={data.name} types={data.types.map((x) => x.name)} />
