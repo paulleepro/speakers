@@ -28,7 +28,7 @@ export const TypesWrapper = styled.div`
     top: 82px;
     left: 0;
     z-index: 16;
-    padding: 32px 0;
+    padding: 24px 0;
     border-bottom: 1px solid ${colors.purpleLiner};
   }
 `;
