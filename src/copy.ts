@@ -33,7 +33,7 @@ export const productTypes = [
     title: "Digital Video Message",
     description:
       "The talent of your choice will deliver a pre-recorded message based on brief provided by you.",
-    imageUrl: "/images/barack-obama.png",
+    imageUrl: "/images/michael-strahan.png",
     iconUrl: "/images/video-bubble.png",
   },
   {

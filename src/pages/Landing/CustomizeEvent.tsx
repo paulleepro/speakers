@@ -37,7 +37,7 @@ const tabValues = {
   "Video Message": {
     copy:
       "The talent of your choice will provide a short, pre-recorded video message based on a brief provided by you!",
-    image: "/images/barack-obama.png",
+    image: "/images/michael-strahan.png",
   },
 };
 
