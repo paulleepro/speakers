@@ -1,7 +1,7 @@
-import React, { ReactElement, useContext } from "react";
+import React, { ReactElement, useContext, useEffect } from "react";
 import styled from "styled-components/macro";
 import { Box } from "react-basic-blocks";
-import { Route, Switch } from "react-router";
+import { Route, Switch, useLocation } from "react-router";
 import AppHeader from "components/AppHeader";
 import Landing from "pages/Landing";
 import Footer from "components/Footer";
@@ -35,7 +35,21 @@ const Wrapper = styled.div`
   }
 `;
 
+declare global {
+  interface Window {
+    analytics: any;
+  }
+}
+
+const usePageViews = () => {
+  const location = useLocation();
+  useEffect(() => {
+    window.analytics.page(location.pathname);
+  }, [location]);
+};
+
 const App = (): ReactElement => {
+  usePageViews();
   const { authenticated } = useContext(AuthContext);
 
   if (!authenticated && navigator.userAgent !== "ReactSnap") {
