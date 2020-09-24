@@ -12,7 +12,7 @@ export const StyledText = styled(Text)`
 `;
 
 export const StyledLink = styled(Link)`
-  color: #ffffff;
+  color: #fff;
   font-size: 24px;
   font-weight: normal;
   font-stretch: normal;
