@@ -26,8 +26,10 @@ describe("Booking inquiry form design", () => {
           failOnStatusCode: !devEnv
         }).should("include", fixture.talent_booking_url);
 
-        cy.get(".container > div > div > span:first")
-          .should("have.text", fixture.talent_full_name);
+        cy.get('.container > div > div > h1:first').should(
+          'have.text',
+          fixture.talent_full_name
+        );
 
         cy.wait(5000);
 
