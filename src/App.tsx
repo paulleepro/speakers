@@ -1,23 +1,24 @@
-import React, { ReactElement, useContext, useEffect } from "react";
+import React, { ReactElement, useContext, useEffect, lazy } from "react";
 import styled from "styled-components/macro";
 import { Box } from "react-basic-blocks";
 import { Route, Switch, useLocation } from "react-router";
-import AppHeader from "components/AppHeader";
-import Landing from "pages/Landing";
-import Footer from "components/Footer";
-import HowItWorks from "pages/HowItWorks";
-import Explore from "pages/Explore";
-import Talent from "pages/Talent";
-import TalentBooking from "pages/TalentBooking";
-import Confirmation from "pages/Confirmation";
 import { TopRightSemi } from "styles/components";
-import Topics from "pages/TopicList";
-import Subtopic from "pages/Subtopic";
-import Type from "pages/Type";
-import FAQ from "pages/FAQ";
-import SearchResults from "pages/SearchResults";
 import { AuthContext } from "AuthContext";
-import PasswordProtection from "pages/PasswordProtection";
+
+const AppHeader = lazy(() => import("components/AppHeader"));
+const Confirmation = lazy(() => import("pages/Confirmation"));
+const FAQ = lazy(() => import("pages/FAQ"));
+const Explore = lazy(() => import("pages/Explore"));
+const Footer = lazy(() => import("components/Footer"));
+const HowItWorks = lazy(() => import("pages/HowItWorks"));
+const Landing = lazy(() => import("pages/Landing"));
+const PasswordProtection = lazy(() => import("pages/PasswordProtection"));
+const SearchResults = lazy(() => import("pages/SearchResults"));
+const Subtopic = lazy(() => import("pages/Subtopic"));
+const Talent = lazy(() => import("pages/Talent"));
+const TalentBooking = lazy(() => import("pages/TalentBooking"));
+const Topics = lazy(() => import("pages/TopicList"));
+const Type = lazy(() => import("pages/Type"));
 
 const Wrapper = styled.div`
   display: flex;

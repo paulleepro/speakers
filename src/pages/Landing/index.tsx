@@ -1,16 +1,18 @@
-import React, { FC, useState, useEffect } from "react";
-import HeroMedium from "./HeroMedium";
+import React, { FC, useState, useEffect, lazy } from "react";
 import { LandingWrapper, TopSemi } from "./styles";
 import { Visible, useScreenClass } from "components/Grid";
-import Explore from "./Explore";
-import CustomizeEvent from "./CustomizeEvent";
-import HowItWorks from "./HowItWorks";
-import StarPower from "components/StarPower";
-import HeroSmall from "./HeroSmall";
-import { heroData } from "./hero-data";
-import Circles from "components/Circles";
 import colors from "styles/colors";
-import HeaderTags from "components/HeaderTags";
+import { heroData } from "./hero-data";
+
+const Circles = lazy(() => import("components/Circles"));
+const HeaderTags = lazy(() => import("components/HeaderTags"));
+const StarPower = lazy(() => import("components/StarPower"));
+
+const CustomizeEvent = lazy(() => import("./CustomizeEvent"));
+const Explore = lazy(() => import("./Explore"));
+const HeroMedium = lazy(() => import("./HeroMedium"));
+const HeroSmall = lazy(() => import("./HeroSmall"));
+const HowItWorks = lazy(() => import("./HowItWorks"));
 
 const Landing: FC = () => {
   const [counter, setCounter] = useState<number>(0);

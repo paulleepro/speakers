@@ -1,18 +1,22 @@
-import React from "react";
+import React, { lazy } from "react";
 import { hydrate, render } from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
-import GlobalStyles from "styles/global-styles";
-import App from "App";
-import ScrollToTop from "components/ScrollTop";
 import { AuthProvider } from "AuthContext";
+import LazyWrapper from "components/LazyWrapper";
+
+const App = lazy(() => import("App"));
+const GlobalStyles = lazy(() => import("styles/global-styles"));
+const ScrollToTop = lazy(() => import("components/ScrollTop"));
 
 const FullApp = () => (
   <Router>
-    <GlobalStyles />
-    <ScrollToTop />
-    <AuthProvider>
-      <App />
-    </AuthProvider>
+    <LazyWrapper>
+      <GlobalStyles />
+      <ScrollToTop />
+      <AuthProvider>
+        <App />
+      </AuthProvider>
+    </LazyWrapper>
   </Router>
 );
 

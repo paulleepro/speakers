@@ -1,18 +1,19 @@
-import React, { FC } from "react";
+import React, { FC, lazy } from "react";
 import { fetchSingle } from "fetch-hooks-react";
 import Loader from "components/Loader";
 import { config } from "config";
-import ErrorNotice from "components/ErrorNotice";
-import StarPower from "components/StarPower";
-import Title from "./Title";
 import CategoryPreview from "./CategoryPreview";
-import Featured from "components/Featured";
 import { IListResult, ITalent } from "types";
 import { hardCodedTalent } from "hard-coded-talent";
 import { StyledContainer } from "styles/components";
-import TopLeftGradient from "components/TopLeftGradient";
 import { Visible } from "components/Grid";
-import HeaderTags from "components/HeaderTags";
+
+const ErrorNotice = lazy(() => import("components/ErrorNotice"));
+const Featured = lazy(() => import("components/Featured"));
+const HeaderTags = lazy(() => import("components/HeaderTags"));
+const StarPower = lazy(() => import("components/StarPower"));
+const Title = lazy(() => import("./Title"));
+const TopLeftGradient = lazy(() => import("components/TopLeftGradient"));
 
 const getTalent = (data: ITalent[], slugs: string[]) =>
   data.filter((x) => slugs.includes(x.slug));
