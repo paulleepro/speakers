@@ -1,17 +1,18 @@
-import React, { FC } from "react";
+import React, { FC, lazy } from "react";
 import { useLocation } from "react-router";
 import { Row, Col, Visible } from "components/Grid";
 import { ISearch } from "types";
 import { config } from "config";
-import SpeakerCard from "components/SpeakerCard";
 import { fetchSingle } from "fetch-hooks-react";
 import Loader from "components/Loader";
-import ErrorNotice from "components/ErrorNotice";
 import { BigText, StyledContainer } from "styles/components";
 import { Box } from "react-basic-blocks";
-import StarPower from "components/StarPower";
-import TopLeftGradient from "components/TopLeftGradient";
-import HeaderTags from "components/HeaderTags";
+
+const ErrorNotice = lazy(() => import("components/ErrorNotice"));
+const HeaderTags = lazy(() => import("components/HeaderTags"));
+const SpeakerCard = lazy(() => import("components/SpeakerCard"));
+const StarPower = lazy(() => import("components/StarPower"));
+const TopLeftGradient = lazy(() => import("components/TopLeftGradient"));
 
 const SearchResults: FC = () => {
   const query = new URLSearchParams(useLocation().search);

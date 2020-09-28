@@ -1,19 +1,20 @@
-import React, { FC } from "react";
+import React, { FC, lazy } from "react";
 import { useParams } from "react-router";
 import { fetchSingle } from "fetch-hooks-react";
 import Loader from "components/Loader";
 import ErrorNotice from "components/ErrorNotice";
-import MediumHeader from "./MediumHeader";
 import { ITalent } from "types";
-import Bio from "./Bio";
-import MoreAboutTalent from "./MoreAboutTalent";
-import BookTalent from "./BookTalent";
-import MoreLike from "./MoreLike";
 import { Visible } from "components/Grid";
-import SmallHeader from "./SmallHeader";
 import { config } from "config";
 import HeaderTags from "components/HeaderTags";
 import { TopAreaDivider } from "styles/components";
+
+const Bio = lazy(() => import("./Bio"));
+const BookTalent = lazy(() => import("./BookTalent"));
+const MediumHeader = lazy(() => import("./MediumHeader"));
+const MoreAboutTalent = lazy(() => import("./MoreAboutTalent"));
+const MoreLike = lazy(() => import("./MoreLike"));
+const SmallHeader = lazy(() => import("./SmallHeader"));
 
 const Talent: FC = () => {
   const { slug } = useParams<{ slug: string }>();

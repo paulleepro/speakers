@@ -1,4 +1,6 @@
-import React, { FC, useState, memo } from "react";
+import React, { FC, useState, memo, lazy } from "react";
+import { Link } from "react-router-dom";
+import { Box } from "react-basic-blocks";
 import { Row, Col } from "components/Grid";
 import {
   HeaderText,
@@ -7,11 +9,10 @@ import {
   StyledContainer,
 } from "styles/components";
 import { CenterOnMobile } from "./styles";
-import { Box } from "react-basic-blocks";
-import Tabs from "components/Tabs";
 import colors from "styles/colors";
-import { Link } from "react-router-dom";
-import StyledImage from "components/StyledImage";
+
+const StyledImage = lazy(() => import("components/StyledImage"));
+const Tabs = lazy(() => import("components/Tabs"));
 
 const tabValues = {
   "Panel Discussion": {
