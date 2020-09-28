@@ -32,7 +32,7 @@ describe("Search result design", () => {
         }).should("include", fixture.search_results_url);
         cy.wait(8000);
 
-        cy.compareSnapshot(`search-result-${screenSize}`, 0.1);
+        cy.compareSnapshot(`search-result-${screenSize}`, 0.8);
       });
     });
   });
