@@ -82,6 +82,7 @@ const Form: FC<IProps> = ({ slug, id }) => {
             <Col xs={12}>
               <InputLabel>Select Your Event Type</InputLabel>
               <Box
+                className="event_type"
                 flexDirection="row"
                 border={`1px solid ${colors.purpleLiner}`}
                 borderRadius="12px"

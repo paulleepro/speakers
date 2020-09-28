@@ -21,7 +21,7 @@ describe("Booking inquiry form", () => {
         const devEnv = Cypress.env("DEV_ENV");
         cy.visit(fixture.talent_url, { failOnStatusCode: !devEnv });
 
-        cy.get(".container > div > div > span:first")
+        cy.get(".container > div > div > h1:first")
           .should("have.text", fixture.talent_full_name);
 
         cy.get("button").contains(fixture.booking_button_text).click({
@@ -33,15 +33,14 @@ describe("Booking inquiry form", () => {
           failOnStatusCode: !devEnv
         }).should("include", fixture.talent_booking_url);
 
-        cy.get(".container > div > div > span:first")
+        cy.get(".container > div > div > h1:first")
           .should("have.text", fixture.talent_full_name);
 
         cy.get("form").filter(':visible').within(() => {
           cy.get("input[name=talent_id]");
           cy.get("input[name='options.budget_currency']");
-          cy.get("select[name='options.event_type']").filter(':visible');
+          cy.get('.event_type').filter(':visible');
           cy.get("input[class='date-picker']").filter(':visible');
-          cy.get("input[name='options.budget_min_cents']").filter(':visible');
           cy.get("input[name='options.budget_max_cents']").filter(':visible');
           cy.get("input[name='options.event_theme']").filter(':visible');
           cy.get("textarea[name='options.notes']").filter(':visible');
@@ -69,12 +68,11 @@ describe("Booking inquiry form", () => {
           const date = new Date();
           date.setDate(date.getDate() + 3);
 
-          cy.get("select[name='options.event_type']").filter(':visible').select(fixture.booking_inquiry_event_type);
+          cy.get('.event_type').children().last().click();
           cy.get("input[class='date-picker']").filter(':visible').clear().type(`${date.getMonth()}/${date.getDay()}/${date.getFullYear()}`);
           cy.get("span").contains(fixture.booking_inquiry_interest).click({
             force: true
           });
-          cy.get("input[name='options.budget_min_cents']").filter(':visible').type("1000");
           cy.get("input[name='options.budget_max_cents']").filter(':visible').type("5000");
           cy.get("input[name='options.event_theme']").filter(':visible').type("Fun NBA stories");
           cy.get("textarea[name='options.notes']").filter(':visible').type("Bring your basketball!");
