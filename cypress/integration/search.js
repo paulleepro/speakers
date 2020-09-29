@@ -29,6 +29,8 @@ describe("Search", () => {
           timeout: 10000
         }).should("include", fixture.search_results_url);
 
+        cy.wait(3000);
+
         fixture.search_expected_results.forEach((result) => {
           cy.get(`a[href="${result[1]}"] > div > div > span`).first().should("have.text", result[0]);
         });

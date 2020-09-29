@@ -60,7 +60,9 @@ describe("Shared password form", () => {
         cy.get("input[type=password]").clear().type(fixture.password_valid);
         cy.get("form").submit();
 
-        cy.get("span").contains(fixture.landing_page_browse_talent_text);
+        cy.wait(3000);
+
+        cy.get('span').contains(fixture.landing_page_browse_talent_text);
       });
     });
   });
