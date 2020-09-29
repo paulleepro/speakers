@@ -55,6 +55,7 @@ const SearchAutocomplete: FC<IProps> = ({ onClickAway, close }) => {
 
   useEffect(() => {
     if (debouncedSearchTerm) {
+      window.analytics.track("search", { query: debouncedSearchTerm });
       fetch(
         `${config.speakersTalentUrl}/v1/talents/search/multi-match?query=${debouncedSearchTerm}&limit=20`
       ).then(async (res) => {

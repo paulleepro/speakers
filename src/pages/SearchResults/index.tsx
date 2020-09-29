@@ -16,8 +16,9 @@ const TopLeftGradient = lazy(() => import("components/TopLeftGradient"));
 
 const SearchResults: FC = () => {
   const query = new URLSearchParams(useLocation().search);
+  const queryVal = query.get("query");
   const { data, error, isLoading } = fetchSingle<ISearch>(
-    `${config.speakersTalentUrl}/v1/talents/search/multi-match?query=${query}&limit=20`
+    `${config.speakersTalentUrl}/v1/talents/search/multi-match?query=${queryVal}&limit=20`
   );
 
   if (isLoading) {
