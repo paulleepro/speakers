@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect } from "react";
+import React, { FC, useState, useEffect, lazy } from "react";
 import {
   DescriptionText,
   Divider,
@@ -8,15 +8,17 @@ import {
 import { Row, Col } from "components/Grid";
 import { useHistory } from "react-router";
 import { useForm, ErrorMessage } from "react-hook-form";
-import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { onSubmit } from "./on-submit";
 import { validationSchema } from "./schema";
-import { BeatLoader } from "react-spinners";
+import BeatLoader from "react-spinners/BeatLoader";
 import { Input, TextArea, StyledForm, InputLabel } from "./styles";
 import EventTypeRadio from "./EventTypeRadio";
 import { Box } from "react-basic-blocks";
 import colors from "styles/colors";
+import LazyWrapper from "components/LazyWrapper";
+
+const DatePicker = lazy(() => import("react-datepicker"));
 
 interface IProps {
   slug: string;
@@ -134,14 +136,16 @@ const Form: FC<IProps> = ({ slug, id }) => {
           <Row>
             <Col xs={12} sm={6}>
               <InputLabel>Event Date</InputLabel>
-              <DatePicker
-                onChange={(value: Date) => {
-                  setValue("options.event_date", value);
-                  setDate(value);
-                }}
-                selected={date}
-                className="date-picker"
-              />
+              <LazyWrapper>
+                <DatePicker
+                  onChange={(value: Date) => {
+                    setValue("options.event_date", value);
+                    setDate(value);
+                  }}
+                  selected={date}
+                  className="date-picker"
+                />
+              </LazyWrapper>
               <ErrorMessage
                 as={StyledError}
                 errors={errors}

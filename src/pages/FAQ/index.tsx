@@ -1,13 +1,15 @@
-import React, { FC } from "react";
+import React, { FC, lazy } from "react";
 import { Row, Col } from "components/Grid";
-import StarPower from "components/StarPower";
 import { BigText, TopAreaDivider, StyledContainer } from "styles/components";
-import QuestionAnswer from "./QuestionAnswer";
-import HeaderTags from "components/HeaderTags";
+import LazyWrapper from "components/LazyWrapper";
+
+const StarPower = lazy(() => import("components/StarPower"));
+const QuestionAnswer = lazy(() => import("./QuestionAnswer"));
+const HeaderTags = lazy(() => import("components/HeaderTags"));
 
 const FAQ: FC = () => {
   return (
-    <>
+    <LazyWrapper>
       <HeaderTags
         title="FAQ"
         description="Frequently asked questions about our many high-profile speakers. Our high-profile speakers are available digitally for your next corporate town hall, board meeting, or retreat."
@@ -39,7 +41,7 @@ const FAQ: FC = () => {
         </StyledContainer>
         <StarPower />
       </div>
-    </>
+    </LazyWrapper>
   );
 };
 

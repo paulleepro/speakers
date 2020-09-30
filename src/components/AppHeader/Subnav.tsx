@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useState, lazy } from "react";
 import { Container, Row, Col } from "components/Grid";
 import {
   SubnavWrapper,
@@ -9,11 +9,13 @@ import {
 } from "./styles";
 import { Box } from "react-basic-blocks";
 import colors from "styles/colors";
-import SearchAutocomplete from "components/SearchAutocomplete";
 import ClickAwayListener from "react-click-away-listener";
 import { IType } from "types";
-import TypesMenu from "components/TypesMenu";
 import useScrollPosition from "@react-hook/window-scroll";
+import LazyWrapper from "components/LazyWrapper";
+
+const SearchAutocomplete = lazy(() => import("components/SearchAutocomplete"));
+const TypesMenu = lazy(() => import("components/TypesMenu"));
 
 interface IProps {
   types?: IType[];
@@ -48,17 +50,21 @@ const Subnav: FC<IProps> = ({ types }) => {
                 </Box>
               </ClickAwayListener>
               <SearchBarContainer>
-                <SearchAutocomplete />
+                <LazyWrapper>
+                  <SearchAutocomplete />
+                </LazyWrapper>
               </SearchBarContainer>
             </SubnavContainer>
           </Col>
         </Row>
       </Container>
-      <TypesMenu
-        types={types}
-        show={showTypes}
-        close={() => setShowTypes(false)}
-      />
+      <LazyWrapper>
+        <TypesMenu
+          types={types}
+          show={showTypes}
+          close={() => setShowTypes(false)}
+        />
+      </LazyWrapper>
     </SubnavWrapper>
   );
 };

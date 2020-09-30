@@ -1,12 +1,14 @@
-import React, { FC, useState } from "react";
+import React, { FC, useState, lazy } from "react";
 import { SidebarContainer, IconWrapper } from "./styles";
 import CloseIcon from "@material-ui/icons/Close";
 import { Link } from "react-router-dom";
 import { DescriptionText, Divider, CaretRight } from "styles/components";
-import SearchAutocomplete from "components/SearchAutocomplete";
 import { Box } from "react-basic-blocks";
 import { IType } from "types";
-import TypesMenu from "components/TypesMenu";
+import LazyWrapper from "components/LazyWrapper";
+
+const SearchAutocomplete = lazy(() => import("components/SearchAutocomplete"));
+const TypesMenu = lazy(() => import("components/TypesMenu"));
 
 interface IProps {
   show?: boolean;
@@ -31,7 +33,9 @@ const Sidebar: FC<IProps> = ({ show, setShow, types }) => {
 
       {!showTypes ? (
         <>
-          <SearchAutocomplete close={close} />
+          <LazyWrapper>
+            <SearchAutocomplete close={close} />
+          </LazyWrapper>
 
           <Link to="/how-it-works" onClick={() => close()}>
             <DescriptionText noCenterAlign weight="bold" margin="40px 0 20px 0">
@@ -59,12 +63,14 @@ const Sidebar: FC<IProps> = ({ show, setShow, types }) => {
           <Divider width="50px" />
         </>
       ) : (
-        <TypesMenu
-          types={types}
-          show
-          setShow={setShowTypes}
-          close={() => setShow(false)}
-        />
+        <LazyWrapper>
+          <TypesMenu
+            types={types}
+            show
+            setShow={setShowTypes}
+            close={() => setShow(false)}
+          />
+        </LazyWrapper>
       )}
     </SidebarContainer>
   );

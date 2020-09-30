@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { Box, BoxProps } from "react-basic-blocks";
-import { BeatLoader } from "react-spinners";
+import BeatLoader from "react-spinners/BeatLoader";
 
 type Props = BoxProps & {
   size?: number;

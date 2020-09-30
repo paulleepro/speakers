@@ -2,13 +2,14 @@ import React, { FC, lazy } from "react";
 import { useParams } from "react-router";
 import { fetchSingle } from "fetch-hooks-react";
 import Loader from "components/Loader";
-import ErrorNotice from "components/ErrorNotice";
 import { ITalent } from "types";
 import { Visible } from "components/Grid";
 import { config } from "config";
-import HeaderTags from "components/HeaderTags";
 import { TopAreaDivider } from "styles/components";
+import LazyWrapper from "components/LazyWrapper";
 
+const HeaderTags = lazy(() => import("components/HeaderTags"));
+const ErrorNotice = lazy(() => import("components/ErrorNotice"));
 const Bio = lazy(() => import("./Bio"));
 const BookTalent = lazy(() => import("./BookTalent"));
 const MediumHeader = lazy(() => import("./MediumHeader"));
@@ -29,7 +30,7 @@ const Talent: FC = () => {
   }
 
   return (
-    <>
+    <LazyWrapper>
       <HeaderTags
         title={data.name}
         description={
@@ -53,7 +54,7 @@ const Talent: FC = () => {
         <BookTalent name={data.name} slug={data.slug} />
         <MoreLike name={data.name} types={data.types.map((x) => x.name)} />
       </div>
-    </>
+    </LazyWrapper>
   );
 };
 

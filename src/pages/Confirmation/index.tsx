@@ -1,13 +1,15 @@
-import React, { FC } from "react";
+import React, { FC, lazy } from "react";
 import { useParams } from "react-router";
 import { fetchSingle } from "fetch-hooks-react";
 import Loader from "components/Loader";
-import ErrorNotice from "components/ErrorNotice";
-import Title from "./Title";
-import StarPower from "components/StarPower";
 import { config } from "config";
 import { ITalent } from "types";
-import WhatHappensNext from "./WhatHappensNext";
+import LazyWrapper from "components/LazyWrapper";
+
+const ErrorNotice = lazy(() => import("components/ErrorNotice"));
+const Title = lazy(() => import("./Title"));
+const StarPower = lazy(() => import("components/StarPower"));
+const WhatHappensNext = lazy(() => import("./WhatHappensNext"));
 
 const Confirmation: FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -18,13 +20,19 @@ const Confirmation: FC = () => {
   if (isLoading) {
     return <Loader />;
   } else if (error || !data) {
-    return <ErrorNotice />;
+    return (
+      <LazyWrapper>
+        <ErrorNotice />
+      </LazyWrapper>
+    );
   }
   return (
     <div>
-      <Title name={data.name} slug={slug} />
-      <WhatHappensNext name={data.name} />
-      <StarPower />
+      <LazyWrapper>
+        <Title name={data.name} slug={slug} />
+        <WhatHappensNext name={data.name} />
+        <StarPower />
+      </LazyWrapper>
     </div>
   );
 };

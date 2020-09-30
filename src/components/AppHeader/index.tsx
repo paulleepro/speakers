@@ -1,18 +1,20 @@
-import React, { FC } from "react";
-import SmallHeader from "./SmallHeader";
-import BigHeader from "./BigHeader";
+import React, { FC, lazy } from "react";
 import { Visible } from "components/Grid";
 import { fetchSingle } from "fetch-hooks-react";
 import { config } from "config";
 import { IType, IListResult } from "types";
-import Subnav from "./Subnav";
+import LazyWrapper from "components/LazyWrapper";
+
+const Subnav = lazy(() => import("./Subnav"));
+const SmallHeader = lazy(() => import("./SmallHeader"));
+const BigHeader = lazy(() => import("./BigHeader"));
 
 const AppHeader: FC = () => {
   const { data } = fetchSingle<IListResult<IType>>(
     `${config.speakersTalentUrl}/v1/talents/metadata/types?order=name:asc`
   );
   return (
-    <>
+    <LazyWrapper>
       <Visible xs sm>
         <SmallHeader types={data?.data} />
       </Visible>
@@ -20,7 +22,7 @@ const AppHeader: FC = () => {
         <BigHeader types={data?.data} />
       </Visible>
       <Subnav types={data?.data} />
-    </>
+    </LazyWrapper>
   );
 };
 

@@ -1,4 +1,4 @@
-import React, { FC, useContext } from "react";
+import React, { FC, useContext, lazy } from "react";
 import { Row, Col } from "components/Grid";
 import { Box } from "react-basic-blocks";
 import {
@@ -21,7 +21,9 @@ import { useForm, ErrorMessage } from "react-hook-form";
 import * as yup from "yup";
 import { AuthContext } from "AuthContext";
 import Cookies from "universal-cookie";
-import HeaderTags from "components/HeaderTags";
+import LazyWrapper from "components/LazyWrapper";
+
+const HeaderTags = lazy(() => import("components/HeaderTags"));
 
 const validationSchema = yup.object().shape({
   password: yup.string().required(),
@@ -57,10 +59,12 @@ const PasswordProtection: FC = () => {
   return (
     <section>
       <Wrapper>
-        <HeaderTags
-          title="Password"
-          description="Please enter the site password."
-        />
+        <LazyWrapper>
+          <HeaderTags
+            title="Password"
+            description="Please enter the site password."
+          />
+        </LazyWrapper>
         <TopSemi />
         <CirclesWrapper>
           <svg viewBox="0 0 100 100">

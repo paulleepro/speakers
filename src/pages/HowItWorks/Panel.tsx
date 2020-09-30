@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, lazy } from "react";
 import {
   HeaderText,
   DescriptionText,
@@ -8,7 +8,9 @@ import { Box } from "react-basic-blocks";
 import { Row, Col, useScreenClass, Visible } from "components/Grid";
 import colors from "styles/colors";
 import { ActionIcon, ActionWrapper, PanelWrapper, TextWrapper } from "./styles";
-import StyledImage from "components/StyledImage";
+import LazyWrapper from "components/LazyWrapper";
+
+const StyledImage = lazy(() => import("components/StyledImage"));
 
 interface PIProps {
   imageRight?: boolean;
@@ -39,12 +41,14 @@ const PanelImage: FC<PIProps> = ({
       sm={showOnSmall}
     >
       <ActionWrapper>
-        <StyledImage
-          height={440}
-          src={imageUrl}
-          alt="panel-img"
-          borderRadius="20px"
-        />
+        <LazyWrapper>
+          <StyledImage
+            height={440}
+            src={imageUrl}
+            alt="panel-img"
+            borderRadius="20px"
+          />
+        </LazyWrapper>
         {iconUrl && (
           <ActionIcon imageRight={imageRight}>
             <img src={iconUrl} height="40" width="40" alt="swipe" />

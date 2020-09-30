@@ -1,8 +1,6 @@
-import React, { FC, useState } from "react";
+import React, { FC, useState, lazy } from "react";
 import { Row, Col, Visible } from "components/Grid";
 import { config } from "config";
-import SpeakerCard from "components/SpeakerCard";
-import Featured from "components/Featured";
 import { ITalent } from "types";
 import { Box } from "react-basic-blocks";
 import { Link as ScrollLink } from "react-scroll";
@@ -13,11 +11,15 @@ import {
   SeeAllText,
   StyledContainer,
 } from "styles/components";
-import StarPower from "components/StarPower";
-import TopLeftGradient from "components/TopLeftGradient";
 import colors from "styles/colors";
 import { SeeAllContainer } from "./styles";
-import HeaderTags from "components/HeaderTags";
+import LazyWrapper from "components/LazyWrapper";
+
+const SpeakerCard = lazy(() => import("components/SpeakerCard"));
+const Featured = lazy(() => import("components/Featured"));
+const HeaderTags = lazy(() => import("components/HeaderTags"));
+const StarPower = lazy(() => import("components/StarPower"));
+const TopLeftGradient = lazy(() => import("components/TopLeftGradient"));
 
 interface IProps {
   name: string;
@@ -37,10 +39,12 @@ const CategoryPage: FC<IProps> = ({
   const [showAll, setShowAll] = useState<boolean>(false);
   return (
     <div>
-      <HeaderTags
-        title={name}
-        description={`Search for talent in the ${name} category.`}
-      />
+      <LazyWrapper>
+        <HeaderTags
+          title={name}
+          description={`Search for talent in the ${name} category.`}
+        />
+      </LazyWrapper>
       <StyledContainer fluid>
         <Row>
           <Col offset={{ lg: 1 }} xs={12} lg={10}>
@@ -52,7 +56,9 @@ const CategoryPage: FC<IProps> = ({
       </StyledContainer>
       <TopAreaDivider />
       <Visible md lg>
-        <TopLeftGradient height="800px" width="60%" borderRadius="600px" />
+        <LazyWrapper>
+          <TopLeftGradient height="800px" width="60%" borderRadius="600px" />
+        </LazyWrapper>
       </Visible>
       <StyledContainer fluid>
         <Row>
@@ -63,7 +69,9 @@ const CategoryPage: FC<IProps> = ({
             >{`Featured ${name}`}</HeaderText>
           </Col>
         </Row>
-        <Featured data={featuredTalent} mdCardsPerRow={4} />
+        <LazyWrapper>
+          <Featured data={featuredTalent} mdCardsPerRow={4} />
+        </LazyWrapper>
         <Row>
           <Col offset={{ lg: 1 }} lg={10}>
             <HeaderText
@@ -72,7 +80,9 @@ const CategoryPage: FC<IProps> = ({
             >{`New ${name}`}</HeaderText>
           </Col>
         </Row>
-        <Featured data={newTalent} mdCardsPerRow={4} />
+        <LazyWrapper>
+          <Featured data={newTalent} mdCardsPerRow={4} />
+        </LazyWrapper>
         {allTalent.length > 20 && (
           <>
             <Row>
@@ -110,24 +120,14 @@ const CategoryPage: FC<IProps> = ({
             <Row>
               <Col offset={{ lg: 1 }} lg={10}>
                 <Row>
-                  {allTalent.slice(20, 40).map((x, i) => (
-                    <Col
-                      key={`category-talent-${i}`}
-                      xs={6}
-                      md={3}
-                      id={i === 19 ? "more" : ""}
-                    >
-                      <SpeakerCard
-                        slug={x.slug}
-                        imageUrl={`${config.imageProxyUrl}${x.media.images[0]?.url}`}
-                        name={x.name}
-                        description={x.titles[0]}
-                      />
-                    </Col>
-                  ))}
-                  {showAll &&
-                    allTalent.slice(40).map((x, i) => (
-                      <Col key={`category-talent-${i}`} xs={6} md={3}>
+                  <LazyWrapper>
+                    {allTalent.slice(20, 40).map((x, i) => (
+                      <Col
+                        key={`category-talent-${i}`}
+                        xs={6}
+                        md={3}
+                        id={i === 19 ? "more" : ""}
+                      >
                         <SpeakerCard
                           slug={x.slug}
                           imageUrl={`${config.imageProxyUrl}${x.media.images[0]?.url}`}
@@ -136,6 +136,18 @@ const CategoryPage: FC<IProps> = ({
                         />
                       </Col>
                     ))}
+                    {showAll &&
+                      allTalent.slice(40).map((x, i) => (
+                        <Col key={`category-talent-${i}`} xs={6} md={3}>
+                          <SpeakerCard
+                            slug={x.slug}
+                            imageUrl={`${config.imageProxyUrl}${x.media.images[0]?.url}`}
+                            name={x.name}
+                            description={x.titles[0]}
+                          />
+                        </Col>
+                      ))}
+                  </LazyWrapper>
                 </Row>
               </Col>
             </Row>
@@ -171,7 +183,9 @@ const CategoryPage: FC<IProps> = ({
         )}
       </StyledContainer>
       <Box height="80px" />
-      <StarPower />
+      <LazyWrapper>
+        <StarPower />
+      </LazyWrapper>
     </div>
   );
 };

@@ -1,14 +1,16 @@
-import React, { FC } from "react";
+import React, { FC, lazy } from "react";
 import { useParams } from "react-router";
 import { fetchSingle } from "fetch-hooks-react";
 import Loader from "components/Loader";
-import ErrorNotice from "components/ErrorNotice";
-import MediumHeader from "./MediumHeader";
 import { ITalent } from "types";
 import { Visible } from "components/Grid";
-import SmallHeader from "./SmallHeader";
 import { config } from "config";
-import HeaderTags from "components/HeaderTags";
+import LazyWrapper from "components/LazyWrapper";
+
+const ErrorNotice = lazy(() => import("components/ErrorNotice"));
+const MediumHeader = lazy(() => import("./MediumHeader"));
+const SmallHeader = lazy(() => import("./SmallHeader"));
+const HeaderTags = lazy(() => import("components/HeaderTags"));
 
 const TalentBooking: FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -19,11 +21,15 @@ const TalentBooking: FC = () => {
   if (isLoading) {
     return <Loader />;
   } else if (error || !data) {
-    return <ErrorNotice />;
+    return (
+      <LazyWrapper>
+        <ErrorNotice />
+      </LazyWrapper>
+    );
   }
 
   return (
-    <>
+    <LazyWrapper>
       <HeaderTags
         title={data.name}
         description={
@@ -42,7 +48,7 @@ const TalentBooking: FC = () => {
           <MediumHeader talent={data} />
         </Visible>
       </div>
-    </>
+    </LazyWrapper>
   );
 };
 
