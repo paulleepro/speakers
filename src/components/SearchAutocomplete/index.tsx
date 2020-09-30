@@ -49,13 +49,20 @@ const SearchAutocomplete: FC<IProps> = ({ onClickAway, close }) => {
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter") {
+      window.analytics.track("search", {
+        query: debouncedSearchTerm,
+        autocomplete: false,
+      });
       goTo(`/search-results?query=${value}`);
     }
   };
 
   useEffect(() => {
     if (debouncedSearchTerm) {
-      window.analytics.track("search", { query: debouncedSearchTerm });
+      window.analytics.track("search", {
+        query: debouncedSearchTerm,
+        autocomplete: true,
+      });
       fetch(
         `${config.speakersTalentUrl}/v1/talents/search/multi-match?query=${debouncedSearchTerm}&limit=20`
       ).then(async (res) => {
