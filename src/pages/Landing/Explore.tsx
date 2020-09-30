@@ -1,17 +1,19 @@
-import React, { FC, useState, memo } from "react";
+import React, { FC, useState, memo, lazy } from "react";
 import { Row, Col } from "components/Grid";
 import { HeaderText, Button, StyledContainer } from "styles/components";
 import { Link } from "react-router-dom";
 import { Box } from "react-basic-blocks";
 import "swiper/css/swiper.css";
-import Tabs from "components/Tabs";
 import { fetchSingle } from "fetch-hooks-react";
 import { config } from "config";
 import Loader from "components/Loader";
-import ErrorNotice from "components/ErrorNotice";
 import { IListResult, ITalent } from "types";
-import Featured from "components/Featured";
 import { hardCodedTalent } from "hard-coded-talent";
+import LazyWrapper from "components/LazyWrapper";
+
+const Tabs = lazy(() => import("components/Tabs"));
+const ErrorNotice = lazy(() => import("components/ErrorNotice"));
+const Featured = lazy(() => import("components/Featured"));
 
 const tabs = hardCodedTalent.map(({ name }) => name);
 
@@ -27,7 +29,11 @@ const Explore: FC = () => {
   if (isLoading) {
     return <Loader />;
   } else if (error || !data) {
-    return <ErrorNotice />;
+    return (
+      <LazyWrapper>
+        <ErrorNotice />
+      </LazyWrapper>
+    );
   }
 
   const currentTalent = data.data.filter((x) =>
@@ -48,15 +54,19 @@ const Explore: FC = () => {
           <Row>
             <Col lg={10} md={12} offset={{ lg: 1 }}>
               <Box alignItems="center">
-                <Tabs
-                  values={tabs}
-                  setActiveTab={setActiveTab}
-                  activeTab={activeTab}
-                />
+                <LazyWrapper>
+                  <Tabs
+                    values={tabs}
+                    setActiveTab={setActiveTab}
+                    activeTab={activeTab}
+                  />
+                </LazyWrapper>
               </Box>
             </Col>
           </Row>
-          <Featured data={currentTalent} mdCardsPerRow={4} />
+          <LazyWrapper>
+            <Featured data={currentTalent} mdCardsPerRow={4} />
+          </LazyWrapper>
           <Row>
             <Col>
               <Box alignItems="center">

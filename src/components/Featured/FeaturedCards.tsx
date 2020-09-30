@@ -1,8 +1,9 @@
-import React, { FC } from "react";
+import React, { FC, lazy } from "react";
 import { Row, Col } from "components/Grid";
 import { config } from "config";
 import { ITalent } from "types";
-import SpeakerCard from "components/SpeakerCard";
+
+const SpeakerCard = lazy(() => import("components/SpeakerCard"));
 
 interface IProps {
   talentList: ITalent[];

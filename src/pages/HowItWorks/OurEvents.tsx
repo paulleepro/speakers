@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, lazy } from "react";
 import { Row, Col, Visible } from "components/Grid";
 import {
   HeaderText,
@@ -9,7 +9,9 @@ import {
 } from "styles/components";
 import { Box } from "react-basic-blocks";
 import colors from "styles/colors";
-import StyledImage from "components/StyledImage";
+import LazyWrapper from "components/LazyWrapper";
+
+const StyledImage = lazy(() => import("components/StyledImage"));
 
 const OurEvents: FC = () => {
   return (
@@ -51,7 +53,9 @@ const OurEvents: FC = () => {
             sm={6}
             xs={12}
           >
-            <StyledImage src="/images/case-study.png" />
+            <LazyWrapper>
+              <StyledImage src="/images/case-study.png" />
+            </LazyWrapper>
           </Col>
         </Row>
         <Row>

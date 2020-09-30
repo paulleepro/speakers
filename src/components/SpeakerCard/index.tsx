@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, lazy } from "react";
 import {
   SpeakerName,
   SpeakerDesc,
@@ -8,7 +8,9 @@ import {
   ImageOverlay,
 } from "./styles";
 import { Link } from "react-router-dom";
-import StyledImage from "components/StyledImage";
+import LazyWrapper from "components/LazyWrapper";
+
+const StyledImage = lazy(() => import("components/StyledImage"));
 
 interface IProps {
   name: string;
@@ -22,13 +24,15 @@ const SpeakerCard: FC<IProps> = ({ name, imageUrl, slug, description }) => {
     <Link to={`/talent/${slug}`}>
       <Wrapper>
         <ImageWrapper>
-          <StyledImage
-            fallbackSrc="/images/default-profile.svg"
-            height={336}
-            borderRadius="20px 20px 0 0"
-            src={imageUrl}
-            alt="speaker-card"
-          />
+          <LazyWrapper>
+            <StyledImage
+              fallbackSrc="/images/default-profile.svg"
+              height={336}
+              borderRadius="20px 20px 0 0"
+              src={imageUrl}
+              alt="speaker-card"
+            />
+          </LazyWrapper>
           <ImageOverlay src="/images/overlay.png" alt="overlay" />
         </ImageWrapper>
         <SpeakerInfo>

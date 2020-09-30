@@ -1,18 +1,20 @@
-import React, { FC } from "react";
+import React, { FC, lazy } from "react";
 import { Row, Col, Visible } from "components/Grid";
 import { DescriptionText, StyledContainer } from "styles/components";
 import Loader from "components/Loader";
 import { fetchSingle } from "fetch-hooks-react";
 import { IListResult, ITopic, IType } from "types";
 import { config } from "config";
-import ErrorNotice from "components/ErrorNotice";
 import { BigText, TopAreaDivider } from "styles/components";
 import { Box } from "react-basic-blocks";
 import colors from "styles/colors";
-import StarPower from "components/StarPower";
-import TopLeftGradient from "components/TopLeftGradient";
-import HeaderTags from "components/HeaderTags";
 import { StyledLink } from "./styles";
+import LazyWrapper from "components/LazyWrapper";
+
+const ErrorNotice = lazy(() => import("components/ErrorNotice"));
+const StarPower = lazy(() => import("components/StarPower"));
+const TopLeftGradient = lazy(() => import("components/TopLeftGradient"));
+const HeaderTags = lazy(() => import("components/HeaderTags"));
 
 const MAX_COLUMNS = 2;
 
@@ -37,7 +39,11 @@ const Topics: FC = () => {
   if (isLoading) {
     return <Loader />;
   } else if (error || !data) {
-    return <ErrorNotice />;
+    return (
+      <LazyWrapper>
+        <ErrorNotice />
+      </LazyWrapper>
+    );
   }
 
   return (
@@ -57,7 +63,9 @@ const Topics: FC = () => {
       </StyledContainer>
       <TopAreaDivider />
       <Visible md lg>
-        <TopLeftGradient height="800px" width="60%" borderRadius="600px" />
+        <LazyWrapper>
+          <TopLeftGradient height="800px" width="60%" borderRadius="600px" />
+        </LazyWrapper>
       </Visible>
       <StyledContainer fluid>
         {data.data.map(({ name, id, subtopics }) => (
@@ -100,7 +108,9 @@ const Topics: FC = () => {
         ))}
       </StyledContainer>
       <Box margin="40px 0" />
-      <StarPower />
+      <LazyWrapper>
+        <StarPower />
+      </LazyWrapper>
     </div>
   );
 };

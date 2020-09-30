@@ -1,21 +1,23 @@
-import React, { FC } from "react";
-import Title from "./Title";
-import Description from "./Description";
-import OurEvents from "./OurEvents";
-import Panel from "./Panel";
-import Outro from "./Outro";
-import StarPower from "components/StarPower";
-import Circles from "components/Circles";
+import React, { FC, lazy } from "react";
 import colors from "styles/colors";
 import { Visible, useScreenClass } from "components/Grid";
-import TopLeftGradient from "components/TopLeftGradient";
-import HeaderTags from "components/HeaderTags";
 import { productTypes } from "copy";
+import LazyWrapper from "components/LazyWrapper";
+
+const Title = lazy(() => import("./Title"));
+const Description = lazy(() => import("./Description"));
+const OurEvents = lazy(() => import("./OurEvents"));
+const Panel = lazy(() => import("./Panel"));
+const Outro = lazy(() => import("./Outro"));
+const StarPower = lazy(() => import("components/StarPower"));
+const Circles = lazy(() => import("components/Circles"));
+const TopLeftGradient = lazy(() => import("components/TopLeftGradient"));
+const HeaderTags = lazy(() => import("components/HeaderTags"));
 
 const HowItWorks: FC = () => {
   const screenSize = useScreenClass();
   return (
-    <>
+    <LazyWrapper>
       <HeaderTags
         title="How It Works"
         description="We bring our talent directly to you for your upcoming corporate event."
@@ -53,7 +55,7 @@ const HowItWorks: FC = () => {
       <Outro />
       <Panel marginTop="45px" {...productTypes[5]} />
       <StarPower />
-    </>
+    </LazyWrapper>
   );
 };
 

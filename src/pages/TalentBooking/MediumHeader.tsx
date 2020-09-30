@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, lazy } from "react";
 import {
   VirtualText,
   BigText,
@@ -6,16 +6,18 @@ import {
   StyledContainer,
 } from "styles/components";
 import { Row, Col } from "components/Grid";
-import AvailableFor from "components/AvailableFor";
 import { ITalent } from "types";
-import Form from "./Form";
 import { Box } from "react-basic-blocks";
 import { config } from "config";
-import StyledImage from "components/StyledImage";
 import { Link } from "react-router-dom";
-import Circles from "components/Circles";
-import TopLeftGradient from "components/TopLeftGradient";
 import colors from "styles/colors";
+import LazyWrapper from "components/LazyWrapper";
+
+const AvailableFor = lazy(() => import("components/AvailableFor"));
+const Form = lazy(() => import("./Form"));
+const StyledImage = lazy(() => import("components/StyledImage"));
+const Circles = lazy(() => import("components/Circles"));
+const TopLeftGradient = lazy(() => import("components/TopLeftGradient"));
 
 interface IProps {
   talent: ITalent;
@@ -42,32 +44,38 @@ const MediumHeader: FC<IProps> = ({ talent }) => {
           </Col>
         </Row>
       </StyledContainer>
-      <Circles
-        color={colors.purpleLiner}
-        top="50px"
-        size={25}
-        maxWidth="400px"
-        zIndex="0"
-      />
-      <TopLeftGradient height="1100px" width="50%" borderRadius="600px" />
+      <LazyWrapper>
+        <Circles
+          color={colors.purpleLiner}
+          top="50px"
+          size={25}
+          maxWidth="400px"
+          zIndex="0"
+        />
+        <TopLeftGradient height="1100px" width="50%" borderRadius="600px" />
+      </LazyWrapper>
       <StyledContainer fluid>
         <Row>
           <Col offset={{ lg: 1 }} lg={3} md={4}>
-            <StyledImage
-              alt="talent-img"
-              fallbackSrc="/images/default-profile.svg"
-              borderRadius="20px"
-              src={`${config.imageProxyUrl}${images[0]?.url}`}
-              height={417}
-            />
-            <Box margin="30px 0 0 0">
-              <AvailableFor />
-            </Box>
+            <LazyWrapper>
+              <StyledImage
+                alt="talent-img"
+                fallbackSrc="/images/default-profile.svg"
+                borderRadius="20px"
+                src={`${config.imageProxyUrl}${images[0]?.url}`}
+                height={417}
+              />
+              <Box margin="30px 0 0 0">
+                <AvailableFor />
+              </Box>
+            </LazyWrapper>
           </Col>
           <Col offset={{ md: 1 }} lg={6} md={7}>
             <VirtualText margin="0px">Booking Enquiry</VirtualText>
             <BigText margin="30px 0 6px 0">{name}</BigText>
-            <Form slug={slug} id={id} />
+            <LazyWrapper>
+              <Form slug={slug} id={id} />
+            </LazyWrapper>
           </Col>
         </Row>
       </StyledContainer>

@@ -1,9 +1,11 @@
-import React, { FC } from "react";
+import React, { FC, lazy } from "react";
 import { config } from "config";
 import { ITalent } from "types";
 import Swiper from "react-id-swiper";
-import SpeakerCard from "components/SpeakerCard";
 import { useScreenClass } from "components/Grid";
+import LazyWrapper from "components/LazyWrapper";
+
+const SpeakerCard = lazy(() => import("components/SpeakerCard"));
 
 interface IProps {
   talentList: ITalent[];
@@ -23,12 +25,14 @@ const SwipeableCards: FC<IProps> = ({ talentList }) => {
       >
         {talentList.map((x, i) => (
           <div key={`featured-talent-${i}-${x.name.replace(/ /g, "-")}`}>
-            <SpeakerCard
-              name={x.name}
-              imageUrl={`${config.imageProxyUrl}${x.media.images[0]?.url}`}
-              slug={x.slug}
-              description={x.titles[0]}
-            />
+            <LazyWrapper>
+              <SpeakerCard
+                name={x.name}
+                imageUrl={`${config.imageProxyUrl}${x.media.images[0]?.url}`}
+                slug={x.slug}
+                description={x.titles[0]}
+              />
+            </LazyWrapper>
           </div>
         ))}
       </Swiper>

@@ -1,11 +1,13 @@
-import React, { FC } from "react";
+import React, { FC, lazy } from "react";
 import { DescriptionText, Divider } from "styles/components";
 import { Box } from "react-basic-blocks";
 import colors from "styles/colors";
 import styled from "styled-components";
-import ReactTooltip from "react-tooltip";
 import { productTypes } from "copy";
 import { Visible } from "components/Grid";
+import LazyWrapper from "components/LazyWrapper";
+
+const ReactTooltip = lazy(() => import("react-tooltip"));
 
 const Wrapper = styled(Box)`
   position: relative;
@@ -38,18 +40,20 @@ const AvailableFor: FC<IProps> = () => {
               {title}
             </DescriptionText>
             <Visible md lg>
-              <ReactTooltip
-                id={`panel-discussion-${i}`}
-                place="right"
-                type="dark"
-                effect="float"
-                className="tooltip"
-                backgroundColor="#000"
-                border
-                borderColor="#2c2832"
-              >
-                {description}
-              </ReactTooltip>
+              <LazyWrapper>
+                <ReactTooltip
+                  id={`panel-discussion-${i}`}
+                  place="right"
+                  type="dark"
+                  effect="float"
+                  className="tooltip"
+                  backgroundColor="#000"
+                  border
+                  borderColor="#2c2832"
+                >
+                  {description}
+                </ReactTooltip>
+              </LazyWrapper>
             </Visible>
           </div>
         ))}

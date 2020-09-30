@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, lazy } from "react";
 import {
   VirtualText,
   BigText,
@@ -7,8 +7,10 @@ import {
 } from "styles/components";
 import { Container, Row, Col } from "components/Grid";
 import { Box } from "react-basic-blocks";
-import StyledImage from "components/StyledImage";
 import { Link } from "react-router-dom";
+import LazyWrapper from "components/LazyWrapper";
+
+const StyledImage = lazy(() => import("components/StyledImage"));
 
 interface IProps {
   heroDescriptor: string;
@@ -29,10 +31,12 @@ const HeroSmall: FC<IProps> = ({ heroDescriptor, imageUrl }) => {
                 <u>{heroDescriptor}</u>,<br />
                 on demand.
               </BigText>
-              <StyledImage
-                src={imageUrl}
-                boxShadow="50px 50px 24px 0 rgba(0,0,0,0.50)"
-              />
+              <LazyWrapper>
+                <StyledImage
+                  src={imageUrl}
+                  boxShadow="50px 50px 24px 0 rgba(0,0,0,0.50)"
+                />
+              </LazyWrapper>
               <DescriptionText margin="25px">
                 Endeavor Virtual Performers is bringing talent directly to your
                 business. Our high-profile speakers are available digitally for

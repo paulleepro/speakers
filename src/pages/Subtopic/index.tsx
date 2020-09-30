@@ -1,11 +1,13 @@
-import React, { FC } from "react";
+import React, { FC, lazy } from "react";
 import { useParams } from "react-router";
 import { fetchMany, fetchSingle } from "fetch-hooks-react";
 import Loader from "components/Loader";
-import ErrorNotice from "components/ErrorNotice";
 import { ITalent, IListResult, IType } from "types";
 import { config } from "config";
-import CategoryPage from "components/CategoryPage";
+import LazyWrapper from "components/LazyWrapper";
+
+const ErrorNotice = lazy(() => import("components/ErrorNotice"));
+const CategoryPage = lazy(() => import("components/CategoryPage"));
 
 interface IFetchMany {
   featured: IListResult<ITalent>;
@@ -42,19 +44,25 @@ const Subtopic: FC = () => {
   if (isLoading) {
     return <Loader />;
   } else if (error || !data) {
-    return <ErrorNotice />;
+    return (
+      <LazyWrapper>
+        <ErrorNotice />
+      </LazyWrapper>
+    );
   }
 
   const all = allData ? allData.data : data.all.data;
 
   return (
-    <CategoryPage
-      name={data.subtopic.name}
-      featuredTalent={data.all.data.slice(0, 8)}
-      newTalent={data.new.data}
-      allTalent={all}
-      totalTalent={data.all.metadata.total}
-    />
+    <LazyWrapper>
+      <CategoryPage
+        name={data.subtopic.name}
+        featuredTalent={data.all.data.slice(0, 8)}
+        newTalent={data.new.data}
+        allTalent={all}
+        totalTalent={data.all.metadata.total}
+      />
+    </LazyWrapper>
   );
 };
 
