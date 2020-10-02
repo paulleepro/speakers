@@ -1,8 +1,11 @@
 import React, { FC } from "react";
+import Divider from "@material-ui/core/Divider";
 import { Wrapper, LinkText } from "./styles";
 import { Box } from "react-basic-blocks";
 import { Link } from "react-router-dom";
 import { IType } from "types";
+
+import { Button } from "styles/components";
 
 interface IProps {
   types?: IType[];
@@ -25,6 +28,15 @@ const BigHeader: FC<IProps> = ({ types }) => {
           <Link to="/explore">
             <LinkText>Explore</LinkText>
           </Link>
+          <Link to="/favorites">
+            <Divider orientation="vertical" flexItem />
+            <LinkText>Favorites List</LinkText>
+            <Divider orientation="vertical" flexItem />
+          </Link>
+          <Link to="/explore">
+            <LinkText>Sign In</LinkText>
+          </Link>
+          <Button margin="">Sign Up</Button>
         </Box>
       </Wrapper>
     </>
