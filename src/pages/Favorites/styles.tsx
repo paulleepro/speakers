@@ -12,6 +12,26 @@ export const StepWrapper = styled(Box)`
   }
 `;
 
+export const StepsRow = styled(Box)`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+
+  @media (max-width: 1023px) {
+    align-items: center;
+    flex-direction: column;
+  }
+`;
+
+export const DashedLine = styled.img`
+  margin: 24px -134px 0;
+
+  @media (max-width: 1023px) {
+    margin: 16px 0;
+  }
+`;
+
 export const StepTitle = styled(Box)`
   font-family: Montserrat;
   font-size: 24px;
@@ -29,6 +49,10 @@ export const ExploreCard = styled(Box)`
   border: solid 1px ${colors.purpleLiner};
   background-color: ${colors.darkPurpleFill};
   padding: 60px 0;
+
+  @media (max-width: 1023px) {
+    padding: 32px 0 24px;
+  }
 `;
 
 export const ExploreDescription = styled.p`
@@ -39,4 +63,8 @@ export const ExploreDescription = styled.p`
   color: ${colors.midGrey};
   max-width: 572px;
   margin: 24px 0 40px;
+
+  @media (max-width: 1023px) {
+    margin: 24px 0 32px;
+  }
 `;
