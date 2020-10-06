@@ -1,11 +1,20 @@
 import React, { FC, lazy } from "react";
 
 import { Row, Col } from "components/Grid";
+import { useScreenClass } from "components/Grid";
 import { HeaderText, Button, StyledContainer } from "styles/components";
-import { ExploreCard, ExploreDescription } from "./styles";
+import {
+  ExploreCard,
+  ExploreDescription,
+  StepsRow,
+  DashedLine,
+} from "./styles";
 const Step = lazy(() => import("./Step"));
 
 const NoFavoritesList: FC = () => {
+  const screenSize = useScreenClass();
+  const isNarrowScreen = ["xs", "sm"].includes(screenSize);
+
   return (
     <div>
       <StyledContainer fluid>
@@ -17,20 +26,36 @@ const NoFavoritesList: FC = () => {
         <Row>
           <Col offset={{ lg: 1 }} md={12} lg={10}>
             <ExploreCard>
-              <Row>
-                <Col sm={12} md={4}>
+              <StepsRow>
+                <Col md={12} lg={4}>
                   <Step imageUrl="/images/star.png" step="Browse & Select" />
                 </Col>
-                <Col sm={12} md={4}>
+                <DashedLine
+                  src={`/images/dashed-line-${
+                    isNarrowScreen ? "mobile" : "desktop"
+                  }.png`}
+                  height={isNarrowScreen ? "36" : "4"}
+                  width={isNarrowScreen ? "5" : "190"}
+                  alt="line"
+                />
+                <Col md={12} lg={4}>
                   <Step imageUrl="/images/edit.png" step="Name Your List" />
                 </Col>
-                <Col sm={12} md={4}>
+                <DashedLine
+                  src={`/images/dashed-line-${
+                    isNarrowScreen ? "mobile" : "desktop"
+                  }.png`}
+                  height={isNarrowScreen ? "36" : "4"}
+                  width={isNarrowScreen ? "5" : "190"}
+                  alt="line"
+                />
+                <Col md={12} lg={4}>
                   <Step
                     imageUrl="/images/sharehands.png"
                     step="Share With Us"
                   />
                 </Col>
-              </Row>
+              </StepsRow>
               <ExploreDescription>
                 Sharing your Favorites List will provide our agents with a
                 stronger sense of what you're looking for in your request. This
