@@ -11,7 +11,7 @@ interface IStepProps {
 const Step: FC<IStepProps> = ({ imageUrl, step, margin }) => {
   return (
     <StepWrapper>
-      <img src={imageUrl} height="40" width="40" alt="swipe" />
+      <img src={imageUrl} height="56" width="56" alt="swipe" />
       <StepTitle>{step}</StepTitle>
     </StepWrapper>
   );
