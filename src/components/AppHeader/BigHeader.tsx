@@ -1,17 +1,30 @@
-import React, { FC } from "react";
-import Divider from "@material-ui/core/Divider";
-import { Wrapper, LinkText } from "./styles";
+import React, { FC, useState } from "react";
 import { Box } from "react-basic-blocks";
 import { Link } from "react-router-dom";
 import { IType } from "types";
 
 import { Button } from "styles/components";
+import { Wrapper, LinkText, FavoritesListLink } from "./styles";
+
+import AuthModal from "../AuthModal";
 
 interface IProps {
   types?: IType[];
 }
 
 const BigHeader: FC<IProps> = ({ types }) => {
+  const [open, setOpen] = useState(false);
+  const [isSignUpModal, setIsSignUpModal] = useState<boolean>(false);
+
+  const handleClickOpen = (modalType: string) => {
+    setIsSignUpModal(modalType === "signup");
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <>
       <Wrapper backgroundColor="rgba(0,0,0,0.2)" justifyContent="space-between">
@@ -28,17 +41,28 @@ const BigHeader: FC<IProps> = ({ types }) => {
           <Link to="/explore">
             <LinkText>Explore</LinkText>
           </Link>
-          <Link to="/favorites">
-            <Divider orientation="vertical" flexItem />
-            <LinkText>Favorites List</LinkText>
-            <Divider orientation="vertical" flexItem />
-          </Link>
-          <Link to="/explore">
-            <LinkText>Sign In</LinkText>
-          </Link>
-          <Button margin="">Sign Up</Button>
+          <FavoritesListLink to="/favorites">
+            <img src="/images/star.png" alt="star" width="24" height="23" />
+            <LinkText noMargin>Favorites List</LinkText>
+          </FavoritesListLink>
+          <Button
+            onClick={() => handleClickOpen("signin")}
+            backgroundColor="transparent"
+            padding="11px 0"
+            margin="0 0 0 30px"
+          >
+            Sign In
+          </Button>
+          <Button
+            onClick={() => handleClickOpen("signup")}
+            margin="0 0 0 30px"
+            padding="11px 48px"
+          >
+            Sign Up
+          </Button>
         </Box>
       </Wrapper>
+      <AuthModal isSignUp={isSignUpModal} show={open} onClose={handleClose} />
     </>
   );
 };
