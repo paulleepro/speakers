@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import colors from "styles/colors";
+import { Link } from "react-router-dom";
 
 export const Wrapper = styled.div<{
   backgroundColor: string;
@@ -63,6 +64,19 @@ export const LinkText = styled.span<{ noMargin?: boolean }>`
   font-style: normal;
   line-height: 1.5;
   letter-spacing: 0.2px;
+`;
+
+export const FavoritesListLink = styled(Link)`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0 30px;
+  border-left: 2px solid ${colors.purpleLiner};
+  border-right: 2px solid ${colors.purpleLiner};
+  margin-left: 30px;
+  img {
+    margin-right: 10px;
+  }
 `;
 
 export const MenuContainer = styled.div`
