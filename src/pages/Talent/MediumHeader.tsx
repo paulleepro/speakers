@@ -1,4 +1,4 @@
-import React, { FC, lazy } from "react";
+import React, { FC, lazy, useState } from "react";
 import {
   BigText,
   DescriptionText,
@@ -13,9 +13,17 @@ import { Link } from "react-router-dom";
 import { config } from "config";
 import colors from "styles/colors";
 import LazyWrapper from "components/LazyWrapper";
-import { KnownForWrapper, FulfilledByText, StyledScrollLink } from "./styles";
+import {
+  KnownForWrapper,
+  FulfilledByText,
+  StyledScrollLink,
+  AddButton,
+} from "./styles";
 import { sanitize, cutAfterSentenceAt } from "./utils";
 
+const SaveFavoritesListModal = lazy(() =>
+  import("components/SaveFavoritesListModal")
+);
 const AvailableFor = lazy(() => import("components/AvailableFor"));
 const KnownFor = lazy(() => import("./KnownFor"));
 const SocialIcons = lazy(() => import("components/SocialIcons"));
@@ -42,6 +50,8 @@ export const getHighlight = (str: string) => {
 };
 
 const MediumHeader: FC<IProps> = ({ talent }) => {
+  const [showAddModal, setShowAddModal] = useState<boolean>(false);
+
   const {
     name,
     bio_highlights: highlights,
@@ -50,6 +60,10 @@ const MediumHeader: FC<IProps> = ({ talent }) => {
     slug,
     social_accounts,
   } = talent;
+
+  const toggleAddModal = () => {
+    setShowAddModal((prev) => !prev);
+  };
 
   return (
     <>
@@ -77,10 +91,19 @@ const MediumHeader: FC<IProps> = ({ talent }) => {
               />
             </LazyWrapper>
             <Link to={`/talent/${slug}/booking`}>
-              <Button margin="30px 0 0 0" width="100%">
-                Book Today
+              <Button margin="30px 0 16px 0" width="100%">
+                Create Booking Request
               </Button>
             </Link>
+            <AddButton onClick={toggleAddModal}>
+              <img
+                src="/images/star-white-outline.png"
+                alt="star-outline"
+                width="24"
+                height="24"
+              />
+              Add to Favorites List
+            </AddButton>
             <FulfilledByText>
               Fulfilled by{" "}
               <span className="talent-agency">Harry Walker Agency</span>
@@ -133,6 +156,7 @@ const MediumHeader: FC<IProps> = ({ talent }) => {
           </Row>
         </StyledContainer>
       </KnownForWrapper>
+      <SaveFavoritesListModal show={showAddModal} onClose={toggleAddModal} />
     </>
   );
 };
