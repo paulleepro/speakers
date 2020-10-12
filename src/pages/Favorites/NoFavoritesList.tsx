@@ -1,5 +1,5 @@
 import React, { FC, lazy } from "react";
-
+import { useHistory } from "react-router";
 import { Row, Col } from "components/Grid";
 import { useScreenClass } from "components/Grid";
 import { HeaderText, Button, StyledContainer } from "styles/components";
@@ -12,6 +12,7 @@ import {
 const Step = lazy(() => import("./Step"));
 
 const NoFavoritesList: FC = () => {
+  const history = useHistory();
   const screenSize = useScreenClass();
   const isNarrowScreen = ["xs", "sm"].includes(screenSize);
 
@@ -62,7 +63,9 @@ const NoFavoritesList: FC = () => {
                 list can be shared with your committee to ensure all their
                 requirements are met, as well.
               </ExploreDescription>
-              <Button>Explore Now</Button>
+              <Button onClick={() => history.replace("/explore")}>
+                Explore Now
+              </Button>
             </ExploreCard>
           </Col>
         </Row>
