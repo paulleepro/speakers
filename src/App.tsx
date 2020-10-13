@@ -18,6 +18,7 @@ const SearchResults = lazy(() => import("pages/SearchResults"));
 const Subtopic = lazy(() => import("pages/Subtopic"));
 const Talent = lazy(() => import("pages/Talent"));
 const TalentBooking = lazy(() => import("pages/TalentBooking"));
+const TalentBookingNew = lazy(() => import("pages/TalentBookingNew"));
 const Topics = lazy(() => import("pages/TopicList"));
 const Type = lazy(() => import("pages/Type"));
 
@@ -67,6 +68,11 @@ const App = (): ReactElement => {
           <Route
             path="/talent/:slug/confirmation"
             component={Confirmation}
+            exact
+          />
+          <Route
+            path="/talent/:slug/booking-new"
+            component={TalentBookingNew}
             exact
           />
           <Route path="/talent/:slug/booking" component={TalentBooking} exact />
