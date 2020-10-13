@@ -7,8 +7,17 @@ interface IContainerProps {
   className?: string;
 }
 
-export const Container: FC<IContainerProps> = ({ id, children, className }) => (
-  <div className={`container ${className}`} id={id}>
+export const Container: FC<IContainerProps> = ({
+  id,
+  children,
+  className,
+  fluid,
+}) => (
+  <div
+    className={`container ${className}`}
+    id={id}
+    style={{ width: fluid ? "100%" : "fit-content" }}
+  >
     {children}
   </div>
 );
