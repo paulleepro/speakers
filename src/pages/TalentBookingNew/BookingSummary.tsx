@@ -8,7 +8,9 @@ const BookingSummary = () => {
     <BookingSummaryContainer>
       <h3>Event Details</h3>
       <hr />
-      <Button width="100%">Save for later</Button>
+      <Button variant="outline" width="100%">
+        Save for later
+      </Button>
     </BookingSummaryContainer>
   );
 };

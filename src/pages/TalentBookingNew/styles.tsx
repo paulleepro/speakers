@@ -72,6 +72,7 @@ export const FormContainer = styled.div`
     color: ${colors.white};
     padding: 40px 0;
     border-bottom: 1px solid #2c2832;
+    margin-bottom: 64px;
   }
 `;
 
@@ -91,4 +92,37 @@ export const FormFooter = styled.div`
     text-align: center;
     color: ${colors.white};
   }
+`;
+
+export const QuestionTitle = styled.h4`
+  font-family: Montserrat;
+  font-size: 24px;
+  letter-spacing: 0.2px;
+  color: ${colors.white};
+  margin-bottom: 8px;
+`;
+
+export const QuestionDescription = styled.p`
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.2px;
+  color: ${colors.white};
+  margin-bottom: 40px;
+`;
+
+export const QuestionBullet = styled.div`
+  width: 32px;
+  height: 32px;
+  border: solid 1px ${colors.purpleLiner};
+  background-color: ${colors.black};
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.5;
+  letter-spacing: 0.2px;
+  text-align: center;
+  color: ${colors.white};
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
