@@ -212,6 +212,7 @@ export const Button = styled.button<{
   padding?: string;
   width?: string;
   backgroundColor?: string;
+  variant?: string;
 }>`
   ${(props) => (props.margin ? `margin: ${props.margin};` : "")}
   ${(props) => (props.width ? `width: ${props.width};` : "")}
@@ -229,6 +230,15 @@ export const Button = styled.button<{
   color: white;
   border: none;
   outline: none;
+
+  ${(props) =>
+    props.variant === "outline"
+      ? `
+    border: solid 1px ${colors.primaryPurple};
+    background-color: transparent;
+    color: ${colors.primaryPurple};
+  `
+      : ""}
 
   &:disabled{
     background-color: ${colors.darkPurpleFill};
