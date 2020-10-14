@@ -1,6 +1,9 @@
 import { createGlobalStyle } from "styled-components/macro";
 import { normalize } from "polished";
 
+import "../assets/fonts/font.css";
+import "../assets/fonts/typekit.css";
+
 const GlobalStyle = createGlobalStyle`
 	${normalize()}
 
