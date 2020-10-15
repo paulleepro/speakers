@@ -48,14 +48,14 @@ export const BookingSummaryContainer = styled.div`
     font-weight: bold;
     line-height: 1.5;
     letter-spacing: 0.3px;
-    color: #888888;
+    color: ${colors.midGrey};
     margin-bottom: 32px;
   }
 
   hr {
     border: none;
     height: 1px;
-    background-color: #2c2832;
+    background-color: ${colors.purpleLiner};
     margin-bottom: 32px;
   }
 `;
@@ -71,8 +71,7 @@ export const FormContainer = styled.div`
     letter-spacing: 0.26px;
     color: ${colors.white};
     padding: 40px 0;
-    border-bottom: 1px solid #2c2832;
-    margin-bottom: 64px;
+    border-bottom: 1px solid ${colors.purpleLiner};
   }
 `;
 
@@ -82,7 +81,8 @@ export const FormFooter = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 24px 0;
-  border-top: 1px solid #2c2832;
+  margin-top: 44px;
+  border-top: 1px solid ${colors.purpleLiner};
 
   a {
     font-size: 16px;
@@ -125,4 +125,8 @@ export const QuestionBullet = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+`;
+
+export const QuestionWrapper = styled.div`
+  margin-top: 68px;
 `;

@@ -1,7 +1,12 @@
 import React, { FC } from "react";
 import { Row, Col } from "components/Grid";
 
-import { QuestionBullet, QuestionTitle, QuestionDescription } from "./styles";
+import {
+  QuestionBullet,
+  QuestionTitle,
+  QuestionDescription,
+  QuestionWrapper,
+} from "./styles";
 
 interface IProps {
   order: number;
@@ -11,7 +16,7 @@ interface IProps {
 
 const QuestionHeader: FC<IProps> = ({ order, title, description }) => {
   return (
-    <>
+    <QuestionWrapper>
       <Row>
         <Col md={1}>
           <QuestionBullet>{order}</QuestionBullet>
@@ -25,7 +30,7 @@ const QuestionHeader: FC<IProps> = ({ order, title, description }) => {
           <QuestionDescription>{description}</QuestionDescription>
         </Col>
       </Row>
-    </>
+    </QuestionWrapper>
   );
 };
 

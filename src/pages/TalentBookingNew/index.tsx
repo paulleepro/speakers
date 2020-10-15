@@ -1,5 +1,5 @@
 import React, { FC, lazy, useState } from "react";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router";
 import { Container, Row, Col } from "components/Grid";
 import { Button } from "styles/components";
 import { FormContainer, FormFooter } from "./styles";
@@ -12,27 +12,36 @@ const SpeakersForm = lazy(() => import("./SpeakersForm"));
 const DetailsForm = lazy(() => import("./DetailsForm"));
 const FinishUp = lazy(() => import("./FinishUp"));
 
-interface Form {
-  [key: string]: any;
-}
-
-const FORMS: Form = {
-  event: EventForm,
-  speakers: SpeakersForm,
-  details: DetailsForm,
-  finish: FinishUp,
-};
+const FORMS = [
+  { key: "event", component: EventForm },
+  { key: "speakers", component: SpeakersForm },
+  { key: "details", component: DetailsForm },
+  { key: "finish", component: FinishUp },
+];
 
 const TalentBookingNew: FC<any> = () => {
-  const [activeStep] = useState<string>("speakers");
+  const history = useHistory();
+  const [activeStep, setActiveStep] = useState<number>(0);
 
-  const ActiveForm = FORMS[activeStep];
+  const ActiveForm = FORMS[activeStep].component;
+
+  const goToNextForm = () => {
+    setActiveStep((prev) => prev + 1);
+  };
+
+  const handleGoBack = () => {
+    if (activeStep === 0) {
+      history.replace("/explore");
+    } else {
+      setActiveStep((prev) => prev - 1);
+    }
+  };
 
   return (
     <Container fluid>
       <Row>
         <Col offset={{ lg: 1 }} md={12} lg={10}>
-          <Stepper activeStep={activeStep} />
+          <Stepper activeStep={FORMS[activeStep].key} />
         </Col>
       </Row>
       <Row>
@@ -43,8 +52,8 @@ const TalentBookingNew: FC<any> = () => {
                 <h3>Let's Get Started!</h3>
                 <ActiveForm />
                 <FormFooter>
-                  <Link to="/explore">Back</Link>
-                  <Button>Next</Button>
+                  <Button onClick={handleGoBack}>Back</Button>
+                  <Button onClick={goToNextForm}>Next</Button>
                 </FormFooter>
               </FormContainer>
             </Col>
