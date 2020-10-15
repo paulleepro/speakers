@@ -1,62 +1,32 @@
-import React, { FC, useState } from "react";
-import { Row, Col } from "components/Grid";
-import { FocusItemWrapper } from "./styles";
+import React, { useState } from "react";
+import { Row } from "components/Grid";
+import InputRadio from "../InputRadio";
 
 const FOCUS_LIST = [
-  { value: 0, label: "Entertainment & Fun" },
-  { value: 1, label: "Inspire & Encourage" },
-  { value: 2, label: "VIP Experience" },
-  { value: 3, label: "Customer Reward Event" },
-  { value: 4, label: "Connect My Group" },
-  { value: 5, label: `I don't know` },
+  { id: "0", value: 0, label: "Entertainment & Fun" },
+  { id: "1", value: 1, label: "Inspire & Encourage" },
+  { id: "2", value: 2, label: "VIP Experience" },
+  { id: "3", value: 3, label: "Customer Reward Event" },
+  { id: "4", value: 4, label: "Connect My Group" },
+  { id: "5", value: 5, label: `I don't know` },
 ];
 
-interface IFocusItemProps {
-  value: number;
-  label: string;
-  onSelect: (value: number) => void;
-  selected: number | undefined;
-}
-
-const FocusItem: FC<IFocusItemProps> = ({
-  value,
-  label,
-  onSelect,
-  selected,
-}) => {
-  return (
-    <FocusItemWrapper
-      active={selected === value}
-      onClick={() => onSelect(value)}
-    >
-      <p />
-      <h4>{label}</h4>
-    </FocusItemWrapper>
-  );
-};
-
 const FocusList = () => {
-  const [selected, setSelected] = useState<number>();
+  const [selected, setSelected] = useState<number | string | undefined>();
 
-  const handleSelect = (value: number) => {
+  const handleSelect = (value: number | string) => {
     setSelected(value);
   };
 
   return (
-    <div>
-      <Row>
-        {FOCUS_LIST.map((item) => (
-          <Col md={6}>
-            <FocusItem
-              key={item.value}
-              onSelect={handleSelect}
-              selected={selected}
-              {...item}
-            />
-          </Col>
-        ))}
-      </Row>
-    </div>
+    <Row>
+      <InputRadio
+        options={FOCUS_LIST}
+        selected={selected}
+        onChange={handleSelect}
+        name="focusList"
+      />
+    </Row>
   );
 };
 
