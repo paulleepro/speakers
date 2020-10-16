@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Row } from "components/Grid";
 
-import InputRadio from "../InputRadio";
+import InputRadio from "../../common/InputRadio";
 
 const AUDIENCE_SIZE = [
   { id: "0", value: 0, label: "0 - 25" },

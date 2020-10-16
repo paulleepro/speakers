@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Row } from "components/Grid";
-import InputRadio from "../InputRadio";
+import InputRadio from "../../common/InputRadio";
 
 const FOCUS_LIST = [
   { id: "0", value: 0, label: "Entertainment & Fun" },

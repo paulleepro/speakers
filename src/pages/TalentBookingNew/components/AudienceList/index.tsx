@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Row, Col } from "components/Grid";
 
-import InputText from "../InputText";
-import InputRadio from "../InputRadio";
+import InputText from "../../common/InputText";
+import InputRadio from "../../common/InputRadio";
 
 const AUDIENCE_LIST = [
   { id: "0", value: 0, label: "Full Organization" },

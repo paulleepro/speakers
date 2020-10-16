@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Container, Row, Col } from "components/Grid";
 
 import QuestionHeader from "./QuestionHeader";
-import InputText from "./components/InputText";
-import Textarea from "./components/Textarea";
+import InputText from "./common/InputText";
+import Textarea from "./common/Textarea";
 
 const SpeakersForm = () => {
   const [searchInput, setSearchInput] = useState("");

@@ -5,8 +5,8 @@ import EventTypes from "./components/EventTypes";
 import FocusList from "./components/FocusList";
 import AudienceList from "./components/AudienceList";
 import AudienceSize from "./components/AudienceSize";
-import InputText from "./components/InputText";
-import Textarea from "./components/Textarea";
+import InputText from "./common/InputText";
+import Textarea from "./common/Textarea";
 
 const EventForm = () => {
   const [eventName, setEventName] = useState<string>("");
