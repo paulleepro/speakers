@@ -1,11 +1,11 @@
 import React, { FC, lazy, useState } from "react";
 import { useHistory } from "react-router";
-import { Container, Row, Col } from "components/Grid";
+import { Container, Row, Col, Visible } from "components/Grid";
 import { Button } from "styles/components";
 import { FormContainer, FormFooter } from "./styles";
 
 const BookingSummary = lazy(() => import("./BookingSummary"));
-const Stepper = lazy(() => import("./Stepper"));
+const Stepper = lazy(() => import("./components/Stepper"));
 
 const EventForm = lazy(() => import("./EventForm"));
 const SpeakersForm = lazy(() => import("./SpeakersForm"));
@@ -39,11 +39,13 @@ const TalentBookingNew: FC<any> = () => {
 
   return (
     <Container fluid>
-      <Row>
-        <Col offset={{ lg: 1 }} md={12} lg={10}>
-          <Stepper activeStep={FORMS[activeStep].key} />
-        </Col>
-      </Row>
+      <Visible sm md lg>
+        <Row>
+          <Col offset={{ lg: 1 }} md={12} lg={10}>
+            <Stepper activeStep={FORMS[activeStep].key} />
+          </Col>
+        </Row>
+      </Visible>
       <Row>
         <Col offset={{ lg: 1 }} md={12} lg={10}>
           <Row>
