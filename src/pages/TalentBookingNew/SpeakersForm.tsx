@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Container, Row, Col } from "components/Grid";
 
-import QuestionHeader from "./QuestionHeader";
+import QuestionHeader from "./common/QuestionHeader";
 import InputText from "./common/InputText";
 import Textarea from "./common/Textarea";
 

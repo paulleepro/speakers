@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Container, Row, Col } from "components/Grid";
-import QuestionHeader from "./QuestionHeader";
+import QuestionHeader from "./common/QuestionHeader";
 import EventTypes from "./components/EventTypes";
 import FocusList from "./components/FocusList";
 import AudienceList from "./components/AudienceList";
