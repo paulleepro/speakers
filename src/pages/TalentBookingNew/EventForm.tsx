@@ -44,7 +44,7 @@ const EventForm = () => {
             description="Select the goal that best matches your event."
           />
           <Row>
-            <Col offset={{ md: 1 }}>
+            <Col>
               <FocusList />
             </Col>
           </Row>
@@ -58,7 +58,7 @@ const EventForm = () => {
             description="Add whichever talking points are most relevant to your group."
           />
           <Row>
-            <Col offset={{ md: 1 }}>event types</Col>
+            <Col>event types</Col>
           </Row>
         </Col>
       </Row>
@@ -71,7 +71,7 @@ const EventForm = () => {
             description="Select which audience type is most applicable."
           />
           <Row>
-            <Col offset={{ md: 1 }}>
+            <Col>
               <AudienceList />
             </Col>
           </Row>
@@ -85,7 +85,7 @@ const EventForm = () => {
             description="Select the total number of people attending your event."
           />
           <Row>
-            <Col offset={{ md: 1 }}>
+            <Col>
               <AudienceSize />
             </Col>
           </Row>
@@ -99,7 +99,7 @@ const EventForm = () => {
             description="Use this space to provide additional information around your event. This will help our agents provide better recommendations for your request."
           />
           <Row>
-            <Col offset={{ md: 1 }}>
+            <Col>
               <Textarea
                 rows={3}
                 name="notes"
@@ -119,7 +119,7 @@ const EventForm = () => {
             description="This will provide more context for our agents. If you don't have an event name finalized, please share a working title."
           />
           <Row>
-            <Col offset={{ md: 1 }}>
+            <Col>
               <InputText
                 name="eventName"
                 value={eventName}

@@ -31,6 +31,16 @@ export const FormContainer = styled.div`
     color: ${colors.white};
     padding: 40px 0;
     border-bottom: 1px solid ${colors.purpleLiner};
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    padding: 0 16px;
+
+    h3 {
+      text-align: center;
+      padding: 24px 0;
+    }
   }
 `;
 
@@ -58,7 +68,7 @@ export const QuestionTitle = styled.h4`
   font-size: 24px;
   letter-spacing: 0.2px;
   color: ${colors.white};
-  margin-bottom: 8px;
+  margin: 0;
 `;
 
 export const QuestionDescription = styled.p`
@@ -67,6 +77,7 @@ export const QuestionDescription = styled.p`
   letter-spacing: 0.2px;
   color: ${colors.white};
   margin-bottom: 40px;
+  margin-left: 48px;
 `;
 
 export const QuestionBullet = styled.div`
@@ -84,6 +95,7 @@ export const QuestionBullet = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-right: 16px;
 `;
 
 export const QuestionWrapper = styled.div`

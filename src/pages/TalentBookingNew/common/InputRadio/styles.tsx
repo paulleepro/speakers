@@ -26,7 +26,7 @@ export const InputWrapper = styled.div<{ active?: boolean }>`
     line-height: 1.5;
     letter-spacing: 0.3px;
     color: ${colors.white};
-
+    white-space: nowrap;
     padding-left: 40px;
     position: relative;
   }

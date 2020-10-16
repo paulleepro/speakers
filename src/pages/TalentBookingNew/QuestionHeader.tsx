@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Row, Col } from "components/Grid";
+import { Container, Row } from "components/Grid";
 
 import {
   QuestionBullet,
@@ -17,19 +17,15 @@ interface IProps {
 const QuestionHeader: FC<IProps> = ({ order, title, description }) => {
   return (
     <QuestionWrapper>
-      <Row>
-        <Col md={1}>
+      <Container fluid>
+        <Row>
           <QuestionBullet>{order}</QuestionBullet>
-        </Col>
-        <Col md={11}>
           <QuestionTitle>{title}</QuestionTitle>
-        </Col>
-      </Row>
-      <Row>
-        <Col offset={{ md: 1 }}>
+        </Row>
+        <Row>
           <QuestionDescription>{description}</QuestionDescription>
-        </Col>
-      </Row>
+        </Row>
+      </Container>
     </QuestionWrapper>
   );
 };

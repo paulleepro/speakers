@@ -81,7 +81,7 @@ const EventTypes = () => {
     <div>
       <Row>
         {EVENT_TYPES.map((item) => (
-          <Col md={6}>
+          <Col sm={6}>
             <EventType
               key={item.id}
               {...item}
