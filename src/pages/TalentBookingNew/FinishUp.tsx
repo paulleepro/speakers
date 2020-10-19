@@ -1,7 +1,12 @@
 import React from "react";
 
 const FinishUp = () => {
-  return <div>Finish Up</div>;
+  return (
+    <>
+      <h3>We're Almost Done!</h3>
+      <div>Finish Up</div>
+    </>
+  );
 };
 
 export default FinishUp;
