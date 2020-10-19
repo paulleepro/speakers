@@ -7,10 +7,12 @@ import AudienceList from "./components/AudienceList";
 import AudienceSize from "./components/AudienceSize";
 import InputText from "./common/InputText";
 import Textarea from "./common/Textarea";
+import Topics from "./components/Topics";
 
 const EventForm = () => {
   const [eventName, setEventName] = useState<string>("");
   const [notes, setNotes] = useState<string>("");
+  const [topics, setTopics] = useState<string>("");
 
   const handleEventNameChange = (e: any): void => {
     setEventName(e.target.value);
@@ -18,6 +20,10 @@ const EventForm = () => {
 
   const handleNotesChange = (e: any): void => {
     setNotes(e.target.value);
+  };
+
+  const handleTopicsChange = (e: any): void => {
+    setTopics(e.target.value);
   };
 
   return (
@@ -58,7 +64,9 @@ const EventForm = () => {
             description="Add whichever talking points are most relevant to your group."
           />
           <Row>
-            <Col>event types</Col>
+            <Col>
+              <Topics value={topics} onChange={handleTopicsChange} />
+            </Col>
           </Row>
         </Col>
       </Row>
