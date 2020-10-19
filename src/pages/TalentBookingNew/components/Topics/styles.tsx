@@ -2,6 +2,7 @@ import styled from "styled-components";
 import colors from "styles/colors";
 
 export const DropIcon = styled.span`
+  display: flex;
   :before {
     width: 0;
     height: 0;
