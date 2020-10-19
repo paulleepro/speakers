@@ -1,8 +1,12 @@
 import styled from "styled-components";
 import colors from "styles/colors";
 
+export const EventTypeWrapper = styled.div`
+  max-width: 334px;
+`;
+
 export const ImageWrapper = styled.div<{ active?: boolean }>`
-  width: 334px;
+  width: 100%;
   height: 200px;
   position: relative;
   border-radius: 12px;

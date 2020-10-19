@@ -1,7 +1,12 @@
 import React, { useState, FC } from "react";
 
 import { Row, Col } from "components/Grid";
-import { ImageWrapper, FeaturesList, ImageOverlay } from "./styles";
+import {
+  EventTypeWrapper,
+  ImageWrapper,
+  FeaturesList,
+  ImageOverlay,
+} from "./styles";
 
 const EVENT_TYPES = [
   {
@@ -52,7 +57,7 @@ const EventType: FC<IEventTypeProps> = ({
   imageUrl,
 }) => {
   return (
-    <div>
+    <EventTypeWrapper>
       <ImageWrapper onClick={() => onSelect(id)} active={selected === id}>
         <img src={imageUrl} alt="event type" />
         <ImageOverlay />
@@ -66,7 +71,7 @@ const EventType: FC<IEventTypeProps> = ({
           <li key={idx}>{item}</li>
         ))}
       </FeaturesList>
-    </div>
+    </EventTypeWrapper>
   );
 };
 
@@ -78,20 +83,18 @@ const EventTypes = () => {
   };
 
   return (
-    <div>
-      <Row>
-        {EVENT_TYPES.map((item) => (
-          <Col sm={6}>
-            <EventType
-              key={item.id}
-              {...item}
-              selected={selected}
-              onSelect={handleSelect}
-            />
-          </Col>
-        ))}
-      </Row>
-    </div>
+    <Row>
+      {EVENT_TYPES.map((item) => (
+        <Col sm={6} style={{ display: "flex", justifyContent: "center" }}>
+          <EventType
+            key={item.id}
+            {...item}
+            selected={selected}
+            onSelect={handleSelect}
+          />
+        </Col>
+      ))}
+    </Row>
   );
 };
 
