@@ -19,7 +19,8 @@ export const QuestionDescription = styled.p`
 `;
 
 export const QuestionBullet = styled.div`
-  width: 32px;
+  min-width: 32px;
+  max-width: 32px;
   height: 32px;
   border: solid 1px ${colors.purpleLiner};
   background-color: ${colors.black};

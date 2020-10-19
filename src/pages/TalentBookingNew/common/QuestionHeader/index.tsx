@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Container, Row } from "components/Grid";
+import { Box } from "react-basic-blocks";
 
 import {
   QuestionBullet,
@@ -9,23 +9,26 @@ import {
 } from "./styles";
 
 interface IProps {
-  order: number;
+  order?: number;
   title: string;
   description: string;
+  icon?: any;
 }
 
-const QuestionHeader: FC<IProps> = ({ order, title, description }) => {
+const QuestionHeader: FC<IProps> = ({ order, title, description, icon }) => {
   return (
     <QuestionWrapper>
-      <Container fluid>
-        <Row>
+      <Box flexDirection="row">
+        {order ? (
           <QuestionBullet>{order}</QuestionBullet>
-          <QuestionTitle>{title}</QuestionTitle>
-        </Row>
-        <Row>
-          <QuestionDescription>{description}</QuestionDescription>
-        </Row>
-      </Container>
+        ) : (
+          <Box margin="0 16px 0 0">{icon}</Box>
+        )}
+        <QuestionTitle>{title}</QuestionTitle>
+      </Box>
+      <Box>
+        <QuestionDescription>{description}</QuestionDescription>
+      </Box>
     </QuestionWrapper>
   );
 };
