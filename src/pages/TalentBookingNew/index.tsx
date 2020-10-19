@@ -51,7 +51,6 @@ const TalentBookingNew: FC<any> = () => {
           <Row>
             <Col md={12} lg={9}>
               <FormContainer>
-                <h3>Let's Get Started!</h3>
                 <ActiveForm />
                 <FormFooter>
                   <BackButton onClick={handleGoBack}>Back</BackButton>
@@ -62,7 +61,9 @@ const TalentBookingNew: FC<any> = () => {
               </FormContainer>
             </Col>
             <Col md={12} lg={3}>
-              <BookingSummary />
+              <Visible lg>
+                <BookingSummary />
+              </Visible>
             </Col>
           </Row>
         </Col>
