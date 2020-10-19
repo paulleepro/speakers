@@ -62,3 +62,30 @@ export const FormFooter = styled.div`
     color: ${colors.white};
   }
 `;
+
+export const BackButton = styled.button`
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.5;
+  letter-spacing: 0.2px;
+  text-align: center;
+  color: #ffffff;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+
+  :before {
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-right: 8px solid #ffffff;
+    content: "";
+    font-size: 0px;
+    vertical-align: middle;
+    margin-right: 10px;
+  }
+`;

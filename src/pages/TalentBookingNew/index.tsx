@@ -2,7 +2,7 @@ import React, { FC, lazy, useState } from "react";
 import { useHistory } from "react-router";
 import { Container, Row, Col, Visible } from "components/Grid";
 import { Button } from "styles/components";
-import { FormContainer, FormFooter } from "./styles";
+import { FormContainer, FormFooter, BackButton } from "./styles";
 
 const BookingSummary = lazy(() => import("./BookingSummary"));
 const Stepper = lazy(() => import("./components/Stepper"));
@@ -47,15 +47,17 @@ const TalentBookingNew: FC<any> = () => {
         </Row>
       </Visible>
       <Row>
-        <Col offset={{ lg: 1 }} md={12} lg={10}>
+        <Col offset={{ lg: 1 }} md={12} lg={10} style={{ marginBottom: 100 }}>
           <Row>
             <Col md={12} lg={9}>
               <FormContainer>
                 <h3>Let's Get Started!</h3>
                 <ActiveForm />
                 <FormFooter>
-                  <Button onClick={handleGoBack}>Back</Button>
-                  <Button onClick={goToNextForm}>Next</Button>
+                  <BackButton onClick={handleGoBack}>Back</BackButton>
+                  <Button padding="14px 81px" onClick={goToNextForm}>
+                    Next
+                  </Button>
                 </FormFooter>
               </FormContainer>
             </Col>
