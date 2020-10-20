@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Input, IconWrapper, Wrapper } from "./styles";
+import { Input, IconWrapper, Wrapper, Label, InputWrapper } from "./styles";
 
 interface IProps {
   name: string;
@@ -8,6 +8,7 @@ interface IProps {
   onChange: (e: any) => void;
   icon?: any;
   margin?: string;
+  label?: string;
 }
 
 const InputText: FC<IProps> = ({
@@ -17,6 +18,7 @@ const InputText: FC<IProps> = ({
   onChange,
   icon,
   margin,
+  label,
 }) => {
   return (
     <Wrapper
@@ -25,13 +27,16 @@ const InputText: FC<IProps> = ({
       alignItems="center"
       margin={margin}
     >
-      <Input
-        name={name}
-        value={value}
-        placeholder={placeholder}
-        onChange={onChange}
-      />
-      {icon && <IconWrapper>{icon}</IconWrapper>}
+      {label && <Label>{label}</Label>}
+      <InputWrapper>
+        <Input
+          name={name}
+          value={value}
+          placeholder={placeholder}
+          onChange={onChange}
+        />
+        {icon && <IconWrapper>{icon}</IconWrapper>}
+      </InputWrapper>
     </Wrapper>
   );
 };

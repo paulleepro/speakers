@@ -24,7 +24,12 @@ const CustomDatePicker: FC<IProps> = ({
   value,
 }) => {
   return (
-    <Wrapper width="100%" flexDirection="row" alignItems="center" margin={margin}>
+    <Wrapper
+      width="100%"
+      flexDirection="row"
+      alignItems="center"
+      margin={margin}
+    >
       {label && <Label>{label}</Label>}
       <InputWrapper>
         <DatePicker

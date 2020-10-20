@@ -3,7 +3,9 @@ import colors from "styles/colors";
 import { Box } from "react-basic-blocks";
 
 export const Wrapper = styled(Box)<{ margin?: string }>`
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   ${(props) => (props.margin ? `margin: ${props.margin};` : "")}
 `;
 
@@ -38,4 +40,18 @@ export const Input = styled.input`
   &::placeholder {
     color: ${colors.midGrey};
   }
+`;
+
+export const Label = styled.span`
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0.2px;
+  color: ${colors.white};
+  margin-bottom: 8px;
+`;
+
+export const InputWrapper = styled.div`
+  position: relative;
+  width: 100%;
 `;
