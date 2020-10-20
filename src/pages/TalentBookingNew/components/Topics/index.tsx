@@ -3,7 +3,8 @@ import { Box } from "react-basic-blocks";
 import AddIcon from "@material-ui/icons/Add";
 import colors from "styles/colors";
 import InputText from "../../common/InputText";
-import { DropIcon, AddAnother } from "./styles";
+import { AddAnother } from "./styles";
+import { DropIcon } from "../../styles";
 
 interface IProps {
   value: string;
