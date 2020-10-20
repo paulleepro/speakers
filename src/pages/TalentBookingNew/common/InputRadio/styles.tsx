@@ -2,7 +2,6 @@ import styled from "styled-components";
 import colors from "styles/colors";
 
 export const InputWrapper = styled.div<{ active?: boolean }>`
-  object-fit: contain;
   border-radius: 12px;
   box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.25);
   border: solid 1px ${colors.purpleLiner};

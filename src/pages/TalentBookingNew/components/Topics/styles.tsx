@@ -10,7 +10,6 @@ export const AddAnother = styled.button`
   letter-spacing: 0.23px;
   color: ${colors.white};
   padding: 16px 136px 16px 24px;
-  object-fit: contain;
   border-radius: 12px;
   border: solid 1px ${colors.purpleLiner};
   background-color: ${colors.purpleBgFill};

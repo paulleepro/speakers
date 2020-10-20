@@ -3,7 +3,6 @@ import colors from "styles/colors";
 
 export const Select = styled.select`
   appearance: none;
-  object-fit: contain;
   border-radius: 12px;
   border: solid 1px ${colors.purpleLiner};
   background-color: ${colors.black};

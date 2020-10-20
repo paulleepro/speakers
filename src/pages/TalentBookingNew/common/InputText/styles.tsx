@@ -17,7 +17,6 @@ export const IconWrapper = styled(Box)`
 `;
 
 export const Input = styled.input`
-  object-fit: contain;
   border-radius: 12px;
   border: solid 1px ${colors.purpleLiner};
   background-color: ${colors.black};

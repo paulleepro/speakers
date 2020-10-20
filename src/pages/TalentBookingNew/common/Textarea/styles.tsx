@@ -2,7 +2,6 @@ import styled from "styled-components";
 import colors from "styles/colors";
 
 export const Input = styled.textarea`
-  object-fit: contain;
   border-radius: 12px;
   border: solid 1px ${colors.purpleLiner};
   background-color: ${colors.black};
