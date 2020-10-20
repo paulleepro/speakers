@@ -34,7 +34,6 @@ export const QuestionBullet = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 16px;
 `;
 
 export const QuestionWrapper = styled.div`
@@ -49,4 +48,7 @@ export const BulletWrapper = styled.div`
   top: 0;
   width: 32px;
   height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;

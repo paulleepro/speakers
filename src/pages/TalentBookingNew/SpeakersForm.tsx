@@ -1,15 +1,16 @@
 import React, { useState } from "react";
-import SearchIcon from "@material-ui/icons/Search";
 import AddIcon from "@material-ui/icons/Add";
 import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
-import { Row, Col } from "components/Grid";
+import { Row } from "components/Grid";
 import colors from "styles/colors";
 
 import QuestionHeader from "./common/QuestionHeader";
+import QuestionContent from "./common/QuestionContent";
 import InputText from "./common/InputText";
 import Textarea from "./common/Textarea";
 import SpeakersType from "./components/Topics";
 import InputRadio from "./common/InputRadio";
+import SearchIcon from "../../assets/Icons/Search";
 
 const SpeakersForm = () => {
   const [searchInput, setSearchInput] = useState("");
@@ -42,112 +43,99 @@ const SpeakersForm = () => {
   return (
     <>
       <h3>Add Your Speaker Preferences</h3>
-      <Row>
-        <Col>
-          <QuestionHeader
-            order={1}
-            title="Add speakers you’d like for your event"
-            description="Add speakers directly from your Favorites List or take a moment to search some more"
+      <QuestionHeader
+        order={1}
+        title="Add speakers you’d like for your event"
+        description="Add speakers directly from your Favorites List or take a moment to search some more"
+      />
+      <QuestionHeader
+        icon={<img src="/images/star.png" alt="star" width="24" height="23" />}
+        title="Add from your Favorites List"
+        description="Adding from this list will help you complete your booking request faster."
+      />
+      <QuestionContent>
+        <InputText
+          name="favoritesList"
+          value={favoritesList}
+          onChange={handleFavoritesChange}
+          icon={
+            <AddIcon style={{ color: colors.primaryPurple, fontSize: 34 }} />
+          }
+        />
+      </QuestionContent>
+      <QuestionHeader
+        icon={<SearchIcon />}
+        title="Add more speakers?"
+        description="Have more speakers in mind? Add their name(s) below. "
+      />
+      <QuestionContent>
+        <InputText
+          name="search"
+          value={searchInput}
+          onChange={handleSearchChange}
+          placeholder="Search by name…"
+          icon={<SearchIcon fill={colors.midGrey} />}
+        />
+      </QuestionContent>
+
+      <QuestionHeader
+        order={2}
+        title="Which types of speakers are you considering?"
+        description="Select up to three."
+      />
+      <QuestionContent>
+        <SpeakersType
+          value={speakers}
+          name="speakers"
+          onChange={handleSpeakersChange}
+          placeholder="Choose a Speaker Type"
+        />
+      </QuestionContent>
+
+      <QuestionHeader
+        order={3}
+        title="Have you or your organization hosted speakers in the past?"
+        description="Add any relevant past speakers you’ve hosted for your organization."
+      />
+      <QuestionContent>
+        <Row>
+          <InputRadio
+            options={[
+              { id: "yes", value: "yes", label: "Yes" },
+              { id: "no", value: "no", label: "No" },
+            ]}
+            name="hosted"
+            selected={hosted}
+            onChange={(value: any) => setHosted(value)}
           />
-          <QuestionHeader
-            icon={
-              <img src="/images/star.png" alt="star" width="24" height="23" />
-            }
-            title="Add from your Favorites List"
-            description="Adding from this list will help you complete your booking request faster."
-          />
-          <InputText
-            name="favoritesList"
-            value={favoritesList}
-            onChange={handleFavoritesChange}
-            icon={
-              <AddIcon style={{ color: colors.primaryPurple, fontSize: 34 }} />
-            }
-          />
-          <QuestionHeader
-            icon={
-              <SearchIcon
-                style={{ color: colors.primaryPurple, fontSize: 30 }}
-              />
-            }
-            title="Add more speakers?"
-            description="Have more speakers in mind? Add their name(s) below. "
-          />
-          <InputText
-            name="search"
-            value={searchInput}
-            onChange={handleSearchChange}
-            placeholder="Search by name…"
-            icon={
-              <SearchIcon style={{ color: colors.midGrey, fontSize: 30 }} />
-            }
-          />
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <QuestionHeader
-            order={2}
-            title="Which types of speakers are you considering?"
-            description="Select up to three."
-          />
-          <SpeakersType
-            value={speakers}
-            name="speakers"
-            onChange={handleSpeakersChange}
-            placeholder="Choose a Speaker Type"
-          />
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <QuestionHeader
-            order={3}
-            title="Have you or your organization hosted speakers in the past?"
-            description="Add any relevant past speakers you’ve hosted for your organization."
-          />
-          <Row>
-            <InputRadio
-              options={[
-                { id: "yes", value: "yes", label: "Yes" },
-                { id: "no", value: "no", label: "No" },
-              ]}
-              name="hosted"
-              selected={hosted}
-              onChange={(value: any) => setHosted(value)}
+        </Row>
+        <InputText
+          name="hostName"
+          value={hostName}
+          onChange={handleHostNameChange}
+          placeholder="Add their name(s) here..."
+          icon={
+            <HelpOutlineIcon
+              style={{ color: colors.primaryPurple, fontSize: 30 }}
             />
-            <Col>
-              <InputText
-                name="hostName"
-                value={hostName}
-                onChange={handleHostNameChange}
-                placeholder="Add their name(s) here..."
-                icon={
-                  <HelpOutlineIcon
-                    style={{ color: colors.primaryPurple, fontSize: 30 }}
-                  />
-                }
-              />
-            </Col>
-          </Row>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <QuestionHeader
-            order={4}
-            title="Any additional notes or comments?"
-            description="Take a moment to share any thoughts or special notes you have about your preferred speaker(s)."
-          />
-          <Textarea
-            rows={3}
-            name="notes"
-            value={notes}
-            onChange={handleNotesChange}
-            placeholder="Additional notes..."
-          />
-        </Col>
-      </Row>
+          }
+        />
+      </QuestionContent>
+
+      <QuestionHeader
+        order={4}
+        title="Any additional notes or comments?"
+        description="Take a moment to share any thoughts or special notes you have about your preferred speaker(s)."
+      />
+      <QuestionContent>
+        <Textarea
+          rows={3}
+          name="notes"
+          value={notes}
+          onChange={handleNotesChange}
+          placeholder="Additional notes..."
+        />
+      </QuestionContent>
     </>
   );
 };
