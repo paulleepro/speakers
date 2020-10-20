@@ -9,6 +9,7 @@ const AppHeader = lazy(() => import("components/AppHeader"));
 const Confirmation = lazy(() => import("pages/Confirmation"));
 const FAQ = lazy(() => import("pages/FAQ"));
 const Explore = lazy(() => import("pages/Explore"));
+const Favorites = lazy(() => import("pages/Favorites"));
 const Footer = lazy(() => import("components/Footer"));
 const HowItWorks = lazy(() => import("pages/HowItWorks"));
 const Landing = lazy(() => import("pages/Landing"));
@@ -17,6 +18,7 @@ const SearchResults = lazy(() => import("pages/SearchResults"));
 const Subtopic = lazy(() => import("pages/Subtopic"));
 const Talent = lazy(() => import("pages/Talent"));
 const TalentBooking = lazy(() => import("pages/TalentBooking"));
+const TalentBookingNew = lazy(() => import("pages/TalentBookingNew"));
 const Topics = lazy(() => import("pages/TopicList"));
 const Type = lazy(() => import("pages/Type"));
 
@@ -68,6 +70,11 @@ const App = (): ReactElement => {
             component={Confirmation}
             exact
           />
+          <Route
+            path="/talent/:slug/booking-new"
+            component={TalentBookingNew}
+            exact
+          />
           <Route path="/talent/:slug/booking" component={TalentBooking} exact />
           <Route path="/talent/:slug" component={Talent} exact />
           <Route path="/type/:slug" component={Type} exact />
@@ -75,6 +82,7 @@ const App = (): ReactElement => {
           <Route path="/topic" component={Topics} exact />
           <Route path="/explore" component={Explore} exact />
           <Route path="/how-it-works" component={HowItWorks} exact />
+          <Route path="/favorites" component={Favorites} exact />
           <Route path="/faq" component={FAQ} exact />
           <Route path="/search-results" component={SearchResults} exact />
           <Route path="/" component={Landing} exact />

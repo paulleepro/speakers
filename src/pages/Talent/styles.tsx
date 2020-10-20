@@ -84,3 +84,30 @@ export const StyledScrollLink = styled(ScrollLink)`
   line-height: 1.5;
   letter-spacing: 0.3px;
 `;
+
+export const AddButton = styled.button`
+  position: relative;
+  border-radius: 12px;
+  border: solid 1px ${colors.primaryPurple};
+  background-color: ${colors.black};
+  width: 100%;
+  padding: 14px;
+
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.5;
+  letter-spacing: 0.2px;
+  text-align: center;
+  color: ${colors.white};
+  cursor: pointer;
+  margin-bottom: 8px;
+  outline: none;
+
+  img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 16px;
+    margin: auto 0;
+  }
+`;

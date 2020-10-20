@@ -207,14 +207,19 @@ export const Divider = styled.div<{ width: string; noCenterAlign?: boolean }>`
   }
 `;
 
-export const Button = styled.button<{ margin?: string; width?: string }>`
+export const Button = styled.button<{
+  margin?: string;
+  padding?: string;
+  width?: string;
+  backgroundColor?: string;
+  variant?: string;
+}>`
   ${(props) => (props.margin ? `margin: ${props.margin};` : "")}
   ${(props) => (props.width ? `width: ${props.width};` : "")}
+  padding: ${(props) => props.padding || "14px 60px"};
   cursor: pointer;
   border-radius: 12px;
-  background-color: ${colors.primaryPurple};
-  padding: 14px 60px;
-  font-size: 
+  background-color: ${(props) => props.backgroundColor || colors.primaryPurple};
   font-size: 16px;
   font-weight: bold;
   font-stretch: normal;
@@ -225,6 +230,15 @@ export const Button = styled.button<{ margin?: string; width?: string }>`
   color: white;
   border: none;
   outline: none;
+
+  ${(props) =>
+    props.variant === "outline"
+      ? `
+    border: solid 1px ${colors.primaryPurple};
+    background-color: transparent;
+    color: ${colors.primaryPurple};
+  `
+      : ""}
 
   &:disabled{
     background-color: ${colors.darkPurpleFill};
