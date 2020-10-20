@@ -34,6 +34,9 @@ stages:
             displayName: 'Install Node.js'
             inputs:
               versionSpec: '10.x'
+          - task: npmAuthenticate@0
+            inputs:
+              workingFile: '.npmrc'
           - script: |
               yarn
               if [ $? -ne 0 ]; then
@@ -76,6 +79,9 @@ stages:
       - job: Cypress
         dependsOn: StagingDeploy
         steps:
+          - task: npmAuthenticate@0
+            inputs:
+              workingFile: '.npmrc'
           - script: |
               yarn
               if [ $? -ne 0 ]; then
@@ -121,6 +127,9 @@ stages:
             displayName: 'Install Node.js'
             inputs:
               versionSpec: '10.x'
+          - task: npmAuthenticate@0
+            inputs:
+              workingFile: '.npmrc'
           - script: |
               yarn
               if [ $? -ne 0 ]; then
@@ -171,6 +180,9 @@ stages:
       - job: Cypress
         dependsOn: ProductionDeploy
         steps:
+          - task: npmAuthenticate@0
+            inputs:
+              workingFile: '.npmrc'
           - script: |
               yarn
               if [ $? -ne 0 ]; then
