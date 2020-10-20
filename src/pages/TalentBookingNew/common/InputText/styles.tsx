@@ -3,9 +3,6 @@ import colors from "styles/colors";
 import { Box } from "react-basic-blocks";
 
 export const Wrapper = styled(Box)<{ margin?: string }>`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
   ${(props) => (props.margin ? `margin: ${props.margin};` : "")}
 `;
 
