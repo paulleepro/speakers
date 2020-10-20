@@ -14,7 +14,9 @@ export const ImageWrapper = styled.div<{ active?: boolean }>`
   overflow: hidden;
   border: solid
     ${(props) =>
-      props.active ? `4px ${colors.primaryPurple}` : `2px ${colors.midGrey}`};
+      props.active
+        ? `4px ${colors.primaryPurple}`
+        : `1px ${colors.purpleLiner}`};
 
   img {
     width: 100%;
@@ -58,6 +60,7 @@ export const ImageOverlay = styled.div`
     rgba(0, 0, 0, 0) 50%,
     rgba(0, 0, 0, 0.99) 85%
   );
+  box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.25);
 `;
 
 export const FeaturesList = styled.ul<{ active?: boolean }>`

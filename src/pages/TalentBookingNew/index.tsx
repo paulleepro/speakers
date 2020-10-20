@@ -49,7 +49,7 @@ const TalentBookingNew: FC<any> = () => {
       <Row>
         <Col offset={{ lg: 1 }} md={12} lg={10} style={{ marginBottom: 100 }}>
           <Row>
-            <Col md={12} lg={9}>
+            <Col md={9}>
               <FormContainer>
                 <ActiveForm />
                 <FormFooter>
@@ -60,8 +60,8 @@ const TalentBookingNew: FC<any> = () => {
                 </FormFooter>
               </FormContainer>
             </Col>
-            <Col md={12} lg={3}>
-              <Visible lg>
+            <Col md={3}>
+              <Visible md lg>
                 <BookingSummary />
               </Visible>
             </Col>

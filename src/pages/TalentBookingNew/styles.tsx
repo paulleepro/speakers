@@ -51,7 +51,12 @@ export const FormFooter = styled.div`
   align-items: center;
   padding: 24px 0;
   margin-top: 44px;
+  padding-left: 48px;
   border-top: 1px solid ${colors.purpleLiner};
+
+  @media (max-width: 1023px) {
+    padding-left: 0;
+  }
 
   a {
     font-size: 16px;
