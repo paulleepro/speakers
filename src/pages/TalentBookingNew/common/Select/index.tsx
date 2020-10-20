@@ -11,7 +11,6 @@ interface IOption {
 }
 
 interface IProps {
-  icon?: any;
   label?: string;
   margin?: string;
   name: string;
@@ -22,7 +21,6 @@ interface IProps {
 }
 
 const CustomSelect: FC<IProps> = ({
-  icon,
   label,
   margin,
   name,
