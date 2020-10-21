@@ -1,14 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, lazy } from "react";
 import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
 import CalendarTodayOutlinedIcon from "@material-ui/icons/CalendarTodayOutlined";
 import colors from "styles/colors";
-import { Row, Col } from "components/Grid";
+import { Row, Col, Visible } from "components/Grid";
+import LazyWrapper from "components/LazyWrapper";
 import QuestionHeader from "./common/QuestionHeader";
 import QuestionContent from "./common/QuestionContent";
 import InputText from "./common/InputText";
 import InputRadio, { RadioInputOption } from "./common/InputRadio";
 import DatePicker from "./common/DatePicker";
 import Select from "./common/Select";
+
+const ReactTooltip = lazy(() => import("react-tooltip"));
 
 interface IHost {
   fullName: string;
@@ -187,6 +190,33 @@ const DetailsForm = () => {
         order={3}
         title="Are your dates flexible?"
         description="Our agents will coordinate with the speaker and your schedule to find a perfect fit."
+        tooltipIcon={
+          <>
+            <HelpOutlineIcon
+              data-tip
+              data-for="your-flexible-date"
+              style={{ color: colors.primaryPurple, fontSize: 30 }}
+            />
+            <Visible md lg>
+              <LazyWrapper>
+                <ReactTooltip
+                  id="your-flexible-date"
+                  place="right"
+                  type="dark"
+                  effect="float"
+                  className="tooltip"
+                  backgroundColor={colors.black}
+                  border
+                  borderColor={colors.primaryPurple}
+                >
+                  Being flexible allows agents to find more speakers for your
+                  event, they'll search for speakers available the week
+                  specified
+                </ReactTooltip>
+              </LazyWrapper>
+            </Visible>
+          </>
+        }
       />
       <QuestionContent>
         <Row>
@@ -206,6 +236,31 @@ const DetailsForm = () => {
         order={4}
         title="Select your budget range"
         description="This will help us tailor your event and speaker options."
+        tooltipIcon={
+          <>
+            <HelpOutlineIcon
+              data-tip
+              data-for="your-budget-range"
+              style={{ color: colors.primaryPurple, fontSize: 30 }}
+            />
+            <Visible md lg>
+              <LazyWrapper>
+                <ReactTooltip
+                  id="your-budget-range"
+                  place="right"
+                  type="dark"
+                  effect="float"
+                  className="tooltip"
+                  backgroundColor={colors.black}
+                  border
+                  borderColor={colors.primaryPurple}
+                >
+                  Price ranges can vary from speaker to speaker
+                </ReactTooltip>
+              </LazyWrapper>
+            </Visible>
+          </>
+        }
       />
       <QuestionContent>
         <Row>
@@ -231,9 +286,29 @@ const DetailsForm = () => {
           onChange={handleCustomBudgetRangeChange}
           placeholder="Have a specific budget?"
           icon={
-            <HelpOutlineIcon
-              style={{ color: colors.primaryPurple, fontSize: 30 }}
-            />
+            <>
+              <HelpOutlineIcon
+                data-tip
+                data-for="your-budget-range-input"
+                style={{ color: colors.primaryPurple, fontSize: 30 }}
+              />
+              <Visible md lg>
+                <LazyWrapper>
+                  <ReactTooltip
+                    id="your-budget-range-input"
+                    place="right"
+                    type="dark"
+                    effect="float"
+                    className="tooltip"
+                    backgroundColor={colors.black}
+                    border
+                    borderColor={colors.primaryPurple}
+                  >
+                    Price ranges can vary from speaker to speaker
+                  </ReactTooltip>
+                </LazyWrapper>
+              </Visible>
+            </>
           }
         />
       </QuestionContent>

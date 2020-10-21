@@ -60,3 +60,8 @@ export const BulletWrapper = styled.div`
   align-items: center;
   justify-content: center;
 `;
+
+export const TooltipWrapper = styled.div`
+  margin-left: 8px;
+  display: flex;
+`;
