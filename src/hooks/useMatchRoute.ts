@@ -2,15 +2,21 @@ import { useHistory, matchPath } from "react-router";
 
 interface IProps {
   path: string;
+  exact?: boolean;
+  strict?: boolean;
 }
 
-export default ({ path }: IProps) => {
+export default (options: IProps) => {
   const { location } = useHistory();
-
-  const match = matchPath(location.pathname, {
-    path,
+  const defaultOptions = {
+    path: "/",
     exact: true,
     strict: false,
+  };
+
+  const match = matchPath(location.pathname, {
+    ...defaultOptions,
+    ...options,
   });
 
   return match;
