@@ -90,7 +90,7 @@ const MediumHeader: FC<IProps> = ({ talent }) => {
                 height={417}
               />
             </LazyWrapper>
-            <Link to={`/talent/${slug}/booking`}>
+            <Link to={`/talent/${slug}/booking-new`}>
               <Button margin="30px 0 16px 0" width="100%">
                 Create Booking Request
               </Button>

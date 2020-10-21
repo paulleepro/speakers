@@ -1,8 +1,8 @@
 import React, { FC, lazy, useState } from "react";
 import { useHistory } from "react-router";
-import { Container, Row, Col, Visible } from "components/Grid";
+import { Row, Col, Visible } from "components/Grid";
 import { Button } from "styles/components";
-import { FormContainer, FormFooter, BackButton } from "./styles";
+import { FormContainer, FormFooter, BackButton, Wrapper } from "./styles";
 
 const BookingSummary = lazy(() => import("./BookingSummary"));
 const Stepper = lazy(() => import("./components/Stepper"));
@@ -38,7 +38,7 @@ const TalentBookingNew: FC<any> = () => {
   };
 
   return (
-    <Container fluid>
+    <Wrapper fluid>
       <Visible sm md lg>
         <Row>
           <Col offset={{ lg: 1 }} md={12} lg={10}>
@@ -49,7 +49,7 @@ const TalentBookingNew: FC<any> = () => {
       <Row>
         <Col offset={{ lg: 1 }} md={12} lg={10} style={{ marginBottom: 100 }}>
           <Row>
-            <Col md={12} lg={9}>
+            <Col md={9}>
               <FormContainer>
                 <ActiveForm />
                 <FormFooter>
@@ -60,15 +60,15 @@ const TalentBookingNew: FC<any> = () => {
                 </FormFooter>
               </FormContainer>
             </Col>
-            <Col md={12} lg={3}>
-              <Visible lg>
+            <Col md={3}>
+              <Visible md lg>
                 <BookingSummary />
               </Visible>
             </Col>
           </Row>
         </Col>
       </Row>
-    </Container>
+    </Wrapper>
   );
 };
 

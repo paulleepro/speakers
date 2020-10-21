@@ -6,7 +6,7 @@ export const QuestionTitle = styled.h4`
   font-size: 24px;
   letter-spacing: 0.2px;
   color: ${colors.white};
-  margin: 0;
+  margin: 3px 0 0;
 `;
 
 export const QuestionDescription = styled.p`
@@ -15,7 +15,11 @@ export const QuestionDescription = styled.p`
   letter-spacing: 0.2px;
   color: ${colors.white};
   margin-bottom: 40px;
-  margin-left: 48px;
+  margin-top: 8px;
+
+  @media (max-width: 767px) {
+    margin-bottom: 32px;
+  }
 `;
 
 export const QuestionBullet = styled.div`
@@ -34,9 +38,30 @@ export const QuestionBullet = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 16px;
 `;
 
 export const QuestionWrapper = styled.div`
   margin-top: 68px;
+  position: relative;
+  padding-left: 48px;
+
+  @media (max-width: 767px) {
+    margin-top: 56px;
+  }
+`;
+
+export const BulletWrapper = styled.div`
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const TooltipWrapper = styled.div`
+  margin-left: 8px;
+  display: flex;
 `;

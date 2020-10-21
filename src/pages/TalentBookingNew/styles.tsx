@@ -1,5 +1,16 @@
 import styled from "styled-components";
 import colors from "styles/colors";
+import { Container } from "components/Grid";
+
+export const Wrapper = styled(Container)`
+  @media (max-width: 768px) {
+    margin-top: 24px;
+  }
+
+  @media (max-width: 375px) {
+    padding: 0;
+  }
+`;
 
 export const BookingSummaryContainer = styled.div`
   h3 {
@@ -36,6 +47,8 @@ export const FormContainer = styled.div`
 
   @media (max-width: 768px) {
     padding: 0 16px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
 
     h3 {
       text-align: center;
@@ -51,7 +64,12 @@ export const FormFooter = styled.div`
   align-items: center;
   padding: 24px 0;
   margin-top: 44px;
+  padding-left: 48px;
   border-top: 1px solid ${colors.purpleLiner};
+
+  @media (max-width: 1023px) {
+    padding-left: 0;
+  }
 
   a {
     font-size: 16px;
@@ -88,4 +106,28 @@ export const BackButton = styled.button`
     vertical-align: middle;
     margin-right: 10px;
   }
+`;
+
+export const DropIcon = styled.span`
+  display: flex;
+  :before {
+    width: 0;
+    height: 0;
+    border-top: 8px solid ${colors.primaryPurple};
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    content: "";
+    font-size: 0px;
+    vertical-align: middle;
+    margin-left: 5px;
+    line-height: 22px;
+  }
+`;
+
+export const TooltipContent = styled.div`
+  border-radius: 12px;
+  box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.25);
+  font-size: 16px;
+  letter-spacing: 0.2px;
+  line-height: 1.38;
 `;

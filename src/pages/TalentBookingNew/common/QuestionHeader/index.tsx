@@ -6,6 +6,8 @@ import {
   QuestionTitle,
   QuestionDescription,
   QuestionWrapper,
+  BulletWrapper,
+  TooltipWrapper,
 } from "./styles";
 
 interface IProps {
@@ -13,22 +15,26 @@ interface IProps {
   title: string;
   description: string;
   icon?: any;
+  tooltipIcon?: any;
 }
 
-const QuestionHeader: FC<IProps> = ({ order, title, description, icon }) => {
+const QuestionHeader: FC<IProps> = ({
+  order,
+  title,
+  description,
+  icon,
+  tooltipIcon,
+}) => {
   return (
     <QuestionWrapper>
       <Box flexDirection="row">
-        {order ? (
-          <QuestionBullet>{order}</QuestionBullet>
-        ) : (
-          <Box margin="0 16px 0 0">{icon}</Box>
-        )}
+        <BulletWrapper>
+          {order ? <QuestionBullet>{order}</QuestionBullet> : icon}
+        </BulletWrapper>
         <QuestionTitle>{title}</QuestionTitle>
+        {tooltipIcon && <TooltipWrapper>{tooltipIcon}</TooltipWrapper>}
       </Box>
-      <Box>
-        <QuestionDescription>{description}</QuestionDescription>
-      </Box>
+      <QuestionDescription>{description}</QuestionDescription>
     </QuestionWrapper>
   );
 };

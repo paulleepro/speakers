@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import colors from "styles/colors";
 
-export const Input = styled.textarea`
+export const Select = styled.select<{ isPlaceholder?: boolean }>`
+  appearance: none;
   border-radius: 12px;
   border: solid 1px ${colors.purpleLiner};
   background-color: ${colors.black};
@@ -10,18 +11,21 @@ export const Input = styled.textarea`
   font-weight: bold;
   line-height: 1.5;
   letter-spacing: 0.3px;
-  color: ${colors.white};
-  padding: 15px 36px 17px 24px;
+  color: ${(props) => (props.isPlaceholder ? colors.midGrey : colors.white)};
+
+  padding: 15px 56px 17px 24px;
   outline: none;
-  margin-bottom: 16px;
   width: 100%;
 
-  &::placeholder {
+  option:first-child {
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 1.5;
+    letter-spacing: 0.3px;
     color: ${colors.midGrey};
   }
 
   @media (max-width: 767px) {
-    margin-bottom: 8px;
     font-size: 18px;
     line-height: 2;
     letter-spacing: 0.23px;

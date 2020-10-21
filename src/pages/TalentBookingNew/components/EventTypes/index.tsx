@@ -31,12 +31,12 @@ const EVENT_TYPES = [
       "15-minute Q&A",
     ],
   },
-  {
-    id: 3,
-    name: "Multiple Speakers",
-    imageUrl: "/images/panel-discussion.png",
-    features: ["Select your timeframe", "Pick a format", "Add speakers"],
-  },
+  // {
+  //   id: 3,
+  //   name: "Multiple Speakers",
+  //   imageUrl: "/images/panel-discussion.png",
+  //   features: ["Select your timeframe", "Pick a format", "Add speakers"],
+  // },
 ];
 
 interface IEventTypeProps {
