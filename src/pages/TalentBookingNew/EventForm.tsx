@@ -73,7 +73,7 @@ const EventForm = () => {
       />
       <QuestionContent>
         <Topics
-          topics={data?.data}
+          list={data?.data}
           value={topics}
           onChange={handleTopicsChange}
         />

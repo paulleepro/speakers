@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, lazy } from "react";
 import AddIcon from "@material-ui/icons/Add";
 import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
 import { Row } from "components/Grid";
 import colors from "styles/colors";
-
+import { fetchSingle } from "fetch-hooks-react";
+import { IType, IListResult } from "types";
+import { config } from "config";
+import LazyWrapper from "components/LazyWrapper";
+import Loader from "components/Loader";
 import QuestionHeader from "./common/QuestionHeader";
 import QuestionContent from "./common/QuestionContent";
 import InputText from "./common/InputText";
@@ -12,6 +16,8 @@ import SpeakersType from "./components/Topics";
 import InputRadio from "./common/InputRadio";
 import SearchIcon from "../../assets/Icons/Search";
 
+const ErrorNotice = lazy(() => import("components/ErrorNotice"));
+
 const SpeakersForm = () => {
   const [searchInput, setSearchInput] = useState("");
   const [notes, setNotes] = useState("");
@@ -19,6 +25,20 @@ const SpeakersForm = () => {
   const [speakers, setSpeakers] = useState("");
   const [hosted, setHosted] = useState("");
   const [hostName, setHostName] = useState("");
+
+  const { data, isLoading, error } = fetchSingle<IListResult<IType>>(
+    `${config.speakersTalentUrl}/v1/talents/metadata/types?order=name:asc`
+  );
+
+  if (isLoading) {
+    return <Loader />;
+  } else if (error || !data) {
+    return (
+      <LazyWrapper>
+        <ErrorNotice />
+      </LazyWrapper>
+    );
+  }
 
   const handleSearchChange = (e: any): void => {
     setSearchInput(e.target.value);
@@ -85,6 +105,8 @@ const SpeakersForm = () => {
       />
       <QuestionContent>
         <SpeakersType
+          type="speakerType"
+          list={data?.data}
           value={speakers}
           name="speakers"
           onChange={handleSpeakersChange}

@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import { Box } from "react-basic-blocks";
 import AddIcon from "@material-ui/icons/Add";
 import colors from "styles/colors";
-import { ITopic } from "types";
+import { ITopic, IType } from "types";
 import Select from "../../common/Select";
 import { AddAnother } from "./styles";
 
@@ -11,7 +11,8 @@ interface IProps {
   onChange: (e: any) => void;
   placeholder?: string;
   name?: string;
-  topics?: ITopic[];
+  list?: ITopic[] | IType[];
+  type?: string;
 }
 
 const Topics: FC<IProps> = ({
@@ -19,15 +20,18 @@ const Topics: FC<IProps> = ({
   onChange,
   name = "themes",
   placeholder = "Choose a Topic",
-  topics = [],
+  list = [],
+  type = "topic",
 }) => {
+  const options = list.map(({ name, id }) => ({
+    value: id,
+    label: name,
+  }));
+
   return (
     <>
       <Select
-        options={topics.map(({ name, id, subtopics }) => ({
-          value: id,
-          label: name,
-        }))}
+        options={options}
         onChange={onChange}
         value={value}
         name={name}
