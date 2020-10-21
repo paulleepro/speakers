@@ -2,15 +2,16 @@ import React, { FC } from "react";
 import { Box } from "react-basic-blocks";
 import AddIcon from "@material-ui/icons/Add";
 import colors from "styles/colors";
-import InputText from "../../common/InputText";
+import { ITopic } from "types";
+import Select from "../../common/Select";
 import { AddAnother } from "./styles";
-import { DropIcon } from "../../styles";
 
 interface IProps {
   value: string;
   onChange: (e: any) => void;
   placeholder?: string;
   name?: string;
+  topics?: ITopic[];
 }
 
 const Topics: FC<IProps> = ({
@@ -18,15 +19,19 @@ const Topics: FC<IProps> = ({
   onChange,
   name = "themes",
   placeholder = "Choose a Topic",
+  topics = [],
 }) => {
   return (
     <>
-      <InputText
-        placeholder={placeholder}
-        name={name}
-        value={value}
+      <Select
+        options={topics.map(({ name, id, subtopics }) => ({
+          value: id,
+          label: name,
+        }))}
         onChange={onChange}
-        icon={<DropIcon />}
+        value={value}
+        name={name}
+        placeholder={placeholder}
         hasMargin
       />
       <Box width="100%" flexDirection="row" alignItems="center">

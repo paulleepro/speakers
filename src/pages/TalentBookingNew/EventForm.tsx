@@ -1,4 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, lazy } from "react";
+import { fetchSingle } from "fetch-hooks-react";
+import { ITopic, IListResult } from "types";
+import { config } from "config";
+import LazyWrapper from "components/LazyWrapper";
+import Loader from "components/Loader";
 import QuestionHeader from "./common/QuestionHeader";
 import QuestionContent from "./common/QuestionContent";
 import EventTypes from "./components/EventTypes";
@@ -9,10 +14,26 @@ import InputText from "./common/InputText";
 import Textarea from "./common/Textarea";
 import Topics from "./components/Topics";
 
+const ErrorNotice = lazy(() => import("components/ErrorNotice"));
+
 const EventForm = () => {
   const [eventName, setEventName] = useState<string>("");
   const [notes, setNotes] = useState<string>("");
   const [topics, setTopics] = useState<string>("");
+
+  const { data, isLoading, error } = fetchSingle<IListResult<ITopic>>(
+    `${config.speakersTalentUrl}/v1/talents/metadata/topics?order=name:asc`
+  );
+
+  if (isLoading) {
+    return <Loader />;
+  } else if (error || !data) {
+    return (
+      <LazyWrapper>
+        <ErrorNotice />
+      </LazyWrapper>
+    );
+  }
 
   const handleEventNameChange = (e: any): void => {
     setEventName(e.target.value);
@@ -51,7 +72,11 @@ const EventForm = () => {
         description="Add whichever talking points are most relevant to your group."
       />
       <QuestionContent>
-        <Topics value={topics} onChange={handleTopicsChange} />
+        <Topics
+          topics={data?.data}
+          value={topics}
+          onChange={handleTopicsChange}
+        />
       </QuestionContent>
 
       <QuestionHeader
