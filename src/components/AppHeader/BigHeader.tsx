@@ -1,6 +1,7 @@
 import React, { FC, useState } from "react";
 import { Box } from "react-basic-blocks";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router";
 import { IType } from "types";
 
 import { Button } from "styles/components";
@@ -13,6 +14,9 @@ interface IProps {
 }
 
 const BigHeader: FC<IProps> = ({ types }) => {
+  const history = useHistory();
+  const isBookingPage = history.location.pathname.includes("/booking-new");
+
   const [open, setOpen] = useState(false);
   const [isSignUpModal, setIsSignUpModal] = useState<boolean>(false);
 
@@ -34,33 +38,35 @@ const BigHeader: FC<IProps> = ({ types }) => {
           </Link>
         </Box>
 
-        <Box flexDirection="row" alignItems="center">
-          <Link to="/how-it-works">
-            <LinkText>How it Works</LinkText>
-          </Link>
-          <Link to="/explore">
-            <LinkText>Explore</LinkText>
-          </Link>
-          <FavoritesListLink to="/favorites">
-            <img src="/images/star.png" alt="star" width="24" height="23" />
-            <LinkText noMargin>Favorites List</LinkText>
-          </FavoritesListLink>
-          <Button
-            onClick={() => handleClickOpen("signin")}
-            backgroundColor="transparent"
-            padding="11px 0"
-            margin="0 0 0 30px"
-          >
-            Sign In
-          </Button>
-          <Button
-            onClick={() => handleClickOpen("signup")}
-            margin="0 0 0 30px"
-            padding="11px 48px"
-          >
-            Sign Up
-          </Button>
-        </Box>
+        {!isBookingPage && (
+          <Box flexDirection="row" alignItems="center">
+            <Link to="/how-it-works">
+              <LinkText>How it Works</LinkText>
+            </Link>
+            <Link to="/explore">
+              <LinkText>Explore</LinkText>
+            </Link>
+            <FavoritesListLink to="/favorites">
+              <img src="/images/star.png" alt="star" width="24" height="23" />
+              <LinkText noMargin>Favorites List</LinkText>
+            </FavoritesListLink>
+            <Button
+              onClick={() => handleClickOpen("signin")}
+              backgroundColor="transparent"
+              padding="11px 0"
+              margin="0 0 0 30px"
+            >
+              Sign In
+            </Button>
+            <Button
+              onClick={() => handleClickOpen("signup")}
+              margin="0 0 0 30px"
+              padding="11px 48px"
+            >
+              Sign Up
+            </Button>
+          </Box>
+        )}
       </Wrapper>
       <AuthModal isSignUp={isSignUpModal} show={open} onClose={handleClose} />
     </>

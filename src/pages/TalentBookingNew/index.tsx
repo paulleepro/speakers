@@ -21,7 +21,7 @@ const FORMS = [
 
 const TalentBookingNew: FC<any> = () => {
   const history = useHistory();
-  const [activeStep, setActiveStep] = useState<number>(1);
+  const [activeStep, setActiveStep] = useState<number>(0);
 
   const ActiveForm = FORMS[activeStep].component;
 
