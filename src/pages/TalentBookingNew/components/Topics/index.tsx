@@ -27,7 +27,7 @@ const Topics: FC<IProps> = ({
         value={value}
         onChange={onChange}
         icon={<DropIcon />}
-        margin="0 0 16px 0"
+        hasMargin
       />
       <Box width="100%" flexDirection="row" alignItems="center">
         <AddAnother>Add another</AddAnother>

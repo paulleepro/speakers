@@ -47,6 +47,8 @@ export const FormContainer = styled.div`
 
   @media (max-width: 768px) {
     padding: 0 16px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
 
     h3 {
       text-align: center;

@@ -7,9 +7,11 @@ export const InputWrapper = styled.div<{ active?: boolean }>`
   border: solid 1px ${colors.purpleLiner};
   background-color: ${(props) =>
     props.active ? colors.primaryPurple : colors.black};
-  padding: 15px 34px 17px 24px;
+  padding: 15px 24px 17px 24px;
   margin-bottom: 16px;
   cursor: pointer;
+  text-overflow: ellipsis;
+  overflow: hidden;
 
   input {
     position: absolute;
@@ -28,6 +30,16 @@ export const InputWrapper = styled.div<{ active?: boolean }>`
     white-space: nowrap;
     padding-left: 40px;
     position: relative;
+  }
+
+  @media (max-width: 767px) {
+    margin-bottom: 8px;
+
+    label {
+      font-size: 18px;
+      line-height: 2;
+      letter-spacing: 0.23px;
+    }
   }
 `;
 

@@ -16,6 +16,10 @@ export const QuestionDescription = styled.p`
   color: ${colors.white};
   margin-bottom: 40px;
   margin-top: 8px;
+
+  @media (max-width: 767px) {
+    margin-bottom: 32px;
+  }
 `;
 
 export const QuestionBullet = styled.div`
@@ -40,6 +44,10 @@ export const QuestionWrapper = styled.div`
   margin-top: 68px;
   position: relative;
   padding-left: 48px;
+
+  @media (max-width: 767px) {
+    margin-top: 56px;
+  }
 `;
 
 export const BulletWrapper = styled.div`

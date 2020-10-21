@@ -10,7 +10,7 @@ const DatePicker = lazy(() => import("react-datepicker"));
 interface IProps {
   icon?: any;
   label?: string;
-  margin?: string;
+  hasMargin?: boolean;
   onChange: (value: any) => void;
   placeholder?: string;
   value: Date;
@@ -19,13 +19,13 @@ interface IProps {
 const CustomDatePicker: FC<IProps> = ({
   icon,
   label,
-  margin,
+  hasMargin,
   onChange,
   placeholder,
   value,
 }) => {
   return (
-    <Wrapper width="100%" flexDirection="column" margin={margin}>
+    <Wrapper width="100%" flexDirection="column" hasMargin={hasMargin}>
       {label && <Label>{label}</Label>}
       <InputWrapper>
         <LazyWrapper>

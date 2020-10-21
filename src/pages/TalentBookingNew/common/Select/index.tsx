@@ -12,7 +12,7 @@ interface IOption {
 
 interface IProps {
   label?: string;
-  margin?: string;
+  hasMargin?: boolean;
   name: string;
   onChange: (value: any) => void;
   options: IOption[];
@@ -22,7 +22,7 @@ interface IProps {
 
 const CustomSelect: FC<IProps> = ({
   label,
-  margin,
+  hasMargin,
   name,
   onChange,
   options,
@@ -30,7 +30,7 @@ const CustomSelect: FC<IProps> = ({
   value,
 }) => {
   return (
-    <Wrapper width="100%" flexDirection="column" margin={margin}>
+    <Wrapper width="100%" flexDirection="column" hasMargin={hasMargin}>
       {label && <Label>{label}</Label>}
       <InputWrapper>
         <Select

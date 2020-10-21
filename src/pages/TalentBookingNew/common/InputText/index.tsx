@@ -7,7 +7,7 @@ interface IProps {
   placeholder?: string;
   onChange: (e: any) => void;
   icon?: any;
-  margin?: string;
+  hasMargin?: boolean;
   label?: string;
 }
 
@@ -17,11 +17,11 @@ const InputText: FC<IProps> = ({
   placeholder,
   onChange,
   icon,
-  margin,
+  hasMargin,
   label,
 }) => {
   return (
-    <Wrapper width="100%" flexDirection="column" margin={margin}>
+    <Wrapper width="100%" flexDirection="column" hasMargin={hasMargin}>
       {label && <Label>{label}</Label>}
       <InputWrapper>
         <Input

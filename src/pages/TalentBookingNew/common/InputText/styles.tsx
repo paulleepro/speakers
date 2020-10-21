@@ -2,8 +2,12 @@ import styled from "styled-components";
 import colors from "styles/colors";
 import { Box } from "react-basic-blocks";
 
-export const Wrapper = styled(Box)<{ margin?: string }>`
-  ${(props) => (props.margin ? `margin: ${props.margin};` : "")}
+export const Wrapper = styled(Box)<{ hasMargin?: boolean }>`
+  ${(props) => (props.hasMargin ? `margin: 0 0 16px 0;` : "")}
+
+  @media (max-width: 767px) {
+    ${(props) => (props.hasMargin ? `margin: 0 0 8px 0;` : "")}
+  }
 `;
 
 export const IconWrapper = styled(Box)`
@@ -23,8 +27,6 @@ export const Input = styled.input`
 
   font-size: 24px;
   font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
   line-height: 1.5;
   letter-spacing: 0.3px;
   color: ${colors.white};
@@ -35,6 +37,12 @@ export const Input = styled.input`
 
   &::placeholder {
     color: ${colors.midGrey};
+  }
+
+  @media (max-width: 767px) {
+    font-size: 18px;
+    line-height: 2;
+    letter-spacing: 0.23px;
   }
 `;
 

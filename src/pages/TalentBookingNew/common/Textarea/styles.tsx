@@ -8,12 +8,9 @@ export const Input = styled.textarea`
 
   font-size: 24px;
   font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
   line-height: 1.5;
   letter-spacing: 0.3px;
   color: ${colors.white};
-
   padding: 15px 36px 17px 24px;
   outline: none;
   margin-bottom: 16px;
@@ -21,5 +18,12 @@ export const Input = styled.textarea`
 
   &::placeholder {
     color: ${colors.midGrey};
+  }
+
+  @media (max-width: 767px) {
+    margin-bottom: 8px;
+    font-size: 18px;
+    line-height: 2;
+    letter-spacing: 0.23px;
   }
 `;

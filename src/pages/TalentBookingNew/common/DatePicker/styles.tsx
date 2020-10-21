@@ -25,5 +25,11 @@ export const InputWrapper = styled.div`
     line-height: 1.5;
     letter-spacing: 0.3px;
     color: ${colors.white};
+
+    @media (max-width: 767px) {
+      font-size: 18px;
+      line-height: 2;
+      letter-spacing: 0.23px;
+    }
   }
 `;

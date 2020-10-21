@@ -9,8 +9,6 @@ export const Select = styled.select<{ isPlaceholder?: boolean }>`
 
   font-size: 24px;
   font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
   line-height: 1.5;
   letter-spacing: 0.3px;
   color: ${(props) => (props.isPlaceholder ? colors.midGrey : colors.white)};
@@ -25,5 +23,11 @@ export const Select = styled.select<{ isPlaceholder?: boolean }>`
     line-height: 1.5;
     letter-spacing: 0.3px;
     color: ${colors.midGrey};
+  }
+
+  @media (max-width: 767px) {
+    font-size: 18px;
+    line-height: 2;
+    letter-spacing: 0.23px;
   }
 `;

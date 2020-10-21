@@ -90,7 +90,7 @@ const DetailsForm = () => {
               value={hostInfo.fullName}
               onChange={handleChangeHostInfo}
               label="Full Name"
-              margin="0 0 16px 0"
+              hasMargin
             />
           </Col>
           <Col md={6}>
@@ -99,7 +99,7 @@ const DetailsForm = () => {
               value={hostInfo.companyName}
               onChange={handleChangeHostInfo}
               label="Company or Organization"
-              margin="0 0 16px 0"
+              hasMargin
             />
           </Col>
           <Col md={6}>
@@ -108,7 +108,7 @@ const DetailsForm = () => {
               value={hostInfo.role}
               onChange={handleChangeHostInfo}
               label="Your Role"
-              margin="0 0 16px 0"
+              hasMargin
             />
           </Col>
           <Col md={6}>
@@ -117,7 +117,7 @@ const DetailsForm = () => {
               value={hostInfo.phone}
               onChange={handleChangeHostInfo}
               label="Phone Number"
-              margin="0 0 16px 0"
+              hasMargin
             />
           </Col>
         </Row>
@@ -138,7 +138,7 @@ const DetailsForm = () => {
                 />
               }
               label="Date of Event"
-              margin="0 0 16px 0"
+              hasMargin
               onChange={handleEventDateChange}
               value={eventInfo.dateStart}
               placeholder="MM/DD/YYYY"
@@ -157,7 +157,7 @@ const DetailsForm = () => {
               name="time"
               placeholder="Time of Day"
               label="When"
-              margin="0 0 16px 0"
+              hasMargin
             />
           </Col>
           <Col md={6}>
@@ -168,7 +168,7 @@ const DetailsForm = () => {
               name="country"
               placeholder="Select Country"
               label="Country"
-              margin="0 0 16px 0"
+              hasMargin
             />
           </Col>
           <Col md={6}>
@@ -177,7 +177,7 @@ const DetailsForm = () => {
               value={eventInfo.cityState}
               onChange={handleEventInfoChange}
               label="City, State"
-              margin="0 0 16px 0"
+              hasMargin
             />
           </Col>
         </Row>
