@@ -33,7 +33,12 @@ const CustomSelect: FC<IProps> = ({
     <Wrapper width="100%" flexDirection="column" margin={margin}>
       {label && <Label>{label}</Label>}
       <InputWrapper>
-        <Select value={value} onChange={onChange} name={name}>
+        <Select
+          isPlaceholder={value === ""}
+          value={value}
+          onChange={onChange}
+          name={name}
+        >
           <option value="" disabled selected>
             {placeholder}
           </option>

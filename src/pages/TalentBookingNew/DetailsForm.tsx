@@ -132,7 +132,11 @@ const DetailsForm = () => {
         <Row>
           <Col md={6}>
             <DatePicker
-              icon={<CalendarTodayOutlinedIcon style={{ color: colors.primaryPurple }} />}
+              icon={
+                <CalendarTodayOutlinedIcon
+                  style={{ color: colors.primaryPurple }}
+                />
+              }
               label="Date of Event"
               margin="0 0 16px 0"
               onChange={handleEventDateChange}
@@ -226,7 +230,11 @@ const DetailsForm = () => {
           value={customBudgetRange}
           onChange={handleCustomBudgetRangeChange}
           placeholder="Have a specific budget?"
-          icon={<HelpOutlineIcon style={{ color: colors.primaryPurple, fontSize: 30 }} />}
+          icon={
+            <HelpOutlineIcon
+              style={{ color: colors.primaryPurple, fontSize: 30 }}
+            />
+          }
         />
       </QuestionContent>
     </>
