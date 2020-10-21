@@ -123,3 +123,11 @@ export const DropIcon = styled.span`
     line-height: 22px;
   }
 `;
+
+export const TooltipContent = styled.div`
+  border-radius: 12px;
+  box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.25);
+  font-size: 16px;
+  letter-spacing: 0.2px;
+  line-height: 1.38;
+`;

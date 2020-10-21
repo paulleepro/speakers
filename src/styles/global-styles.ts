@@ -56,7 +56,7 @@ const GlobalStyle = createGlobalStyle`
 
 	.tooltip {
 		width: 300px;
-		border-radius: 12px;
+		border-radius: 12px !important;
 		font-family: acumin-pro;
 		font-size: 16px;
 		font-weight: normal;

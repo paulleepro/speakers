@@ -8,6 +8,7 @@ import { IType, IListResult } from "types";
 import { config } from "config";
 import LazyWrapper from "components/LazyWrapper";
 import Loader from "components/Loader";
+import { Visible } from "components/Grid";
 import QuestionHeader from "./common/QuestionHeader";
 import QuestionContent from "./common/QuestionContent";
 import InputText from "./common/InputText";
@@ -16,6 +17,7 @@ import SpeakersType from "./components/Topics";
 import InputRadio from "./common/InputRadio";
 import SearchIcon from "../../assets/Icons/Search";
 
+const ReactTooltip = lazy(() => import("react-tooltip"));
 const ErrorNotice = lazy(() => import("components/ErrorNotice"));
 
 const SpeakersForm = () => {
@@ -137,9 +139,33 @@ const SpeakersForm = () => {
           onChange={handleHostNameChange}
           placeholder="Add their name(s) here..."
           icon={
-            <HelpOutlineIcon
-              style={{ color: colors.primaryPurple, fontSize: 30 }}
-            />
+            <>
+              <HelpOutlineIcon
+                data-tip
+                data-for="host-organization-name"
+                style={{ color: colors.primaryPurple, fontSize: 30 }}
+              />
+              <Visible md lg>
+                <LazyWrapper>
+                  <ReactTooltip
+                    id="host-organization-name"
+                    place="right"
+                    type="dark"
+                    effect="float"
+                    className="tooltip"
+                    backgroundColor={colors.black}
+                    border
+                    borderColor={colors.primaryPurple}
+                  >
+                    <b>Why do you need this information?</b>
+                    <br />
+                    By providing prior speaker information, our agents can
+                    better understand your preferences. These details will then
+                    help them tailor speakers that best match your event needs.
+                  </ReactTooltip>
+                </LazyWrapper>
+              </Visible>
+            </>
           }
         />
       </QuestionContent>
