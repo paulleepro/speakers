@@ -1,9 +1,9 @@
 import React, { FC, useState } from "react";
 import { Box } from "react-basic-blocks";
 import { Link } from "react-router-dom";
-import { useHistory } from "react-router";
 import { IType } from "types";
 
+import useMatchPath from "hooks/useMatchRoute";
 import { Button } from "styles/components";
 import { Wrapper, LinkText, FavoritesListLink } from "./styles";
 
@@ -14,8 +14,9 @@ interface IProps {
 }
 
 const BigHeader: FC<IProps> = ({ types }) => {
-  const history = useHistory();
-  const isBookingPage = history.location.pathname.includes("/booking-new");
+  const match = useMatchPath({
+    path: "/talent/:slug/booking-new",
+  });
 
   const [open, setOpen] = useState(false);
   const [isSignUpModal, setIsSignUpModal] = useState<boolean>(false);
@@ -38,7 +39,7 @@ const BigHeader: FC<IProps> = ({ types }) => {
           </Link>
         </Box>
 
-        {!isBookingPage && (
+        {!match?.isExact && (
           <Box flexDirection="row" alignItems="center">
             <Link to="/how-it-works">
               <LinkText>How it Works</LinkText>

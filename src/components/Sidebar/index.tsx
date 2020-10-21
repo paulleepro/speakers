@@ -1,5 +1,5 @@
 import React, { FC, useState, lazy } from "react";
-import { useHistory } from "react-router";
+import useMatchPath from "hooks/useMatchRoute";
 import { SidebarContainer, IconWrapper } from "./styles";
 import CloseIcon from "@material-ui/icons/Close";
 import { Link } from "react-router-dom";
@@ -18,8 +18,9 @@ interface IProps {
 }
 
 const Sidebar: FC<IProps> = ({ show, setShow, types }) => {
-  const history = useHistory();
-  const isBookingPage = history.location.pathname.includes("/booking-new");
+  const match = useMatchPath({
+    path: "/talent/:slug/booking-new",
+  });
 
   const [showTypes, setShowTypes] = useState<boolean>(false);
   const close = () => {
@@ -35,7 +36,7 @@ const Sidebar: FC<IProps> = ({ show, setShow, types }) => {
         <CloseIcon style={{ color: "#FFF" }} onClick={close} />
       </IconWrapper>
 
-      {!isBookingPage &&
+      {!match?.isExact &&
         (!showTypes ? (
           <>
             <LazyWrapper>
