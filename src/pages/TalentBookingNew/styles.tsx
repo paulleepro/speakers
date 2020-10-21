@@ -1,5 +1,16 @@
 import styled from "styled-components";
 import colors from "styles/colors";
+import { Container } from "components/Grid";
+
+export const Wrapper = styled(Container)`
+  @media (max-width: 768px) {
+    margin-top: 24px;
+  }
+
+  @media (max-width: 375px) {
+    padding: 0;
+  }
+`;
 
 export const BookingSummaryContainer = styled.div`
   h3 {
