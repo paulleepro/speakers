@@ -11,7 +11,7 @@ interface OptionType {
 
 interface IProps {
   options: Array<OptionType>;
-  onChange: (value: number | string) => void;
+  onChange: (value: any) => void;
   selected: number | string | undefined;
   name: string;
 }
@@ -19,7 +19,7 @@ interface IProps {
 interface IOptionProps {
   option: OptionType;
   selected: number | string | undefined;
-  onChange: (value: number | string) => void;
+  onChange: (value: any) => void;
   name: string;
 }
 

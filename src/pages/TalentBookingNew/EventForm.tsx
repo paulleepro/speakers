@@ -1,4 +1,4 @@
-import React, { useState, lazy } from "react";
+import React, { lazy, useContext } from "react";
 import { fetchSingle } from "fetch-hooks-react";
 import { ITopic, IListResult } from "types";
 import { config } from "config";
@@ -13,13 +13,14 @@ import AudienceSize from "./components/AudienceSize";
 import InputText from "./common/InputText";
 import Textarea from "./common/Textarea";
 import Topics from "./components/Topics";
+import { BookingInquiryContext } from "./BookingInquiryContext";
 
 const ErrorNotice = lazy(() => import("components/ErrorNotice"));
 
 const EventForm = () => {
-  const [eventName, setEventName] = useState<string>("");
-  const [notes, setNotes] = useState<string>("");
-  const [topics, setTopics] = useState<string>("");
+  const { bookingInquiry, setBookingInquiry } = useContext(
+    BookingInquiryContext
+  );
 
   const { data, isLoading, error } = fetchSingle<IListResult<ITopic>>(
     `${config.speakersTalentUrl}/v1/talents/metadata/topics?order=name:asc`
@@ -35,16 +36,23 @@ const EventForm = () => {
     );
   }
 
-  const handleEventNameChange = (e: any): void => {
-    setEventName(e.target.value);
+  const updateBookingInquiry = (fieldName: string, value: string): void => {
+    setBookingInquiry({
+      ...bookingInquiry,
+      [fieldName]: value,
+    });
   };
 
-  const handleNotesChange = (e: any): void => {
-    setNotes(e.target.value);
+  const handleChangeEvent = (e: any): void => {
+    const { name, value } = e.target;
+    updateBookingInquiry(name, value);
   };
 
   const handleTopicsChange = (e: any): void => {
-    setTopics(e.target.value);
+    setBookingInquiry({
+      ...bookingInquiry,
+      event_topics: [e.target.value],
+    });
   };
 
   return (
@@ -55,7 +63,10 @@ const EventForm = () => {
         title="Tell us about your event"
         description="Choose from our format types and start customizing from there."
       />
-      <EventTypes />
+      <EventTypes
+        selected={bookingInquiry.event_type}
+        onSelect={(value) => updateBookingInquiry("event_type", value)}
+      />
 
       <QuestionHeader
         order={2}
@@ -63,7 +74,10 @@ const EventForm = () => {
         description="Select the goal that best matches your event."
       />
       <QuestionContent>
-        <FocusList />
+        <FocusList
+          selected={bookingInquiry.event_focus}
+          onSelect={(value) => updateBookingInquiry("event_focus", value)}
+        />
       </QuestionContent>
 
       <QuestionHeader
@@ -74,7 +88,7 @@ const EventForm = () => {
       <QuestionContent>
         <Topics
           list={data?.data}
-          value={topics}
+          value={(bookingInquiry.event_topics || [])[0] || ""}
           onChange={handleTopicsChange}
         />
       </QuestionContent>
@@ -85,7 +99,10 @@ const EventForm = () => {
         description="Select which audience type is most applicable."
       />
       <QuestionContent>
-        <AudienceList />
+        <AudienceList
+          selected={bookingInquiry.event_audience}
+          onChange={(value) => updateBookingInquiry("event_audience", value)}
+        />
       </QuestionContent>
 
       <QuestionHeader
@@ -94,7 +111,12 @@ const EventForm = () => {
         description="Select the total number of people attending your event."
       />
       <QuestionContent>
-        <AudienceSize />
+        <AudienceSize
+          selected={bookingInquiry.event_audience_size_range}
+          onSelect={(value) =>
+            updateBookingInquiry("event_audience_size_range", value)
+          }
+        />
       </QuestionContent>
 
       <QuestionHeader
@@ -105,9 +127,9 @@ const EventForm = () => {
       <QuestionContent>
         <Textarea
           rows={3}
-          name="notes"
-          value={notes}
-          onChange={handleNotesChange}
+          name="event_notes"
+          value={bookingInquiry.event_notes}
+          onChange={handleChangeEvent}
           placeholder="Additional notes..."
         />
       </QuestionContent>
@@ -119,9 +141,9 @@ const EventForm = () => {
       />
       <QuestionContent>
         <InputText
-          name="eventName"
-          value={eventName}
-          onChange={handleEventNameChange}
+          name="event_name"
+          value={bookingInquiry.event_name}
+          onChange={handleChangeEvent}
           placeholder="Event name..."
         />
       </QuestionContent>

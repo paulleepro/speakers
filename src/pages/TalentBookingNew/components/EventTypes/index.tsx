@@ -1,4 +1,4 @@
-import React, { useState, FC } from "react";
+import React, { FC } from "react";
 
 import { Row, Col } from "components/Grid";
 import {
@@ -10,19 +10,19 @@ import {
 
 const EVENT_TYPES = [
   {
-    id: 0,
+    type: "Live Drop-In",
     name: "Live Drop-In",
     imageUrl: "/images/hero-img-1.png",
     features: ["Up to 30 minutes", "Inspire your team", "One speaker"],
   },
   {
-    id: 1,
+    type: "Interactive Q&A",
     name: "Interactive Q&A",
     imageUrl: "/images/hero-img-2.png",
     features: ["Up to 1 hour", "Take audience questions", "One speaker"],
   },
   {
-    id: 2,
+    type: "Deep Dive",
     name: "Deep Dive",
     imageUrl: "/images/hero-img-3.png",
     features: [
@@ -33,6 +33,7 @@ const EVENT_TYPES = [
   },
   // {
   //   id: 3,
+  //   type: 'multiple_speakers',
   //   name: "Multiple Speakers",
   //   imageUrl: "/images/panel-discussion.png",
   //   features: ["Select your timeframe", "Pick a format", "Add speakers"],
@@ -40,16 +41,21 @@ const EVENT_TYPES = [
 ];
 
 interface IEventTypeProps {
-  id: number;
+  type: string;
   name: string;
-  onSelect: (id: number) => void;
-  selected: number | undefined;
+  onSelect: (type: string) => void;
+  selected: string | undefined;
   features: Array<string>;
   imageUrl: string;
 }
 
+interface IEventTypes {
+  selected: string;
+  onSelect: (value: string) => void;
+}
+
 const EventType: FC<IEventTypeProps> = ({
-  id,
+  type,
   name,
   onSelect,
   selected,
@@ -58,7 +64,7 @@ const EventType: FC<IEventTypeProps> = ({
 }) => {
   return (
     <EventTypeWrapper>
-      <ImageWrapper onClick={() => onSelect(id)} active={selected === id}>
+      <ImageWrapper onClick={() => onSelect(type)} active={selected === type}>
         <img src={imageUrl} alt="event type" />
         <ImageOverlay />
         <h4>
@@ -66,7 +72,7 @@ const EventType: FC<IEventTypeProps> = ({
           {name}
         </h4>
       </ImageWrapper>
-      <FeaturesList active={selected === id}>
+      <FeaturesList active={selected === type}>
         {features.map((item: string, idx: number) => (
           <li key={idx}>{item}</li>
         ))}
@@ -75,11 +81,9 @@ const EventType: FC<IEventTypeProps> = ({
   );
 };
 
-const EventTypes = () => {
-  const [selected, setSelected] = useState<number>();
-
-  const handleSelect = (id: number) => {
-    setSelected(id);
+const EventTypes: FC<IEventTypes> = ({ selected, onSelect }) => {
+  const handleSelect = (type: string) => {
+    onSelect(type);
   };
 
   return (
@@ -87,7 +91,7 @@ const EventTypes = () => {
       {EVENT_TYPES.map((item) => (
         <Col sm={6} style={{ display: "flex", justifyContent: "center" }}>
           <EventType
-            key={item.id}
+            key={item.type}
             {...item}
             selected={selected}
             onSelect={handleSelect}
