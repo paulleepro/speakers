@@ -11,18 +11,7 @@ import { config } from "config";
 import { ISearchResult } from "types";
 import { Box } from "react-basic-blocks";
 import colors from "styles/colors";
-
-function useDebounce(value: string, delay: number) {
-  const [debouncedValue, setDebouncedValue] = useState(value);
-
-  useEffect(() => {
-    const handler = setTimeout(() => setDebouncedValue(value), delay);
-
-    return () => clearTimeout(handler);
-  }, [value, delay]);
-
-  return debouncedValue;
-}
+import useDebounce from "hooks/useDebounce";
 
 interface IProps {
   onClickAway?: () => void;
