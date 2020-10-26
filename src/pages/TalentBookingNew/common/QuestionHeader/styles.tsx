@@ -22,7 +22,7 @@ export const QuestionDescription = styled.p`
   }
 `;
 
-export const QuestionBullet = styled.div`
+export const QuestionBullet = styled.div<{ margin?: string }>`
   min-width: 32px;
   max-width: 32px;
   height: 32px;
@@ -38,6 +38,7 @@ export const QuestionBullet = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  ${(props) => (props.margin ? `margin: ${props.margin};` : "")}
 `;
 
 export const QuestionWrapper = styled.div`
