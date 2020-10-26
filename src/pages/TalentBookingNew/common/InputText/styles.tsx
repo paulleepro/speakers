@@ -20,8 +20,8 @@ export const IconWrapper = styled(Box)`
   justify-content: center;
 `;
 
-export const Input = styled.input`
-  border-radius: 12px;
+export const Input = styled.input<{ squareBottom?: boolean }>`
+  border-radius: ${(props) => (props.squareBottom ? "12px 12px 0 0" : "12px")};
   border: solid 1px ${colors.purpleLiner};
   background-color: ${colors.black};
 

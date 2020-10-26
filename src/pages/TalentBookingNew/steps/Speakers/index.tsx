@@ -1,7 +1,7 @@
 import React, { useState, lazy } from "react";
 import AddIcon from "@material-ui/icons/Add";
 import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
-import { Row } from "components/Grid";
+import { Row, Col } from "components/Grid";
 import colors from "styles/colors";
 import { fetchSingle } from "fetch-hooks-react";
 import { IType, IListResult } from "types";
@@ -17,17 +17,19 @@ import InputText from "../../common/InputText";
 import Textarea from "../../common/Textarea";
 import InputRadio from "../../common/InputRadio";
 import SpeakersType from "../../components/Topics";
+import SearchTalents from "../../common/SearchTalents";
+import SelectedTalent from "../../common/SelectedTalent";
 
 const ReactTooltip = lazy(() => import("react-tooltip"));
 const ErrorNotice = lazy(() => import("components/ErrorNotice"));
 
 const SpeakersForm = () => {
-  const [searchInput, setSearchInput] = useState("");
   const [notes, setNotes] = useState("");
   const [favoritesList, setFavoritesList] = useState("");
   const [speakers, setSpeakers] = useState("");
   const [hosted, setHosted] = useState("");
   const [hostName, setHostName] = useState("");
+  const [talents, setTalents] = useState<any[]>([]);
 
   const { data, isLoading, error } = fetchSingle<IListResult<IType>>(
     `${config.speakersTalentUrl}/v1/talents/metadata/types?order=name:asc`
@@ -43,8 +45,12 @@ const SpeakersForm = () => {
     );
   }
 
-  const handleSearchChange = (e: any): void => {
-    setSearchInput(e.target.value);
+  const handleSelectTalent = (talent: any): void => {
+    setTalents([...talents, talent]);
+  };
+
+  const handleRemoveTalent = (talent: any): void => {
+    setTalents(talents.filter((x) => x.id.raw !== talent.id.raw));
   };
 
   const handleNotesChange = (e: any): void => {
@@ -83,6 +89,19 @@ const SpeakersForm = () => {
           onChange={handleFavoritesChange}
           icon={<AddIcon style={{ color: colors.primaryPurple, fontSize: 34 }} />}
         />
+        <Row>
+          {talents.map((x, idx) => (
+            <Col md={6} key={idx}>
+              <SelectedTalent
+                talent={x}
+                onRemove={handleRemoveTalent}
+                variant="outline"
+              >
+                {x.name.raw}
+              </SelectedTalent>
+            </Col>
+          ))}
+        </Row>
       </QuestionContent>
       <QuestionHeader
         icon={<SearchIcon />}
@@ -90,13 +109,16 @@ const SpeakersForm = () => {
         description="Have more speakers in mind? Add their name(s) below. "
       />
       <QuestionContent>
-        <InputText
-          name="search"
-          value={searchInput}
-          onChange={handleSearchChange}
-          placeholder="Search by name…"
-          icon={<SearchIcon fill={colors.midGrey} />}
-        />
+        <SearchTalents onSelectTalent={handleSelectTalent} />
+        <Row>
+          {talents.map((x, idx) => (
+            <Col md={6} key={idx}>
+              <SelectedTalent talent={x} onRemove={handleRemoveTalent}>
+                {x.name.raw}
+              </SelectedTalent>
+            </Col>
+          ))}
+        </Row>
       </QuestionContent>
 
       <QuestionHeader
