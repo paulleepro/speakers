@@ -4,16 +4,18 @@ import { ITopic, IListResult } from "types";
 import { config } from "config";
 import LazyWrapper from "components/LazyWrapper";
 import Loader from "components/Loader";
-import QuestionHeader from "./common/QuestionHeader";
-import QuestionContent from "./common/QuestionContent";
-import EventTypes from "./components/EventTypes";
-import FocusList from "./components/FocusList";
-import AudienceList from "./components/AudienceList";
-import AudienceSize from "./components/AudienceSize";
-import InputText from "./common/InputText";
-import Textarea from "./common/Textarea";
-import Topics from "./components/Topics";
-import { BookingInquiryContext } from "./BookingInquiryContext";
+import QuestionHeader from "../../common/QuestionHeader";
+import QuestionContent from "../../common/QuestionContent";
+import InputText from "../../common/InputText";
+import Textarea from "../../common/Textarea";
+
+import EventTypes from "../../components/EventTypes";
+import FocusList from "../../components/FocusList";
+import AudienceList from "../../components/AudienceList";
+import AudienceSize from "../../components/AudienceSize";
+import Topics from "../../components/Topics";
+
+import { BookingInquiryContext } from "../../BookingInquiryContext";
 
 const ErrorNotice = lazy(() => import("components/ErrorNotice"));
 

@@ -4,12 +4,12 @@ import CalendarTodayOutlinedIcon from "@material-ui/icons/CalendarTodayOutlined"
 import colors from "styles/colors";
 import { Row, Col, Visible } from "components/Grid";
 import LazyWrapper from "components/LazyWrapper";
-import QuestionHeader from "./common/QuestionHeader";
-import QuestionContent from "./common/QuestionContent";
-import InputText from "./common/InputText";
-import InputRadio, { RadioInputOption } from "./common/InputRadio";
-import DatePicker from "./common/DatePicker";
-import Select from "./common/Select";
+import QuestionHeader from "../../common/QuestionHeader";
+import QuestionContent from "../../common/QuestionContent";
+import InputText from "../../common/InputText";
+import InputRadio, { RadioInputOption } from "../../common/InputRadio";
+import DatePicker from "../../common/DatePicker";
+import Select from "../../common/Select";
 
 const ReactTooltip = lazy(() => import("react-tooltip"));
 

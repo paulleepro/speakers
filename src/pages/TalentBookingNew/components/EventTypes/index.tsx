@@ -88,8 +88,12 @@ const EventTypes: FC<IEventTypes> = ({ selected, onSelect }) => {
 
   return (
     <Row>
-      {EVENT_TYPES.map((item) => (
-        <Col sm={6} style={{ display: "flex", justifyContent: "center" }}>
+      {EVENT_TYPES.map((item, idx) => (
+        <Col
+          key={idx}
+          sm={6}
+          style={{ display: "flex", justifyContent: "center" }}
+        >
           <EventType
             key={item.type}
             {...item}

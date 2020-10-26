@@ -9,13 +9,14 @@ import { config } from "config";
 import LazyWrapper from "components/LazyWrapper";
 import Loader from "components/Loader";
 import { Visible } from "components/Grid";
-import QuestionHeader from "./common/QuestionHeader";
-import QuestionContent from "./common/QuestionContent";
-import InputText from "./common/InputText";
-import Textarea from "./common/Textarea";
-import SpeakersType from "./components/Topics";
-import InputRadio from "./common/InputRadio";
-import SearchIcon from "../../assets/icons/Search";
+import SearchIcon from "assets/Icons/Search";
+
+import QuestionHeader from "../../common/QuestionHeader";
+import QuestionContent from "../../common/QuestionContent";
+import InputText from "../../common/InputText";
+import Textarea from "../../common/Textarea";
+import InputRadio from "../../common/InputRadio";
+import SpeakersType from "../../components/Topics";
 
 const ReactTooltip = lazy(() => import("react-tooltip"));
 const ErrorNotice = lazy(() => import("components/ErrorNotice"));
@@ -80,9 +81,7 @@ const SpeakersForm = () => {
           name="favoritesList"
           value={favoritesList}
           onChange={handleFavoritesChange}
-          icon={
-            <AddIcon style={{ color: colors.primaryPurple, fontSize: 34 }} />
-          }
+          icon={<AddIcon style={{ color: colors.primaryPurple, fontSize: 34 }} />}
         />
       </QuestionContent>
       <QuestionHeader
@@ -159,9 +158,9 @@ const SpeakersForm = () => {
                   >
                     <b>Why do you need this information?</b>
                     <br />
-                    By providing prior speaker information, our agents can
-                    better understand your preferences. These details will then
-                    help them tailor speakers that best match your event needs.
+                    By providing prior speaker information, our agents can better
+                    understand your preferences. These details will then help them tailor
+                    speakers that best match your event needs.
                   </ReactTooltip>
                 </LazyWrapper>
               </Visible>
