@@ -160,10 +160,12 @@ export const AuthProvider: FC = ({ children }) => {
     [setCognitoUser]
   );
 
+  const bearerToken = cognitoUser?.signInUserSession?.idToken?.jwtToken;
+
   const value = React.useMemo(
     () => ({
-      isAuthenticated: Boolean(cognitoUser),
-      bearerToken: cognitoUser?.signInUserSession?.idToken?.jwtToken,
+      isAuthenticated: Boolean(bearerToken),
+      bearerToken,
       refreshCognitoUser,
       signup,
       confirmSignup,
