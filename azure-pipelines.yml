@@ -3,10 +3,22 @@ variables:
     value: https://speakers.cluster1.endvr-digital-dev.com
   - name: DEV_SEGMENT_KEY
     value: rGp2NC1nxNvmZ2YucuGXyfMLrm8NXwq2
+  - name: DEV_AMPLIFY_AUTH_REGION
+    value: us-west-2
+  - name: DEV_AMPLIFY_AUTH_USERPOOLID
+    value: us-west-2_sIkMTN3mJ
+  - name: DEV_AMPLIFY_AUTH_USERPOOLWEBCLIENTID
+    value: 58qrfr3u4q6jn0b45rm35dk7i
   - name: PROD_URL
     value: https://wmespeakersbeta.com
   - name: PROD_SEGMENT_KEY
     value: WzfCmTHULfWES3qjbpxsIHmLAxKwfCoi
+  - name: PROD_AMPLIFY_AUTH_REGION
+    value: TOBECONFIRMED
+  - name: PROD_AMPLIFY_AUTH_USERPOOLID
+    value: TOBECONFIRMED
+  - name: PROD_AMPLIFY_AUTH_USERPOOLWEBCLIENTID
+    value: TOBECONFIRMED
   - name: SC_ATTR
     value: styled_components_attr
 
@@ -48,6 +60,9 @@ stages:
               export REACT_APP_IMAGE_PROXY_URL=$(DEV_URL)/
               export REACT_APP_SPEAKERS_BOOKING_URL=$(DEV_URL)/api/speakers-booking
               export REACT_APP_SEGMENT_KEY=$(DEV_SEGMENT_KEY)
+              export REACT_APP_AMPLIFY_AUTH_REGION=$(DEV_AMPLIFY_AUTH_REGION)
+              export REACT_APP_AMPLIFY_AUTH_USERPOOLID=$(DEV_AMPLIFY_AUTH_USERPOOLID)
+              export REACT_APP_AMPLIFY_AUTH_USERPOOLWEBCLIENTID=$(DEV_AMPLIFY_AUTH_USERPOOLWEBCLIENTID)
               export SC_ATTR=$(SC_ATTR)
               yarn build-dev
               if [ $? -ne 0 ]; then
@@ -141,6 +156,9 @@ stages:
               export REACT_APP_IMAGE_PROXY_URL=$(PROD_URL)/
               export REACT_APP_SPEAKERS_BOOKING_URL=$(PROD_URL)/api/speakers-booking
               export REACT_APP_SEGMENT_KEY=$(PROD_SEGMENT_KEY)
+              export REACT_APP_AMPLIFY_AUTH_REGION=$(PROD_AMPLIFY_AUTH_REGION)
+              export REACT_APP_AMPLIFY_AUTH_USERPOOLID=$(PROD_AMPLIFY_AUTH_USERPOOLID)
+              export REACT_APP_AMPLIFY_AUTH_USERPOOLWEBCLIENTID=$(PROD_AMPLIFY_AUTH_USERPOOLWEBCLIENTID)
               export SC_ATTR=$(SC_ATTR)
               yarn build
               if [ $? -ne 0 ]; then

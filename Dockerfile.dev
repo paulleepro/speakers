@@ -19,11 +19,10 @@ LABEL org.opencontainers.image.source="https://dev.azure.com/endeavor-digital/Te
 LABEL org.opencontainers.image.vendor="Endeavor"
 LABEL org.opencontainers.image.title="Endeavor Experiences Speakers Frontend"
 
-ENV REACT_APP_SPEAKERS_TALENT_URL=https://speakers.endvr/api/speakers-talent
+ENV REACT_APP_ACCOUNTS_URL=https://speakers.endvr/api/accounts
 ENV REACT_APP_SPEAKERS_BOOKING_URL=https://speakers.endvr/api/speakers-booking
+ENV REACT_APP_SPEAKERS_TALENT_URL=https://speakers.endvr/api/speakers-talent
 ENV REACT_APP_IMAGE_PROXY_URL=https://speakers.endvr/
-ENV REACT_APP_SPEAKERS_AUTH_URL=https://speakers.endvr/api/auth
-ENV REACT_APP_KEYCLOAK_URL=https://speakers.endvr/auth
 
 EXPOSE 3000/tcp
 

@@ -2,6 +2,1272 @@
 # yarn lockfile v1
 
 
+"@aws-amplify/analytics@^3.3.7":
+  version "3.3.7"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-amplify/analytics/-/analytics-3.3.7.tgz#8d69686c7f1c3e9cf27c9ba966340ac35e5952a9"
+  integrity sha1-jWlobH8cPpzyfJupZjQKw15ZUqk=
+  dependencies:
+    "@aws-amplify/cache" "^3.1.32"
+    "@aws-amplify/core" "^3.7.0"
+    "@aws-sdk/client-firehose" "1.0.0-gamma.8"
+    "@aws-sdk/client-kinesis" "1.0.0-gamma.8"
+    "@aws-sdk/client-personalize-events" "1.0.0-gamma.8"
+    "@aws-sdk/client-pinpoint" "1.0.0-gamma.8"
+    "@aws-sdk/util-utf8-browser" "1.0.0-gamma.6"
+    lodash "^4.17.20"
+    uuid "^3.2.1"
+
+"@aws-amplify/api-graphql@^1.2.7":
+  version "1.2.7"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-amplify/api-graphql/-/api-graphql-1.2.7.tgz#e327380aeaeb45e66b6ad43519afd0a1b7f7c021"
+  integrity sha1-4yc4CurrReZratQ1Ga/Qobf3wCE=
+  dependencies:
+    "@aws-amplify/api-rest" "^1.2.7"
+    "@aws-amplify/auth" "^3.4.7"
+    "@aws-amplify/cache" "^3.1.32"
+    "@aws-amplify/core" "^3.7.0"
+    "@aws-amplify/pubsub" "^3.2.5"
+    graphql "14.0.0"
+    uuid "^3.2.1"
+    zen-observable-ts "0.8.19"
+
+"@aws-amplify/api-rest@^1.2.7":
+  version "1.2.7"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-amplify/api-rest/-/api-rest-1.2.7.tgz#29547480aae8302b0eaf84af306e7efd19c60cb8"
+  integrity sha1-KVR0gKroMCsOr4SvMG5+/RnGDLg=
+  dependencies:
+    "@aws-amplify/core" "^3.7.0"
+    axios "0.19.0"
+
+"@aws-amplify/api@^3.2.7":
+  version "3.2.7"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-amplify/api/-/api-3.2.7.tgz#9c81d30231e65f306d506274a5094993598a1a7f"
+  integrity sha1-nIHTAjHmXzBtUGJ0pQlJk1mKGn8=
+  dependencies:
+    "@aws-amplify/api-graphql" "^1.2.7"
+    "@aws-amplify/api-rest" "^1.2.7"
+
+"@aws-amplify/auth@^3.4.7":
+  version "3.4.7"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-amplify/auth/-/auth-3.4.7.tgz#d0d25a3b7ad8ba30e309b38ebab93861cb4f1a00"
+  integrity sha1-0NJaO3rYujDjCbOOurk4YctPGgA=
+  dependencies:
+    "@aws-amplify/cache" "^3.1.32"
+    "@aws-amplify/core" "^3.7.0"
+    amazon-cognito-identity-js "^4.5.0"
+    crypto-js "^3.3.0"
+
+"@aws-amplify/cache@^3.1.32":
+  version "3.1.32"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-amplify/cache/-/cache-3.1.32.tgz#f1b327f14882dae96ae1fc8263c603c0f2135ee4"
+  integrity sha1-8bMn8UiC2ulq4fyCY8YDwPITXuQ=
+  dependencies:
+    "@aws-amplify/core" "^3.7.0"
+
+"@aws-amplify/core@^3.7.0":
+  version "3.7.0"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-amplify/core/-/core-3.7.0.tgz#30fa8ac3bf595cefc5cb7ed80239b5027089146c"
+  integrity sha1-MPqKw79ZXO/Fy37YAjm1AnCJFGw=
+  dependencies:
+    "@aws-crypto/sha256-js" "1.0.0-alpha.0"
+    "@aws-sdk/client-cognito-identity" "1.0.0-gamma.8"
+    "@aws-sdk/credential-provider-cognito-identity" "1.0.0-gamma.8"
+    "@aws-sdk/node-http-handler" "1.0.0-gamma.7"
+    "@aws-sdk/types" "1.0.0-gamma.6"
+    "@aws-sdk/util-hex-encoding" "1.0.0-gamma.6"
+    "@aws-sdk/util-user-agent-browser" "1.0.0-gamma.7"
+    universal-cookie "^4.0.4"
+    url "^0.11.0"
+    zen-observable-ts "0.8.19"
+
+"@aws-amplify/datastore@^2.6.1":
+  version "2.6.1"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-amplify/datastore/-/datastore-2.6.1.tgz#2ee9985619d657dc6ce173f8c1f8fe8662d6d2ad"
+  integrity sha1-LumYVhnWV9xs4XP4wfj+hmLW0q0=
+  dependencies:
+    "@aws-amplify/api" "^3.2.7"
+    "@aws-amplify/core" "^3.7.0"
+    "@aws-amplify/pubsub" "^3.2.5"
+    idb "5.0.2"
+    immer "6.0.1"
+    ulid "2.3.0"
+    uuid "3.3.2"
+    zen-observable-ts "0.8.19"
+    zen-push "0.2.1"
+
+"@aws-amplify/interactions@^3.3.7":
+  version "3.3.7"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-amplify/interactions/-/interactions-3.3.7.tgz#c26d470efe807fbe0049f20047f2fe14b6cf6fae"
+  integrity sha1-wm1HDv6Af74ASfIAR/L+FLbPb64=
+  dependencies:
+    "@aws-amplify/core" "^3.7.0"
+    "@aws-sdk/client-lex-runtime-service" "1.0.0-gamma.8"
+
+"@aws-amplify/predictions@^3.2.7":
+  version "3.2.7"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-amplify/predictions/-/predictions-3.2.7.tgz#f3554150ef4b80063d41426d9a27990c566b1f5a"
+  integrity sha1-81VBUO9LgAY9QUJtmieZDFZrH1o=
+  dependencies:
+    "@aws-amplify/core" "^3.7.0"
+    "@aws-amplify/storage" "^3.3.7"
+    "@aws-sdk/client-comprehend" "1.0.0-gamma.8"
+    "@aws-sdk/client-polly" "1.0.0-gamma.8"
+    "@aws-sdk/client-rekognition" "1.0.0-gamma.8"
+    "@aws-sdk/client-textract" "1.0.0-gamma.8"
+    "@aws-sdk/client-translate" "1.0.0-gamma.8"
+    "@aws-sdk/eventstream-marshaller" "1.0.0-gamma.7"
+    "@aws-sdk/util-utf8-node" "1.0.0-gamma.6"
+    uuid "^3.2.1"
+
+"@aws-amplify/pubsub@^3.2.5":
+  version "3.2.5"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-amplify/pubsub/-/pubsub-3.2.5.tgz#551b578bb62c8ac4f36a2ec5250c541cbf5d8251"
+  integrity sha1-VRtXi7YsisTzai7FJQxUHL9dglE=
+  dependencies:
+    "@aws-amplify/auth" "^3.4.7"
+    "@aws-amplify/cache" "^3.1.32"
+    "@aws-amplify/core" "^3.7.0"
+    graphql "14.0.0"
+    paho-mqtt "^1.1.0"
+    uuid "^3.2.1"
+    zen-observable-ts "0.8.19"
+
+"@aws-amplify/storage@^3.3.7":
+  version "3.3.7"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-amplify/storage/-/storage-3.3.7.tgz#ead55e97d33cbf302e48bb383df8a63b975aea5d"
+  integrity sha1-6tVel9M8vzAuSLs4PfimO5da6l0=
+  dependencies:
+    "@aws-amplify/core" "^3.7.0"
+    "@aws-sdk/client-s3" "1.0.0-gamma.8"
+    "@aws-sdk/s3-request-presigner" "1.0.0-gamma.7"
+    "@aws-sdk/util-create-request" "1.0.0-gamma.7"
+    "@aws-sdk/util-format-url" "1.0.0-gamma.7"
+    axios "0.19.0"
+    events "^3.1.0"
+    sinon "^7.5.0"
+
+"@aws-amplify/ui@^2.0.2":
+  version "2.0.2"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-amplify/ui/-/ui-2.0.2.tgz#56bfc3674454f2a12d1cec247f38a444aa13ea09"
+  integrity sha1-Vr/DZ0RU8qEtHOwkfzikRKoT6gk=
+
+"@aws-amplify/xr@^2.2.7":
+  version "2.2.7"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-amplify/xr/-/xr-2.2.7.tgz#cc252354c70c4ed219df50df4832eaefdf00c82a"
+  integrity sha1-zCUjVMcMTtIZ31DfSDLq798AyCo=
+  dependencies:
+    "@aws-amplify/core" "^3.7.0"
+
+"@aws-crypto/crc32@^1.0.0-alpha.0":
+  version "1.0.0"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-crypto/crc32/-/crc32-1.0.0.tgz#6a0164fd92bb365860ba6afb5dfef449701eb8ca"
+  integrity sha1-agFk/ZK7Nlhgumr7Xf70SXAeuMo=
+  dependencies:
+    tslib "^1.11.1"
+
+"@aws-crypto/ie11-detection@^1.0.0":
+  version "1.0.0"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-crypto/ie11-detection/-/ie11-detection-1.0.0.tgz#d3a6af29ba7f15458f79c41d1cd8cac3925e726a"
+  integrity sha1-06avKbp/FUWPecQdHNjKw5Jecmo=
+  dependencies:
+    tslib "^1.11.1"
+
+"@aws-crypto/sha256-browser@^1.0.0-alpha.0":
+  version "1.0.0"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-crypto/sha256-browser/-/sha256-browser-1.0.0.tgz#9c34d3b829d922b2c8e077b30a60db53d6befcb1"
+  integrity sha1-nDTTuCnZIrLI4HezCmDbU9a+/LE=
+  dependencies:
+    "@aws-crypto/ie11-detection" "^1.0.0"
+    "@aws-crypto/sha256-js" "^1.0.0"
+    "@aws-crypto/supports-web-crypto" "^1.0.0"
+    "@aws-sdk/types" "^1.0.0-rc.1"
+    "@aws-sdk/util-locate-window" "^1.0.0-rc.1"
+    "@aws-sdk/util-utf8-browser" "^1.0.0-rc.1"
+    tslib "^1.11.1"
+
+"@aws-crypto/sha256-js@1.0.0-alpha.0":
+  version "1.0.0-alpha.0"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-crypto/sha256-js/-/sha256-js-1.0.0-alpha.0.tgz#1146f6fa823001a9065ce60db5bf1afcc7c1cc3a"
+  integrity sha1-EUb2+oIwAakGXOYNtb8a/MfBzDo=
+  dependencies:
+    "@aws-sdk/types" "^1.0.0-alpha.0"
+    "@aws-sdk/util-utf8-browser" "^1.0.0-alpha.0"
+    tslib "^1.9.3"
+
+"@aws-crypto/sha256-js@^1.0.0", "@aws-crypto/sha256-js@^1.0.0-alpha.0":
+  version "1.0.0"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-crypto/sha256-js/-/sha256-js-1.0.0.tgz#ca788a3242a4024c386e6b9985da28f290a79ad7"
+  integrity sha1-yniKMkKkAkw4bmuZhdoo8pCnmtc=
+  dependencies:
+    "@aws-sdk/types" "^1.0.0-rc.1"
+    "@aws-sdk/util-utf8-browser" "^1.0.0-rc.1"
+    tslib "^1.11.1"
+
+"@aws-crypto/supports-web-crypto@^1.0.0":
+  version "1.0.0"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-crypto/supports-web-crypto/-/supports-web-crypto-1.0.0.tgz#c40901bc17ac1e875e248df16a2b47ad8bfd9a93"
+  integrity sha1-xAkBvBesHodeJI3xaitHrYv9mpM=
+  dependencies:
+    tslib "^1.11.1"
+
+"@aws-sdk/abort-controller@1.0.0-gamma.7":
+  version "1.0.0-gamma.7"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/abort-controller/-/abort-controller-1.0.0-gamma.7.tgz#0fbef3b4c705a998bd6945193d81add898602334"
+  integrity sha1-D77ztMcFqZi9aUUZPYGt2JhgIzQ=
+  dependencies:
+    "@aws-sdk/types" "1.0.0-gamma.6"
+    tslib "^1.8.0"
+
+"@aws-sdk/chunked-blob-reader-native@1.0.0-gamma.6":
+  version "1.0.0-gamma.6"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/chunked-blob-reader-native/-/chunked-blob-reader-native-1.0.0-gamma.6.tgz#8ad99b46b8688da06770c1c4e0222048d07ef6b1"
+  integrity sha1-itmbRrhojaBncMHE4CIgSNB+9rE=
+  dependencies:
+    "@aws-sdk/util-base64-browser" "1.0.0-gamma.6"
+    tslib "^1.8.0"
+
+"@aws-sdk/chunked-blob-reader@1.0.0-gamma.6":
+  version "1.0.0-gamma.6"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/chunked-blob-reader/-/chunked-blob-reader-1.0.0-gamma.6.tgz#e3d1a07ae0b390e625df59793955cc3666088802"
+  integrity sha1-49GgeuCzkOYl31l5OVXMNmYIiAI=
+  dependencies:
+    tslib "^1.8.0"
+
+"@aws-sdk/client-cognito-identity@1.0.0-gamma.8":
+  version "1.0.0-gamma.8"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/client-cognito-identity/-/client-cognito-identity-1.0.0-gamma.8.tgz#d2992320d4719eae06ede9804ec3baf3f17af4e8"
+  integrity sha1-0pkjINRxnq4G7emATsO68/F69Og=
+  dependencies:
+    "@aws-crypto/sha256-browser" "^1.0.0-alpha.0"
+    "@aws-crypto/sha256-js" "^1.0.0-alpha.0"
+    "@aws-sdk/config-resolver" "1.0.0-gamma.7"
+    "@aws-sdk/credential-provider-node" "1.0.0-gamma.7"
+    "@aws-sdk/fetch-http-handler" "1.0.0-gamma.8"
+    "@aws-sdk/hash-node" "1.0.0-gamma.7"
+    "@aws-sdk/invalid-dependency" "1.0.0-gamma.5"
+    "@aws-sdk/middleware-content-length" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-host-header" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-logger" "1.0.0-gamma.1"
+    "@aws-sdk/middleware-retry" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-serde" "1.0.0-gamma.6"
+    "@aws-sdk/middleware-signing" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-stack" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-user-agent" "1.0.0-gamma.7"
+    "@aws-sdk/node-config-provider" "1.0.0-gamma.2"
+    "@aws-sdk/node-http-handler" "1.0.0-gamma.7"
+    "@aws-sdk/protocol-http" "1.0.0-gamma.7"
+    "@aws-sdk/smithy-client" "1.0.0-gamma.7"
+    "@aws-sdk/types" "1.0.0-gamma.6"
+    "@aws-sdk/url-parser-browser" "1.0.0-gamma.7"
+    "@aws-sdk/url-parser-node" "1.0.0-gamma.7"
+    "@aws-sdk/util-base64-browser" "1.0.0-gamma.6"
+    "@aws-sdk/util-base64-node" "1.0.0-gamma.6"
+    "@aws-sdk/util-body-length-browser" "1.0.0-gamma.6"
+    "@aws-sdk/util-body-length-node" "1.0.0-gamma.6"
+    "@aws-sdk/util-user-agent-browser" "1.0.0-gamma.7"
+    "@aws-sdk/util-user-agent-node" "1.0.0-gamma.7"
+    "@aws-sdk/util-utf8-browser" "1.0.0-gamma.6"
+    "@aws-sdk/util-utf8-node" "1.0.0-gamma.6"
+    tslib "^2.0.0"
+
+"@aws-sdk/client-comprehend@1.0.0-gamma.8":
+  version "1.0.0-gamma.8"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/client-comprehend/-/client-comprehend-1.0.0-gamma.8.tgz#05bd9b13854a1aeeecce0b0a84bd32805086477f"
+  integrity sha1-Bb2bE4VKGu7szgsKhL0ygFCGR38=
+  dependencies:
+    "@aws-crypto/sha256-browser" "^1.0.0-alpha.0"
+    "@aws-crypto/sha256-js" "^1.0.0-alpha.0"
+    "@aws-sdk/config-resolver" "1.0.0-gamma.7"
+    "@aws-sdk/credential-provider-node" "1.0.0-gamma.7"
+    "@aws-sdk/fetch-http-handler" "1.0.0-gamma.8"
+    "@aws-sdk/hash-node" "1.0.0-gamma.7"
+    "@aws-sdk/invalid-dependency" "1.0.0-gamma.5"
+    "@aws-sdk/middleware-content-length" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-host-header" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-logger" "1.0.0-gamma.1"
+    "@aws-sdk/middleware-retry" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-serde" "1.0.0-gamma.6"
+    "@aws-sdk/middleware-signing" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-stack" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-user-agent" "1.0.0-gamma.7"
+    "@aws-sdk/node-config-provider" "1.0.0-gamma.2"
+    "@aws-sdk/node-http-handler" "1.0.0-gamma.7"
+    "@aws-sdk/protocol-http" "1.0.0-gamma.7"
+    "@aws-sdk/smithy-client" "1.0.0-gamma.7"
+    "@aws-sdk/types" "1.0.0-gamma.6"
+    "@aws-sdk/url-parser-browser" "1.0.0-gamma.7"
+    "@aws-sdk/url-parser-node" "1.0.0-gamma.7"
+    "@aws-sdk/util-base64-browser" "1.0.0-gamma.6"
+    "@aws-sdk/util-base64-node" "1.0.0-gamma.6"
+    "@aws-sdk/util-body-length-browser" "1.0.0-gamma.6"
+    "@aws-sdk/util-body-length-node" "1.0.0-gamma.6"
+    "@aws-sdk/util-user-agent-browser" "1.0.0-gamma.7"
+    "@aws-sdk/util-user-agent-node" "1.0.0-gamma.7"
+    "@aws-sdk/util-utf8-browser" "1.0.0-gamma.6"
+    "@aws-sdk/util-utf8-node" "1.0.0-gamma.6"
+    tslib "^2.0.0"
+    uuid "^3.0.0"
+
+"@aws-sdk/client-firehose@1.0.0-gamma.8":
+  version "1.0.0-gamma.8"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/client-firehose/-/client-firehose-1.0.0-gamma.8.tgz#5d6f6477106b0a69b3acadfb319f5b472592b369"
+  integrity sha1-XW9kdxBrCmmzrK37MZ9bRyWSs2k=
+  dependencies:
+    "@aws-crypto/sha256-browser" "^1.0.0-alpha.0"
+    "@aws-crypto/sha256-js" "^1.0.0-alpha.0"
+    "@aws-sdk/config-resolver" "1.0.0-gamma.7"
+    "@aws-sdk/credential-provider-node" "1.0.0-gamma.7"
+    "@aws-sdk/fetch-http-handler" "1.0.0-gamma.8"
+    "@aws-sdk/hash-node" "1.0.0-gamma.7"
+    "@aws-sdk/invalid-dependency" "1.0.0-gamma.5"
+    "@aws-sdk/middleware-content-length" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-host-header" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-logger" "1.0.0-gamma.1"
+    "@aws-sdk/middleware-retry" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-serde" "1.0.0-gamma.6"
+    "@aws-sdk/middleware-signing" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-stack" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-user-agent" "1.0.0-gamma.7"
+    "@aws-sdk/node-config-provider" "1.0.0-gamma.2"
+    "@aws-sdk/node-http-handler" "1.0.0-gamma.7"
+    "@aws-sdk/protocol-http" "1.0.0-gamma.7"
+    "@aws-sdk/smithy-client" "1.0.0-gamma.7"
+    "@aws-sdk/types" "1.0.0-gamma.6"
+    "@aws-sdk/url-parser-browser" "1.0.0-gamma.7"
+    "@aws-sdk/url-parser-node" "1.0.0-gamma.7"
+    "@aws-sdk/util-base64-browser" "1.0.0-gamma.6"
+    "@aws-sdk/util-base64-node" "1.0.0-gamma.6"
+    "@aws-sdk/util-body-length-browser" "1.0.0-gamma.6"
+    "@aws-sdk/util-body-length-node" "1.0.0-gamma.6"
+    "@aws-sdk/util-user-agent-browser" "1.0.0-gamma.7"
+    "@aws-sdk/util-user-agent-node" "1.0.0-gamma.7"
+    "@aws-sdk/util-utf8-browser" "1.0.0-gamma.6"
+    "@aws-sdk/util-utf8-node" "1.0.0-gamma.6"
+    tslib "^2.0.0"
+
+"@aws-sdk/client-kinesis@1.0.0-gamma.8":
+  version "1.0.0-gamma.8"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/client-kinesis/-/client-kinesis-1.0.0-gamma.8.tgz#3b43c597e0c3c3a263aae4e775f6b01631d83551"
+  integrity sha1-O0PFl+DDw6JjquTndfawFjHYNVE=
+  dependencies:
+    "@aws-crypto/sha256-browser" "^1.0.0-alpha.0"
+    "@aws-crypto/sha256-js" "^1.0.0-alpha.0"
+    "@aws-sdk/config-resolver" "1.0.0-gamma.7"
+    "@aws-sdk/credential-provider-node" "1.0.0-gamma.7"
+    "@aws-sdk/eventstream-serde-browser" "1.0.0-gamma.7"
+    "@aws-sdk/eventstream-serde-config-resolver" "1.0.0-gamma.6"
+    "@aws-sdk/eventstream-serde-node" "1.0.0-gamma.7"
+    "@aws-sdk/fetch-http-handler" "1.0.0-gamma.8"
+    "@aws-sdk/hash-node" "1.0.0-gamma.7"
+    "@aws-sdk/invalid-dependency" "1.0.0-gamma.5"
+    "@aws-sdk/middleware-content-length" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-host-header" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-logger" "1.0.0-gamma.1"
+    "@aws-sdk/middleware-retry" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-serde" "1.0.0-gamma.6"
+    "@aws-sdk/middleware-signing" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-stack" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-user-agent" "1.0.0-gamma.7"
+    "@aws-sdk/node-config-provider" "1.0.0-gamma.2"
+    "@aws-sdk/node-http-handler" "1.0.0-gamma.7"
+    "@aws-sdk/protocol-http" "1.0.0-gamma.7"
+    "@aws-sdk/smithy-client" "1.0.0-gamma.7"
+    "@aws-sdk/types" "1.0.0-gamma.6"
+    "@aws-sdk/url-parser-browser" "1.0.0-gamma.7"
+    "@aws-sdk/url-parser-node" "1.0.0-gamma.7"
+    "@aws-sdk/util-base64-browser" "1.0.0-gamma.6"
+    "@aws-sdk/util-base64-node" "1.0.0-gamma.6"
+    "@aws-sdk/util-body-length-browser" "1.0.0-gamma.6"
+    "@aws-sdk/util-body-length-node" "1.0.0-gamma.6"
+    "@aws-sdk/util-user-agent-browser" "1.0.0-gamma.7"
+    "@aws-sdk/util-user-agent-node" "1.0.0-gamma.7"
+    "@aws-sdk/util-utf8-browser" "1.0.0-gamma.6"
+    "@aws-sdk/util-utf8-node" "1.0.0-gamma.6"
+    tslib "^2.0.0"
+
+"@aws-sdk/client-lex-runtime-service@1.0.0-gamma.8":
+  version "1.0.0-gamma.8"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/client-lex-runtime-service/-/client-lex-runtime-service-1.0.0-gamma.8.tgz#ff78b584be5bcea7dfe7b20d2382d7eac495d40c"
+  integrity sha1-/3i1hL5bzqff57INI4LX6sSV1Aw=
+  dependencies:
+    "@aws-crypto/sha256-browser" "^1.0.0-alpha.0"
+    "@aws-crypto/sha256-js" "^1.0.0-alpha.0"
+    "@aws-sdk/config-resolver" "1.0.0-gamma.7"
+    "@aws-sdk/credential-provider-node" "1.0.0-gamma.7"
+    "@aws-sdk/fetch-http-handler" "1.0.0-gamma.8"
+    "@aws-sdk/hash-node" "1.0.0-gamma.7"
+    "@aws-sdk/invalid-dependency" "1.0.0-gamma.5"
+    "@aws-sdk/middleware-content-length" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-host-header" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-logger" "1.0.0-gamma.1"
+    "@aws-sdk/middleware-retry" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-serde" "1.0.0-gamma.6"
+    "@aws-sdk/middleware-signing" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-stack" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-user-agent" "1.0.0-gamma.7"
+    "@aws-sdk/node-config-provider" "1.0.0-gamma.2"
+    "@aws-sdk/node-http-handler" "1.0.0-gamma.7"
+    "@aws-sdk/protocol-http" "1.0.0-gamma.7"
+    "@aws-sdk/smithy-client" "1.0.0-gamma.7"
+    "@aws-sdk/types" "1.0.0-gamma.6"
+    "@aws-sdk/url-parser-browser" "1.0.0-gamma.7"
+    "@aws-sdk/url-parser-node" "1.0.0-gamma.7"
+    "@aws-sdk/util-base64-browser" "1.0.0-gamma.6"
+    "@aws-sdk/util-base64-node" "1.0.0-gamma.6"
+    "@aws-sdk/util-body-length-browser" "1.0.0-gamma.6"
+    "@aws-sdk/util-body-length-node" "1.0.0-gamma.6"
+    "@aws-sdk/util-user-agent-browser" "1.0.0-gamma.7"
+    "@aws-sdk/util-user-agent-node" "1.0.0-gamma.7"
+    "@aws-sdk/util-utf8-browser" "1.0.0-gamma.6"
+    "@aws-sdk/util-utf8-node" "1.0.0-gamma.6"
+    tslib "^2.0.0"
+
+"@aws-sdk/client-personalize-events@1.0.0-gamma.8":
+  version "1.0.0-gamma.8"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/client-personalize-events/-/client-personalize-events-1.0.0-gamma.8.tgz#8ec8120b53ff468fbdcb45552c4260c5feac91eb"
+  integrity sha1-jsgSC1P/Ro+9y0VVLEJgxf6skes=
+  dependencies:
+    "@aws-crypto/sha256-browser" "^1.0.0-alpha.0"
+    "@aws-crypto/sha256-js" "^1.0.0-alpha.0"
+    "@aws-sdk/config-resolver" "1.0.0-gamma.7"
+    "@aws-sdk/credential-provider-node" "1.0.0-gamma.7"
+    "@aws-sdk/fetch-http-handler" "1.0.0-gamma.8"
+    "@aws-sdk/hash-node" "1.0.0-gamma.7"
+    "@aws-sdk/invalid-dependency" "1.0.0-gamma.5"
+    "@aws-sdk/middleware-content-length" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-host-header" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-logger" "1.0.0-gamma.1"
+    "@aws-sdk/middleware-retry" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-serde" "1.0.0-gamma.6"
+    "@aws-sdk/middleware-signing" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-stack" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-user-agent" "1.0.0-gamma.7"
+    "@aws-sdk/node-config-provider" "1.0.0-gamma.2"
+    "@aws-sdk/node-http-handler" "1.0.0-gamma.7"
+    "@aws-sdk/protocol-http" "1.0.0-gamma.7"
+    "@aws-sdk/smithy-client" "1.0.0-gamma.7"
+    "@aws-sdk/types" "1.0.0-gamma.6"
+    "@aws-sdk/url-parser-browser" "1.0.0-gamma.7"
+    "@aws-sdk/url-parser-node" "1.0.0-gamma.7"
+    "@aws-sdk/util-base64-browser" "1.0.0-gamma.6"
+    "@aws-sdk/util-base64-node" "1.0.0-gamma.6"
+    "@aws-sdk/util-body-length-browser" "1.0.0-gamma.6"
+    "@aws-sdk/util-body-length-node" "1.0.0-gamma.6"
+    "@aws-sdk/util-user-agent-browser" "1.0.0-gamma.7"
+    "@aws-sdk/util-user-agent-node" "1.0.0-gamma.7"
+    "@aws-sdk/util-utf8-browser" "1.0.0-gamma.6"
+    "@aws-sdk/util-utf8-node" "1.0.0-gamma.6"
+    tslib "^2.0.0"
+
+"@aws-sdk/client-pinpoint@1.0.0-gamma.8":
+  version "1.0.0-gamma.8"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/client-pinpoint/-/client-pinpoint-1.0.0-gamma.8.tgz#8b5f9042642dcf9dbbb8922da430db401478194d"
+  integrity sha1-i1+QQmQtz527uJItpDDbQBR4GU0=
+  dependencies:
+    "@aws-crypto/sha256-browser" "^1.0.0-alpha.0"
+    "@aws-crypto/sha256-js" "^1.0.0-alpha.0"
+    "@aws-sdk/config-resolver" "1.0.0-gamma.7"
+    "@aws-sdk/credential-provider-node" "1.0.0-gamma.7"
+    "@aws-sdk/fetch-http-handler" "1.0.0-gamma.8"
+    "@aws-sdk/hash-node" "1.0.0-gamma.7"
+    "@aws-sdk/invalid-dependency" "1.0.0-gamma.5"
+    "@aws-sdk/middleware-content-length" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-host-header" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-logger" "1.0.0-gamma.1"
+    "@aws-sdk/middleware-retry" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-serde" "1.0.0-gamma.6"
+    "@aws-sdk/middleware-signing" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-stack" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-user-agent" "1.0.0-gamma.7"
+    "@aws-sdk/node-config-provider" "1.0.0-gamma.2"
+    "@aws-sdk/node-http-handler" "1.0.0-gamma.7"
+    "@aws-sdk/protocol-http" "1.0.0-gamma.7"
+    "@aws-sdk/smithy-client" "1.0.0-gamma.7"
+    "@aws-sdk/types" "1.0.0-gamma.6"
+    "@aws-sdk/url-parser-browser" "1.0.0-gamma.7"
+    "@aws-sdk/url-parser-node" "1.0.0-gamma.7"
+    "@aws-sdk/util-base64-browser" "1.0.0-gamma.6"
+    "@aws-sdk/util-base64-node" "1.0.0-gamma.6"
+    "@aws-sdk/util-body-length-browser" "1.0.0-gamma.6"
+    "@aws-sdk/util-body-length-node" "1.0.0-gamma.6"
+    "@aws-sdk/util-user-agent-browser" "1.0.0-gamma.7"
+    "@aws-sdk/util-user-agent-node" "1.0.0-gamma.7"
+    "@aws-sdk/util-utf8-browser" "1.0.0-gamma.6"
+    "@aws-sdk/util-utf8-node" "1.0.0-gamma.6"
+    tslib "^2.0.0"
+
+"@aws-sdk/client-polly@1.0.0-gamma.8":
+  version "1.0.0-gamma.8"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/client-polly/-/client-polly-1.0.0-gamma.8.tgz#974cf85b531d417f43074039688c69be8d0d1850"
+  integrity sha1-l0z4W1MdQX9DB0A5aIxpvo0NGFA=
+  dependencies:
+    "@aws-crypto/sha256-browser" "^1.0.0-alpha.0"
+    "@aws-crypto/sha256-js" "^1.0.0-alpha.0"
+    "@aws-sdk/config-resolver" "1.0.0-gamma.7"
+    "@aws-sdk/credential-provider-node" "1.0.0-gamma.7"
+    "@aws-sdk/fetch-http-handler" "1.0.0-gamma.8"
+    "@aws-sdk/hash-node" "1.0.0-gamma.7"
+    "@aws-sdk/invalid-dependency" "1.0.0-gamma.5"
+    "@aws-sdk/middleware-content-length" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-host-header" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-logger" "1.0.0-gamma.1"
+    "@aws-sdk/middleware-retry" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-serde" "1.0.0-gamma.6"
+    "@aws-sdk/middleware-signing" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-stack" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-user-agent" "1.0.0-gamma.7"
+    "@aws-sdk/node-config-provider" "1.0.0-gamma.2"
+    "@aws-sdk/node-http-handler" "1.0.0-gamma.7"
+    "@aws-sdk/protocol-http" "1.0.0-gamma.7"
+    "@aws-sdk/smithy-client" "1.0.0-gamma.7"
+    "@aws-sdk/types" "1.0.0-gamma.6"
+    "@aws-sdk/url-parser-browser" "1.0.0-gamma.7"
+    "@aws-sdk/url-parser-node" "1.0.0-gamma.7"
+    "@aws-sdk/util-base64-browser" "1.0.0-gamma.6"
+    "@aws-sdk/util-base64-node" "1.0.0-gamma.6"
+    "@aws-sdk/util-body-length-browser" "1.0.0-gamma.6"
+    "@aws-sdk/util-body-length-node" "1.0.0-gamma.6"
+    "@aws-sdk/util-user-agent-browser" "1.0.0-gamma.7"
+    "@aws-sdk/util-user-agent-node" "1.0.0-gamma.7"
+    "@aws-sdk/util-utf8-browser" "1.0.0-gamma.6"
+    "@aws-sdk/util-utf8-node" "1.0.0-gamma.6"
+    tslib "^2.0.0"
+
+"@aws-sdk/client-rekognition@1.0.0-gamma.8":
+  version "1.0.0-gamma.8"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/client-rekognition/-/client-rekognition-1.0.0-gamma.8.tgz#76f947ff7f3f7048066a230bcd033c9ad9e7ca8d"
+  integrity sha1-dvlH/38/cEgGaiMLzQM8mtnnyo0=
+  dependencies:
+    "@aws-crypto/sha256-browser" "^1.0.0-alpha.0"
+    "@aws-crypto/sha256-js" "^1.0.0-alpha.0"
+    "@aws-sdk/config-resolver" "1.0.0-gamma.7"
+    "@aws-sdk/credential-provider-node" "1.0.0-gamma.7"
+    "@aws-sdk/fetch-http-handler" "1.0.0-gamma.8"
+    "@aws-sdk/hash-node" "1.0.0-gamma.7"
+    "@aws-sdk/invalid-dependency" "1.0.0-gamma.5"
+    "@aws-sdk/middleware-content-length" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-host-header" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-logger" "1.0.0-gamma.1"
+    "@aws-sdk/middleware-retry" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-serde" "1.0.0-gamma.6"
+    "@aws-sdk/middleware-signing" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-stack" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-user-agent" "1.0.0-gamma.7"
+    "@aws-sdk/node-config-provider" "1.0.0-gamma.2"
+    "@aws-sdk/node-http-handler" "1.0.0-gamma.7"
+    "@aws-sdk/protocol-http" "1.0.0-gamma.7"
+    "@aws-sdk/smithy-client" "1.0.0-gamma.7"
+    "@aws-sdk/types" "1.0.0-gamma.6"
+    "@aws-sdk/url-parser-browser" "1.0.0-gamma.7"
+    "@aws-sdk/url-parser-node" "1.0.0-gamma.7"
+    "@aws-sdk/util-base64-browser" "1.0.0-gamma.6"
+    "@aws-sdk/util-base64-node" "1.0.0-gamma.6"
+    "@aws-sdk/util-body-length-browser" "1.0.0-gamma.6"
+    "@aws-sdk/util-body-length-node" "1.0.0-gamma.6"
+    "@aws-sdk/util-user-agent-browser" "1.0.0-gamma.7"
+    "@aws-sdk/util-user-agent-node" "1.0.0-gamma.7"
+    "@aws-sdk/util-utf8-browser" "1.0.0-gamma.6"
+    "@aws-sdk/util-utf8-node" "1.0.0-gamma.6"
+    tslib "^2.0.0"
+
+"@aws-sdk/client-s3@1.0.0-gamma.8":
+  version "1.0.0-gamma.8"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/client-s3/-/client-s3-1.0.0-gamma.8.tgz#d853f3bdeeab4bc953c0645b241c8ca0b2138973"
+  integrity sha1-2FPzve6rS8lTwGRbJByMoLITiXM=
+  dependencies:
+    "@aws-crypto/sha256-browser" "^1.0.0-alpha.0"
+    "@aws-crypto/sha256-js" "^1.0.0-alpha.0"
+    "@aws-sdk/config-resolver" "1.0.0-gamma.7"
+    "@aws-sdk/credential-provider-node" "1.0.0-gamma.7"
+    "@aws-sdk/eventstream-serde-browser" "1.0.0-gamma.7"
+    "@aws-sdk/eventstream-serde-config-resolver" "1.0.0-gamma.6"
+    "@aws-sdk/eventstream-serde-node" "1.0.0-gamma.7"
+    "@aws-sdk/fetch-http-handler" "1.0.0-gamma.8"
+    "@aws-sdk/hash-blob-browser" "1.0.0-gamma.7"
+    "@aws-sdk/hash-node" "1.0.0-gamma.7"
+    "@aws-sdk/hash-stream-node" "1.0.0-gamma.7"
+    "@aws-sdk/invalid-dependency" "1.0.0-gamma.5"
+    "@aws-sdk/md5-js" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-apply-body-checksum" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-bucket-endpoint" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-content-length" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-expect-continue" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-host-header" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-location-constraint" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-logger" "1.0.0-gamma.1"
+    "@aws-sdk/middleware-retry" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-sdk-s3" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-serde" "1.0.0-gamma.6"
+    "@aws-sdk/middleware-signing" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-ssec" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-stack" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-user-agent" "1.0.0-gamma.7"
+    "@aws-sdk/node-config-provider" "1.0.0-gamma.2"
+    "@aws-sdk/node-http-handler" "1.0.0-gamma.7"
+    "@aws-sdk/protocol-http" "1.0.0-gamma.7"
+    "@aws-sdk/smithy-client" "1.0.0-gamma.7"
+    "@aws-sdk/types" "1.0.0-gamma.6"
+    "@aws-sdk/url-parser-browser" "1.0.0-gamma.7"
+    "@aws-sdk/url-parser-node" "1.0.0-gamma.7"
+    "@aws-sdk/util-base64-browser" "1.0.0-gamma.6"
+    "@aws-sdk/util-base64-node" "1.0.0-gamma.6"
+    "@aws-sdk/util-body-length-browser" "1.0.0-gamma.6"
+    "@aws-sdk/util-body-length-node" "1.0.0-gamma.6"
+    "@aws-sdk/util-user-agent-browser" "1.0.0-gamma.7"
+    "@aws-sdk/util-user-agent-node" "1.0.0-gamma.7"
+    "@aws-sdk/util-utf8-browser" "1.0.0-gamma.6"
+    "@aws-sdk/util-utf8-node" "1.0.0-gamma.6"
+    "@aws-sdk/xml-builder" "1.0.0-gamma.6"
+    fast-xml-parser "^3.16.0"
+    tslib "^2.0.0"
+
+"@aws-sdk/client-textract@1.0.0-gamma.8":
+  version "1.0.0-gamma.8"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/client-textract/-/client-textract-1.0.0-gamma.8.tgz#58a4810baf080499bb46352835a9c9ddbe23eddd"
+  integrity sha1-WKSBC68IBJm7RjUoNanJ3b4j7d0=
+  dependencies:
+    "@aws-crypto/sha256-browser" "^1.0.0-alpha.0"
+    "@aws-crypto/sha256-js" "^1.0.0-alpha.0"
+    "@aws-sdk/config-resolver" "1.0.0-gamma.7"
+    "@aws-sdk/credential-provider-node" "1.0.0-gamma.7"
+    "@aws-sdk/fetch-http-handler" "1.0.0-gamma.8"
+    "@aws-sdk/hash-node" "1.0.0-gamma.7"
+    "@aws-sdk/invalid-dependency" "1.0.0-gamma.5"
+    "@aws-sdk/middleware-content-length" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-host-header" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-logger" "1.0.0-gamma.1"
+    "@aws-sdk/middleware-retry" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-serde" "1.0.0-gamma.6"
+    "@aws-sdk/middleware-signing" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-stack" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-user-agent" "1.0.0-gamma.7"
+    "@aws-sdk/node-config-provider" "1.0.0-gamma.2"
+    "@aws-sdk/node-http-handler" "1.0.0-gamma.7"
+    "@aws-sdk/protocol-http" "1.0.0-gamma.7"
+    "@aws-sdk/smithy-client" "1.0.0-gamma.7"
+    "@aws-sdk/types" "1.0.0-gamma.6"
+    "@aws-sdk/url-parser-browser" "1.0.0-gamma.7"
+    "@aws-sdk/url-parser-node" "1.0.0-gamma.7"
+    "@aws-sdk/util-base64-browser" "1.0.0-gamma.6"
+    "@aws-sdk/util-base64-node" "1.0.0-gamma.6"
+    "@aws-sdk/util-body-length-browser" "1.0.0-gamma.6"
+    "@aws-sdk/util-body-length-node" "1.0.0-gamma.6"
+    "@aws-sdk/util-user-agent-browser" "1.0.0-gamma.7"
+    "@aws-sdk/util-user-agent-node" "1.0.0-gamma.7"
+    "@aws-sdk/util-utf8-browser" "1.0.0-gamma.6"
+    "@aws-sdk/util-utf8-node" "1.0.0-gamma.6"
+    tslib "^2.0.0"
+
+"@aws-sdk/client-translate@1.0.0-gamma.8":
+  version "1.0.0-gamma.8"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/client-translate/-/client-translate-1.0.0-gamma.8.tgz#6d6f747c3c2cfd3c46485b625d6b53a8d4051fa7"
+  integrity sha1-bW90fDws/TxGSFtiXWtTqNQFH6c=
+  dependencies:
+    "@aws-crypto/sha256-browser" "^1.0.0-alpha.0"
+    "@aws-crypto/sha256-js" "^1.0.0-alpha.0"
+    "@aws-sdk/config-resolver" "1.0.0-gamma.7"
+    "@aws-sdk/credential-provider-node" "1.0.0-gamma.7"
+    "@aws-sdk/fetch-http-handler" "1.0.0-gamma.8"
+    "@aws-sdk/hash-node" "1.0.0-gamma.7"
+    "@aws-sdk/invalid-dependency" "1.0.0-gamma.5"
+    "@aws-sdk/middleware-content-length" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-host-header" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-logger" "1.0.0-gamma.1"
+    "@aws-sdk/middleware-retry" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-serde" "1.0.0-gamma.6"
+    "@aws-sdk/middleware-signing" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-stack" "1.0.0-gamma.7"
+    "@aws-sdk/middleware-user-agent" "1.0.0-gamma.7"
+    "@aws-sdk/node-config-provider" "1.0.0-gamma.2"
+    "@aws-sdk/node-http-handler" "1.0.0-gamma.7"
+    "@aws-sdk/protocol-http" "1.0.0-gamma.7"
+    "@aws-sdk/smithy-client" "1.0.0-gamma.7"
+    "@aws-sdk/types" "1.0.0-gamma.6"
+    "@aws-sdk/url-parser-browser" "1.0.0-gamma.7"
+    "@aws-sdk/url-parser-node" "1.0.0-gamma.7"
+    "@aws-sdk/util-base64-browser" "1.0.0-gamma.6"
+    "@aws-sdk/util-base64-node" "1.0.0-gamma.6"
+    "@aws-sdk/util-body-length-browser" "1.0.0-gamma.6"
+    "@aws-sdk/util-body-length-node" "1.0.0-gamma.6"
+    "@aws-sdk/util-user-agent-browser" "1.0.0-gamma.7"
+    "@aws-sdk/util-user-agent-node" "1.0.0-gamma.7"
+    "@aws-sdk/util-utf8-browser" "1.0.0-gamma.6"
+    "@aws-sdk/util-utf8-node" "1.0.0-gamma.6"
+    tslib "^2.0.0"
+    uuid "^3.0.0"
+
+"@aws-sdk/config-resolver@1.0.0-gamma.7":
+  version "1.0.0-gamma.7"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/config-resolver/-/config-resolver-1.0.0-gamma.7.tgz#c76950c3ad78081888811572d57b29f4bfd7ecc5"
+  integrity sha1-x2lQw614CBiIgRVy1Xsp9L/X7MU=
+  dependencies:
+    "@aws-sdk/signature-v4" "1.0.0-gamma.7"
+    "@aws-sdk/types" "1.0.0-gamma.6"
+    tslib "^1.8.0"
+
+"@aws-sdk/credential-provider-cognito-identity@1.0.0-gamma.8":
+  version "1.0.0-gamma.8"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/credential-provider-cognito-identity/-/credential-provider-cognito-identity-1.0.0-gamma.8.tgz#9b0411aec3ab6f8a411b4d11f5231f566acfecae"
+  integrity sha1-mwQRrsOrb4pBG00R9SMfVmrP7K4=
+  dependencies:
+    "@aws-sdk/client-cognito-identity" "1.0.0-gamma.8"
+    "@aws-sdk/property-provider" "1.0.0-gamma.7"
+    "@aws-sdk/types" "1.0.0-gamma.6"
+    tslib "^1.8.0"
+
+"@aws-sdk/credential-provider-env@1.0.0-gamma.7":
+  version "1.0.0-gamma.7"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/credential-provider-env/-/credential-provider-env-1.0.0-gamma.7.tgz#9b66cbd2f7ada9691279a36f5117af90c9692354"
+  integrity sha1-m2bL0vetqWkSeaNvURevkMlpI1Q=
+  dependencies:
+    "@aws-sdk/property-provider" "1.0.0-gamma.7"
+    "@aws-sdk/types" "1.0.0-gamma.6"
+    tslib "^1.8.0"
+
+"@aws-sdk/credential-provider-imds@1.0.0-gamma.7":
+  version "1.0.0-gamma.7"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/credential-provider-imds/-/credential-provider-imds-1.0.0-gamma.7.tgz#9088ff460027eca1a65af589bcb363f079cf44ce"
+  integrity sha1-kIj/RgAn7KGmWvWJvLNj8HnPRM4=
+  dependencies:
+    "@aws-sdk/property-provider" "1.0.0-gamma.7"
+    "@aws-sdk/types" "1.0.0-gamma.6"
+    tslib "^1.8.0"
+
+"@aws-sdk/credential-provider-ini@1.0.0-gamma.7":
+  version "1.0.0-gamma.7"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/credential-provider-ini/-/credential-provider-ini-1.0.0-gamma.7.tgz#c6725ac948801eba69d64ef310971ece6b4ffd45"
+  integrity sha1-xnJayUiAHrpp1k7zEJcezmtP/UU=
+  dependencies:
+    "@aws-sdk/property-provider" "1.0.0-gamma.7"
+    "@aws-sdk/shared-ini-file-loader" "1.0.0-gamma.6"
+    "@aws-sdk/types" "1.0.0-gamma.6"
+    tslib "^1.8.0"
+
+"@aws-sdk/credential-provider-node@1.0.0-gamma.7":
+  version "1.0.0-gamma.7"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/credential-provider-node/-/credential-provider-node-1.0.0-gamma.7.tgz#65160a8be2e05548d13a27aa66083b02578a5a39"
+  integrity sha1-ZRYKi+LgVUjROieqZgg7AleKWjk=
+  dependencies:
+    "@aws-sdk/credential-provider-env" "1.0.0-gamma.7"
+    "@aws-sdk/credential-provider-imds" "1.0.0-gamma.7"
+    "@aws-sdk/credential-provider-ini" "1.0.0-gamma.7"
+    "@aws-sdk/credential-provider-process" "1.0.0-gamma.7"
+    "@aws-sdk/property-provider" "1.0.0-gamma.7"
+    "@aws-sdk/types" "1.0.0-gamma.6"
+    tslib "^1.8.0"
+
+"@aws-sdk/credential-provider-process@1.0.0-gamma.7":
+  version "1.0.0-gamma.7"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/credential-provider-process/-/credential-provider-process-1.0.0-gamma.7.tgz#247c31e79a841c1fa1bdf17b24c53217d23a4329"
+  integrity sha1-JHwx55qEHB+hvfF7JMUyF9I6Qyk=
+  dependencies:
+    "@aws-sdk/credential-provider-ini" "1.0.0-gamma.7"
+    "@aws-sdk/property-provider" "1.0.0-gamma.7"
+    "@aws-sdk/shared-ini-file-loader" "1.0.0-gamma.6"
+    "@aws-sdk/types" "1.0.0-gamma.6"
+    tslib "^1.8.0"
+
+"@aws-sdk/eventstream-marshaller@1.0.0-gamma.7":
+  version "1.0.0-gamma.7"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/eventstream-marshaller/-/eventstream-marshaller-1.0.0-gamma.7.tgz#e2af9679336c3392a188bc369bb58c1389bd5822"
+  integrity sha1-4q+WeTNsM5KhiLw2m7WME4m9WCI=
+  dependencies:
+    "@aws-crypto/crc32" "^1.0.0-alpha.0"
+    "@aws-sdk/types" "1.0.0-gamma.6"
+    "@aws-sdk/util-hex-encoding" "1.0.0-gamma.6"
+    tslib "^1.8.0"
+
+"@aws-sdk/eventstream-serde-browser@1.0.0-gamma.7":
+  version "1.0.0-gamma.7"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/eventstream-serde-browser/-/eventstream-serde-browser-1.0.0-gamma.7.tgz#c251ea7e88046298f64bdb0689f09e6e4e3ac533"
+  integrity sha1-wlHqfogEYpj2S9sGifCebk46xTM=
+  dependencies:
+    "@aws-sdk/eventstream-marshaller" "1.0.0-gamma.7"
+    "@aws-sdk/eventstream-serde-universal" "1.0.0-gamma.6"
+    "@aws-sdk/types" "1.0.0-gamma.6"
+    tslib "^1.8.0"
+
+"@aws-sdk/eventstream-serde-config-resolver@1.0.0-gamma.6":
+  version "1.0.0-gamma.6"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/eventstream-serde-config-resolver/-/eventstream-serde-config-resolver-1.0.0-gamma.6.tgz#e6d964cb78d94d7a5d36f8ac2d7828dd5c534a07"
+  integrity sha1-5tlky3jZTXpdNvisLXgo3VxTSgc=
+  dependencies:
+    "@aws-sdk/types" "1.0.0-gamma.6"
+    tslib "^1.8.0"
+
+"@aws-sdk/eventstream-serde-node@1.0.0-gamma.7":
+  version "1.0.0-gamma.7"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/eventstream-serde-node/-/eventstream-serde-node-1.0.0-gamma.7.tgz#128aa322d8064fc2eaf02f35c01a1e09d5a318ce"
+  integrity sha1-EoqjItgGT8Lq8C81wBoeCdWjGM4=
+  dependencies:
+    "@aws-sdk/eventstream-marshaller" "1.0.0-gamma.7"
+    "@aws-sdk/eventstream-serde-universal" "1.0.0-gamma.6"
+    "@aws-sdk/types" "1.0.0-gamma.6"
+    tslib "^1.8.0"
+
+"@aws-sdk/eventstream-serde-universal@1.0.0-gamma.6":
+  version "1.0.0-gamma.6"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/eventstream-serde-universal/-/eventstream-serde-universal-1.0.0-gamma.6.tgz#68e54f22a3da822fcfe254d58f394f803b24555b"
+  integrity sha1-aOVPIqPagi/P4lTVjzlPgDskVVs=
+  dependencies:
+    "@aws-sdk/eventstream-marshaller" "1.0.0-gamma.7"
+    "@aws-sdk/types" "1.0.0-gamma.6"
+    tslib "^1.8.0"
+
+"@aws-sdk/fetch-http-handler@1.0.0-gamma.8":
+  version "1.0.0-gamma.8"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/fetch-http-handler/-/fetch-http-handler-1.0.0-gamma.8.tgz#cbaa389f28c556ad451984cd79a4e426957a56ec"
+  integrity sha1-y6o4nyjFVq1FGYTNeaTkJpV6Vuw=
+  dependencies:
+    "@aws-sdk/protocol-http" "1.0.0-gamma.7"
+    "@aws-sdk/querystring-builder" "1.0.0-gamma.7"
+    "@aws-sdk/types" "1.0.0-gamma.6"
+    "@aws-sdk/util-base64-browser" "1.0.0-gamma.6"
+    tslib "^1.8.0"
+
+"@aws-sdk/hash-blob-browser@1.0.0-gamma.7":
+  version "1.0.0-gamma.7"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/hash-blob-browser/-/hash-blob-browser-1.0.0-gamma.7.tgz#af96208803c98f3d5a058352affb5b717e027aa5"
+  integrity sha1-r5YgiAPJjz1aBYNSr/tbcX4CeqU=
+  dependencies:
+    "@aws-sdk/chunked-blob-reader" "1.0.0-gamma.6"
+    "@aws-sdk/chunked-blob-reader-native" "1.0.0-gamma.6"
+    "@aws-sdk/types" "1.0.0-gamma.6"
+    tslib "^1.8.0"
+
+"@aws-sdk/hash-node@1.0.0-gamma.7":
+  version "1.0.0-gamma.7"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/hash-node/-/hash-node-1.0.0-gamma.7.tgz#e306406798de01dc1143ddd41d0151ca625ee2e3"
+  integrity sha1-4wZAZ5jeAdwRQ93UHQFRymJe4uM=
+  dependencies:
+    "@aws-sdk/types" "1.0.0-gamma.6"
+    "@aws-sdk/util-buffer-from" "1.0.0-gamma.6"
+    tslib "^1.8.0"
+
+"@aws-sdk/hash-stream-node@1.0.0-gamma.7":
+  version "1.0.0-gamma.7"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/hash-stream-node/-/hash-stream-node-1.0.0-gamma.7.tgz#8ec8a86f26c6de66ac2353067558279d6b0f9c9d"
+  integrity sha1-jsiobybG3masI1MGdVgnnWsPnJ0=
+  dependencies:
+    "@aws-sdk/types" "1.0.0-gamma.6"
+    tslib "^1.8.0"
+
+"@aws-sdk/invalid-dependency@1.0.0-gamma.5":
+  version "1.0.0-gamma.5"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/invalid-dependency/-/invalid-dependency-1.0.0-gamma.5.tgz#07d6a74167b2110ebcdac2f802f22f4255d8ed81"
+  integrity sha1-B9anQWeyEQ682sL4AvIvQlXY7YE=
+  dependencies:
+    tslib "^1.8.0"
+
+"@aws-sdk/is-array-buffer@1.0.0-gamma.6":
+  version "1.0.0-gamma.6"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/is-array-buffer/-/is-array-buffer-1.0.0-gamma.6.tgz#07e994d6661504246dedd9fc5015c89fe63b8b10"
+  integrity sha1-B+mU1mYVBCRt7dn8UBXIn+Y7ixA=
+  dependencies:
+    tslib "^1.8.0"
+
+"@aws-sdk/md5-js@1.0.0-gamma.7":
+  version "1.0.0-gamma.7"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/md5-js/-/md5-js-1.0.0-gamma.7.tgz#609acf9da836f6a2e75b1e21cb657f83dc6f810b"
+  integrity sha1-YJrPnag29qLnWx4hy2V/g9xvgQs=
+  dependencies:
+    "@aws-sdk/types" "1.0.0-gamma.6"
+    "@aws-sdk/util-utf8-browser" "1.0.0-gamma.6"
+    tslib "^1.8.0"
+
+"@aws-sdk/middleware-apply-body-checksum@1.0.0-gamma.7":
+  version "1.0.0-gamma.7"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/middleware-apply-body-checksum/-/middleware-apply-body-checksum-1.0.0-gamma.7.tgz#409769ef95bfebfa6a9925d6b1b5ca012606ca0e"
+  integrity sha1-QJdp75W/6/pqmSXWsbXKASYGyg4=
+  dependencies:
+    "@aws-sdk/is-array-buffer" "1.0.0-gamma.6"
+    "@aws-sdk/protocol-http" "1.0.0-gamma.7"
+    "@aws-sdk/types" "1.0.0-gamma.6"
+    tslib "^1.8.0"
+
+"@aws-sdk/middleware-bucket-endpoint@1.0.0-gamma.7":
+  version "1.0.0-gamma.7"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/middleware-bucket-endpoint/-/middleware-bucket-endpoint-1.0.0-gamma.7.tgz#3a271b86f4951d04094a1deacac12b3ae0fbef2a"
+  integrity sha1-OicbhvSVHQQJSh3qysErOuD77yo=
+  dependencies:
+    "@aws-sdk/protocol-http" "1.0.0-gamma.7"
+    "@aws-sdk/types" "1.0.0-gamma.6"
+    "@aws-sdk/util-arn-parser" "1.0.0-gamma.3"
+    tslib "^1.8.0"
+
+"@aws-sdk/middleware-content-length@1.0.0-gamma.7":
+  version "1.0.0-gamma.7"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/middleware-content-length/-/middleware-content-length-1.0.0-gamma.7.tgz#7b8842927d2b3a09bace34a6a491ad3a88e0a25d"
+  integrity sha1-e4hCkn0rOgm6zjSmpJGtOojgol0=
+  dependencies:
+    "@aws-sdk/protocol-http" "1.0.0-gamma.7"
+    "@aws-sdk/types" "1.0.0-gamma.6"
+    tslib "^1.8.0"
+
+"@aws-sdk/middleware-expect-continue@1.0.0-gamma.7":
+  version "1.0.0-gamma.7"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/middleware-expect-continue/-/middleware-expect-continue-1.0.0-gamma.7.tgz#347a8e89f6e4f7525af98546d9f654198b4c7b3d"
+  integrity sha1-NHqOifbk91Ja+YVG2fZUGYtMez0=
+  dependencies:
+    "@aws-sdk/middleware-header-default" "1.0.0-gamma.7"
+    "@aws-sdk/protocol-http" "1.0.0-gamma.7"
+    "@aws-sdk/types" "1.0.0-gamma.6"
+    tslib "^1.8.0"
+
+"@aws-sdk/middleware-header-default@1.0.0-gamma.7":
+  version "1.0.0-gamma.7"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/middleware-header-default/-/middleware-header-default-1.0.0-gamma.7.tgz#d977445da36eba5df768806a85834e31fb189ce3"
+  integrity sha1-2XdEXaNuul33aIBqhYNOMfsYnOM=
+  dependencies:
+    "@aws-sdk/protocol-http" "1.0.0-gamma.7"
+    "@aws-sdk/types" "1.0.0-gamma.6"
+    tslib "^1.8.0"
+
+"@aws-sdk/middleware-host-header@1.0.0-gamma.7":
+  version "1.0.0-gamma.7"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/middleware-host-header/-/middleware-host-header-1.0.0-gamma.7.tgz#14da157c65543cf644d6df54a636437abc3787b4"
+  integrity sha1-FNoVfGVUPPZE1t9UpjZDerw3h7Q=
+  dependencies:
+    "@aws-sdk/protocol-http" "1.0.0-gamma.7"
+    "@aws-sdk/types" "1.0.0-gamma.6"
+    tslib "^1.8.0"
+
+"@aws-sdk/middleware-location-constraint@1.0.0-gamma.7":
+  version "1.0.0-gamma.7"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/middleware-location-constraint/-/middleware-location-constraint-1.0.0-gamma.7.tgz#902b380d741d7382a8076fd34342039b24e8b00c"
+  integrity sha1-kCs4DXQdc4KoB2/TQ0IDmyTosAw=
+  dependencies:
+    "@aws-sdk/types" "1.0.0-gamma.6"
+    tslib "^1.8.0"
+
+"@aws-sdk/middleware-logger@1.0.0-gamma.1":
+  version "1.0.0-gamma.1"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/middleware-logger/-/middleware-logger-1.0.0-gamma.1.tgz#d4915e924b9cfb858ce89ced51ffd8be457af7f5"
+  integrity sha1-1JFekkuc+4WM6JztUf/YvkV69/U=
+  dependencies:
+    "@aws-sdk/types" "1.0.0-gamma.6"
+    tslib "^1.8.0"
+
+"@aws-sdk/middleware-retry@1.0.0-gamma.7":
+  version "1.0.0-gamma.7"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/middleware-retry/-/middleware-retry-1.0.0-gamma.7.tgz#4b548d16fb0f98df7538d47678ad4b70fa3439a6"
+  integrity sha1-S1SNFvsPmN91ONR2eK1LcPo0OaY=
+  dependencies:
+    "@aws-sdk/protocol-http" "1.0.0-gamma.7"
+    "@aws-sdk/service-error-classification" "1.0.0-gamma.7"
+    "@aws-sdk/types" "1.0.0-gamma.6"
+    react-native-get-random-values "^1.4.0"
+    tslib "^1.8.0"
+    uuid "^3.0.0"
+
+"@aws-sdk/middleware-sdk-s3@1.0.0-gamma.7":
+  version "1.0.0-gamma.7"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/middleware-sdk-s3/-/middleware-sdk-s3-1.0.0-gamma.7.tgz#315f84565be9f134d71553eaf371aa64d7da7c80"
+  integrity sha1-MV+EVlvp8TTXFVPq83GqZNfafIA=
+  dependencies:
+    "@aws-sdk/util-arn-parser" "1.0.0-gamma.3"
+    tslib "^1.8.0"
+
+"@aws-sdk/middleware-serde@1.0.0-gamma.6":
+  version "1.0.0-gamma.6"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/middleware-serde/-/middleware-serde-1.0.0-gamma.6.tgz#9a35eadc41814daccb956448fb70cc96065afb91"
+  integrity sha1-mjXq3EGBTazLlWRI+3DMlgZa+5E=
+  dependencies:
+    "@aws-sdk/types" "1.0.0-gamma.6"
+    tslib "^1.8.0"
+
+"@aws-sdk/middleware-signing@1.0.0-gamma.7":
+  version "1.0.0-gamma.7"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/middleware-signing/-/middleware-signing-1.0.0-gamma.7.tgz#44591018d160c89031b6ab26131b513c89feff36"
+  integrity sha1-RFkQGNFgyJAxtqsmExtRPIn+/zY=
+  dependencies:
+    "@aws-sdk/protocol-http" "1.0.0-gamma.7"
+    "@aws-sdk/signature-v4" "1.0.0-gamma.7"
+    "@aws-sdk/types" "1.0.0-gamma.6"
+    tslib "^1.8.0"
+
+"@aws-sdk/middleware-ssec@1.0.0-gamma.7":
+  version "1.0.0-gamma.7"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/middleware-ssec/-/middleware-ssec-1.0.0-gamma.7.tgz#93ae363ebd0de10da0b594ad5e420470de528b1c"
+  integrity sha1-k642Pr0N4Q2gtZStXkIEcN5Sixw=
+  dependencies:
+    "@aws-sdk/types" "1.0.0-gamma.6"
+    tslib "^1.8.0"
+
+"@aws-sdk/middleware-stack@1.0.0-gamma.7":
+  version "1.0.0-gamma.7"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/middleware-stack/-/middleware-stack-1.0.0-gamma.7.tgz#921359bc2cbd3ee318aee92e3ac807e113816130"
+  integrity sha1-khNZvCy9PuMYrukuOsgH4ROBYTA=
+  dependencies:
+    "@aws-sdk/types" "1.0.0-gamma.6"
+    tslib "^1.8.0"
+
+"@aws-sdk/middleware-user-agent@1.0.0-gamma.7":
+  version "1.0.0-gamma.7"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/middleware-user-agent/-/middleware-user-agent-1.0.0-gamma.7.tgz#f869af84ddcc29dce643d8af54405c45dd90c2c7"
+  integrity sha1-+GmvhN3MKdzmQ9ivVEBcRd2Qwsc=
+  dependencies:
+    "@aws-sdk/protocol-http" "1.0.0-gamma.7"
+    "@aws-sdk/types" "1.0.0-gamma.6"
+    tslib "^1.8.0"
+
+"@aws-sdk/node-config-provider@1.0.0-gamma.2":
+  version "1.0.0-gamma.2"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/node-config-provider/-/node-config-provider-1.0.0-gamma.2.tgz#9da3a90cd39f61e5250fbfbcba9ec1f6b032687b"
+  integrity sha1-naOpDNOfYeUlD7+8up7B9rAyaHs=
+  dependencies:
+    "@aws-sdk/property-provider" "1.0.0-gamma.7"
+    "@aws-sdk/shared-ini-file-loader" "1.0.0-gamma.6"
+    "@aws-sdk/types" "1.0.0-gamma.6"
+    tslib "^1.8.0"
+
+"@aws-sdk/node-http-handler@1.0.0-gamma.7":
+  version "1.0.0-gamma.7"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/node-http-handler/-/node-http-handler-1.0.0-gamma.7.tgz#82a8be63d02c5dc7be48e57cb21d8f19984763e3"
+  integrity sha1-gqi+Y9AsXce+SOV8sh2PGZhHY+M=
+  dependencies:
+    "@aws-sdk/abort-controller" "1.0.0-gamma.7"
+    "@aws-sdk/protocol-http" "1.0.0-gamma.7"
+    "@aws-sdk/querystring-builder" "1.0.0-gamma.7"
+    "@aws-sdk/types" "1.0.0-gamma.6"
+    tslib "^1.8.0"
+
+"@aws-sdk/property-provider@1.0.0-gamma.7":
+  version "1.0.0-gamma.7"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/property-provider/-/property-provider-1.0.0-gamma.7.tgz#ab81f5b572c0b04df5a63116e9329979413cc95c"
+  integrity sha1-q4H1tXLAsE31pjEW6TKZeUE8yVw=
+  dependencies:
+    "@aws-sdk/types" "1.0.0-gamma.6"
+    tslib "^1.8.0"
+
+"@aws-sdk/protocol-http@1.0.0-gamma.7":
+  version "1.0.0-gamma.7"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/protocol-http/-/protocol-http-1.0.0-gamma.7.tgz#0cd4a40347e929d38b15ee517a4595cc9a64da3d"
+  integrity sha1-DNSkA0fpKdOLFe5RekWVzJpk2j0=
+  dependencies:
+    "@aws-sdk/types" "1.0.0-gamma.6"
+    tslib "^1.8.0"
+
+"@aws-sdk/querystring-builder@1.0.0-gamma.7":
+  version "1.0.0-gamma.7"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/querystring-builder/-/querystring-builder-1.0.0-gamma.7.tgz#f3d0208ff57b24f081ff75d5a643f3d02518920c"
+  integrity sha1-89Agj/V7JPCB/3XVpkPz0CUYkgw=
+  dependencies:
+    "@aws-sdk/types" "1.0.0-gamma.6"
+    "@aws-sdk/util-uri-escape" "1.0.0-gamma.6"
+    tslib "^1.8.0"
+
+"@aws-sdk/querystring-parser@1.0.0-gamma.7":
+  version "1.0.0-gamma.7"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/querystring-parser/-/querystring-parser-1.0.0-gamma.7.tgz#7b3ed3eb5ae2be9c13c42717ff2f5c216377ae9a"
+  integrity sha1-ez7T61rivpwTxCcX/y9cIWN3rpo=
+  dependencies:
+    "@aws-sdk/types" "1.0.0-gamma.6"
+    tslib "^1.8.0"
+
+"@aws-sdk/s3-request-presigner@1.0.0-gamma.7":
+  version "1.0.0-gamma.7"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/s3-request-presigner/-/s3-request-presigner-1.0.0-gamma.7.tgz#8e989c6b6eda2426ba588d070f368e4fe7c6ad5b"
+  integrity sha1-jpica27aJCa6WI0HDzaOT+fGrVs=
+  dependencies:
+    "@aws-sdk/protocol-http" "1.0.0-gamma.7"
+    "@aws-sdk/signature-v4" "1.0.0-gamma.7"
+    "@aws-sdk/smithy-client" "1.0.0-gamma.7"
+    "@aws-sdk/types" "1.0.0-gamma.6"
+    "@aws-sdk/util-create-request" "1.0.0-gamma.7"
+    "@aws-sdk/util-format-url" "1.0.0-gamma.7"
+    tslib "^1.8.0"
+
+"@aws-sdk/service-error-classification@1.0.0-gamma.7":
+  version "1.0.0-gamma.7"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/service-error-classification/-/service-error-classification-1.0.0-gamma.7.tgz#710f3acd1f87fda9d1caeb07559d50f8b82f071b"
+  integrity sha1-cQ86zR+H/anRyusHVZ1Q+LgvBxs=
+
+"@aws-sdk/shared-ini-file-loader@1.0.0-gamma.6":
+  version "1.0.0-gamma.6"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/shared-ini-file-loader/-/shared-ini-file-loader-1.0.0-gamma.6.tgz#cd79c8a54b0f6d9f70ad709ae9e7619801a3b7f4"
+  integrity sha1-zXnIpUsPbZ9wrXCa6edhmAGjt/Q=
+  dependencies:
+    tslib "^1.8.0"
+
+"@aws-sdk/signature-v4@1.0.0-gamma.7":
+  version "1.0.0-gamma.7"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/signature-v4/-/signature-v4-1.0.0-gamma.7.tgz#030c1cb47e2b59862363ce1bee1901fd37bcaaf5"
+  integrity sha1-AwwctH4rWYYjY84b7hkB/Te8qvU=
+  dependencies:
+    "@aws-sdk/is-array-buffer" "1.0.0-gamma.6"
+    "@aws-sdk/types" "1.0.0-gamma.6"
+    "@aws-sdk/util-hex-encoding" "1.0.0-gamma.6"
+    "@aws-sdk/util-uri-escape" "1.0.0-gamma.6"
+    tslib "^1.8.0"
+
+"@aws-sdk/smithy-client@1.0.0-gamma.7":
+  version "1.0.0-gamma.7"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/smithy-client/-/smithy-client-1.0.0-gamma.7.tgz#20e602b15e2617d439bfd8f1b4cb17137f27561f"
+  integrity sha1-IOYCsV4mF9Q5v9jxtMsXE38nVh8=
+  dependencies:
+    "@aws-sdk/middleware-stack" "1.0.0-gamma.7"
+    "@aws-sdk/types" "1.0.0-gamma.6"
+    tslib "^1.8.0"
+
+"@aws-sdk/types@1.0.0-gamma.6":
+  version "1.0.0-gamma.6"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/types/-/types-1.0.0-gamma.6.tgz#ec2bbf8abe05632a1fb2468dbd76096691dcfb89"
+  integrity sha1-7Cu/ir4FYyofskaNvXYJZpHc+4k=
+
+"@aws-sdk/types@^1.0.0-alpha.0", "@aws-sdk/types@^1.0.0-rc.1":
+  version "1.0.0-rc.2"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/types/-/types-1.0.0-rc.2.tgz#7547083fc2c6db9bd3101702b8b2a3ea254e65e7"
+  integrity sha1-dUcIP8LG25vTEBcCuLKj6iVOZec=
+
+"@aws-sdk/url-parser-browser@1.0.0-gamma.7":
+  version "1.0.0-gamma.7"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/url-parser-browser/-/url-parser-browser-1.0.0-gamma.7.tgz#aceaebd2b267b6251ff965fb51fc760a2785bae0"
+  integrity sha1-rOrr0rJntiUf+WX7Ufx2CieFuuA=
+  dependencies:
+    "@aws-sdk/querystring-parser" "1.0.0-gamma.7"
+    "@aws-sdk/types" "1.0.0-gamma.6"
+    tslib "^1.8.0"
+
+"@aws-sdk/url-parser-node@1.0.0-gamma.7":
+  version "1.0.0-gamma.7"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/url-parser-node/-/url-parser-node-1.0.0-gamma.7.tgz#306061415401e99a502f044fd863261cdfe57a5b"
+  integrity sha1-MGBhQVQB6ZpQLwRP2GMmHN/lels=
+  dependencies:
+    "@aws-sdk/querystring-parser" "1.0.0-gamma.7"
+    "@aws-sdk/types" "1.0.0-gamma.6"
+    tslib "^1.8.0"
+    url "^0.11.0"
+
+"@aws-sdk/util-arn-parser@1.0.0-gamma.3":
+  version "1.0.0-gamma.3"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/util-arn-parser/-/util-arn-parser-1.0.0-gamma.3.tgz#5e0dc6c90de407346e8413456c714b107e539de1"
+  integrity sha1-Xg3GyQ3kBzRuhBNFbHFLEH5TneE=
+  dependencies:
+    tslib "^1.8.0"
+
+"@aws-sdk/util-base64-browser@1.0.0-gamma.6":
+  version "1.0.0-gamma.6"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/util-base64-browser/-/util-base64-browser-1.0.0-gamma.6.tgz#43d538f717606eb355103e737107f4ac2273e857"
+  integrity sha1-Q9U49xdgbrNVED5zcQf0rCJz6Fc=
+  dependencies:
+    tslib "^1.8.0"
+
+"@aws-sdk/util-base64-node@1.0.0-gamma.6":
+  version "1.0.0-gamma.6"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/util-base64-node/-/util-base64-node-1.0.0-gamma.6.tgz#077c60fc074914221b0629e3a4c3d9c610122df1"
+  integrity sha1-B3xg/AdJFCIbBinjpMPZxhASLfE=
+  dependencies:
+    "@aws-sdk/util-buffer-from" "1.0.0-gamma.6"
+    tslib "^1.8.0"
+
+"@aws-sdk/util-body-length-browser@1.0.0-gamma.6":
+  version "1.0.0-gamma.6"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/util-body-length-browser/-/util-body-length-browser-1.0.0-gamma.6.tgz#1af1876ff3769b7625bca34f359e66ecfb26c6df"
+  integrity sha1-GvGHb/N2m3YlvKNPNZ5m7Psmxt8=
+  dependencies:
+    tslib "^1.8.0"
+
+"@aws-sdk/util-body-length-node@1.0.0-gamma.6":
+  version "1.0.0-gamma.6"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/util-body-length-node/-/util-body-length-node-1.0.0-gamma.6.tgz#9106cddef1e19055649cc055608423f75fb516ac"
+  integrity sha1-kQbN3vHhkFVknMBVYIQj91+1Fqw=
+  dependencies:
+    tslib "^1.8.0"
+
+"@aws-sdk/util-buffer-from@1.0.0-gamma.6":
+  version "1.0.0-gamma.6"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/util-buffer-from/-/util-buffer-from-1.0.0-gamma.6.tgz#bc2bd1d4ab217975c1872cc5e7f23b3250d89d73"
+  integrity sha1-vCvR1KsheXXBhyzF5/I7MlDYnXM=
+  dependencies:
+    "@aws-sdk/is-array-buffer" "1.0.0-gamma.6"
+    tslib "^1.8.0"
+
+"@aws-sdk/util-create-request@1.0.0-gamma.7":
+  version "1.0.0-gamma.7"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/util-create-request/-/util-create-request-1.0.0-gamma.7.tgz#4f6e1384661c0ee5b103bb024015e882c00d7ebe"
+  integrity sha1-T24ThGYcDuWxA7sCQBXogsANfr4=
+  dependencies:
+    "@aws-sdk/middleware-stack" "1.0.0-gamma.7"
+    "@aws-sdk/smithy-client" "1.0.0-gamma.7"
+    "@aws-sdk/types" "1.0.0-gamma.6"
+    tslib "^1.8.0"
+
+"@aws-sdk/util-format-url@1.0.0-gamma.7":
+  version "1.0.0-gamma.7"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/util-format-url/-/util-format-url-1.0.0-gamma.7.tgz#72ff6a20237ad8d252607a138d9585eefeb6f242"
+  integrity sha1-cv9qICN62NJSYHoTjZWF7v628kI=
+  dependencies:
+    "@aws-sdk/querystring-builder" "1.0.0-gamma.7"
+    "@aws-sdk/types" "1.0.0-gamma.6"
+    tslib "^1.8.0"
+
+"@aws-sdk/util-hex-encoding@1.0.0-gamma.6":
+  version "1.0.0-gamma.6"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/util-hex-encoding/-/util-hex-encoding-1.0.0-gamma.6.tgz#adc3931069ba538e415fff4e860d670a417e1ea7"
+  integrity sha1-rcOTEGm6U45BX/9Ohg1nCkF+Hqc=
+  dependencies:
+    tslib "^1.8.0"
+
+"@aws-sdk/util-locate-window@^1.0.0-rc.1":
+  version "1.0.0-rc.2"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/util-locate-window/-/util-locate-window-1.0.0-rc.2.tgz#78672b4e8ddbdf1f21adfe020746005dbc8f1660"
+  integrity sha1-eGcrTo3b3x8hrf4CB0YAXbyPFmA=
+  dependencies:
+    tslib "^1.8.0"
+
+"@aws-sdk/util-uri-escape@1.0.0-gamma.6":
+  version "1.0.0-gamma.6"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/util-uri-escape/-/util-uri-escape-1.0.0-gamma.6.tgz#27e5576a087a96482880527621a0dc5065d26af9"
+  integrity sha1-J+VXagh6lkgogFJ2IaDcUGXSavk=
+  dependencies:
+    tslib "^1.8.0"
+
+"@aws-sdk/util-user-agent-browser@1.0.0-gamma.7":
+  version "1.0.0-gamma.7"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/util-user-agent-browser/-/util-user-agent-browser-1.0.0-gamma.7.tgz#c775b28cf347c81f23de0729f28c70bdfbfdabea"
+  integrity sha1-x3WyjPNHyB8j3gcp8oxwvfv9q+o=
+  dependencies:
+    "@aws-sdk/types" "1.0.0-gamma.6"
+    tslib "^1.8.0"
+
+"@aws-sdk/util-user-agent-node@1.0.0-gamma.7":
+  version "1.0.0-gamma.7"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/util-user-agent-node/-/util-user-agent-node-1.0.0-gamma.7.tgz#814204475a95a6e3e4dc78a70d41a1104645b06d"
+  integrity sha1-gUIER1qVpuPk3HinDUGhEEZFsG0=
+  dependencies:
+    "@aws-sdk/types" "1.0.0-gamma.6"
+    tslib "^1.8.0"
+
+"@aws-sdk/util-utf8-browser@1.0.0-gamma.6":
+  version "1.0.0-gamma.6"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/util-utf8-browser/-/util-utf8-browser-1.0.0-gamma.6.tgz#bdf5bcc98683eff184d8da00cc101d3e05b44614"
+  integrity sha1-vfW8yYaD7/GE2NoAzBAdPgW0RhQ=
+  dependencies:
+    tslib "^1.8.0"
+
+"@aws-sdk/util-utf8-browser@^1.0.0-alpha.0", "@aws-sdk/util-utf8-browser@^1.0.0-rc.1":
+  version "1.0.0-rc.2"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/util-utf8-browser/-/util-utf8-browser-1.0.0-rc.2.tgz#e6d8c45b61b1d66f944e56f6b1e538786326b717"
+  integrity sha1-5tjEW2Gx1m+UTlb2seU4eGMmtxc=
+  dependencies:
+    tslib "^1.8.0"
+
+"@aws-sdk/util-utf8-node@1.0.0-gamma.6":
+  version "1.0.0-gamma.6"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/util-utf8-node/-/util-utf8-node-1.0.0-gamma.6.tgz#94d933ee8b0daf7800ce1f3a2d25e3241ae0e602"
+  integrity sha1-lNkz7osNr3gAzh86LSXjJBrg5gI=
+  dependencies:
+    "@aws-sdk/util-buffer-from" "1.0.0-gamma.6"
+    tslib "^1.8.0"
+
+"@aws-sdk/xml-builder@1.0.0-gamma.6":
+  version "1.0.0-gamma.6"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@aws-sdk/xml-builder/-/xml-builder-1.0.0-gamma.6.tgz#156522929155611bd9fdbd479a791f43437a125f"
+  integrity sha1-FWUikpFVYRvZ/b1HmnkfQ0N6El8=
+  dependencies:
+    tslib "^1.8.0"
+
 "@babel/code-frame@7.8.3", "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.8.3":
   version "7.8.3"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.8.3.tgz#33e25903d7481181534e12ec0a25f16b6fcf419e"
@@ -882,6 +2148,13 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
+"@babel/runtime@^7.11.2":
+  version "7.12.1"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@babel/runtime/-/runtime-7.12.1.tgz#b4116a6b6711d010b2dad3b7b6e43bf1b9954740"
+  integrity sha1-tBFqa2cR0BCy2tO3tuQ78bmVR0A=
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
 "@babel/runtime@^7.3.1", "@babel/runtime@^7.4.4", "@babel/runtime@^7.8.3", "@babel/runtime@^7.9.6":
   version "7.10.2"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.10.2.tgz#d103f21f2602497d38348a32e008637d506db839"
@@ -1399,6 +2672,35 @@
   integrity sha512-MI4Xx6LHs4Webyvi6EbspgyAb4D2Q2VtnCQ1blOJcoLS6mVa8lNN2rkIy1CVxfTUpoyIbCTkXES1rLXztFD1lg==
   dependencies:
     any-observable "^0.3.0"
+
+"@sinonjs/commons@^1", "@sinonjs/commons@^1.3.0", "@sinonjs/commons@^1.4.0", "@sinonjs/commons@^1.7.0":
+  version "1.8.1"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@sinonjs/commons/-/commons-1.8.1.tgz#e7df00f98a203324f6dc7cc606cad9d4a8ab2217"
+  integrity sha1-598A+YogMyT23HzGBsrZ1KirIhc=
+  dependencies:
+    type-detect "4.0.8"
+
+"@sinonjs/formatio@^3.2.1":
+  version "3.2.2"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@sinonjs/formatio/-/formatio-3.2.2.tgz#771c60dfa75ea7f2d68e3b94c7e888a78781372c"
+  integrity sha1-dxxg36dep/LWjjuUx+iIp4eBNyw=
+  dependencies:
+    "@sinonjs/commons" "^1"
+    "@sinonjs/samsam" "^3.1.0"
+
+"@sinonjs/samsam@^3.1.0", "@sinonjs/samsam@^3.3.3":
+  version "3.3.3"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@sinonjs/samsam/-/samsam-3.3.3.tgz#46682efd9967b259b81136b9f120fd54585feb4a"
+  integrity sha1-Rmgu/Zlnslm4ETa58SD9VFhf60o=
+  dependencies:
+    "@sinonjs/commons" "^1.3.0"
+    array-from "^2.1.1"
+    lodash "^4.17.15"
+
+"@sinonjs/text-encoding@^0.7.1":
+  version "0.7.1"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/@sinonjs/text-encoding/-/text-encoding-0.7.1.tgz#8da5c6530915653f3a1f38fd5f101d8c3f8079c5"
+  integrity sha1-jaXGUwkVZT86Hzj9XxAdjD+AecU=
 
 "@svgr/babel-plugin-add-jsx-attribute@^4.2.0":
   version "4.2.0"
@@ -2113,6 +3415,16 @@ alphanum-sort@^1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/alphanum-sort/-/alphanum-sort-1.0.2.tgz#97a1119649b211ad33691d9f9f486a8ec9fbe0a3"
 
+amazon-cognito-identity-js@^4.5.0:
+  version "4.5.0"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/amazon-cognito-identity-js/-/amazon-cognito-identity-js-4.5.0.tgz#5130b10ffa6e51fc9d0b6e58cc1896102fc43de7"
+  integrity sha1-UTCxD/puUfydC25YzBiWEC/EPec=
+  dependencies:
+    buffer "4.9.1"
+    crypto-js "^3.3.0"
+    isomorphic-unfetch "^3.0.0"
+    js-cookie "^2.2.1"
+
 ansi-colors@^3.0.0:
   version "3.2.4"
   resolved "https://registry.yarnpkg.com/ansi-colors/-/ansi-colors-3.2.4.tgz#e3a3da4bfbae6c86a9c285625de124a234026fbf"
@@ -2248,6 +3560,11 @@ array-flatten@^2.1.0:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/array-flatten/-/array-flatten-2.1.2.tgz#24ef80a28c1a893617e2149b0c6d0d788293b099"
 
+array-from@^2.1.1:
+  version "2.1.1"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/array-from/-/array-from-2.1.1.tgz#cfe9d8c26628b9dc5aecc62a9f5d8f1f352c1195"
+  integrity sha1-z+nYwmYoudxa7MYqn12PHzUsEZU=
+
 array-includes@^3.0.3, array-includes@^3.1.1:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/array-includes/-/array-includes-3.1.1.tgz#cdd67e6852bdf9c1215460786732255ed2459348"
@@ -2376,6 +3693,24 @@ autoprefixer@^9.6.1:
     postcss "^7.0.27"
     postcss-value-parser "^4.0.3"
 
+aws-amplify@^3.3.4:
+  version "3.3.4"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/aws-amplify/-/aws-amplify-3.3.4.tgz#3d395abaf0e1911133052e144cd10d7eec36f2e0"
+  integrity sha1-PTlauvDhkREzBS4UTNENfuw28uA=
+  dependencies:
+    "@aws-amplify/analytics" "^3.3.7"
+    "@aws-amplify/api" "^3.2.7"
+    "@aws-amplify/auth" "^3.4.7"
+    "@aws-amplify/cache" "^3.1.32"
+    "@aws-amplify/core" "^3.7.0"
+    "@aws-amplify/datastore" "^2.6.1"
+    "@aws-amplify/interactions" "^3.3.7"
+    "@aws-amplify/predictions" "^3.2.7"
+    "@aws-amplify/pubsub" "^3.2.5"
+    "@aws-amplify/storage" "^3.3.7"
+    "@aws-amplify/ui" "^2.0.2"
+    "@aws-amplify/xr" "^2.2.7"
+
 aws-sign2@~0.7.0:
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/aws-sign2/-/aws-sign2-0.7.0.tgz#b46e890934a9591f2d2f6f86d7e6a9f1b3fe76a8"
@@ -2383,6 +3718,14 @@ aws-sign2@~0.7.0:
 aws4@^1.8.0:
   version "1.9.1"
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.9.1.tgz#7e33d8f7d449b3f673cd72deb9abdc552dbe528e"
+
+axios@0.19.0:
+  version "0.19.0"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/axios/-/axios-0.19.0.tgz#8e09bff3d9122e133f7b8101c8fbdd00ed3d2ab8"
+  integrity sha1-jgm/89kSLhM/e4EByPvdAO09Krg=
+  dependencies:
+    follow-redirects "1.5.10"
+    is-buffer "^2.0.2"
 
 axobject-query@^2.0.2:
   version "2.1.2"
@@ -2563,7 +3906,7 @@ base64-arraybuffer@0.1.5:
   resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/base64-arraybuffer/-/base64-arraybuffer-0.1.5.tgz#73926771923b5a19747ad666aa5cd4bf9c6e9ce8"
   integrity sha1-c5JncZI7Whl0etZmqlzUv5xunOg=
 
-base64-js@1.3.1, base64-js@^1.0.2:
+base64-js@^1.0.2:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/base64-js/-/base64-js-1.3.1.tgz#58ece8cb75dd07e71ed08c736abc5fac4dbf8df1"
 
@@ -2817,6 +4160,15 @@ buffer-indexof@^1.0.0:
 buffer-xor@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/buffer-xor/-/buffer-xor-1.0.3.tgz#26e61ed1422fb70dd42e6e36729ed51d855fe8d9"
+
+buffer@4.9.1:
+  version "4.9.1"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/buffer/-/buffer-4.9.1.tgz#6d1bb601b07a4efced97094132093027c95bc298"
+  integrity sha1-bRu2AbB6TvztlwlBMgkwJ8lbwpg=
+  dependencies:
+    base64-js "^1.0.2"
+    ieee754 "^1.1.4"
+    isarray "^1.0.0"
 
 buffer@^4.3.0:
   version "4.9.2"
@@ -3612,6 +4964,11 @@ crypto-browserify@^3.11.0:
     randombytes "^2.0.0"
     randomfill "^1.0.3"
 
+crypto-js@^3.3.0:
+  version "3.3.0"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/crypto-js/-/crypto-js-3.3.0.tgz#846dd1cce2f68aacfa156c8578f926a609b7976b"
+  integrity sha1-hG3RzOL2iqz6FWyFePkmpgm3l2s=
+
 css-blank-pseudo@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/css-blank-pseudo/-/css-blank-pseudo-0.1.4.tgz#dfdefd3254bf8a82027993674ccf35483bfcb3c5"
@@ -3881,11 +5238,6 @@ cypress-junit-reporter@^1.3.1:
     strip-ansi "^4.0.0"
     xml "^1.0.0"
 
-cypress-keycloak-commands@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/cypress-keycloak-commands/-/cypress-keycloak-commands-1.2.0.tgz#7f241e8e104ebd389f9a844966dcca43694d0645"
-  integrity sha512-j0THu0XMVlWah7YjDoVlFg2bIwSiBSda6g5Pm8HpC/9U2Glk0Hrp4yLggoseft3ThAlrpIkoLaIKMDbmvtgicw==
-
 cypress-visual-regression@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/cypress-visual-regression/-/cypress-visual-regression-1.4.0.tgz#dbeedaba877eed82cad6236a17dfd7bb53d839db"
@@ -4003,18 +5355,18 @@ debug@4.1.1, debug@^4.0.1, debug@^4.1.0, debug@^4.1.1, debug@~4.1.0:
   dependencies:
     ms "^2.1.1"
 
-debug@^3.0.0, debug@^3.1.0, debug@^3.1.1, debug@^3.2.5:
-  version "3.2.6"
-  resolved "https://registry.yarnpkg.com/debug/-/debug-3.2.6.tgz#e83d17de16d8a7efb7717edbe5fb10135eee629b"
-  dependencies:
-    ms "^2.1.1"
-
-debug@~3.1.0:
+debug@=3.1.0, debug@~3.1.0:
   version "3.1.0"
   resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/debug/-/debug-3.1.0.tgz#5bb5a0672628b64149566ba16819e61518c67261"
   integrity sha1-W7WgZyYotkFJVmuhaBnmFRjGcmE=
   dependencies:
     ms "2.0.0"
+
+debug@^3.0.0, debug@^3.1.0, debug@^3.1.1, debug@^3.2.5:
+  version "3.2.6"
+  resolved "https://registry.yarnpkg.com/debug/-/debug-3.2.6.tgz#e83d17de16d8a7efb7717edbe5fb10135eee629b"
+  dependencies:
+    ms "^2.1.1"
 
 decamelize@^1.1.2, decamelize@^1.2.0:
   version "1.2.0"
@@ -4139,6 +5491,11 @@ diff-sequences@^24.9.0:
 diff-sequences@^25.2.6:
   version "25.2.6"
   resolved "https://registry.yarnpkg.com/diff-sequences/-/diff-sequences-25.2.6.tgz#5f467c00edd35352b7bca46d7927d60e687a76dd"
+
+diff@^3.5.0:
+  version "3.5.0"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/diff/-/diff-3.5.0.tgz#800c0dd1e0a8bfbc95835c202ad220fe317e5a12"
+  integrity sha1-gAwN0eCov7yVg1wgKtIg/jF+WhI=
 
 diff@^4.0.1:
   version "4.0.2"
@@ -4763,6 +6120,11 @@ events@^3.0.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/events/-/events-3.1.0.tgz#84279af1b34cb75aa88bf5ff291f6d0bd9b31a59"
 
+events@^3.1.0:
+  version "3.2.0"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/events/-/events-3.2.0.tgz#93b87c18f8efcd4202a461aec4dfc0556b639379"
+  integrity sha1-k7h8GPjvzUICpGGuxN/AVWtjk3k=
+
 eventsource@^1.0.7:
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/eventsource/-/eventsource-1.0.7.tgz#8fbc72c93fcd34088090bc0a4e64f4b5cee6d8d0"
@@ -4969,6 +6331,11 @@ extsprintf@^1.2.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/extsprintf/-/extsprintf-1.4.0.tgz#e2689f8f356fad62cca65a3a91c5df5f9551692f"
 
+fast-base64-decode@^1.0.0:
+  version "1.0.0"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/fast-base64-decode/-/fast-base64-decode-1.0.0.tgz#b434a0dd7d92b12b43f26819300d2dafb83ee418"
+  integrity sha1-tDSg3X2SsStD8mgZMA0tr7g+5Bg=
+
 fast-deep-equal@^3.1.1:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/fast-deep-equal/-/fast-deep-equal-3.1.1.tgz#545145077c501491e33b15ec408c294376e94ae4"
@@ -4991,6 +6358,11 @@ fast-json-stable-stringify@^2.0.0:
 fast-levenshtein@~2.0.6:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/fast-levenshtein/-/fast-levenshtein-2.0.6.tgz#3d8a5c66883a16a30ca8643e851f19baa7797917"
+
+fast-xml-parser@^3.16.0:
+  version "3.17.4"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/fast-xml-parser/-/fast-xml-parser-3.17.4.tgz#d668495fb3e4bbcf7970f3c24ac0019d82e76477"
+  integrity sha1-1mhJX7Pku895cPPCSsABnYLnZHc=
 
 faye-websocket@^0.10.0:
   version "0.10.0"
@@ -5206,6 +6578,13 @@ fn-name@~3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/fn-name/-/fn-name-3.0.0.tgz#0596707f635929634d791f452309ab41558e3c5c"
   integrity sha512-eNMNr5exLoavuAMhIUVsOKF79SWd/zG104ef6sxBTSw+cZc6BXdQXDvYcGvp0VbxVVSp1XDUNoz7mg1xMtSznA==
+
+follow-redirects@1.5.10:
+  version "1.5.10"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/follow-redirects/-/follow-redirects-1.5.10.tgz#7b7a9f9aea2fdff36786a94ff643ed07f4ff5e2a"
+  integrity sha1-e3qfmuov3/NnhqlP9kPtB/T/Xio=
+  dependencies:
+    debug "=3.1.0"
 
 follow-redirects@^1.0.0:
   version "1.11.0"
@@ -5481,6 +6860,13 @@ globby@^6.1.0:
 graceful-fs@^4.1.11, graceful-fs@^4.1.15, graceful-fs@^4.1.2, graceful-fs@^4.1.6, graceful-fs@^4.2.0, graceful-fs@^4.2.2:
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.3.tgz#4a12ff1b60376ef09862c2093edd908328be8423"
+
+graphql@14.0.0:
+  version "14.0.0"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/graphql/-/graphql-14.0.0.tgz#4ee771c5266d08cb75df2d3ac41e8dd51ce3d599"
+  integrity sha1-TudxxSZtCMt13y06xB6N1Rzj1Zk=
+  dependencies:
+    iterall "^1.2.2"
 
 growly@^1.3.0:
   version "1.3.0"
@@ -5871,6 +7257,11 @@ icss-utils@^4.0.0, icss-utils@^4.1.1:
   dependencies:
     postcss "^7.0.14"
 
+idb@5.0.2:
+  version "5.0.2"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/idb/-/idb-5.0.2.tgz#294e5dd0f1930519dd07393a793cd4edfac93834"
+  integrity sha1-KU5d0PGTBRndBzk6eTzU7frJODQ=
+
 identity-obj-proxy@3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/identity-obj-proxy/-/identity-obj-proxy-3.0.0.tgz#94d2bda96084453ef36fbc5aaec37e0f79f1fc14"
@@ -5896,6 +7287,11 @@ ignore@^4.0.6:
 immer@1.10.0:
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/immer/-/immer-1.10.0.tgz#bad67605ba9c810275d91e1c2a47d4582e98286d"
+
+immer@6.0.1:
+  version "6.0.1"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/immer/-/immer-6.0.1.tgz#7af35e35753d9da6bc9123f0cc99f7e8f2e10681"
+  integrity sha1-evNeNXU9naa8kSPwzJn36PLhBoE=
 
 import-cwd@^2.0.0:
   version "2.1.0"
@@ -6106,6 +7502,11 @@ is-binary-path@~2.1.0:
 is-buffer@^1.0.2, is-buffer@^1.1.5, is-buffer@~1.1.6:
   version "1.1.6"
   resolved "https://registry.yarnpkg.com/is-buffer/-/is-buffer-1.1.6.tgz#efaa2ea9daa0d7ab2ea13a97b2b8ad51fefbe8be"
+
+is-buffer@^2.0.2:
+  version "2.0.4"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/is-buffer/-/is-buffer-2.0.4.tgz#3e572f23c8411a5cfd9557c849e3665e0b290623"
+  integrity sha1-PlcvI8hBGlz9lVfISeNmXgspBiM=
 
 is-callable@^1.1.4, is-callable@^1.1.5:
   version "1.1.5"
@@ -6389,6 +7790,14 @@ isomorphic-fetch@^2.2.1:
     node-fetch "^1.0.1"
     whatwg-fetch ">=0.10.0"
 
+isomorphic-unfetch@^3.0.0:
+  version "3.1.0"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/isomorphic-unfetch/-/isomorphic-unfetch-3.1.0.tgz#87341d5f4f7b63843d468438128cb087b7c3e98f"
+  integrity sha1-hzQdX097Y4Q9RoQ4Eoywh7fD6Y8=
+  dependencies:
+    node-fetch "^2.6.1"
+    unfetch "^4.2.0"
+
 isstream@~0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
@@ -6432,6 +7841,11 @@ istanbul-reports@^2.2.6:
   resolved "https://registry.yarnpkg.com/istanbul-reports/-/istanbul-reports-2.2.7.tgz#5d939f6237d7b48393cc0959eab40cd4fd056931"
   dependencies:
     html-escaper "^2.0.0"
+
+iterall@^1.2.2:
+  version "1.3.0"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/iterall/-/iterall-1.3.0.tgz#afcb08492e2915cbd8a0884eb93a8c94d0d72fea"
+  integrity sha1-r8sISS4pFcvYoIhOuTqMlNDXL+o=
 
 jake@^10.6.1:
   version "10.6.1"
@@ -6811,10 +8225,10 @@ jest@24.9.0:
     import-local "^2.0.0"
     jest-cli "^24.9.0"
 
-js-sha256@0.9.0:
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/js-sha256/-/js-sha256-0.9.0.tgz#0b89ac166583e91ef9123644bd3c5334ce9d0966"
-  integrity sha512-sga3MHh9sgQN2+pJ9VYZ+1LPwXOxuBJBA5nrR5/ofPfuiJBE2hnjsaN8se8JznOmGLN2p49Pe5U/ttafcs/apA==
+js-cookie@^2.2.1:
+  version "2.2.1"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/js-cookie/-/js-cookie-2.2.1.tgz#69e106dc5d5806894562902aa5baec3744e9b2b8"
+  integrity sha1-aeEG3F1YBolFYpAqpbrsN0Tpsrg=
 
 "js-tokens@^3.0.0 || ^4.0.0", js-tokens@^4.0.0:
   version "4.0.0"
@@ -7053,13 +8467,10 @@ junit-merge@^2.0.0:
     mkdirp "^0.5.1"
     xmldoc "^1.1.2"
 
-keycloak-js@^10.0.2:
-  version "10.0.2"
-  resolved "https://registry.yarnpkg.com/keycloak-js/-/keycloak-js-10.0.2.tgz#f0cf5b942627c5221f1466552c40e4624503b77b"
-  integrity sha512-7nkg4Ob1khHGcNbuK36AMndKUEuIQFpNlWU9ygWs7nSBPCI9VZ8dJjjXfKJHm0ewgcqLFGPIJ6bxxRlfcQ6sLg==
-  dependencies:
-    base64-js "1.3.1"
-    js-sha256 "0.9.0"
+just-extend@^4.0.2:
+  version "4.1.1"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/just-extend/-/just-extend-4.1.1.tgz#158f1fdb01f128c411dc8b286a7b4837b3545282"
+  integrity sha1-FY8f2wHxKMQR3IsoantIN7NUUoI=
 
 keygrip@~1.1.0:
   version "1.1.0"
@@ -7380,6 +8791,11 @@ lodash@4.17.19, lodash@^4.15.0:
   version "4.17.15"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
 
+lodash@^4.17.20:
+  version "4.17.20"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/lodash/-/lodash-4.17.20.tgz#b44a9b6297bcb698f1c51a3545a2b3b368d59c52"
+  integrity sha1-tEqbYpe8tpjxxRo1RaKzs2jVnFI=
+
 log-symbols@3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/log-symbols/-/log-symbols-3.0.0.tgz#f3a08516a5dea893336a7dee14d18a1cfdab77c4"
@@ -7406,6 +8822,18 @@ log-update@^2.3.0:
 loglevel@^1.6.6:
   version "1.6.8"
   resolved "https://registry.yarnpkg.com/loglevel/-/loglevel-1.6.8.tgz#8a25fb75d092230ecd4457270d80b54e28011171"
+
+lolex@^4.2.0:
+  version "4.2.0"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/lolex/-/lolex-4.2.0.tgz#ddbd7f6213ca1ea5826901ab1222b65d714b3cd7"
+  integrity sha1-3b1/YhPKHqWCaQGrEiK2XXFLPNc=
+
+lolex@^5.0.1:
+  version "5.1.2"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/lolex/-/lolex-5.1.2.tgz#953694d098ce7c07bc5ed6d0e42bc6c0c6d5a367"
+  integrity sha1-lTaU0JjOfAe8XtbQ5CvGwMbVo2c=
+  dependencies:
+    "@sinonjs/commons" "^1.7.0"
 
 loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.2.0, loose-envify@^1.3.1, loose-envify@^1.4.0:
   version "1.4.0"
@@ -7869,6 +9297,17 @@ nice-try@^1.0.4:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/nice-try/-/nice-try-1.0.5.tgz#a3378a7696ce7d223e88fc9b764bd7ef1089e366"
 
+nise@^1.5.2:
+  version "1.5.3"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/nise/-/nise-1.5.3.tgz#9d2cfe37d44f57317766c6e9408a359c5d3ac1f7"
+  integrity sha1-nSz+N9RPVzF3ZsbpQIo1nF06wfc=
+  dependencies:
+    "@sinonjs/formatio" "^3.2.1"
+    "@sinonjs/text-encoding" "^0.7.1"
+    just-extend "^4.0.2"
+    lolex "^5.0.1"
+    path-to-regexp "^1.7.0"
+
 no-case@^2.2.0:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/no-case/-/no-case-2.3.2.tgz#60b813396be39b3f1288a4c1ed5d1e7d28b464ac"
@@ -7890,6 +9329,11 @@ node-fetch@^1.0.1:
   dependencies:
     encoding "^0.1.11"
     is-stream "^1.0.1"
+
+node-fetch@^2.6.1:
+  version "2.6.1"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/node-fetch/-/node-fetch-2.6.1.tgz#045bd323631f76ed2e2b55573394416b639a0052"
+  integrity sha1-BFvTI2Mfdu0uK1VXM5RBa2OaAFI=
 
 node-forge@0.9.0:
   version "0.9.0"
@@ -8284,6 +9728,11 @@ p-try@^1.0.0:
 p-try@^2.0.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/p-try/-/p-try-2.2.0.tgz#cb2868540e313d61de58fafbe35ce9004d5540e6"
+
+paho-mqtt@^1.1.0:
+  version "1.1.0"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/paho-mqtt/-/paho-mqtt-1.1.0.tgz#8c10e29eb162e966fb15188d965c3dce505de9d9"
+  integrity sha1-jBDinrFi6Wb7FRiNllw9zlBd6dk=
 
 pako@~1.0.5:
   version "1.0.11"
@@ -9533,6 +10982,13 @@ react-dom@^16.13.1:
     prop-types "^15.6.2"
     scheduler "^0.19.1"
 
+react-error-boundary@^3.0.2:
+  version "3.0.2"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/react-error-boundary/-/react-error-boundary-3.0.2.tgz#74399a4d9a68bfede1f3f4261ea0aabfc65d9868"
+  integrity sha1-dDmaTZpov+3h8/QmHqCqv8ZdmGg=
+  dependencies:
+    "@babel/runtime" "^7.11.2"
+
 react-error-overlay@^6.0.7:
   version "6.0.7"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-6.0.7.tgz#1dcfb459ab671d53f660a991513cb2f0a0553108"
@@ -9580,6 +11036,13 @@ react-lifecycles-compat@^3.0.4:
   resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha1-TxonOv38jzSIqMUWv9p4+HI1I2I=
 
+react-native-get-random-values@^1.4.0:
+  version "1.5.0"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/react-native-get-random-values/-/react-native-get-random-values-1.5.0.tgz#91cda18f0e66e3d9d7660ba80c61c914030c1e05"
+  integrity sha1-kc2hjw5m49nXZguoDGHJFAMMHgU=
+  dependencies:
+    fast-base64-decode "^1.0.0"
+
 react-onclickoutside@^6.9.0:
   version "6.9.0"
   resolved "https://registry.yarnpkg.com/react-onclickoutside/-/react-onclickoutside-6.9.0.tgz#a54bc317ae8cf6131a5d78acea55a11067f37a1f"
@@ -9611,6 +11074,13 @@ react-popper@^1.3.4:
     prop-types "^15.6.1"
     typed-styles "^0.0.7"
     warning "^4.0.2"
+
+react-query@^2.25.2:
+  version "2.25.2"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/react-query/-/react-query-2.25.2.tgz#afefdf57a166bcbf08c93a26522a8c6cb1bdf849"
+  integrity sha1-r+/fV6FmvL8IyTomUiqMbLG9+Ek=
+  dependencies:
+    "@babel/runtime" "^7.5.5"
 
 react-router-dom@^5.2.0:
   version "5.2.0"
@@ -10470,6 +11940,19 @@ simple-swizzle@^0.2.2:
   dependencies:
     is-arrayish "^0.3.1"
 
+sinon@^7.5.0:
+  version "7.5.0"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/sinon/-/sinon-7.5.0.tgz#e9488ea466070ea908fd44a3d6478fd4923c67ec"
+  integrity sha1-6UiOpGYHDqkI/USj1keP1JI8Z+w=
+  dependencies:
+    "@sinonjs/commons" "^1.4.0"
+    "@sinonjs/formatio" "^3.2.1"
+    "@sinonjs/samsam" "^3.3.3"
+    diff "^3.5.0"
+    lolex "^4.2.0"
+    nise "^1.5.2"
+    supports-color "^5.5.0"
+
 sisteransi@^1.0.4:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/sisteransi/-/sisteransi-1.0.5.tgz#134d681297756437cc05ca01370d3a7a571075ed"
@@ -10785,6 +12268,13 @@ statuses@~1.4.0:
 stealthy-require@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/stealthy-require/-/stealthy-require-1.1.1.tgz#35b09875b4ff49f26a777e509b3090a3226bf24b"
+
+stop-runaway-react-effects@^2.0.0:
+  version "2.0.0"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/stop-runaway-react-effects/-/stop-runaway-react-effects-2.0.0.tgz#20853514af01c837ef6e22bfd220268f20713761"
+  integrity sha1-IIU1FK8ByDfvbiK/0iAmjyBxN2E=
+  dependencies:
+    "@babel/runtime" "^7.9.2"
 
 stream-browserify@^2.0.1:
   version "2.0.2"
@@ -11337,6 +12827,16 @@ tslib@^1.10.0, tslib@^1.8.1, tslib@^1.9.0:
   version "1.11.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.11.1.tgz#eb15d128827fbee2841549e171f45ed338ac7e35"
 
+tslib@^1.11.1, tslib@^1.8.0, tslib@^1.9.3:
+  version "1.14.1"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/tslib/-/tslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
+  integrity sha1-zy04vcNKE0vK8QkcQfZhni9nLQA=
+
+tslib@^2.0.0:
+  version "2.0.3"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/tslib/-/tslib-2.0.3.tgz#8e0741ac45fc0c226e58a17bfc3e64b9bc6ca61c"
+  integrity sha1-jgdBrEX8DCJuWKF7/D5kubxsphw=
+
 tsscmp@1.0.6:
   version "1.0.6"
   resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/tsscmp/-/tsscmp-1.0.6.tgz#85b99583ac3589ec4bfef825b5000aa911d605eb"
@@ -11367,6 +12867,11 @@ type-check@~0.3.2:
   resolved "https://registry.yarnpkg.com/type-check/-/type-check-0.3.2.tgz#5884cab512cf1d355e3fb784f30804b2b520db72"
   dependencies:
     prelude-ls "~1.1.2"
+
+type-detect@4.0.8:
+  version "4.0.8"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/type-detect/-/type-detect-4.0.8.tgz#7646fb5f18871cfbb7749e69bd39a6388eb7450c"
+  integrity sha1-dkb7XxiHHPu3dJ5pvTmmOI63RQw=
 
 type-fest@^0.11.0:
   version "0.11.0"
@@ -11417,6 +12922,11 @@ uglify-js@^3.1.4:
   resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/uglify-js/-/uglify-js-3.10.1.tgz#dd14767eb7150de97f2573a5ff210db14fffe4ad"
   integrity sha1-3RR2frcVDel/JXOl/yENsU//5K0=
 
+ulid@2.3.0:
+  version "2.3.0"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/ulid/-/ulid-2.3.0.tgz#93063522771a9774121a84d126ecd3eb9804071f"
+  integrity sha1-kwY1Incal3QSGoTRJuzT65gEBx8=
+
 uncontrollable@^7.0.0:
   version "7.1.1"
   resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/uncontrollable/-/uncontrollable-7.1.1.tgz#f67fed3ef93637126571809746323a9db815d556"
@@ -11426,6 +12936,11 @@ uncontrollable@^7.0.0:
     "@types/react" "^16.9.11"
     invariant "^2.2.4"
     react-lifecycles-compat "^3.0.4"
+
+unfetch@^4.2.0:
+  version "4.2.0"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/unfetch/-/unfetch-4.2.0.tgz#7e21b0ef7d363d8d9af0fb929a5555f6ef97a3be"
+  integrity sha1-fiGw7302PY2a8PuSmlVV9u+Xo74=
 
 unicode-canonical-property-names-ecmascript@^1.0.4:
   version "1.0.4"
@@ -11484,6 +12999,14 @@ universal-cookie@^4.0.3:
     "@types/object-assign" "^4.0.30"
     cookie "^0.4.0"
     object-assign "^4.1.1"
+
+universal-cookie@^4.0.4:
+  version "4.0.4"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/universal-cookie/-/universal-cookie-4.0.4.tgz#06e8b3625bf9af049569ef97109b4bb226ad798d"
+  integrity sha1-BuizYlv5rwSVae+XEJtLsiateY0=
+  dependencies:
+    "@types/cookie" "^0.3.3"
+    cookie "^0.4.0"
 
 universalify@^0.1.0:
   version "0.1.2"
@@ -11594,7 +13117,12 @@ utils-merge@1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/utils-merge/-/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
 
-uuid@^3.0.1, uuid@^3.3.2:
+uuid@3.3.2:
+  version "3.3.2"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/uuid/-/uuid-3.3.2.tgz#1b4af4955eb3077c501c23872fc6513811587131"
+  integrity sha1-G0r0lV6zB3xQHCOHL8ZROBFYcTE=
+
+uuid@^3.0.0, uuid@^3.0.1, uuid@^3.2.1, uuid@^3.3.2:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
 
@@ -12251,3 +13779,28 @@ yup@^0.29.1:
     property-expr "^2.0.2"
     synchronous-promise "^2.0.10"
     toposort "^2.0.2"
+
+zen-observable-ts@0.8.19:
+  version "0.8.19"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/zen-observable-ts/-/zen-observable-ts-0.8.19.tgz#c094cd20e83ddb02a11144a6e2a89706946b5694"
+  integrity sha1-wJTNIOg92wKhEUSm4qiXBpRrVpQ=
+  dependencies:
+    tslib "^1.9.3"
+    zen-observable "^0.8.0"
+
+zen-observable@^0.7.0:
+  version "0.7.1"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/zen-observable/-/zen-observable-0.7.1.tgz#f84075c0ee085594d3566e1d6454207f126411b3"
+  integrity sha1-+EB1wO4IVZTTVm4dZFQgfxJkEbM=
+
+zen-observable@^0.8.0:
+  version "0.8.15"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/zen-observable/-/zen-observable-0.8.15.tgz#96415c512d8e3ffd920afd3889604e30b9eaac15"
+  integrity sha1-lkFcUS2OP/2SCv04iWBOMLnqrBU=
+
+zen-push@0.2.1:
+  version "0.2.1"
+  resolved "https://pkgs.dev.azure.com/endeavor-digital/f868c0dc-bb5d-49ef-a77a-33065e543b59/_packaging/experiences-npm-packages/npm/registry/zen-push/-/zen-push-0.2.1.tgz#ddc33b90f66f9a84237d5f1893970f6be60c3c28"
+  integrity sha1-3cM7kPZvmoQjfV8Yk5cPa+YMPCg=
+  dependencies:
+    zen-observable "^0.7.0"

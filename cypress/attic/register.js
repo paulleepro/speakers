@@ -9,6 +9,8 @@ describe("Registration", () => {
       cy.visit("/signin");
 
       // we need to wait sometimes because page loading are very slow
+      /*
+      // TODO - update me in now we removed keycloak
       cy.fixture("signin").then((fixture) => {
         cy.frameLoaded("#keycloak-iframe");
         cy.iframe("#keycloak-iframe").find("div .register-box").find("input").should('have.value', 'REGISTER').click();
@@ -21,6 +23,7 @@ describe("Registration", () => {
 
         cy.compareSnapshot(`register-${screenSize}`);
       });
+      */
     });
   });
 });
