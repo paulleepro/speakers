@@ -50,10 +50,10 @@ const EventForm = () => {
     updateBookingInquiry(name, value);
   };
 
-  const handleTopicsChange = (e: any): void => {
+  const handleTopicsChange = (list: any[]): void => {
     setBookingInquiry({
       ...bookingInquiry,
-      event_topics: [e.target.value],
+      event_topics: list,
     });
   };
 
@@ -90,7 +90,7 @@ const EventForm = () => {
       <QuestionContent>
         <Topics
           list={data?.data}
-          value={(bookingInquiry.event_topics || [])[0] || ""}
+          activeItems={bookingInquiry.event_topics || []}
           onChange={handleTopicsChange}
         />
       </QuestionContent>

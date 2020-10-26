@@ -13,8 +13,8 @@ const Edit: FC<IProps> = ({ fill = colors.primaryPurple }) => {
       height="24"
       viewBox="0 0 24 24"
     >
-      <g fill="none" fill-rule="evenodd">
-        <g fill={fill} fill-rule="nonzero">
+      <g fill="none" fillRule="evenodd">
+        <g fill={fill} fillRule="nonzero">
           <g>
             <g>
               <path

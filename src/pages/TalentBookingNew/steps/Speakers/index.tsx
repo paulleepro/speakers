@@ -26,7 +26,7 @@ const ErrorNotice = lazy(() => import("components/ErrorNotice"));
 const SpeakersForm = () => {
   const [notes, setNotes] = useState("");
   const [favoritesList, setFavoritesList] = useState("");
-  const [speakers, setSpeakers] = useState("");
+  const [speakers, setSpeakers] = useState<string[]>([]);
   const [hosted, setHosted] = useState("");
   const [hostName, setHostName] = useState("");
   const [talents, setTalents] = useState<any[]>([]);
@@ -61,8 +61,8 @@ const SpeakersForm = () => {
     setFavoritesList(e.target.value);
   };
 
-  const handleSpeakersChange = (e: any): void => {
-    setSpeakers(e.target.value);
+  const handleSpeakersChange = (list: string[]): void => {
+    setSpeakers(list);
   };
 
   const handleHostNameChange = (e: any): void => {
@@ -130,7 +130,7 @@ const SpeakersForm = () => {
         <SpeakersType
           type="speakerType"
           list={data?.data}
-          value={speakers}
+          activeItems={speakers}
           name="speakers"
           onChange={handleSpeakersChange}
           placeholder="Choose a Speaker Type"

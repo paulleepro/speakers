@@ -1,11 +1,15 @@
 import styled from "styled-components";
 import colors from "styles/colors";
 
-export const Select = styled.select<{ isPlaceholder?: boolean }>`
+export const Select = styled.select<{
+  isPlaceholder?: boolean;
+  haveValue?: boolean;
+}>`
   appearance: none;
   border-radius: 12px;
   border: solid 1px ${colors.purpleLiner};
-  background-color: ${colors.black};
+  background-color: ${(props) =>
+    props.haveValue ? colors.primaryPurple : colors.black};
 
   font-size: 24px;
   font-weight: bold;

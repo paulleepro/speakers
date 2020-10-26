@@ -58,4 +58,8 @@ export const Label = styled.span`
 export const InputWrapper = styled.div`
   position: relative;
   width: 100%;
+
+  button {
+    display: flex;
+  }
 `;

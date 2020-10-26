@@ -1,7 +1,9 @@
 import React, { FC } from "react";
+import RemoveIcon from "@material-ui/icons/Remove";
 
 import { Select } from "./styles";
 import { DropIcon } from "../../styles";
+import { Button } from "styles/components";
 
 import { Wrapper, IconWrapper, Label, InputWrapper } from "../InputText/styles";
 
@@ -29,6 +31,17 @@ const CustomSelect: FC<IProps> = ({
   placeholder,
   value,
 }) => {
+  const noValue = value === null || value === undefined || value === "";
+
+  const removeValue = () => {
+    onChange({
+      target: {
+        value: "",
+        name,
+      },
+    });
+  };
+
   return (
     <Wrapper width="100%" flexDirection="column" hasMargin={hasMargin}>
       {label && <Label>{label}</Label>}
@@ -38,6 +51,7 @@ const CustomSelect: FC<IProps> = ({
           value={value}
           onChange={onChange}
           name={name}
+          haveValue={!noValue}
         >
           <option value="" disabled selected>
             {placeholder}
@@ -49,7 +63,13 @@ const CustomSelect: FC<IProps> = ({
           ))}
         </Select>
         <IconWrapper>
-          <DropIcon />
+          {!noValue ? (
+            <Button margin="0" padding="0" onClick={removeValue}>
+              <RemoveIcon style={{ fontSize: 26 }} />
+            </Button>
+          ) : (
+            <DropIcon />
+          )}
         </IconWrapper>
       </InputWrapper>
     </Wrapper>
