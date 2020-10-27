@@ -179,7 +179,7 @@ export const AuthProvider: FC = ({ children }) => {
       deleteAccount,
     }),
     [
-      cognitoUser,
+      bearerToken,
       refreshCognitoUser,
       signup,
       confirmSignup,
