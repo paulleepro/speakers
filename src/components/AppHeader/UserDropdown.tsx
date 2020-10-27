@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { Button } from "styles/components";
-import { useAuth } from "../../context/AuthContext";
+import { useAuth } from "context/AuthContext";
 import { useMyIdentity } from "../../hooks/api/accounts";
 
 const UserDropdown: FC = () => {
@@ -14,7 +14,7 @@ const UserDropdown: FC = () => {
       padding="11px 0"
       margin="0 0 0 30px"
     >
-      Log out ({myIdentity?.account.given_name})
+      Log out ({myIdentity?.account?.given_name})
     </Button>
   );
 };

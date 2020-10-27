@@ -6,7 +6,7 @@ import { hydrate, render } from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import { SiteBasicAuthProvider } from "./context/SiteBasicAuthContext";
 import LazyWrapper from "components/LazyWrapper";
-import { AuthProvider } from "./context/AuthContext";
+import { AuthProvider } from "context/AuthContext";
 import { ReactQueryCacheProvider, QueryCache } from "react-query";
 
 const App = lazy(() => import("App"));

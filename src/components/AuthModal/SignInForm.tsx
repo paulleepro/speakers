@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import { Row, Col } from "components/Grid";
 import { Button } from "styles/components";
 import { FormWrapper, Input, Label, Checkbox } from "./styles";
-import { useAuth } from "../../context/AuthContext";
+import { useAuth } from "context/AuthContext";
 import { useMutation } from "react-query";
 import { useForm } from "react-hook-form";
 

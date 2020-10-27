@@ -8,7 +8,7 @@ import { Button } from "styles/components";
 import { Wrapper, LinkText, FavoritesListLink } from "./styles";
 
 import AuthModal from "../AuthModal";
-import { useAuth } from "../../context/AuthContext";
+import { useAuth } from "context/AuthContext";
 import UserDropdown from "./UserDropdown";
 
 interface IProps {

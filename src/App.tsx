@@ -4,7 +4,7 @@ import { Box } from "react-basic-blocks";
 import { Route, Switch, useLocation } from "react-router";
 import { TopRightSemi } from "styles/components";
 import { useSiteBasicAuth } from "./context/SiteBasicAuthContext";
-import { useAuth } from "./context/AuthContext";
+import { useAuth } from "context/AuthContext";
 import { Redirect } from "react-router-dom";
 
 const AppHeader = lazy(() => import("components/AppHeader"));
