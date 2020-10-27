@@ -1,25 +1,25 @@
 import React, { FC } from "react";
 import { Row, Col } from "components/Grid";
 import { Button } from "styles/components";
-import { FormWrapper, Input, Label, Checkbox } from "./styles";
+import { FormWrapper, Input, Label } from "./styles";
 import { useAuth } from "context/AuthContext";
 import { useMutation } from "react-query";
 import { useForm } from "react-hook-form";
+import { useHistory } from "react-router";
 
-interface IProps {
-  onClose: () => void;
-}
-
-const SignInForm: FC<IProps> = ({ onClose }) => {
-  const { login } = useAuth();
+const VerifyAccount: FC = () => {
+  const history = useHistory();
+  const { confirmSignup } = useAuth();
   const { handleSubmit, register } = useForm();
-  const [doLogin, { isLoading: isLoggingIn }] = useMutation(login);
+  const [doConfirmSignup, { isLoading: isConfirming }] = useMutation(
+    confirmSignup
+  );
 
-  const onSubmit: any = async (values: { email: string; password: string }) => {
-    if (isLoggingIn) {
+  const onSubmit: any = async (values: { email: string; code: string }) => {
+    if (isConfirming) {
       return;
     }
-    await doLogin(values, { onSuccess: onClose });
+    await doConfirmSignup(values, { onSuccess: () => history.push("/") });
   };
 
   return (
@@ -39,11 +39,10 @@ const SignInForm: FC<IProps> = ({ onClose }) => {
       </Row>
       <Row>
         <Col>
-          <Label>Password</Label>
+          <Label>Code</Label>
           <Input
-            type="password"
-            name="password"
-            placeholder="Password"
+            name="code"
+            placeholder="Code"
             ref={register({
               required: "Required",
             })}
@@ -51,12 +50,6 @@ const SignInForm: FC<IProps> = ({ onClose }) => {
         </Col>
       </Row>
       <Row>
-        <Col md={6} style={{ display: "flex" }}>
-          <Checkbox>
-            <input type="checkbox" id="agreeCheckbox" name="agreeTos" />
-            <span>Remember me</span>
-          </Checkbox>
-        </Col>
         <Col
           md={6}
           style={{
@@ -65,7 +58,7 @@ const SignInForm: FC<IProps> = ({ onClose }) => {
           }}
         >
           <Button padding="14px 70px" margin="8px 0 0" onClick={onSubmit}>
-            Sign In
+            Submit
           </Button>
         </Col>
       </Row>
@@ -73,4 +66,4 @@ const SignInForm: FC<IProps> = ({ onClose }) => {
   );
 };
 
-export default SignInForm;
+export default VerifyAccount;

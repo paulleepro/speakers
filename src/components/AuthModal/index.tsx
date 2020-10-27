@@ -5,6 +5,7 @@ import {
   ModalFooter,
   FormTitle,
   FooterButton,
+  ModalHeaderWrapper,
 } from "./styles";
 import Modal from "../Modal";
 import SignInForm from "./SignInForm";
@@ -14,9 +15,15 @@ interface IProps {
   isSignUp?: boolean;
   show: boolean;
   onClose: () => void;
+  title?: string;
 }
 
-const AuthModal: FC<IProps> = ({ isSignUp = false, show, onClose }) => {
+const AuthModal: FC<IProps> = ({
+  isSignUp = false,
+  show,
+  onClose,
+  title = "",
+}) => {
   const [isSignUpModal, setIsSignUpModal] = useState<boolean>(false);
 
   useEffect(() => {
@@ -29,7 +36,9 @@ const AuthModal: FC<IProps> = ({ isSignUp = false, show, onClose }) => {
 
   return (
     <Modal show={show} onClose={onClose}>
-      <ModalHeader>Add to Favorites List</ModalHeader>
+      <ModalHeaderWrapper>
+        <ModalHeader>{title}</ModalHeader>
+      </ModalHeaderWrapper>
 
       <ModalContent>
         <FormTitle>
@@ -37,7 +46,11 @@ const AuthModal: FC<IProps> = ({ isSignUp = false, show, onClose }) => {
           <p>Sign {isSignUpModal ? "up" : "in"} and save your favorites.</p>
         </FormTitle>
 
-        {isSignUpModal ? <SignUpForm /> : <SignInForm />}
+        {isSignUpModal ? (
+          <SignUpForm onClose={onClose} />
+        ) : (
+          <SignInForm onClose={onClose} />
+        )}
       </ModalContent>
 
       <ModalFooter>

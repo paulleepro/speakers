@@ -1,9 +1,11 @@
-import React, { ReactElement, useContext, useEffect, lazy } from "react";
+import React, { ReactElement, useEffect, lazy } from "react";
 import styled from "styled-components/macro";
 import { Box } from "react-basic-blocks";
 import { Route, Switch, useLocation } from "react-router";
 import { TopRightSemi } from "styles/components";
-import { AuthContext } from "AuthContext";
+import { useSiteBasicAuth } from "./context/SiteBasicAuthContext";
+import { useAuth } from "context/AuthContext";
+import { Redirect } from "react-router-dom";
 
 const AppHeader = lazy(() => import("components/AppHeader"));
 const Confirmation = lazy(() => import("pages/Confirmation"));
@@ -21,6 +23,7 @@ const TalentBooking = lazy(() => import("pages/TalentBooking"));
 const TalentBookingNew = lazy(() => import("pages/TalentBookingNew"));
 const Topics = lazy(() => import("pages/TopicList"));
 const Type = lazy(() => import("pages/Type"));
+const VerifyAccount = lazy(() => import("pages/VerifyAccount"));
 
 const Wrapper = styled.div`
   display: flex;
@@ -53,11 +56,28 @@ const usePageViews = () => {
 
 const App = (): ReactElement => {
   usePageViews();
-  const { authenticated } = useContext(AuthContext);
+  const { authenticated: hasPassedBasicAuth } = useSiteBasicAuth();
+  const { isAuthenticated } = useAuth();
 
-  if (!authenticated && navigator.userAgent !== "ReactSnap") {
+  if (!hasPassedBasicAuth && navigator.userAgent !== "ReactSnap") {
     return <PasswordProtection />;
   }
+
+  // @ts-ignore
+  const PrivateRoute = ({ component: Component, ...rest }) => (
+    <Route
+      {...rest}
+      render={(props) => {
+        if (isAuthenticated) {
+          return <Component {...props} />;
+        } else {
+          return (
+            <Redirect to={`/?redirectOnLogin=${props.location.pathname}`} />
+          );
+        }
+      }}
+    />
+  );
 
   return (
     <Wrapper>
@@ -82,9 +102,10 @@ const App = (): ReactElement => {
           <Route path="/topic" component={Topics} exact />
           <Route path="/explore" component={Explore} exact />
           <Route path="/how-it-works" component={HowItWorks} exact />
-          <Route path="/favorites" component={Favorites} exact />
+          <PrivateRoute path="/favorites" component={Favorites} exact />
           <Route path="/faq" component={FAQ} exact />
           <Route path="/search-results" component={SearchResults} exact />
+          <Route path="/verify-account" component={VerifyAccount} exact />
           <Route path="/" component={Landing} exact />
 
           <Route render={() => <Box padding="20px">Not found</Box>} />

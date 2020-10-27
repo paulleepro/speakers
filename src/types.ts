@@ -141,3 +141,7 @@ export interface ITopic {
   id: string;
   subtopics: IType[];
 }
+
+export interface IError {
+  message: string;
+}

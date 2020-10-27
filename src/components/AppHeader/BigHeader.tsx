@@ -8,12 +8,15 @@ import { Button } from "styles/components";
 import { Wrapper, LinkText, FavoritesListLink } from "./styles";
 
 import AuthModal from "../AuthModal";
+import { useAuth } from "context/AuthContext";
+import UserDropdown from "./UserDropdown";
 
 interface IProps {
   types?: IType[];
 }
 
 const BigHeader: FC<IProps> = ({ types }) => {
+  const { isAuthenticated } = useAuth();
   const match = useMatchPath({
     path: "/talent/:slug/booking-new",
   });
@@ -51,21 +54,26 @@ const BigHeader: FC<IProps> = ({ types }) => {
               <img src="/images/star.png" alt="star" width="24" height="23" />
               <LinkText noMargin>Favorites List</LinkText>
             </FavoritesListLink>
-            <Button
-              onClick={() => handleClickOpen("signin")}
-              backgroundColor="transparent"
-              padding="11px 0"
-              margin="0 0 0 30px"
-            >
-              Sign In
-            </Button>
-            <Button
-              onClick={() => handleClickOpen("signup")}
-              margin="0 0 0 30px"
-              padding="11px 48px"
-            >
-              Sign Up
-            </Button>
+            {!isAuthenticated && (
+              <>
+                <Button
+                  onClick={() => handleClickOpen("signin")}
+                  backgroundColor="transparent"
+                  padding="11px 0"
+                  margin="0 0 0 30px"
+                >
+                  Sign In
+                </Button>
+                <Button
+                  onClick={() => handleClickOpen("signup")}
+                  margin="0 0 0 30px"
+                  padding="11px 48px"
+                >
+                  Sign Up
+                </Button>
+              </>
+            )}
+            {isAuthenticated && <UserDropdown />}
           </Box>
         )}
       </Wrapper>

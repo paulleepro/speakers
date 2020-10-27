@@ -11,6 +11,8 @@ describe("Login", () => {
       // we need to wait sometimes because page loading are very slow
       cy.wait(5000);
 
+      /*
+      // TODO - update me in now we removed keycloak
       cy.fixture("signin").then((fixture) => {
         cy.frameLoaded("#keycloak-iframe");
         cy.iframe("#keycloak-iframe").find("#kc-login");
@@ -21,6 +23,7 @@ describe("Login", () => {
 
         cy.compareSnapshot(`signin-${screenSize}`);
       });
+       */
     });
   });
 });

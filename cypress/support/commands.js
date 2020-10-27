@@ -24,11 +24,10 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
-import 'cypress-wait-until';
-import "cypress-keycloak-commands";
+import "cypress-wait-until";
 
 const compareSnapshotCommand = require("cypress-visual-regression/dist/command");
 
 compareSnapshotCommand({
-  capture: 'fullPage'
+  capture: "fullPage",
 });

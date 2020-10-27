@@ -1,4 +1,4 @@
-import React, { FC, useContext, lazy } from "react";
+import React, { FC, lazy } from "react";
 import { Row, Col } from "components/Grid";
 import { Box } from "react-basic-blocks";
 import {
@@ -19,9 +19,9 @@ import { InfoText } from "components/Footer/styles";
 import colors from "styles/colors";
 import { useForm, ErrorMessage } from "react-hook-form";
 import * as yup from "yup";
-import { AuthContext } from "AuthContext";
 import Cookies from "universal-cookie";
 import LazyWrapper from "components/LazyWrapper";
+import { useSiteBasicAuth } from "../../context/SiteBasicAuthContext";
 
 const HeaderTags = lazy(() => import("components/HeaderTags"));
 
@@ -51,7 +51,7 @@ const onSubmit = (
 };
 
 const PasswordProtection: FC = () => {
-  const { setAuthenticated } = useContext(AuthContext);
+  const { setAuthenticated } = useSiteBasicAuth();
   const { register, handleSubmit, errors, setError } = useForm({
     validationSchema,
   });
