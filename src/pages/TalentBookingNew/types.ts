@@ -58,6 +58,7 @@ export interface IBookingInquiry {
   event_city_State: string;
   event_dates_flexible: boolean;
   event_budget_range: string; //  ("min:max" or specific value)
+  event_budget_custom_range: string;
   // event_budget_range_min: number;
   // event_budget_range_max: number;
   messages: IMessage[];

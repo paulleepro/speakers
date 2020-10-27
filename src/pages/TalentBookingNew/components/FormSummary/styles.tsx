@@ -1,8 +1,5 @@
 import styled from "styled-components";
 import colors from "styles/colors";
-import { Box } from "react-basic-blocks";
-
-export const Wrapper = styled(Box)``;
 
 export const Title = styled.h4`
   font-size: 24px;
@@ -33,8 +30,6 @@ export const Field = styled.span`
     margin-right: 3px;
   }
 `;
-
-export const FieldWrapper = styled(Box)``;
 
 export const Border = styled.hr`
   width: 100%;

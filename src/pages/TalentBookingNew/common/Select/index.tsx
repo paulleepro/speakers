@@ -47,7 +47,7 @@ const CustomSelect: FC<IProps> = ({
       {label && <Label>{label}</Label>}
       <InputWrapper>
         <Select
-          isPlaceholder={value === ""}
+          isPlaceholder={value === "" || value === undefined}
           value={value}
           onChange={onChange}
           name={name}

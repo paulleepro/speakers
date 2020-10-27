@@ -13,7 +13,7 @@ interface IProps {
   hasMargin?: boolean;
   onChange: (value: any) => void;
   placeholder?: string;
-  value: Date;
+  value: any;
 }
 
 const CustomDatePicker: FC<IProps> = ({

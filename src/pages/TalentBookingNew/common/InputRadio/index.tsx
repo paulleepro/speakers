@@ -5,20 +5,20 @@ import { InputWrapper, RadioButton } from "./styles";
 
 interface OptionType {
   id: string | undefined;
-  value: number | string;
+  value: any;
   label: string;
 }
 
 interface IProps {
   options: Array<OptionType>;
   onChange: (value: any) => void;
-  selected: number | string | undefined;
+  selected: any;
   name: string;
 }
 
 interface IOptionProps {
   option: OptionType;
-  selected: number | string | undefined;
+  selected: any;
   onChange: (value: any) => void;
   name: string;
 }

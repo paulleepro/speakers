@@ -1,4 +1,4 @@
-import React, { useState, lazy } from "react";
+import React, { useState, lazy, useContext } from "react";
 import AddIcon from "@material-ui/icons/Add";
 import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
 import { Row, Col } from "components/Grid";
@@ -19,16 +19,17 @@ import InputRadio from "../../common/InputRadio";
 import SpeakersType from "../../components/Topics";
 import SearchTalents from "../../common/SearchTalents";
 import SelectedTalent from "../../common/SelectedTalent";
+import { BookingInquiryContext } from "../../BookingInquiryContext";
 
 const ReactTooltip = lazy(() => import("react-tooltip"));
 const ErrorNotice = lazy(() => import("components/ErrorNotice"));
 
 const SpeakersForm = () => {
-  const [notes, setNotes] = useState("");
+  const { bookingInquiry, setBookingInquiry } = useContext(
+    BookingInquiryContext
+  );
+
   const [favoritesList, setFavoritesList] = useState("");
-  const [speakers, setSpeakers] = useState<string[]>([]);
-  const [hosted, setHosted] = useState("");
-  const [hostName, setHostName] = useState("");
   const [talents, setTalents] = useState<any[]>([]);
 
   const { data, isLoading, error } = fetchSingle<IListResult<IType>>(
@@ -47,14 +48,20 @@ const SpeakersForm = () => {
 
   const handleSelectTalent = (talent: any): void => {
     setTalents([...talents, talent]);
+    setBookingInquiry({
+      ...bookingInquiry,
+      talent_ids: [...(bookingInquiry?.talent_ids || []), talent.name.raw], // TODO talent id
+    });
   };
 
   const handleRemoveTalent = (talent: any): void => {
     setTalents(talents.filter((x) => x.id.raw !== talent.id.raw));
-  };
-
-  const handleNotesChange = (e: any): void => {
-    setNotes(e.target.value);
+    setBookingInquiry({
+      ...bookingInquiry,
+      talent_ids: bookingInquiry?.talent_ids?.filter(
+        (x) => x !== talent.name.raw
+      ),
+    });
   };
 
   const handleFavoritesChange = (e: any): void => {
@@ -62,11 +69,17 @@ const SpeakersForm = () => {
   };
 
   const handleSpeakersChange = (list: string[]): void => {
-    setSpeakers(list);
+    setBookingInquiry({
+      ...bookingInquiry,
+      considered_talent_types: list,
+    });
   };
 
-  const handleHostNameChange = (e: any): void => {
-    setHostName(e.target.value);
+  const handleInputChange = (e: any, fieldName: string) => {
+    setBookingInquiry({
+      ...bookingInquiry,
+      [fieldName]: e.target.value,
+    });
   };
 
   return (
@@ -130,7 +143,7 @@ const SpeakersForm = () => {
         <SpeakersType
           type="speakerType"
           list={data?.data}
-          activeItems={speakers}
+          activeItems={bookingInquiry.considered_talent_types || []}
           name="speakers"
           onChange={handleSpeakersChange}
           placeholder="Choose a Speaker Type"
@@ -146,18 +159,23 @@ const SpeakersForm = () => {
         <Row>
           <InputRadio
             options={[
-              { id: "yes", value: "yes", label: "Yes" },
-              { id: "no", value: "no", label: "No" },
+              { id: "yes", value: true, label: "Yes" },
+              { id: "no", value: false, label: "No" },
             ]}
             name="hosted"
-            selected={hosted}
-            onChange={(value: any) => setHosted(value)}
+            selected={bookingInquiry.have_hosted_speakers}
+            onChange={(value: any) => {
+              setBookingInquiry({
+                ...bookingInquiry,
+                have_hosted_speakers: value,
+              });
+            }}
           />
         </Row>
         <InputText
           name="hostName"
-          value={hostName}
-          onChange={handleHostNameChange}
+          value={bookingInquiry.hosted_speakers}
+          onChange={(e) => handleInputChange(e, "hosted_speakers")}
           placeholder="Add their name(s) here..."
           icon={
             <>
@@ -200,8 +218,8 @@ const SpeakersForm = () => {
         <Textarea
           rows={3}
           name="notes"
-          value={notes}
-          onChange={handleNotesChange}
+          value={bookingInquiry.notes}
+          onChange={(e) => handleInputChange(e, "notes")}
           placeholder="Additional notes..."
         />
       </QuestionContent>

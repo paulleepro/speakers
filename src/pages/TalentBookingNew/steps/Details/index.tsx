@@ -1,4 +1,4 @@
-import React, { useState, lazy } from "react";
+import React, { useState, lazy, useContext } from "react";
 import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
 import CalendarTodayOutlinedIcon from "@material-ui/icons/CalendarTodayOutlined";
 import colors from "styles/colors";
@@ -10,70 +10,34 @@ import InputText from "../../common/InputText";
 import InputRadio, { RadioInputOption } from "../../common/InputRadio";
 import DatePicker from "../../common/DatePicker";
 import Select from "../../common/Select";
+import { BookingInquiryContext } from "../../BookingInquiryContext";
 
 const ReactTooltip = lazy(() => import("react-tooltip"));
 
-interface IHost {
-  fullName: string;
-  companyName: string;
-  role: string;
-  phone: string;
-}
-
-interface IEvent {
-  dateStart: any;
-  dateEnd: any;
-  time: string;
-  country: string;
-  cityState: string;
-}
-
 const DetailsForm = () => {
-  const [isDateFlexible, setIsDateFlexible] = useState();
-  const [budgetRange, setBudgetRange] = useState("");
+  const { bookingInquiry, setBookingInquiry } = useContext(
+    BookingInquiryContext
+  );
   const [customBudgetRange, setCustomBudgetRange] = useState("");
-  const [hostInfo, setHostInfo] = useState<IHost>({
-    fullName: "",
-    companyName: "",
-    role: "",
-    phone: "",
-  });
-
-  const [eventInfo, setEventInfo] = useState<IEvent>({
-    dateStart: null,
-    dateEnd: null,
-    time: "",
-    country: "",
-    cityState: "",
-  });
 
   const handleCustomBudgetRangeChange = (e: any): void => {
     setCustomBudgetRange(e.target.value);
   };
 
-  const handleChangeHostInfo = (e: any): void => {
+  const handleInputChange = (e: any): void => {
     const { name, value } = e.target;
 
-    setHostInfo((prev) => ({
-      ...prev,
+    setBookingInquiry({
+      ...bookingInquiry,
       [name]: value,
-    }));
-  };
-
-  const handleEventInfoChange = (e: any): void => {
-    const { name, value } = e.target;
-
-    setEventInfo((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    });
   };
 
   const handleEventDateChange = (date: any): void => {
-    setEventInfo((prev) => ({
-      ...prev,
-      dateStart: date,
-    }));
+    setBookingInquiry({
+      ...bookingInquiry,
+      event_date_start: date,
+    });
   };
 
   return (
@@ -89,36 +53,36 @@ const DetailsForm = () => {
         <Row>
           <Col md={6}>
             <InputText
-              name="fullName"
-              value={hostInfo.fullName}
-              onChange={handleChangeHostInfo}
+              name="host_full_name"
+              value={bookingInquiry.host_full_name}
+              onChange={handleInputChange}
               label="Full Name"
               hasMargin
             />
           </Col>
           <Col md={6}>
             <InputText
-              name="companyName"
-              value={hostInfo.companyName}
-              onChange={handleChangeHostInfo}
+              name="host_company_name"
+              value={bookingInquiry.host_company_name}
+              onChange={handleInputChange}
               label="Company or Organization"
               hasMargin
             />
           </Col>
           <Col md={6}>
             <InputText
-              name="role"
-              value={hostInfo.role}
-              onChange={handleChangeHostInfo}
+              name="host_role"
+              value={bookingInquiry.host_role}
+              onChange={handleInputChange}
               label="Your Role"
               hasMargin
             />
           </Col>
           <Col md={6}>
             <InputText
-              name="phone"
-              value={hostInfo.phone}
-              onChange={handleChangeHostInfo}
+              name="host_phone"
+              value={bookingInquiry.host_phone}
+              onChange={handleInputChange}
               label="Phone Number"
               hasMargin
             />
@@ -143,7 +107,7 @@ const DetailsForm = () => {
               label="Date of Event"
               hasMargin
               onChange={handleEventDateChange}
-              value={eventInfo.dateStart}
+              value={bookingInquiry?.event_date_start}
               placeholder="MM/DD/YYYY"
             />
           </Col>
@@ -155,9 +119,9 @@ const DetailsForm = () => {
                 { value: "afternoon", label: "Afternoon" },
                 { value: "evening", label: "Evening" },
               ]}
-              onChange={handleEventInfoChange}
-              value={eventInfo.time}
-              name="time"
+              onChange={handleInputChange}
+              value={bookingInquiry.event_time}
+              name="event_time"
               placeholder="Time of Day"
               label="When"
               hasMargin
@@ -166,9 +130,9 @@ const DetailsForm = () => {
           <Col md={6}>
             <Select
               options={[{ value: "us", label: "United States" }]}
-              onChange={handleEventInfoChange}
-              value={eventInfo.country}
-              name="country"
+              onChange={handleInputChange}
+              value={bookingInquiry.event_country}
+              name="event_country"
               placeholder="Select Country"
               label="Country"
               hasMargin
@@ -176,9 +140,9 @@ const DetailsForm = () => {
           </Col>
           <Col md={6}>
             <InputText
-              name="cityState"
-              value={eventInfo.cityState}
-              onChange={handleEventInfoChange}
+              name="event_city_State"
+              value={bookingInquiry.event_city_State}
+              onChange={handleInputChange}
               label="City, State"
               hasMargin
             />
@@ -222,12 +186,17 @@ const DetailsForm = () => {
         <Row>
           <InputRadio
             options={[
-              { id: "yes", value: "yes", label: "Yes" },
-              { id: "no", value: "no", label: "No" },
+              { id: "yes", value: true, label: "Yes" },
+              { id: "no", value: false, label: "No" },
             ]}
-            name="isDateFlexible"
-            selected={isDateFlexible}
-            onChange={(value: any) => setIsDateFlexible(value)}
+            name="event_dates_flexible"
+            selected={bookingInquiry.event_dates_flexible}
+            onChange={(value: any) => {
+              setBookingInquiry({
+                ...bookingInquiry,
+                event_dates_flexible: value,
+              });
+            }}
           />
         </Row>
       </QuestionContent>
@@ -265,17 +234,26 @@ const DetailsForm = () => {
       <QuestionContent>
         <Row>
           {[
-            { id: "low", value: "low", label: "$10,000 & Under" },
-            { id: "middle", value: "middle", label: "$10,000 - $20,000" },
-            { id: "high", value: "high", label: "$20,000 & Up" },
+            { id: "low", value: "$10,000 & Under", label: "$10,000 & Under" },
+            {
+              id: "middle",
+              value: "$10,000 - $20,000",
+              label: "$10,000 - $20,000",
+            },
+            { id: "high", value: "$20,000 & Up", label: "$20,000 & Up" },
           ].map((option) => (
             <Col md={4}>
               <RadioInputOption
                 key={option.id}
                 option={option}
-                name="budgetRange"
-                selected={budgetRange}
-                onChange={(value: any) => setBudgetRange(value)}
+                name="event_budget_range"
+                selected={bookingInquiry.event_budget_range}
+                onChange={(value: any) => {
+                  setBookingInquiry({
+                    ...bookingInquiry,
+                    event_dates_flexible: value,
+                  });
+                }}
               />
             </Col>
           ))}
