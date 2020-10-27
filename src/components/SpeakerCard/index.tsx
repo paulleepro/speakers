@@ -6,9 +6,12 @@ import {
   SpeakerInfo,
   ImageWrapper,
   ImageOverlay,
+  StarWrapper,
 } from "./styles";
 import { Link } from "react-router-dom";
 import LazyWrapper from "components/LazyWrapper";
+import { ReactComponent as StarFilled } from "assets/icons/star-filled.svg";
+import { ReactComponent as StarOutline } from "assets/icons/star-outline.svg";
 
 const StyledImage = lazy(() => import("components/StyledImage"));
 
@@ -17,9 +20,16 @@ interface IProps {
   description: string;
   imageUrl: string;
   slug: string;
+  hasFavorited?: boolean;
 }
 
-const SpeakerCard: FC<IProps> = ({ name, imageUrl, slug, description }) => {
+const SpeakerCard: FC<IProps> = ({
+  name,
+  imageUrl,
+  slug,
+  description,
+  hasFavorited,
+}) => {
   return (
     <Link to={`/talent/${slug}`}>
       <Wrapper>
@@ -34,6 +44,9 @@ const SpeakerCard: FC<IProps> = ({ name, imageUrl, slug, description }) => {
             />
           </LazyWrapper>
           <ImageOverlay src="/images/overlay.png" alt="overlay" />
+          <StarWrapper>
+            {hasFavorited ? <StarFilled /> : <StarOutline />}
+          </StarWrapper>
         </ImageWrapper>
         <SpeakerInfo>
           <SpeakerName>{name}</SpeakerName>

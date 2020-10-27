@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import { Row, Col } from "components/Grid";
-import { BigText, TopAreaDivider, StyledContainer } from "styles/components";
+import { BigText, StyledContainer } from "styles/components";
+import { HeaderDivider } from "./styles";
 
 const Title: FC = () => {
   return (
@@ -12,7 +13,7 @@ const Title: FC = () => {
           </Col>
         </Row>
       </StyledContainer>
-      <TopAreaDivider />
+      <HeaderDivider />
     </div>
   );
 };
