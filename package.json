@@ -32,6 +32,7 @@
     "fetch-hooks-react": "^0.0.1",
     "lodash.pick": "^4.4.0",
     "lodash.snakecase": "^4.1.1",
+    "moment": "^2.29.1",
     "polished": "^3.4.1",
     "qs": "^6.9.4",
     "query-string": "^6.13.1",
