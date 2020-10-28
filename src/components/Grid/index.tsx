@@ -97,6 +97,7 @@ interface IVisibleProps {
   [ColSize.sm]?: boolean;
   [ColSize.md]?: boolean;
   [ColSize.lg]?: boolean;
+  style?: CSSProperties;
 }
 
 export const Visible: FC<IVisibleProps> = ({ children, ...props }) => {
@@ -107,7 +108,11 @@ export const Visible: FC<IVisibleProps> = ({ children, ...props }) => {
     .filter((x) => x)
     .join(" ");
 
-  return <div className={classes || "hidden"}>{children}</div>;
+  return (
+    <div className={classes || "hidden"} style={props.style}>
+      {children}
+    </div>
+  );
 };
 
 export const screenClasses = ["xs", "sm", "md", "lg"];

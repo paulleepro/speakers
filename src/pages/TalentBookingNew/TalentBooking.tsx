@@ -4,7 +4,13 @@ import { Row, Col, Visible } from "components/Grid";
 import { Button } from "styles/components";
 import { useAuth } from "context/AuthContext";
 
-import { FormContainer, FormFooter, BackButton, Wrapper } from "./styles";
+import {
+  FormContainer,
+  FormFooter,
+  BackButton,
+  Wrapper,
+  ScrollWrapper,
+} from "./styles";
 import { BookingInquiryContext } from "./BookingInquiryContext";
 
 const BookingSummary = lazy(() => import("./components/BookingSummary"));
@@ -55,7 +61,16 @@ const TalentBookingNew: FC<any> = () => {
 
   return (
     <Wrapper fluid>
-      <Visible sm md lg>
+      <Visible
+        sm
+        md
+        lg
+        style={{
+          position: "sticky",
+          top: 0,
+          zIndex: 10,
+        }}
+      >
         <Row>
           <Col offset={{ lg: 1 }} md={12} lg={10}>
             <Stepper activeStep={FORMS[currentStep].key} />
@@ -65,21 +80,35 @@ const TalentBookingNew: FC<any> = () => {
       <Row>
         <Col offset={{ lg: 1 }} md={12} lg={10} style={{ marginBottom: 100 }}>
           <Row>
-            <Col md={9}>
-              <FormContainer>
-                <ActiveForm />
-                <FormFooter>
-                  <BackButton onClick={handleGoBack}>Back</BackButton>
-                  <Button padding="14px 81px" onClick={goToNextForm}>
-                    Next
-                  </Button>
-                </FormFooter>
-              </FormContainer>
+            <Col
+              md={9}
+              style={{
+                maxHeight: "90vh",
+              }}
+            >
+              <ScrollWrapper>
+                <FormContainer>
+                  <ActiveForm />
+                  <FormFooter>
+                    <BackButton onClick={handleGoBack}>Back</BackButton>
+                    <Button padding="14px 81px" onClick={goToNextForm}>
+                      Next
+                    </Button>
+                  </FormFooter>
+                </FormContainer>
+              </ScrollWrapper>
             </Col>
-            <Col md={3}>
-              <Visible md lg>
-                <BookingSummary />
-              </Visible>
+            <Col
+              md={3}
+              style={{
+                maxHeight: "90vh",
+              }}
+            >
+              <ScrollWrapper>
+                <Visible md lg>
+                  <BookingSummary />
+                </Visible>
+              </ScrollWrapper>
             </Col>
           </Row>
         </Col>

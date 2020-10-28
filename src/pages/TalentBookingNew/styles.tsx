@@ -131,3 +131,8 @@ export const TooltipContent = styled.div`
   letter-spacing: 0.2px;
   line-height: 1.38;
 `;
+
+export const ScrollWrapper = styled.div`
+  height: 100%;
+  overflow: auto;
+`;
