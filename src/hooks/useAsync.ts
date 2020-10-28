@@ -1,7 +1,6 @@
 import React from "react";
 import useSafeDispatch from "./useSafeDispatch";
 
-// FIXME - add proper types in here
 interface IAsyncState {
   status: string;
   data?: any;
@@ -16,7 +15,6 @@ function useAsync(initialState?: IAsyncState) {
     ...initialState,
   });
   const [{ status, data, error }, setState] = React.useReducer(
-    // FIXME - add proper types in here when all is working
     (s: IAsyncState, a: IAsyncState) => ({ ...s, ...a }),
     initialStateRef.current
   );

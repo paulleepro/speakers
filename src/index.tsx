@@ -8,6 +8,8 @@ import { SiteBasicAuthProvider } from "./context/SiteBasicAuthContext";
 import LazyWrapper from "components/LazyWrapper";
 import { AuthProvider } from "context/AuthContext";
 import { ReactQueryCacheProvider, QueryCache } from "react-query";
+import { ErrorProvider } from "./context/ErrorContext";
+import { ReactQueryDevtools } from "react-query-devtools";
 
 const App = lazy(() => import("App"));
 const GlobalStyles = lazy(() => import("styles/global-styles"));
@@ -31,13 +33,16 @@ const queryCache = new QueryCache({
 
 const FullApp = () => (
   <ReactQueryCacheProvider queryCache={queryCache}>
+    <ReactQueryDevtools initialIsOpen={false} />
     <Router>
       <LazyWrapper>
         <GlobalStyles />
         <ScrollToTop />
         <SiteBasicAuthProvider>
           <AuthProvider>
-            <App />
+            <ErrorProvider>
+              <App />
+            </ErrorProvider>
           </AuthProvider>
         </SiteBasicAuthProvider>
       </LazyWrapper>

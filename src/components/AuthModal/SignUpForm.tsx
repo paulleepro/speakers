@@ -5,6 +5,7 @@ import { FormWrapper, Input, Label, Checkbox } from "./styles";
 import { useAuth } from "context/AuthContext";
 import { useMutation } from "react-query";
 import { useForm } from "react-hook-form";
+import { useHistory } from "react-router";
 
 interface IProps {
   onClose: () => void;
@@ -12,6 +13,7 @@ interface IProps {
 
 const SignInForm: FC<IProps> = ({ onClose }) => {
   const { signup } = useAuth();
+  const history = useHistory();
   const { handleSubmit, register } = useForm();
   const [doSignup, { isLoading: isSigningUp }] = useMutation(signup);
 
@@ -24,7 +26,12 @@ const SignInForm: FC<IProps> = ({ onClose }) => {
     if (isSigningUp) {
       return;
     }
-    await doSignup(values, { onSuccess: onClose });
+    await doSignup(values, {
+      onSuccess: () => {
+        onClose();
+        history.push("/verify-account");
+      },
+    });
   };
 
   return (

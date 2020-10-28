@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import colors from "styles/colors";
-import { Link } from "react-router-dom";
+import { Button } from "../../styles/components";
 
 export const Wrapper = styled.div<{
   backgroundColor: string;
@@ -66,17 +66,23 @@ export const LinkText = styled.span<{ noMargin?: boolean }>`
   letter-spacing: 0.2px;
 `;
 
-export const FavoritesListLink = styled(Link)`
+export const FavoritesListButton = styled(Button)`
   display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: center;
-  padding: 0 30px;
-  border-left: 2px solid ${colors.purpleLiner};
-  border-right: 2px solid ${colors.purpleLiner};
-  margin-left: 30px;
+  background-color: transparent;
+  padding: 14px 0;
+
   img {
     margin-right: 10px;
   }
+`;
+
+export const VerticalDivider = styled.div`
+  height: 24px;
+  border-left: 2px solid ${colors.purpleLiner};
+  margin: 0 30px;
 `;
 
 export const MenuContainer = styled.div`

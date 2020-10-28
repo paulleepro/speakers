@@ -27,6 +27,7 @@ const SwipeableCards: FC<IProps> = ({ talentList }) => {
           <div key={`featured-talent-${i}-${x.name.replace(/ /g, "-")}`}>
             <LazyWrapper>
               <SpeakerCard
+                id={x.id}
                 name={x.name}
                 imageUrl={`${config.imageProxyUrl}${x.media.images[0]?.url}`}
                 slug={x.slug}

@@ -46,6 +46,7 @@ const CategoryPreview: FC<IProps> = ({ categoryName, data, url }) => {
           >
             <Visible md lg sm>
               <SpeakerCard
+                id={x.id}
                 slug={x.slug}
                 imageUrl={`${config.imageProxyUrl}${x.media.images[0]?.url}`}
                 name={x.name}

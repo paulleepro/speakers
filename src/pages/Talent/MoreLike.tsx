@@ -47,6 +47,7 @@ const MoreLike: FC<IProps> = ({ name, types }) => {
             lg={25}
           >
             <SpeakerCard
+              id={x.id}
               slug={x.slug}
               name={x.name}
               imageUrl={x.media.images[0]?.url}

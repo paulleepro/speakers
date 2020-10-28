@@ -21,7 +21,8 @@ const ShareForm: FC<IProps> = ({ show, onClose }) => {
       <StyledContainer fluid>
         <Row>
           <Col offset={{ lg: 1 }} md={12} lg={10}>
-            Hey thre
+            Please fill me in as part of of the 'Improved Booking - Share
+            Favorites' ticket
           </Col>
         </Row>
       </StyledContainer>

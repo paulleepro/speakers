@@ -84,12 +84,17 @@ export const ImageOverlay = styled.img`
   z-index: 2;
 `;
 
-export const StarWrapper = styled.div`
-  width: 24px;
-  height: 24px;
+export const StarWrapper = styled.button`
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 36px;
+  height: 36px;
+  padding: 6px;
   position: absolute;
-  bottom: 6px;
-  left: 16px;
+  bottom: 0px;
+  left: 10px;
+  cursor: pointer;
 
   @media (max-width: 767px) {
     left: 8px;

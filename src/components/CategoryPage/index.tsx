@@ -129,6 +129,7 @@ const CategoryPage: FC<IProps> = ({
                         id={i === 19 ? "more" : ""}
                       >
                         <SpeakerCard
+                          id={x.id}
                           slug={x.slug}
                           imageUrl={`${config.imageProxyUrl}${x.media.images[0]?.url}`}
                           name={x.name}
@@ -140,6 +141,7 @@ const CategoryPage: FC<IProps> = ({
                       allTalent.slice(40).map((x, i) => (
                         <Col key={`category-talent-${i}`} xs={6} md={3}>
                           <SpeakerCard
+                            id={x.id}
                             slug={x.slug}
                             imageUrl={`${config.imageProxyUrl}${x.media.images[0]?.url}`}
                             name={x.name}

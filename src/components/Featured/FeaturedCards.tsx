@@ -16,6 +16,7 @@ const FeaturedCards: FC<IProps> = ({ talentList, cardsPerRow = 3 }) => {
       {talentList.slice(0, 8).map((x) => (
         <Col md={12 / cardsPerRow} key={`featured-talent-${x.id}`}>
           <SpeakerCard
+            id={x.id}
             name={x.name}
             imageUrl={`${config.imageProxyUrl}${x.media.images[0]?.url}`}
             slug={x.slug}

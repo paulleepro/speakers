@@ -1,31 +1,26 @@
-import React, { FC, lazy } from "react";
+import React, { FC } from "react";
 import { Visible } from "components/Grid";
-import { fetchSingle } from "fetch-hooks-react";
-import { IListResult, ITalent } from "../../types";
-import { config } from "../../config";
 import Loader from "../../components/Loader";
-
-const HeaderTags = lazy(() => import("components/HeaderTags"));
-const Title = lazy(() => import("./components/Title"));
-const NoFavoritesList = lazy(() => import("./components/NoFavoritesList"));
-const FavoritesList = lazy(() => import("./components/FavoritesList"));
-const ErrorNotice = lazy(() => import("components/ErrorNotice"));
-const TopLeftGradient = lazy(() => import("components/TopLeftGradient"));
+import { useFavoritesLists } from "../../hooks/api/booking";
+import HeaderTags from "../../components/HeaderTags";
+import FavoritesList from "./components/FavoritesList";
+import NoFavoritesList from "./components/NoFavoritesList";
+import TopLeftGradient from "../../components/TopLeftGradient";
+import ErrorNotice from "../../components/ErrorNotice";
+import Title from "./components/Title";
 
 const Favorites: FC = () => {
-  const { data, error, isLoading } = fetchSingle<IListResult<ITalent>>(
-    `${config.speakersTalentUrl}/v1/talents?fields=name,id,slug,titles,media&where=slug:in:kevin-hart:alex-rodriguez:christian-siriano:ashley-judd:sully-sullenberger`
-  );
+  const { data: favoritesLists, isLoading, error }: any = useFavoritesLists();
 
-  let components = null;
+  let content;
   if (isLoading) {
-    components = <Loader />;
-  } else if (error || !data) {
-    components = <ErrorNotice />;
-  } else if (data.data.length > 0) {
-    components = <FavoritesList favorites={data.data} />;
+    content = <Loader />;
+  } else if (error) {
+    content = <ErrorNotice />;
+  } else if (favoritesLists?.data.length > 0) {
+    content = <FavoritesList favorites={favoritesLists.data[0]} />;
   } else {
-    components = <NoFavoritesList />;
+    content = <NoFavoritesList />;
   }
 
   return (
@@ -35,7 +30,7 @@ const Favorites: FC = () => {
       <Visible md lg>
         <TopLeftGradient borderRadius="600px" width="60%" height="800px" />
       </Visible>
-      {components}
+      {content}
     </div>
   );
 };

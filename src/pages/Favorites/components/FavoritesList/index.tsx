@@ -13,28 +13,52 @@ import CreateBookingRequestCard from "../CreateBookingRequestCard";
 import SpeakerCard from "../../../../components/SpeakerCard";
 import InputText from "../InputText";
 import ShareForm from "../ShareForm";
+import { useTalents } from "../../../../hooks/api/talent";
+import Loader from "../../../../components/Loader";
+import { useUpdateFavoritesList } from "../../../../hooks/api/booking";
 
 interface IProps {
-  favorites: any[]; // TODO define favorite type
+  favorites: any; // TODO define favorite type
 }
 
 const FavoritesList: FC<IProps> = ({ favorites }) => {
-  const [listTitle, setListTitle] = useState<string>("September's Short List");
-  const [isEditingTitle, setIsEditingTitle] = useState<boolean>(false);
+  const {
+    data: talents,
+    isLoading: areTalentsLoading,
+  }: any = useTalents(favorites.talent_ids, { keepPreviousData: true });
+
+  const [
+    doUpdateList,
+    { isLoading: isUpdatingList },
+  ] = useUpdateFavoritesList();
+
+  const [listName, setListName] = useState<string>(favorites.name);
+  const [isEditingListName, setIsEditingListName] = useState<boolean>(false);
   const [showShareForm, setShowShareForm] = useState<boolean>(false);
   const titleInputRef = useRef<HTMLInputElement>(null);
   const screenSize = useScreenClass();
   const isNarrowScreen = ["xs", "sm"].includes(screenSize);
 
   useEffect(() => {
-    if (isEditingTitle && titleInputRef.current) {
+    if (isEditingListName && titleInputRef.current) {
       titleInputRef.current.focus();
     }
-  }, [isEditingTitle]);
+  }, [isEditingListName]);
 
-  const onSaveTitleClicked = (evt: React.MouseEvent<HTMLButtonElement>) => {
+  const onSaveTitleClicked = async (
+    evt: React.MouseEvent<HTMLButtonElement>
+  ) => {
     evt.stopPropagation();
-    setIsEditingTitle(false);
+    if (isUpdatingList || !listName) {
+      return;
+    }
+    setIsEditingListName(false);
+    if (listName !== favorites.name) {
+      await doUpdateList({
+        id: favorites.id,
+        data: { ...favorites, name: listName },
+      });
+    }
   };
 
   return (
@@ -43,19 +67,19 @@ const FavoritesList: FC<IProps> = ({ favorites }) => {
         <Row>
           <Col offset={{ lg: 1 }} md={12} lg={10}>
             <HeaderWrapper>
-              <TitleWrapper onClick={() => setIsEditingTitle(true)}>
+              <TitleWrapper onClick={() => setIsEditingListName(true)}>
                 <EditIcon
                   src="/images/edit.png"
                   width="24"
                   height="24"
                   alt="Edit icon"
                 />
-                {isEditingTitle ? (
+                {isEditingListName ? (
                   <InputText
                     ref={titleInputRef}
                     name="listTitle"
-                    value={listTitle}
-                    onChange={(evt) => setListTitle(evt.target.value)}
+                    value={listName}
+                    onChange={(evt) => setListName(evt.target.value)}
                     icon={
                       <Button
                         padding="4px 12px"
@@ -74,7 +98,7 @@ const FavoritesList: FC<IProps> = ({ favorites }) => {
                     useEllipsis
                     margin="0"
                   >
-                    {listTitle}
+                    {favorites.name}
                   </HeaderText>
                 )}
               </TitleWrapper>
@@ -92,29 +116,39 @@ const FavoritesList: FC<IProps> = ({ favorites }) => {
         </Row>
       </StyledContainer>
       <ShareForm show={showShareForm} onClose={() => setShowShareForm(false)} />
-      <StyledContainer fluid>
-        <Row>
-          <Col offset={{ lg: 1 }} md={12} lg={10}>
-            <SpeakersWrapper>
-              <Row>
-                {favorites.map((x) => (
-                  <Col md={3} sm={4} xs={6} key={`featured-talent-${x.id}`}>
-                    <SpeakerCard
-                      name={x.name}
-                      imageUrl={`${config.imageProxyUrl}${x.media.images[0]?.url}`}
-                      slug={x.slug}
-                      description={x.titles[0]}
-                    />
+      {areTalentsLoading ? (
+        <Loader />
+      ) : (
+        <StyledContainer fluid>
+          <Row>
+            <Col offset={{ lg: 1 }} md={12} lg={10}>
+              <SpeakersWrapper>
+                <Row>
+                  {talents?.data.map((talent: any) => (
+                    <Col
+                      md={3}
+                      sm={4}
+                      xs={6}
+                      key={`featured-talent-${talent.id}`}
+                    >
+                      <SpeakerCard
+                        id={talent.id}
+                        name={talent.name}
+                        imageUrl={`${config.imageProxyUrl}${talent.media.images[0]?.url}`}
+                        slug={talent.slug}
+                        description={talent.titles[0]}
+                      />
+                    </Col>
+                  ))}
+                  <Col md={3} sm={4} xs={12}>
+                    <CreateBookingRequestCard />
                   </Col>
-                ))}
-                <Col md={3} sm={4} xs={12}>
-                  <CreateBookingRequestCard />
-                </Col>
-              </Row>
-            </SpeakersWrapper>
-          </Col>
-        </Row>
-      </StyledContainer>
+                </Row>
+              </SpeakersWrapper>
+            </Col>
+          </Row>
+        </StyledContainer>
+      )}
     </div>
   );
 };

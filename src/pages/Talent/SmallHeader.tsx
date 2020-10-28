@@ -10,6 +10,9 @@ import { SmallImageWrapper, FulfilledByText, StyledScrollLink } from "./styles";
 import colors from "styles/colors";
 import LazyWrapper from "components/LazyWrapper";
 import { cutAfterSentenceAt, sanitize } from "./utils";
+import HasFavoritedButton from "./components/HasFavoritedButton";
+import NotFavoritedButton from "./components/NotFavoritedButton";
+import AddToFavoritesButton from "../../components/AddToFavoritesButton";
 
 const AvailableFor = lazy(() => import("components/AvailableFor"));
 const KnownFor = lazy(() => import("./KnownFor"));
@@ -25,6 +28,7 @@ interface IProps {
 const SmallHeader: FC<IProps> = ({ talent }) => {
   const screenSize = useScreenClass();
   const {
+    id: talentId,
     name,
     bio_highlights: highlights,
     titles,
@@ -85,10 +89,15 @@ const SmallHeader: FC<IProps> = ({ talent }) => {
               </LazyWrapper>
             </SmallImageWrapper>
             <Link to={`/talent/${slug}/booking`}>
-              <Button margin="40px 0 0 0" width="100%">
+              <Button margin="30px 0 16px 0" width="100%">
                 Book Today
               </Button>
             </Link>
+            <AddToFavoritesButton
+              talentId={talentId}
+              hasFavoritedComponent={HasFavoritedButton}
+              notFavoritedComponent={NotFavoritedButton}
+            />
             <FulfilledByText>
               Fulfilled by{" "}
               <span className="talent-agency">Harry Walker Agency</span>
