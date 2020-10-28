@@ -145,3 +145,10 @@ export interface ITopic {
 export interface IError {
   message: string;
 }
+
+export interface IFavoriteList {
+  id: string;
+  account_id: string;
+  name: string;
+  talent_ids: string[];
+}
