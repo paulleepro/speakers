@@ -1,4 +1,4 @@
-import React, { useState, lazy, useContext } from "react";
+import React, { lazy, useContext } from "react";
 import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
 import CalendarTodayOutlinedIcon from "@material-ui/icons/CalendarTodayOutlined";
 import colors from "styles/colors";
@@ -18,11 +18,6 @@ const DetailsForm = () => {
   const { bookingInquiry, setBookingInquiry } = useContext(
     BookingInquiryContext
   );
-  const [customBudgetRange, setCustomBudgetRange] = useState("");
-
-  const handleCustomBudgetRangeChange = (e: any): void => {
-    setCustomBudgetRange(e.target.value);
-  };
 
   const handleInputChange = (e: any): void => {
     const { name, value } = e.target;
@@ -234,13 +229,13 @@ const DetailsForm = () => {
       <QuestionContent>
         <Row>
           {[
-            { id: "low", value: "$10,000 & Under", label: "$10,000 & Under" },
+            { id: "1", value: "$10,000 & Under", label: "$10,000 & Under" },
             {
-              id: "middle",
+              id: "2",
               value: "$10,000 - $20,000",
               label: "$10,000 - $20,000",
             },
-            { id: "high", value: "$20,000 & Up", label: "$20,000 & Up" },
+            { id: "3", value: "$20,000 & Up", label: "$20,000 & Up" },
           ].map((option) => (
             <Col md={4}>
               <RadioInputOption
@@ -251,7 +246,7 @@ const DetailsForm = () => {
                 onChange={(value: any) => {
                   setBookingInquiry({
                     ...bookingInquiry,
-                    event_dates_flexible: value,
+                    event_budget_range: value,
                   });
                 }}
               />
@@ -259,9 +254,9 @@ const DetailsForm = () => {
           ))}
         </Row>
         <InputText
-          name="customBudgetRange"
-          value={customBudgetRange}
-          onChange={handleCustomBudgetRangeChange}
+          name="event_budget_custom_range"
+          value={bookingInquiry.event_budget_custom_range}
+          onChange={handleInputChange}
           placeholder="Have a specific budget?"
           icon={
             <>
