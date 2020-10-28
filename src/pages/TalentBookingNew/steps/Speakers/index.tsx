@@ -61,6 +61,10 @@ const SpeakersForm = () => {
 
   const handleRemoveFavoritesTalent = (talent: any): void => {
     setFavoritesTalents(favoritesTalents.filter((x) => x.id !== talent.id));
+    setBookingInquiry({
+      ...bookingInquiry,
+      talent_ids: bookingInquiry?.talent_ids?.filter((x) => x !== talent.name),
+    });
   };
 
   const handleRemoveTalent = (talent: any): void => {
@@ -71,7 +75,7 @@ const SpeakersForm = () => {
     });
   };
 
-  const handleFavoritesChange = (e: any): void => {
+  const handleFavoritesListChange = (e: any): void => {
     setFavoritesList(e.target.value);
     const favoriteList = favoritesLists.data.find(
       (data: IFavoriteList) => data.id === e.target.value
@@ -95,6 +99,12 @@ const SpeakersForm = () => {
         });
       });
     } else {
+      setBookingInquiry({
+        ...bookingInquiry,
+        talent_ids: bookingInquiry?.talent_ids?.filter(
+          (x) => !favoritesTalents.find((t) => t.name == x)
+        ),
+      });
       setFavoritesTalents([]);
     }
   };
@@ -125,7 +135,7 @@ const SpeakersForm = () => {
           value: data.id,
           label: data.name,
         }))}
-        onChange={handleFavoritesChange}
+        onChange={handleFavoritesListChange}
         value={favoritesList}
         name="favorite_list"
         placeholder="Select Your Favorite List"
