@@ -1,7 +1,6 @@
 import React, { FC, lazy } from "react";
 import "react-datepicker/dist/react-datepicker.css";
 
-import LazyWrapper from "components/LazyWrapper";
 import { InputWrapper } from "./styles";
 import { Wrapper, IconWrapper, Label } from "../InputText/styles";
 
@@ -11,7 +10,7 @@ interface IProps {
   icon?: any;
   label?: string;
   hasMargin?: boolean;
-  onChange: (value: any) => void;
+  onDateChange: (value: any) => void;
   placeholder?: string;
   value: any;
 }
@@ -20,7 +19,7 @@ const CustomDatePicker: FC<IProps> = ({
   icon,
   label,
   hasMargin,
-  onChange,
+  onDateChange,
   placeholder,
   value,
 }) => {
@@ -28,14 +27,12 @@ const CustomDatePicker: FC<IProps> = ({
     <Wrapper width="100%" flexDirection="column" hasMargin={hasMargin}>
       {label && <Label>{label}</Label>}
       <InputWrapper>
-        <LazyWrapper>
-          <DatePicker
-            className="date-picker"
-            selected={value}
-            placeholderText={placeholder}
-            onChange={onChange}
-          />
-        </LazyWrapper>
+        <DatePicker
+          className="date-picker"
+          selected={value}
+          placeholderText={placeholder}
+          onChange={(date) => onDateChange(date)}
+        />
         {icon && <IconWrapper>{icon}</IconWrapper>}
       </InputWrapper>
     </Wrapper>

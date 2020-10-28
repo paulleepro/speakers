@@ -1,4 +1,5 @@
 import React, { FC, useContext } from "react";
+import moment from "moment";
 import EditIcon from "assets/Icons/Edit";
 import { Button } from "styles/components";
 import { Box } from "react-basic-blocks";
@@ -80,18 +81,23 @@ const DetailsSummary: FC = () => {
         <Box flexDirection="row">
           <QuestionBullet margin="0 8px 0 0">2</QuestionBullet>
           <Box flexDirection="column" margin="0 0 16px 0">
-            <SummaryField label="Date of Event" value={event_date_start} />
+            <SummaryField
+              label="Date of Event"
+              value={moment(event_date_start).format("MM/DD/YYYY")}
+            />
             <SummaryField label="When" value={event_time} />
             <SummaryField label="Country" value={event_country} />
             <SummaryField label="State" value={event_city_State} />
           </Box>
         </Box>
       )}
-      <FieldSection
-        order={3}
-        label="Dates Flexible"
-        value={`${event_dates_flexible}`}
-      />
+      {event_dates_flexible !== undefined && (
+        <FieldSection
+          order={3}
+          label="Dates Flexible"
+          value={event_dates_flexible ? "Yes" : "No"}
+        />
+      )}
       {(event_budget_range || event_budget_custom_range) && (
         <Box flexDirection="row">
           <QuestionBullet margin="0 8px 0 0">4</QuestionBullet>
@@ -104,7 +110,7 @@ const DetailsSummary: FC = () => {
           </Box>
         </Box>
       )}
-      <FieldSection order={5} label="More Events" value="Yes" />
+      {/* <FieldSection order={5} label="More Events" value="Yes" /> */}
       <Border />
     </Box>
   );

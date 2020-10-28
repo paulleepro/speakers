@@ -28,13 +28,6 @@ const DetailsForm = () => {
     });
   };
 
-  const handleEventDateChange = (date: any): void => {
-    setBookingInquiry({
-      ...bookingInquiry,
-      event_date_start: date,
-    });
-  };
-
   return (
     <>
       <h3>Event Details</h3>
@@ -101,8 +94,13 @@ const DetailsForm = () => {
               }
               label="Date of Event"
               hasMargin
-              onChange={handleEventDateChange}
-              value={bookingInquiry?.event_date_start}
+              onDateChange={(date) => {
+                setBookingInquiry({
+                  ...bookingInquiry,
+                  event_date_start: date,
+                });
+              }}
+              value={bookingInquiry.event_date_start}
               placeholder="MM/DD/YYYY"
             />
           </Col>
