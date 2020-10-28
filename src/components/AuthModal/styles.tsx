@@ -37,7 +37,7 @@ export const ModalFooter = styled.div`
   text-align: center;
 `;
 
-export const FooterButton = styled.button`
+export const TextButton = styled.button`
   color: ${colors.primaryPurple};
   border: none;
   outline: none;

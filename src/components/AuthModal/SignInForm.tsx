@@ -1,16 +1,18 @@
 import React, { FC } from "react";
 import { Row, Col } from "components/Grid";
 import { Button } from "styles/components";
-import { FormWrapper, Input, Label, Checkbox } from "./styles";
+import { FormWrapper, Input, Label, Checkbox, TextButton } from "./styles";
 import { useAuth } from "context/AuthContext";
 import { useMutation } from "react-query";
 import { useForm } from "react-hook-form";
+import { Box } from "react-basic-blocks";
 
 interface IProps {
   onClose: () => void;
+  onClickForgotPassword: () => void;
 }
 
-const SignInForm: FC<IProps> = ({ onClose }) => {
+const SignInForm: FC<IProps> = ({ onClose, onClickForgotPassword }) => {
   const { login } = useAuth();
   const { handleSubmit, register } = useForm();
   const [doLogin, { isLoading: isLoggingIn }] = useMutation(login);
@@ -39,7 +41,12 @@ const SignInForm: FC<IProps> = ({ onClose }) => {
       </Row>
       <Row>
         <Col>
-          <Label>Password</Label>
+          <Box flexDirection="row" justifyContent="space-between">
+            <Label>Password</Label>
+            <TextButton onClick={onClickForgotPassword}>
+              Forgot Password?
+            </TextButton>
+          </Box>
           <Input
             type="password"
             name="password"
