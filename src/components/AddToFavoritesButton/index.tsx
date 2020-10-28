@@ -62,7 +62,7 @@ const AddToFavoritesButton: FC<IProps> = ({
   }
 
   return (
-    <>
+    <div onClick={(evt) => evt.stopPropagation()}>
       {hasFavorited ? (
         <HasFavoritedComponent onClick={onClick} />
       ) : (
@@ -80,7 +80,7 @@ const AddToFavoritesButton: FC<IProps> = ({
         subtitleEnding="save your favorites"
         isSignUp
       />
-    </>
+    </div>
   );
 };
 
