@@ -12,7 +12,6 @@ export const InputWrapper = styled.div<{ active?: boolean }>`
   cursor: pointer;
   text-overflow: ellipsis;
   overflow: hidden;
-  transition: 0.1s all ease-in-out;
 
   input {
     position: absolute;
@@ -31,7 +30,6 @@ export const InputWrapper = styled.div<{ active?: boolean }>`
     white-space: nowrap;
     padding-left: 40px;
     position: relative;
-    cursor: pointer;
   }
 
   @media (max-width: 767px) {
@@ -41,15 +39,6 @@ export const InputWrapper = styled.div<{ active?: boolean }>`
       font-size: 18px;
       line-height: 2;
       letter-spacing: 0.23px;
-    }
-  }
-
-  &:hover {
-    background-color: ${colors.secondaryPurple};
-
-    span {
-      border: solid 4px ${colors.white};
-      background-color: ${colors.secondaryPurple};
     }
   }
 `;
@@ -62,7 +51,6 @@ export const RadioButton = styled.span<{ checked?: boolean }>`
   margin: auto;
   height: 24px;
   width: 24px;
-  transition: 0.1s all ease-in-out;
   border: solid
     ${(props) =>
       props.checked ? `4px ${colors.white}` : `2px ${colors.primaryPurple}`};

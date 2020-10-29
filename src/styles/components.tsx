@@ -238,7 +238,6 @@ export const Button = styled.button<{
   color: white;
   border: none;
   outline: none;
-  transition: 0.1s all ease-in-out;
 
   ${(props) =>
     props.variant === "outline"
@@ -251,11 +250,6 @@ export const Button = styled.button<{
 
   &:disabled{
     background-color: ${colors.darkPurpleFill};
-  }
-  &:hover {
-    ${(props) =>
-      props.variant !== "outline" &&
-      `background-color: ${colors.secondaryPurple};`}
   }
 `;
 

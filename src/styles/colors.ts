@@ -8,7 +8,6 @@ const colors = {
   midGrey: "#888888",
   midDarkGrey: "rgb(26,25,30)",
   primaryPurple: "#4d58f9",
-  secondaryPurple: "#3C45D3",
   purpleLiner: "#2c2832",
   purpleBgFill: "#221e29",
   darkPurpleFill: "#1a1820",
