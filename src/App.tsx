@@ -34,6 +34,7 @@ const Wrapper = styled.div`
   flex: 1;
 
   .max-width-container {
+    overflow: hidden;
     min-height: calc(100vh - 64px);
     align-self: center;
     display: flex;
