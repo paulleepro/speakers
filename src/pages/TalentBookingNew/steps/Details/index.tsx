@@ -107,10 +107,10 @@ const DetailsForm = () => {
           <Col md={6}>
             <Select
               options={[
-                { value: "Morning", label: "Morning" },
-                { value: "Midday", label: "Midday" },
-                { value: "Afternoon", label: "Afternoon" },
-                { value: "Evening", label: "Evening" },
+                { value: "morning", label: "Morning" },
+                { value: "midday", label: "Midday" },
+                { value: "afternoon", label: "Afternoon" },
+                { value: "evening", label: "Evening" },
               ]}
               onChange={handleInputChange}
               value={bookingInquiry.event_time}
@@ -122,7 +122,7 @@ const DetailsForm = () => {
           </Col>
           <Col md={6}>
             <Select
-              options={[{ value: "United States", label: "United States" }]}
+              options={[{ value: "us", label: "United States" }]}
               onChange={handleInputChange}
               value={bookingInquiry.event_country}
               name="event_country"
