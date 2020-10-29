@@ -47,6 +47,10 @@ const TalentBookingNew: FC<any> = () => {
     }
   };
 
+  const handleGoToStep = (step: number) => {
+    setCurrentStep(step);
+  };
+
   if (isAuthenticated && currentStep > 2) {
     return (
       <Wrapper fluid>
@@ -73,7 +77,10 @@ const TalentBookingNew: FC<any> = () => {
       >
         <Row>
           <Col offset={{ lg: 1 }} md={12} lg={10}>
-            <Stepper activeStep={FORMS[currentStep].key} />
+            <Stepper
+              activeStep={FORMS[currentStep].key}
+              goToStep={handleGoToStep}
+            />
           </Col>
         </Row>
       </Visible>

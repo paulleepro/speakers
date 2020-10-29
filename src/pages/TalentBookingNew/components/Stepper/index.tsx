@@ -11,9 +11,10 @@ const STEPS = [
 
 interface IProps {
   activeStep: string;
+  goToStep: (value: number) => void;
 }
 
-const Stepper: FC<IProps> = ({ activeStep }) => {
+const Stepper: FC<IProps> = ({ activeStep, goToStep }) => {
   const activeIndex = STEPS.findIndex((item) => item.key === activeStep) || 0;
 
   return (
@@ -21,7 +22,13 @@ const Stepper: FC<IProps> = ({ activeStep }) => {
       {STEPS.map((step, idx) => (
         <Fragment key={step.key}>
           {idx !== 0 && <StepConnector completed={idx <= activeIndex} />}
-          <StepItem active={step.key === activeStep}>{step.label}</StepItem>
+          <StepItem
+            onClick={() => goToStep(idx)}
+            active={step.key === activeStep}
+            disabled={idx >= activeIndex}
+          >
+            {step.label}
+          </StepItem>
         </Fragment>
       ))}
     </Wrapper>
