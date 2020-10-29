@@ -1,29 +1,27 @@
-import React, { FC } from "react";
+import React, { useState } from "react";
 import { Row, Col } from "components/Grid";
 
 import InputText from "../../common/InputText";
 import InputRadio from "../../common/InputRadio";
 
 const AUDIENCE_LIST = [
-  { id: "0", value: "Full Organization", label: "Full Organization" },
-  { id: "1", value: "Professional Group", label: "Professional Group" },
-  { id: "2", value: "Team or Department", label: "Team or Department" },
-  { id: "3", value: "Customers", label: "Customers" },
-  { id: "4", value: "Students", label: "Students" },
+  { id: "0", value: 0, label: "Full Organization" },
+  { id: "1", value: 1, label: "Professional Group" },
+  { id: "2", value: 2, label: "Team or Department" },
+  { id: "3", value: 3, label: "Customers" },
+  { id: "4", value: 4, label: "Students" },
 ];
 
-interface IProps {
-  selected: string;
-  onChange: (value: string) => void;
-}
+const AudienceList = () => {
+  const [selected, setSelected] = useState<number | string | undefined>();
+  const [ownOption, setOwnOption] = useState<string>("");
 
-const AudienceList: FC<IProps> = ({ selected, onChange }) => {
-  const handleSelect = (value: string) => {
-    onChange(value);
+  const handleSelect = (value: number | string) => {
+    setSelected(value);
   };
 
   const handleOwnOptionChange = (e: any): void => {
-    onChange(e.target.value);
+    setOwnOption(e.target.value);
   };
 
   return (
@@ -32,12 +30,12 @@ const AudienceList: FC<IProps> = ({ selected, onChange }) => {
         options={AUDIENCE_LIST}
         selected={selected}
         onChange={handleSelect}
-        name="event_audience"
+        name="audienceList"
       />
       <Col md={6}>
         <InputText
-          name="event_audience"
-          value={selected}
+          name="own"
+          value={ownOption}
           onChange={handleOwnOptionChange}
           placeholder="Enter your own…"
         />
