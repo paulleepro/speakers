@@ -102,7 +102,7 @@ const SpeakersForm = () => {
       setBookingInquiry({
         ...bookingInquiry,
         talent_ids: bookingInquiry?.talent_ids?.filter(
-          (x) => !favoritesTalents.find((t) => t.name === x)
+          (x) => !favoritesTalents.find((t) => t.name == x)
         ),
       });
       setFavoritesTalents([]);
