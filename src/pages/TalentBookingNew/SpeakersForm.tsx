@@ -15,7 +15,7 @@ import InputText from "./common/InputText";
 import Textarea from "./common/Textarea";
 import SpeakersType from "./components/Topics";
 import InputRadio from "./common/InputRadio";
-import SearchIcon from "../../assets/Icons/Search";
+import SearchIcon from "../../assets/icons/Search";
 
 const ReactTooltip = lazy(() => import("react-tooltip"));
 const ErrorNotice = lazy(() => import("components/ErrorNotice"));

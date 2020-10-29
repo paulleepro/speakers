@@ -10,8 +10,8 @@ import {
 } from "./styles";
 import { Link } from "react-router-dom";
 import LazyWrapper from "components/LazyWrapper";
-import { ReactComponent as StarFilled } from "assets/Icons/star-filled.svg";
-import { ReactComponent as StarOutline } from "assets/Icons/star-outline.svg";
+import { ReactComponent as StarFilled } from "assets/icons/star-filled.svg";
+import { ReactComponent as StarOutline } from "assets/icons/star-outline.svg";
 import AddToFavoritesButton from "../AddToFavoritesButton";
 import StyledImage from "../StyledImage";
 
