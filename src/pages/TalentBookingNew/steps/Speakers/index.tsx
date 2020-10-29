@@ -57,7 +57,7 @@ const SpeakersForm = () => {
     setTalents([...talents, talent]);
     setBookingInquiry({
       ...bookingInquiry,
-      talent_ids: [...(bookingInquiry?.talent_ids || []), talent.id], // TODO talent id
+      talent_ids: [...(bookingInquiry?.talent_ids || []), talent.name.raw], // TODO talent id
     });
   };
 
@@ -65,15 +65,17 @@ const SpeakersForm = () => {
     setFavoritesTalents(favoritesTalents.filter((x) => x.id !== talent.id));
     setBookingInquiry({
       ...bookingInquiry,
-      talent_ids: bookingInquiry?.talent_ids?.filter((x) => x !== talent.id),
+      talent_ids: bookingInquiry?.talent_ids?.filter((x) => x !== talent.name),
     });
   };
 
   const handleRemoveTalent = (talent: any): void => {
-    setTalents(talents.filter((x) => x.id !== talent.id));
+    setTalents(talents.filter((x) => x.id.raw !== talent.id.raw));
     setBookingInquiry({
       ...bookingInquiry,
-      talent_ids: bookingInquiry?.talent_ids?.filter((x) => x !== talent.id),
+      talent_ids: bookingInquiry?.talent_ids?.filter(
+        (x) => x !== talent.name.raw
+      ),
     });
   };
 
@@ -96,7 +98,7 @@ const SpeakersForm = () => {
           ...bookingInquiry,
           talent_ids: [
             ...(bookingInquiry?.talent_ids || []),
-            ...json.data.map((t: ITalent) => t.id),
+            ...json.data.map((t: ITalent) => t.name),
           ], // TODO talent id,
         });
       });
@@ -104,7 +106,7 @@ const SpeakersForm = () => {
       setBookingInquiry({
         ...bookingInquiry,
         talent_ids: bookingInquiry?.talent_ids?.filter(
-          (x) => !favoritesTalents.find((t) => t.id === x)
+          (x) => !favoritesTalents.find((t) => t.name === x)
         ),
       });
       setFavoritesTalents([]);
@@ -186,7 +188,7 @@ const SpeakersForm = () => {
           {talents.map((x, idx) => (
             <Col md={6} key={idx}>
               <SelectedTalent talent={x} onRemove={handleRemoveTalent}>
-                {x.name}
+                {x.name.raw}
               </SelectedTalent>
             </Col>
           ))}

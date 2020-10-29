@@ -12,8 +12,6 @@ import {
   ScrollWrapper,
 } from "./styles";
 import { BookingInquiryContext } from "./BookingInquiryContext";
-import { useError } from "../../context/ErrorContext";
-import { useCreateBookingInquiry } from "hooks/api/bookingInquiry";
 
 const BookingSummary = lazy(() => import("./components/BookingSummary"));
 const Stepper = lazy(() => import("./components/Stepper"));
@@ -31,36 +29,13 @@ const FORMS = [
 ];
 
 const TalentBookingNew: FC<any> = () => {
-  const { addError } = useError();
-  const { currentStep, setCurrentStep, bookingInquiry } = useContext(
-    BookingInquiryContext
-  );
+  const { currentStep, setCurrentStep } = useContext(BookingInquiryContext);
   const history = useHistory();
   const { isAuthenticated } = useAuth();
-  const [
-    doCreateBookingInquiry,
-    { isLoading: isCreating },
-  ] = useCreateBookingInquiry();
 
   const ActiveForm = FORMS[currentStep].component;
 
-  const createBookingInquiry = async () => {
-    if (isCreating || !bookingInquiry) {
-      return;
-    }
-
-    await doCreateBookingInquiry(bookingInquiry, {
-      onSuccess: () => setCurrentStep(currentStep + 1),
-      onError: () =>
-        addError("We encountered a problem saving your booking request."),
-    });
-  };
-
   const goToNextForm = () => {
-    if (isAuthenticated && currentStep === 2) {
-      createBookingInquiry();
-      return;
-    }
     setCurrentStep(currentStep + 1);
   };
 
@@ -124,9 +99,7 @@ const TalentBookingNew: FC<any> = () => {
                   <FormFooter>
                     <BackButton onClick={handleGoBack}>Back</BackButton>
                     <Button padding="14px 81px" onClick={goToNextForm}>
-                      {isAuthenticated && currentStep === 2
-                        ? "Finish & Submit"
-                        : "Next"}
+                      Next
                     </Button>
                   </FormFooter>
                 </FormContainer>
@@ -139,15 +112,7 @@ const TalentBookingNew: FC<any> = () => {
               }}
             >
               <ScrollWrapper>
-                <Visible
-                  md
-                  lg
-                  style={{
-                    position: "sticky",
-                    top: 70,
-                    zIndex: 10,
-                  }}
-                >
+                <Visible md lg>
                   <BookingSummary />
                 </Visible>
               </ScrollWrapper>
