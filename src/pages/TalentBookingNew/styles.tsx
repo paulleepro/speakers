@@ -135,5 +135,4 @@ export const TooltipContent = styled.div`
 export const ScrollWrapper = styled.div`
   height: 100%;
   overflow: auto;
-  border-radius: 12px;
 `;
