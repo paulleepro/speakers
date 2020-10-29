@@ -29,7 +29,7 @@ const SignInForm: FC<IProps> = ({ onClose }) => {
     await doSignup(values, {
       onSuccess: () => {
         onClose();
-        history.push("/verify-account");
+        history.push(`/verify-account/${encodeURIComponent(values.email)}`);
       },
     });
   };
