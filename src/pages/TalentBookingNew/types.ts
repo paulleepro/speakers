@@ -34,14 +34,12 @@ export interface IBookingInquiry {
   status: string;
   kind: string; //  = "event"
   logs: any[];
-  notes: string; // for speakers step
+  notes: string;
   event_type: string; //  (live_drop_in, interactive_qa, deep_dive, multiple_speakers)
   event_focus: string;
   event_topics: string[];
   event_audience: string;
   event_audience_size_range: string; // ("min:max")
-  // event_audience_size_min: number;
-  // event_audience_size_max: number;
   event_name: string;
   event_notes: string;
   considered_talent_types: string[];
@@ -58,8 +56,6 @@ export interface IBookingInquiry {
   event_city_State: string;
   event_dates_flexible: boolean;
   event_budget_range: string; //  ("min:max" or specific value)
-  // event_budget_range_min: number;
-  // event_budget_range_max: number;
   messages: IMessage[];
   attachments: IBookingInquiryAttachment[];
   proposals: IBookingProposal[];

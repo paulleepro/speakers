@@ -14,5 +14,4 @@ export const AddAnother = styled.button`
   border: solid 1px ${colors.purpleLiner};
   background-color: ${colors.purpleBgFill};
   outline: none;
-  cursor: pointer;
 `;

@@ -21,7 +21,7 @@ const Close: FC<IProps> = ({ fill = colors.primaryPurple }) => {
           />
         </filter>
       </defs>
-      <g fill="none" fillRule="evenodd">
+      <g fill="none" fill-rule="evenodd">
         <g>
           <g>
             <g>
@@ -30,7 +30,7 @@ const Close: FC<IProps> = ({ fill = colors.primaryPurple }) => {
                   filter="url(#zxkr6nl61a)"
                   transform="translate(-976 -1108) translate(24 171) translate(40 180) translate(4 558) translate(509 177)"
                 >
-                  <g fill={fill} fillRule="nonzero">
+                  <g fill={fill} fill-rule="nonzero">
                     <path
                       d="M1.233 23.93c-.315 0-.63-.12-.87-.362-.48-.48-.48-1.26 0-1.741L21.83.36c.48-.481 1.26-.481 1.74 0 .482.48.482 1.26 0 1.74L2.106 23.569c-.241.24-.557.361-.872.361z"
                       transform="translate(399 22)"
