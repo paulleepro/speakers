@@ -124,3 +124,9 @@ export interface IFavoriteList {
   name: string;
   talent_ids: string[];
 }
+
+export interface ITalentType {
+  id: string;
+  name: string;
+  slug: string;
+}

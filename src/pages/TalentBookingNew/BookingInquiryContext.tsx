@@ -1,5 +1,5 @@
 import React, { createContext, FC, useEffect, useState } from "react";
-import { IFavoriteList, ITalent } from "types";
+import { IFavoriteList, ITalent, ITalentType } from "types";
 import { IBookingInquiry } from "./types";
 
 export interface IBookingInquiryContext {
@@ -13,6 +13,8 @@ export interface IBookingInquiryContext {
   setMoreTalents: (talents: ITalent[]) => void;
   favoritesTalents: ITalent[];
   setFavoritesTalents: (talents: ITalent[]) => void;
+  talentTypes: ITalentType[];
+  setTalentTypes: (talentTypes: ITalentType[]) => void;
 }
 
 export const BookingInquiryContext = createContext<IBookingInquiryContext>(
@@ -29,16 +31,24 @@ export const BookingInquiryProvider: FC = ({ children }) => {
   );
   const [favoritesTalents, setFavoritesTalents] = useState<ITalent[]>([]);
   const [moreTalents, setMoreTalents] = useState<ITalent[]>([]);
+  const [talentTypes, setTalentTypes] = useState<ITalentType[]>([]);
 
   useEffect(() => {
-    setBookingInquiry({
-      ...bookingInquiry,
+    setBookingInquiry((state) => ({
+      ...state,
       talent_ids: [
         ...favoritesTalents.map((t) => t.id),
         ...moreTalents.map((t) => t.id),
       ],
-    });
+    }));
   }, [favoritesTalents, moreTalents]);
+
+  useEffect(() => {
+    setBookingInquiry((state) => ({
+      ...state,
+      considered_talent_types: talentTypes.map((t) => t.id),
+    }));
+  }, [talentTypes]);
 
   return (
     <BookingInquiryContext.Provider
@@ -53,6 +63,8 @@ export const BookingInquiryProvider: FC = ({ children }) => {
         setFavoritesTalents,
         moreTalents,
         setMoreTalents,
+        talentTypes,
+        setTalentTypes,
       }}
     >
       {children}

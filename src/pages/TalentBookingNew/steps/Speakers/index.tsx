@@ -3,7 +3,7 @@ import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
 import { Row, Col } from "components/Grid";
 import colors from "styles/colors";
 import { fetchSingle } from "fetch-hooks-react";
-import { IType, IListResult, IFavoriteList } from "types";
+import { IType, IListResult, IFavoriteList, ITalentType } from "types";
 import { config } from "config";
 import LazyWrapper from "components/LazyWrapper";
 import Loader from "components/Loader";
@@ -35,6 +35,8 @@ const SpeakersForm = () => {
     setFavoritesTalents,
     moreTalents,
     setMoreTalents,
+    talentTypes,
+    setTalentTypes,
   } = useContext(BookingInquiryContext);
 
   const {
@@ -90,10 +92,11 @@ const SpeakersForm = () => {
   };
 
   const handleSpeakersChange = (list: string[]): void => {
-    setBookingInquiry({
-      ...bookingInquiry,
-      considered_talent_types: list,
-    });
+    setTalentTypes(
+      list
+        .filter((l) => l !== undefined && l !== "")
+        .map((l) => data.data.find((t) => t.id === l)) as ITalentType[]
+    );
   };
 
   const handleInputChange = (e: any, fieldName: string) => {
@@ -180,7 +183,7 @@ const SpeakersForm = () => {
         <SpeakersType
           type="speakerType"
           list={data?.data}
-          activeItems={bookingInquiry.considered_talent_types || []}
+          activeItems={[...talentTypes.map((t) => t.id)]}
           name="speakers"
           onChange={handleSpeakersChange}
           placeholder="Choose a Speaker Type"

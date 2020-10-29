@@ -16,18 +16,14 @@ const SpeakersSummary: FC<any> = () => {
     setCurrentStep,
     favoritesList,
     moreTalents,
+    talentTypes,
   } = useContext(BookingInquiryContext);
 
   if (currentStep < 1) {
     return null;
   }
 
-  const {
-    considered_talent_types,
-    have_hosted_speakers,
-    notes,
-    hosted_speakers,
-  } = bookingInquiry;
+  const { have_hosted_speakers, notes, hosted_speakers } = bookingInquiry;
 
   const handleClick = () => {
     setCurrentStep(1);
@@ -68,7 +64,7 @@ const SpeakersSummary: FC<any> = () => {
       <FieldSection
         order={2}
         label="Types"
-        value={considered_talent_types?.join(", ")}
+        value={talentTypes.map((t) => t.name).join(", ")}
       />
       {(have_hosted_speakers !== undefined || hosted_speakers) && (
         <Box flexDirection="row">

@@ -49,11 +49,15 @@ const TalentBookingNew: FC<any> = () => {
       return;
     }
 
-    await doCreateBookingInquiry(bookingInquiry, {
-      onSuccess: () => setCurrentStep(currentStep + 1),
-      onError: () =>
-        addError("We encountered a problem saving your booking request."),
-    });
+    await doCreateBookingInquiry(
+      { ...bookingInquiry, status: "requested" },
+      {
+        onSuccess: () => setCurrentStep(currentStep + 1),
+        onError: (e: any) => {
+          addError("We encountered a problem saving your booking request.");
+        },
+      }
+    );
   };
 
   const goToNextForm = () => {

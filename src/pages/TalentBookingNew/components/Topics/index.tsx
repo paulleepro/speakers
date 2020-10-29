@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from "react";
+import React, { FC, useState } from "react";
 import { Box } from "react-basic-blocks";
 import AddIcon from "@material-ui/icons/Add";
 import colors from "styles/colors";
@@ -23,22 +23,20 @@ const Topics: FC<IProps> = ({
   list = [],
   type = "topic",
 }) => {
-  useEffect(() => {
-    if (!activeItems.length) {
-      onChange([""]);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  const [topicItems, setTopicItems] = useState(
+    activeItems.length > 0 ? [...activeItems] : [""]
+  );
 
   const handleAddAnother = () => {
-    onChange([...activeItems, ""]);
+    setTopicItems([...topicItems, ""]);
   };
 
   const handleChange = (e: any, idx: number): void => {
-    const newActiveItems = activeItems.map((item, i) =>
+    const newTopicItems = topicItems.map((item, i) =>
       idx === i ? e.target.value : item
     );
-    onChange(newActiveItems);
+    setTopicItems(newTopicItems);
+    onChange(newTopicItems);
   };
 
   const options = list.map(({ name, id }) => ({
@@ -48,7 +46,7 @@ const Topics: FC<IProps> = ({
 
   return (
     <>
-      {activeItems.map((item, idx) => {
+      {topicItems.map((item, idx) => {
         return (
           <Select
             key={idx}
