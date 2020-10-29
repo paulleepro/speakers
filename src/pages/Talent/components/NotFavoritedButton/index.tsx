@@ -1,6 +1,6 @@
 import { FavoriteButton } from "../../styles";
 import React, { FC } from "react";
-import { ReactComponent as StarOutline } from "assets/Icons/star-outline.svg";
+import { ReactComponent as StarOutline } from "assets/icons/star-outline.svg";
 
 interface IProps {
   onClick: () => any;

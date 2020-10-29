@@ -1,5 +1,5 @@
 import { FavoriteButton } from "../../styles";
-import { ReactComponent as StarFilled } from "assets/Icons/star-filled.svg";
+import { ReactComponent as StarFilled } from "assets/icons/star-filled.svg";
 import React, { FC } from "react";
 
 interface IProps {
