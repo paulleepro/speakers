@@ -41,7 +41,6 @@ const DetailsSummary: FC = () => {
     event_city_State,
     event_dates_flexible,
     event_budget_range,
-    event_budget_custom_range,
   } = bookingInquiry;
 
   const handleClick = () => {
@@ -92,15 +91,12 @@ const DetailsSummary: FC = () => {
         label="Dates Flexible"
         value={`${event_dates_flexible}`}
       />
-      {(event_budget_range || event_budget_custom_range) && (
+      {(event_budget_range || event_budget_range) && (
         <Box flexDirection="row">
           <QuestionBullet margin="0 8px 0 0">4</QuestionBullet>
           <Box flexDirection="column" margin="0 0 16px 0">
             <SummaryField label="Budget Range" value={event_budget_range} />
-            <SummaryField
-              label="Specific Budget"
-              value={event_budget_custom_range}
-            />
+            <SummaryField label="Specific Budget" value={event_budget_range} />
           </Box>
         </Box>
       )}
