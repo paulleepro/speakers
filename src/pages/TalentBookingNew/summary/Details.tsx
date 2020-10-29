@@ -1,6 +1,6 @@
 import React, { FC, useContext } from "react";
 import moment from "moment";
-import EditIcon from "assets/Icons/Edit";
+import EditIcon from "assets/icons/Edit";
 import { Button } from "styles/components";
 import { Box } from "react-basic-blocks";
 import { BookingInquiryContext } from "../BookingInquiryContext";

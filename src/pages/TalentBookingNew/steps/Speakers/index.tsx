@@ -8,7 +8,7 @@ import { config } from "config";
 import LazyWrapper from "components/LazyWrapper";
 import Loader from "components/Loader";
 import { Visible } from "components/Grid";
-import SearchIcon from "assets/Icons/Search";
+import SearchIcon from "assets/icons/Search";
 
 import { useFavoritesLists } from "../../../../hooks/api/booking";
 import QuestionHeader from "../../common/QuestionHeader";
@@ -26,7 +26,9 @@ const ReactTooltip = lazy(() => import("react-tooltip"));
 const ErrorNotice = lazy(() => import("components/ErrorNotice"));
 
 const SpeakersForm = () => {
-  const { bookingInquiry, setBookingInquiry } = useContext(BookingInquiryContext);
+  const { bookingInquiry, setBookingInquiry } = useContext(
+    BookingInquiryContext
+  );
 
   const {
     data: favoritesLists,
@@ -71,7 +73,9 @@ const SpeakersForm = () => {
     setTalents(talents.filter((x) => x.id.raw !== talent.id.raw));
     setBookingInquiry({
       ...bookingInquiry,
-      talent_ids: bookingInquiry?.talent_ids?.filter((x) => x !== talent.name.raw),
+      talent_ids: bookingInquiry?.talent_ids?.filter(
+        (x) => x !== talent.name.raw
+      ),
     });
   };
 
@@ -255,9 +259,9 @@ const SpeakersForm = () => {
                   >
                     <b>Why do you need this information?</b>
                     <br />
-                    By providing prior speaker information, our agents can better
-                    understand your preferences. These details will then help them tailor
-                    speakers that best match your event needs.
+                    By providing prior speaker information, our agents can
+                    better understand your preferences. These details will then
+                    help them tailor speakers that best match your event needs.
                   </ReactTooltip>
                 </LazyWrapper>
               </Visible>

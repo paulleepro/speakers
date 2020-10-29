@@ -8,7 +8,7 @@ import { ISearchResult } from "types";
 import colors from "styles/colors";
 import useDebounce from "hooks/useDebounce";
 import { Input, InputWrapper, IconWrapper } from "../InputText/styles";
-import SearchIcon from "assets/Icons/Search";
+import SearchIcon from "assets/icons/Search";
 import { AutocompleteWrapper } from "./styles";
 
 interface IProps {

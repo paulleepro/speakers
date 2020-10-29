@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import colors from "styles/colors";
 import { Button } from "styles/components";
-import CloseIcon from "assets/Icons/Close";
+import CloseIcon from "assets/icons/Close";
 import { Wrapper } from "./styles";
 
 interface IProps {
