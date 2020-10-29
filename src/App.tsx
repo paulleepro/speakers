@@ -114,7 +114,11 @@ const App = (): ReactElement => {
             <PrivateRoute path="/favorites" component={Favorites} exact />
             <Route path="/faq" component={FAQ} exact />
             <Route path="/search-results" component={SearchResults} exact />
-            <Route path="/verify-account" component={VerifyAccount} exact />
+            <Route
+              path="/verify-account/:email"
+              component={VerifyAccount}
+              exact
+            />
             <Route path="/" component={Landing} exact />
 
             <Route render={() => <Box padding="20px">Not found</Box>} />
