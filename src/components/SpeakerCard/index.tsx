@@ -1,4 +1,4 @@
-import React, { FC, lazy } from "react";
+import React, { FC } from "react";
 import {
   SpeakerName,
   SpeakerDesc,
@@ -6,20 +6,35 @@ import {
   SpeakerInfo,
   ImageWrapper,
   ImageOverlay,
+  StarWrapper,
 } from "./styles";
 import { Link } from "react-router-dom";
 import LazyWrapper from "components/LazyWrapper";
-
-const StyledImage = lazy(() => import("components/StyledImage"));
+import { ReactComponent as StarFilled } from "../../assets/Icons/star-filled.svg";
+import { ReactComponent as StarOutline } from "../../assets/Icons/star-outline.svg";
+import AddToFavoritesButton from "../AddToFavoritesButton";
+import StyledImage from "../StyledImage";
 
 interface IProps {
+  id: string;
   name: string;
   description: string;
   imageUrl: string;
   slug: string;
 }
 
-const SpeakerCard: FC<IProps> = ({ name, imageUrl, slug, description }) => {
+const FilledStar = ({ onClick }: any) => (
+  <StarWrapper onClick={onClick}>
+    <StarFilled />
+  </StarWrapper>
+);
+const EmptyStar = ({ onClick }: any) => (
+  <StarWrapper onClick={onClick}>
+    <StarOutline />
+  </StarWrapper>
+);
+
+const SpeakerCard: FC<IProps> = ({ id, name, imageUrl, slug, description }) => {
   return (
     <Link to={`/talent/${slug}`}>
       <Wrapper>
@@ -34,6 +49,11 @@ const SpeakerCard: FC<IProps> = ({ name, imageUrl, slug, description }) => {
             />
           </LazyWrapper>
           <ImageOverlay src="/images/overlay.png" alt="overlay" />
+          <AddToFavoritesButton
+            talentId={id}
+            hasFavoritedComponent={FilledStar}
+            notFavoritedComponent={EmptyStar}
+          />
         </ImageWrapper>
         <SpeakerInfo>
           <SpeakerName>{name}</SpeakerName>

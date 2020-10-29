@@ -17,6 +17,7 @@ interface IProps {
   show: boolean;
   onClose: () => void;
   title?: string;
+  subtitleEnding?: string;
 }
 
 const AuthModal: FC<IProps> = ({
@@ -24,6 +25,7 @@ const AuthModal: FC<IProps> = ({
   show,
   onClose,
   title = "",
+  subtitleEnding = "",
 }) => {
   const [isSignUpModal, setIsSignUpModal] = useState<boolean>(false);
   const [isForgotPasswordForm, setIsForgotPasswordForm] = useState<boolean>(
@@ -64,7 +66,9 @@ const AuthModal: FC<IProps> = ({
       <ModalContent>
         <FormTitle>
           <h4>Sign {isSignUpModal ? "Up" : "In"}</h4>
-          <p>Sign {isSignUpModal ? "up" : "in"} and save your favorites.</p>
+          {subtitleEnding && (
+            <p>Sign {isSignUpModal ? "up" : "in"} and save your favorites.</p>
+          )}
         </FormTitle>
 
         {isSignUpModal ? (

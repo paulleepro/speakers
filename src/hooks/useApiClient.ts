@@ -5,7 +5,7 @@ import { useCallback } from "react";
 const useApiClient = () => {
   const { bearerToken } = useAuth();
   return useCallback(
-    (endpoint, config) => apiClient(endpoint, { ...config, bearerToken }),
+    (endpoint, config?) => apiClient(endpoint, { ...config, bearerToken }),
     [bearerToken]
   );
 };

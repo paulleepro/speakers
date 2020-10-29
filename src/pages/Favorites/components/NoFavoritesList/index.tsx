@@ -21,7 +21,9 @@ const NoFavoritesList: FC = () => {
       <StyledContainer fluid>
         <Row>
           <Col offset={{ lg: 1 }} md={12} lg={10}>
-            <HeaderText>My Favorites List</HeaderText>
+            <HeaderText smallerOnMobile noCenterAlign>
+              My Favorites List
+            </HeaderText>
           </Col>
         </Row>
         <Row>
@@ -64,7 +66,7 @@ const NoFavoritesList: FC = () => {
                 requirements are met, as well.
               </ExploreDescription>
               <Button onClick={() => history.replace("/explore")}>
-                Explore Now
+                Get Started!
               </Button>
             </ExploreCard>
           </Col>

@@ -24,7 +24,7 @@ export const SpeakerDesc = styled.span`
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
-  line-height: 1.5;
+  line-height: 2;
   letter-spacing: 0.2px;
   color: ${colors.midGrey};
   overflow: hidden;
@@ -40,7 +40,7 @@ export const SpeakerDesc = styled.span`
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
+  margin-top: 24px;
   background-color: ${colors.purpleLiner};
   border-radius: 20px;
   border: solid 1px #222222;
@@ -64,7 +64,7 @@ export const SpeakerInfo = styled.div`
   border-radius: 0 0 20px 20px;
   border-top: 4px solid ${colors.primaryPurple};
   background-color: ${colors.purpleBgFill};
-  padding: 15px 30px;
+  padding: 18px 16px;
 
   @media (max-width: 767px) {
     padding: 8px 16px;
@@ -82,4 +82,25 @@ export const ImageOverlay = styled.img`
   bottom: 0;
   right: 0;
   z-index: 2;
+`;
+
+export const StarWrapper = styled.button`
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 36px;
+  height: 36px;
+  padding: 6px;
+  position: absolute;
+  bottom: 0px;
+  left: 10px;
+  cursor: pointer;
+
+  @media (max-width: 767px) {
+    left: 8px;
+  }
+
+  svg {
+    filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.65));
+  }
 `;

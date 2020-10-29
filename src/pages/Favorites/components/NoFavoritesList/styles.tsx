@@ -49,9 +49,11 @@ export const ExploreCard = styled(Box)`
   border: solid 1px ${colors.purpleLiner};
   background-color: ${colors.darkPurpleFill};
   padding: 60px 0;
+  margin-bottom: 600px;
 
   @media (max-width: 1023px) {
     padding: 32px 0 24px;
+    margin-bottom: 120px;
   }
 `;
 
@@ -61,10 +63,10 @@ export const ExploreDescription = styled.p`
   letter-spacing: 0.2px;
   text-align: center;
   color: ${colors.midGrey};
-  max-width: 572px;
-  margin: 24px 0 40px;
+  max-width: 612px;
+  margin: 24px 24px 40px;
 
   @media (max-width: 1023px) {
-    margin: 24px 0 32px;
+    margin: 24px 24px 32px;
   }
 `;

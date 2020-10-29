@@ -178,6 +178,7 @@ export const HeaderText = styled.span<{
   margin?: string;
   noCenterAlign?: boolean;
   smallerOnMobile?: boolean;
+  useEllipsis?: boolean;
 }>`
   margin: ${(props) => props.margin || "0 0 25px 0"};
   font-family: Montserrat;
@@ -189,6 +190,13 @@ export const HeaderText = styled.span<{
   letter-spacing: 0.33px;
   display: block;
   color: #ffffff;
+  ${(props) =>
+    props.useEllipsis &&
+    `
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  `}
 
   @media (max-width: 1023px) {
     text-align: ${(props) => (props.noCenterAlign ? "left" : "center")};

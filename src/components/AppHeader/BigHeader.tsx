@@ -1,11 +1,17 @@
 import React, { FC, useState } from "react";
 import { Box } from "react-basic-blocks";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router";
 import { IType } from "types";
 
 import useMatchPath from "hooks/useMatchRoute";
 import { Button } from "styles/components";
-import { Wrapper, LinkText, FavoritesListLink } from "./styles";
+import {
+  Wrapper,
+  LinkText,
+  FavoritesListButton,
+  VerticalDivider,
+} from "./styles";
 
 import AuthModal from "../AuthModal";
 import { useAuth } from "context/AuthContext";
@@ -15,23 +21,45 @@ interface IProps {
   types?: IType[];
 }
 
+const initialAuthModalState = {
+  isOpen: false,
+  isSignUpModal: true,
+  title: "",
+  subtitleEnding: "",
+};
+
 const BigHeader: FC<IProps> = ({ types }) => {
   const { isAuthenticated } = useAuth();
+  const history = useHistory();
   const match = useMatchPath({
     path: "/talent/:slug/booking-new",
   });
 
-  const [open, setOpen] = useState(false);
-  const [isSignUpModal, setIsSignUpModal] = useState<boolean>(false);
+  const [authModalState, setAuthModalState] = useState(initialAuthModalState);
 
-  const handleClickOpen = (modalType: string) => {
-    setIsSignUpModal(modalType === "signup");
-    setOpen(true);
+  const openDefaultAuthModal = (modalType: string) => {
+    setAuthModalState({
+      ...authModalState,
+      isOpen: true,
+      isSignUpModal: modalType === "signup",
+    });
   };
 
-  const handleClose = () => {
-    setOpen(false);
+  const onFavoritesListClick = () => {
+    if (isAuthenticated) {
+      history.push("/favorites");
+    } else {
+      setAuthModalState({
+        isOpen: true,
+        isSignUpModal: true,
+        title: "Create your Favorites List",
+        subtitleEnding: "save your favorites",
+      });
+    }
   };
+
+  const closeAuthModal = () =>
+    setAuthModalState({ ...initialAuthModalState, isOpen: false });
 
   return (
     <>
@@ -50,22 +78,23 @@ const BigHeader: FC<IProps> = ({ types }) => {
             <Link to="/explore">
               <LinkText>Explore</LinkText>
             </Link>
-            <FavoritesListLink to="/favorites">
+            <VerticalDivider />
+            <FavoritesListButton onClick={onFavoritesListClick}>
               <img src="/images/star.png" alt="star" width="24" height="23" />
-              <LinkText noMargin>Favorites List</LinkText>
-            </FavoritesListLink>
+              Favorites List
+            </FavoritesListButton>
+            <VerticalDivider />
             {!isAuthenticated && (
               <>
                 <Button
-                  onClick={() => handleClickOpen("signin")}
+                  onClick={() => openDefaultAuthModal("signin")}
                   backgroundColor="transparent"
                   padding="11px 0"
-                  margin="0 0 0 30px"
                 >
                   Sign In
                 </Button>
                 <Button
-                  onClick={() => handleClickOpen("signup")}
+                  onClick={() => openDefaultAuthModal("signup")}
                   margin="0 0 0 30px"
                   padding="11px 48px"
                 >
@@ -77,7 +106,13 @@ const BigHeader: FC<IProps> = ({ types }) => {
           </Box>
         )}
       </Wrapper>
-      <AuthModal isSignUp={isSignUpModal} show={open} onClose={handleClose} />
+      <AuthModal
+        isSignUp={authModalState.isSignUpModal}
+        show={authModalState.isOpen}
+        onClose={closeAuthModal}
+        title={authModalState.title}
+        subtitleEnding={authModalState.subtitleEnding}
+      />
     </>
   );
 };

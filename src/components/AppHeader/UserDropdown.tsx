@@ -8,12 +8,7 @@ const UserDropdown: FC = () => {
   const { data: myIdentity }: any = useMyIdentity();
 
   return (
-    <Button
-      onClick={logout}
-      backgroundColor="transparent"
-      padding="11px 0"
-      margin="0 0 0 30px"
-    >
+    <Button onClick={logout} backgroundColor="transparent" padding="11px 0">
       Log out ({myIdentity?.account?.given_name})
     </Button>
   );

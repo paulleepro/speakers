@@ -107,15 +107,12 @@ export const AuthProvider: FC = ({ children }) => {
     [setCognitoUser]
   );
 
-  const logout = useCallback(
-    () =>
-      Auth.signOut().then((data) => {
-        setCognitoUser(null);
-        queryCache.clear();
-        return data;
-      }),
-    [setCognitoUser, queryCache]
-  );
+  const logout = useCallback(() => {
+    queryCache.clear();
+    return Auth.signOut().then(() => {
+      setCognitoUser(null);
+    });
+  }, [setCognitoUser, queryCache]);
 
   const forgotPassword = useCallback(
     ({ email }) => Auth.forgotPassword(email),

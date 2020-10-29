@@ -57,6 +57,7 @@ const SearchResults: FC = () => {
                   return (
                     <Col key={`search-result-${i}`} xs={6} md={3}>
                       <SpeakerCard
+                        id={x.id?.raw}
                         slug={x.slug?.raw}
                         imageUrl={`${config.imageProxyUrl}${
                           images && Array.isArray(images) && images[0].url

@@ -23,3 +23,5 @@ cypress/reports/
 cypress/snapshots/actual/
 cypress/snapshots/diff/
 cypress/videos/
+
+*.orig

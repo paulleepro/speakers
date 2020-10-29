@@ -1,11 +1,7 @@
 import React, { FC } from "react";
 import { Wrapper, Content } from "./styles";
 
-interface IProps {
-  error: Error;
-}
-
-const FullPageErrorFallback: FC<IProps> = ({ error }) => {
+const FullPageErrorFallback: FC<any> = ({ error }) => {
   return (
     <Wrapper>
       <Content>

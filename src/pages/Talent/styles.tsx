@@ -85,7 +85,7 @@ export const StyledScrollLink = styled(ScrollLink)`
   letter-spacing: 0.3px;
 `;
 
-export const AddButton = styled.button`
+export const FavoriteButton = styled.button<{ hasFavorited?: boolean }>`
   position: relative;
   border-radius: 12px;
   border: solid 1px ${colors.primaryPurple};
@@ -98,16 +98,19 @@ export const AddButton = styled.button`
   line-height: 1.5;
   letter-spacing: 0.2px;
   text-align: center;
-  color: ${colors.white};
+  color: ${(props) =>
+    props.hasFavorited ? colors.primaryPurple : colors.white};
   cursor: pointer;
   margin-bottom: 8px;
   outline: none;
 
-  img {
+  svg {
     position: absolute;
     top: 0;
     bottom: 0;
     left: 16px;
     margin: auto 0;
+    fill: ${(props) =>
+      props.hasFavorited ? colors.primaryPurple : colors.white};
   }
 `;

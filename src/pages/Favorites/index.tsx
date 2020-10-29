@@ -1,19 +1,36 @@
-import React, { FC, lazy } from "react";
+import React, { FC } from "react";
+import { Visible } from "components/Grid";
+import Loader from "../../components/Loader";
+import { useFavoritesLists } from "../../hooks/api/booking";
+import HeaderTags from "../../components/HeaderTags";
+import FavoritesList from "./components/FavoritesList";
+import NoFavoritesList from "./components/NoFavoritesList";
+import TopLeftGradient from "../../components/TopLeftGradient";
+import ErrorNotice from "../../components/ErrorNotice";
+import Title from "./components/Title";
 
-const HeaderTags = lazy(() => import("components/HeaderTags"));
-const Title = lazy(() => import("./Title"));
-const NoFavoritesList = lazy(() => import("./NoFavoritesList"));
+const Favorites: FC = () => {
+  const { data: favoritesLists, isLoading, error }: any = useFavoritesLists();
 
-interface IProps {
-  favoritesList: any[]; // TODO define favorite type
-}
+  let content;
+  if (isLoading) {
+    content = <Loader />;
+  } else if (error) {
+    content = <ErrorNotice />;
+  } else if (favoritesLists?.data.length > 0) {
+    content = <FavoritesList favorites={favoritesLists.data[0]} />;
+  } else {
+    content = <NoFavoritesList />;
+  }
 
-const Favorites: FC<IProps> = ({ favoritesList }) => {
   return (
     <div>
       <HeaderTags title="Favorites List" description="" />
       <Title />
-      <NoFavoritesList />
+      <Visible md lg>
+        <TopLeftGradient borderRadius="600px" width="60%" height="800px" />
+      </Visible>
+      {content}
     </div>
   );
 };
