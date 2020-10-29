@@ -38,6 +38,10 @@ export const Input = styled.input<{ squareBottom?: boolean }>`
   &::placeholder {
     color: ${colors.midGrey};
   }
+  &:active,
+  &:focus {
+    border: solid 1px ${colors.primaryPurple};
+  }
 
   @media (max-width: 767px) {
     font-size: 18px;

@@ -26,4 +26,8 @@ export const Input = styled.textarea`
     line-height: 2;
     letter-spacing: 0.23px;
   }
+  &:active,
+  &:focus {
+    border: solid 1px ${colors.primaryPurple};
+  }
 `;
