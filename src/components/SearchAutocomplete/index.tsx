@@ -90,8 +90,8 @@ const SearchAutocomplete: FC<IProps> = ({ onClickAway, close }) => {
         {results.length ? (
           <AutocompleteResults>
             {results.slice(0, 7).map((x) => (
-              <div key={x.id.raw} onClick={() => goTo(`/talent/${x.slug.raw}`)}>
-                {x.name.raw}
+              <div key={x.id} onClick={() => goTo(`/talent/${x.slug}`)}>
+                {x.name}
               </div>
             ))}
           </AutocompleteResults>

@@ -77,8 +77,8 @@ const SearchAutocomplete: FC<IProps> = ({
         {results.length ? (
           <AutocompleteResults>
             {results.slice(0, 7).map((x) => (
-              <div key={x.id.raw} onClick={() => handleSelect(x)}>
-                {x.name.raw}
+              <div key={x.id} onClick={() => handleSelect(x)}>
+                {x.name}
               </div>
             ))}
           </AutocompleteResults>

@@ -10,16 +10,19 @@ import { QuestionBullet } from "../common/QuestionHeader/styles";
 import { SummaryField } from "./Details";
 
 const SpeakersSummary: FC<any> = () => {
-  const { bookingInquiry, currentStep, setCurrentStep } = useContext(
-    BookingInquiryContext
-  );
+  const {
+    bookingInquiry,
+    currentStep,
+    setCurrentStep,
+    favoritesList,
+    moreTalents,
+  } = useContext(BookingInquiryContext);
 
   if (currentStep < 1) {
     return null;
   }
 
   const {
-    talent_ids,
     considered_talent_types,
     have_hosted_speakers,
     notes,
@@ -45,7 +48,23 @@ const SpeakersSummary: FC<any> = () => {
           </Button>
         )}
       </Title>
-      <FieldSection order={1} label="More" value={talent_ids?.join(", ")} />
+      {/* <FieldSection order={1} label="More" value={talent_ids?.join(", ")} /> */}
+      {(favoritesList !== undefined || moreTalents.length > 0) && (
+        <Box flexDirection="row">
+          <QuestionBullet margin="0 8px 0 0">1</QuestionBullet>
+          <Box flexDirection="column" margin="0 0 16px 0">
+            {favoritesList !== undefined && (
+              <SummaryField label="Favorites" value={favoritesList?.name} />
+            )}
+            {moreTalents.length > 0 && (
+              <SummaryField
+                label="More"
+                value={moreTalents.map((t) => t.name).join(", ")}
+              />
+            )}
+          </Box>
+        </Box>
+      )}
       <FieldSection
         order={2}
         label="Types"

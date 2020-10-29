@@ -68,53 +68,25 @@ export interface IListResult<T> {
 }
 
 export interface ISearchResult {
-  name: {
-    raw: string;
-  };
-  is_exclusive: {
-    raw: boolean;
-  };
-  slug: {
-    raw: string;
-  };
-  types: {
-    raw: string[];
-  };
-  metadata: {
-    raw: string;
-  };
+  name: string;
+  is_exclusive: boolean;
+  slug: string;
+  types: string[];
+  metadata: string;
   _meta: {
     id: string;
     engine: string;
     score: number;
   };
-  id: {
-    raw: string;
-  };
-  bio_details: {
-    raw: string;
-  };
-  subtopics: {
-    raw: string[];
-  };
-  status: {
-    raw: string;
-  };
-  titles: {
-    raw: string[];
-  };
-  is_new: {
-    raw: true;
-  };
-  media: {
-    raw: string;
-  };
-  bio_highlights: {
-    raw: string;
-  };
-  headline: {
-    raw: string;
-  };
+  id: string;
+  bio_details: string;
+  subtopics: string[];
+  status: string;
+  titles: string[];
+  is_new: true;
+  media: string;
+  bio_highlights: string;
+  headline: string;
 }
 
 export interface ISearch {

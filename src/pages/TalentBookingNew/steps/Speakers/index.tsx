@@ -1,9 +1,9 @@
-import React, { useState, lazy, useContext } from "react";
+import React, { lazy, useContext } from "react";
 import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
 import { Row, Col } from "components/Grid";
 import colors from "styles/colors";
 import { fetchSingle } from "fetch-hooks-react";
-import { IType, IListResult, IFavoriteList, ITalent } from "types";
+import { IType, IListResult, IFavoriteList } from "types";
 import { config } from "config";
 import LazyWrapper from "components/LazyWrapper";
 import Loader from "components/Loader";
@@ -26,18 +26,21 @@ const ReactTooltip = lazy(() => import("react-tooltip"));
 const ErrorNotice = lazy(() => import("components/ErrorNotice"));
 
 const SpeakersForm = () => {
-  const { bookingInquiry, setBookingInquiry } = useContext(
-    BookingInquiryContext
-  );
+  const {
+    bookingInquiry,
+    setBookingInquiry,
+    favoritesList,
+    setFavoritesList,
+    favoritesTalents,
+    setFavoritesTalents,
+    moreTalents,
+    setMoreTalents,
+  } = useContext(BookingInquiryContext);
 
   const {
     data: favoritesLists,
     isLoading: areFavoritesListsLoading,
   } = useFavoritesLists();
-
-  const [favoritesList, setFavoritesList] = useState("");
-  const [talents, setTalents] = useState<any[]>([]);
-  const [favoritesTalents, setFavoritesTalents] = useState<any[]>([]);
 
   const { data, isLoading, error } = fetchSingle<IListResult<IType>>(
     `${config.speakersTalentUrl}/v1/talents/metadata/types?order=name:asc`
@@ -54,59 +57,34 @@ const SpeakersForm = () => {
   }
 
   const handleSelectTalent = (talent: any): void => {
-    setTalents([...talents, talent]);
-    setBookingInquiry({
-      ...bookingInquiry,
-      talent_ids: [...(bookingInquiry?.talent_ids || []), talent.id], // TODO talent id
-    });
+    setMoreTalents([...moreTalents, talent]);
   };
 
   const handleRemoveFavoritesTalent = (talent: any): void => {
     setFavoritesTalents(favoritesTalents.filter((x) => x.id !== talent.id));
-    setBookingInquiry({
-      ...bookingInquiry,
-      talent_ids: bookingInquiry?.talent_ids?.filter((x) => x !== talent.id),
-    });
   };
 
   const handleRemoveTalent = (talent: any): void => {
-    setTalents(talents.filter((x) => x.id !== talent.id));
-    setBookingInquiry({
-      ...bookingInquiry,
-      talent_ids: bookingInquiry?.talent_ids?.filter((x) => x !== talent.id),
-    });
+    setMoreTalents(moreTalents.filter((x) => x.id !== talent.id));
   };
 
   const handleFavoritesListChange = (e: any): void => {
-    setFavoritesList(e.target.value);
-    const favoriteList = favoritesLists.data.find(
+    const favoritesList = favoritesLists.data.find(
       (data: IFavoriteList) => data.id === e.target.value
     ) as IFavoriteList;
-    if (favoriteList) {
+    setFavoritesList(favoritesList);
+    if (favoritesList) {
       fetch(
         `${
           config.speakersTalentUrl
-        }/v1/talents/?fields=name,id,slug,titles,media&where=id:in:${favoriteList.talent_ids.join(
+        }/v1/talents/?fields=name,id,slug,titles,media&where=id:in:${favoritesList.talent_ids.join(
           ":"
         )}`
       ).then(async (res) => {
         const json = await res.json();
         setFavoritesTalents(json.data);
-        setBookingInquiry({
-          ...bookingInquiry,
-          talent_ids: [
-            ...(bookingInquiry?.talent_ids || []),
-            ...json.data.map((t: ITalent) => t.id),
-          ], // TODO talent id,
-        });
       });
     } else {
-      setBookingInquiry({
-        ...bookingInquiry,
-        talent_ids: bookingInquiry?.talent_ids?.filter(
-          (x) => !favoritesTalents.find((t) => t.id === x)
-        ),
-      });
       setFavoritesTalents([]);
     }
   };
@@ -138,7 +116,7 @@ const SpeakersForm = () => {
           label: data.name,
         }))}
         onChange={handleFavoritesListChange}
-        value={favoritesList}
+        value={favoritesList?.name}
         name="favorite_list"
         placeholder="Select Your Favorite List"
         hasMargin
@@ -183,7 +161,7 @@ const SpeakersForm = () => {
       <QuestionContent>
         <SearchTalents onSelectTalent={handleSelectTalent} />
         <Row>
-          {talents.map((x, idx) => (
+          {moreTalents.map((x, idx) => (
             <Col md={6} key={idx}>
               <SelectedTalent talent={x} onRemove={handleRemoveTalent}>
                 {x.name}

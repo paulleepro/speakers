@@ -51,19 +51,17 @@ const SearchResults: FC = () => {
             <Col offset={{ lg: 1 }} lg={10}>
               <Row>
                 {data.results.map((x, i) => {
-                  const images = x.media?.raw
-                    ? JSON.parse(x.media?.raw)?.images
-                    : null;
+                  const images = x.media ? JSON.parse(x.media)?.images : null;
                   return (
                     <Col key={`search-result-${i}`} xs={6} md={3}>
                       <SpeakerCard
-                        id={x.id?.raw}
-                        slug={x.slug?.raw}
+                        id={x.id}
+                        slug={x.slug}
                         imageUrl={`${config.imageProxyUrl}${
                           images && Array.isArray(images) && images[0].url
                         }`}
-                        name={x.name?.raw}
-                        description={x.titles?.raw && x.titles?.raw[0]}
+                        name={x.name}
+                        description={x.titles && x.titles[0]}
                       />
                     </Col>
                   );
