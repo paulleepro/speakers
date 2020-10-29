@@ -3,7 +3,6 @@ import { useHistory } from "react-router";
 import { Row, Col, Visible } from "components/Grid";
 import { Button } from "styles/components";
 import { FormContainer, FormFooter, BackButton, Wrapper } from "./styles";
-import { BookingInquiryProvider } from "./BookingInquiryContext";
 
 const BookingSummary = lazy(() => import("./BookingSummary"));
 const Stepper = lazy(() => import("./components/Stepper"));
@@ -39,39 +38,37 @@ const TalentBookingNew: FC<any> = () => {
   };
 
   return (
-    <BookingInquiryProvider>
-      <Wrapper fluid>
-        <Visible sm md lg>
-          <Row>
-            <Col offset={{ lg: 1 }} md={12} lg={10}>
-              <Stepper activeStep={FORMS[activeStep].key} />
-            </Col>
-          </Row>
-        </Visible>
+    <Wrapper fluid>
+      <Visible sm md lg>
         <Row>
-          <Col offset={{ lg: 1 }} md={12} lg={10} style={{ marginBottom: 100 }}>
-            <Row>
-              <Col md={9}>
-                <FormContainer>
-                  <ActiveForm />
-                  <FormFooter>
-                    <BackButton onClick={handleGoBack}>Back</BackButton>
-                    <Button padding="14px 81px" onClick={goToNextForm}>
-                      Next
-                    </Button>
-                  </FormFooter>
-                </FormContainer>
-              </Col>
-              <Col md={3}>
-                <Visible md lg>
-                  <BookingSummary />
-                </Visible>
-              </Col>
-            </Row>
+          <Col offset={{ lg: 1 }} md={12} lg={10}>
+            <Stepper activeStep={FORMS[activeStep].key} />
           </Col>
         </Row>
-      </Wrapper>
-    </BookingInquiryProvider>
+      </Visible>
+      <Row>
+        <Col offset={{ lg: 1 }} md={12} lg={10} style={{ marginBottom: 100 }}>
+          <Row>
+            <Col md={9}>
+              <FormContainer>
+                <ActiveForm />
+                <FormFooter>
+                  <BackButton onClick={handleGoBack}>Back</BackButton>
+                  <Button padding="14px 81px" onClick={goToNextForm}>
+                    Next
+                  </Button>
+                </FormFooter>
+              </FormContainer>
+            </Col>
+            <Col md={3}>
+              <Visible md lg>
+                <BookingSummary />
+              </Visible>
+            </Col>
+          </Row>
+        </Col>
+      </Row>
+    </Wrapper>
   );
 };
 
