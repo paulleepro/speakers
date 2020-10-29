@@ -8,10 +8,10 @@ import { BookingInquiryContext } from "./BookingInquiryContext";
 const BookingSummary = lazy(() => import("./components/BookingSummary"));
 const Stepper = lazy(() => import("./components/Stepper"));
 
-const EventForm = lazy(() => import("./steps/Event"));
-const SpeakersForm = lazy(() => import("./steps/Speakers"));
-const DetailsForm = lazy(() => import("./steps/Details"));
-const FinishUp = lazy(() => import("./steps/FinishUp"));
+const EventForm = lazy(() => import("./EventForm"));
+const SpeakersForm = lazy(() => import("./SpeakersForm"));
+const DetailsForm = lazy(() => import("./DetailsForm"));
+const FinishUp = lazy(() => import("./FinishUp"));
 
 const FORMS = [
   { key: "event", component: EventForm },
