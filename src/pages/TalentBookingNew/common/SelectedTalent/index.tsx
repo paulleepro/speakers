@@ -13,7 +13,7 @@ interface IProps {
 const SelectedTalent: FC<IProps> = ({ talent, onRemove, variant }) => {
   return (
     <Wrapper variant={variant}>
-      {talent.name.raw ? talent.name.raw : talent.name}
+      {talent.name.raw}
       <Button margin="0" padding="0" onClick={() => onRemove(talent)}>
         <CloseIcon fill={colors.white} />
       </Button>
